@@ -1,302 +1,455 @@
-% Do not forget to include Introduction
+%---------------------------------------------------------------
+% Main thesis text
+%---------------------------------------------------------------
+
 %---------------------------------------------------------------
 \chapter{Introduction}
-% uncomment the following line to create an unnumbered chapter
-%\chapter*{Introduction}\addcontentsline{toc}{chapter}{Introduction}\markboth{Introduction}{Introduction}
 %---------------------------------------------------------------
 \setcounter{page}{1}
 
-% The following environment can be used as a mini-introduction for a chapter. Use that any way it pleases you (or comment it out). It can contain, for instance, a summary of the chapter. Or, there can be a quotation.
 \begin{chapterabstract}
-	\lipsum[1]
+This thesis addresses the engineering problem of deploying and evaluating
+modern face-processing neural networks directly on mobile devices. The work
+focuses on the theoretical foundations and experimental methodology required
+for trustworthy benchmarking of face detection and facial landmark estimation
+on Android and iOS using ExecuTorch and backend delegates.
 \end{chapterabstract}
 
-\lipsum[2][1-4]{} [1]
+\section{Motivation}
 
-\lipsum[4]
+On-device inference has become a key requirement for many user-facing
+applications, because it improves privacy, reduces round-trip latency, and
+allows offline operation. At the same time, mobile deployment is constrained by
+strict limits on compute throughput, memory bandwidth, power, and thermal
+budget \cite{wang2020mobilesoc,li2024mobilebenchmark}. In practice, this
+means that achieving good model accuracy is not sufficient; the full
+end-to-end system must also be efficient and stable under realistic operating
+conditions.
 
-%---------------------------------------------------------------
-\section{Ut enim ad minim veniam}
-%---------------------------------------------------------------
+Recent community benchmarks confirm that measured latency strongly depends on
+hardware configuration, runtime backend, numerical precision, and measurement
+protocol \cite{reddi2022mlperfmobile,li2024mobilebenchmark}. Therefore,
+reliable conclusions require not only model comparison but also careful
+benchmark design and reproducible data processing.
 
-\lipsum[6-8]
+\section{Problem statement}
 
-\begin{figure}
-\centering
-%\includegraphics[scale=0.4]{pic/index}
-\resizebox{\textwidth}{!}{
-\begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
-\node [circle,draw] (z){$n$}
-  child {node [circle,draw] (a) {$\frac{n}{2}$}
-    child {node [circle,draw] (b) {$\frac{n}{2^2}$}
-      child {node {$\vdots$}
-        child {node [circle,draw] (d) {$\frac{n}{2^k}$}}
-        child {node [circle,draw] (e) {$\frac{n}{2^k}$}}
-      } 
-      child {node {$\vdots$}}
-    }
-    child {node [circle,draw] (g) {$\frac{n}{2^2}$}
-      child {node {$\vdots$}}
-      child {node {$\vdots$}}
-    }
-  }
-  child {node [circle,draw] (j) {$\frac{n}{2}$}
-    child {node [circle,draw] (k) {$\frac{n}{2^2}$}
-      child {node {$\vdots$}}
-      child {node {$\vdots$}}
-    }
-  child {node [circle,draw] (l) {$\frac{n}{2^2}$}
-    child {node {$\vdots$}}
-    child {node (c){$\vdots$}
-      child {node [circle,draw] (o) {$\frac{n}{2^k}$}}
-      child {node [circle,draw] (p) {$\frac{n}{2^k}$}
-          child [grow=right] {node (q) {$ = O_{k = \lg n}(n)$} edge from parent[draw=none]
-            child [grow=up] {node (r) {$\vdots$} edge from parent[draw=none]
-              child [grow=up] {node (s) {$O_2(n)$} edge from parent[draw=none]
-                child [grow=up] {node (t) {$O_1(n)$} edge from parent[draw=none]
-                  child [grow=up] {node (u) {$O_0(n)$} edge from parent[draw=none]}
-                }
-              }
-            }
-            child [grow=down] {node (v) {$O(n \cdot \lg n)$}edge from parent[draw=none]}
-        }
-      }
-    }
-  }
-};
-\path (a) -- (j) node [midway] {+};
-\path (b) -- (g) node [midway] {+};
-\path (k) -- (l) node [midway] {+};
-\path (k) -- (g) node [midway] {+};
-\path (d) -- (e) node [midway] {+};
-\path (o) -- (p) node [midway] {+};
-\path (o) -- (e) node (x) [midway] {$\cdots$}
-  child [grow=down] {
-    node (y) {$O\left(\displaystyle\sum_{i = 0}^k 2^i \cdot \frac{n}{2^i}\right)$}
-    edge from parent[draw=none]
-  };
-\path (q) -- (r) node [midway] {+};
-\path (s) -- (r) node [midway] {+};
-\path (s) -- (t) node [midway] {+};
-\path (s) -- (l) node [midway] {=};
-\path (t) -- (u) node [midway] {+};
-\path (z) -- (u) node [midway] {=};
-\path (j) -- (t) node [midway] {=};
-\path (y) -- (x) node [midway] {$\Downarrow$};
-\path (v) -- (y)
-  node (w) [midway] {$O\left(\displaystyle\sum_{i = 0}^k n\right) = O(k \cdot n)$};
-\path (q) -- (v) node [midway] {=};
-\path (e) -- (x) node [midway] {+};
-\path (o) -- (x) node [midway] {+};
-\path (y) -- (w) node [midway] {$=$};
-\path (v) -- (w) node [midway] {$\Leftrightarrow$};
-\path (r) -- (c) node [midway] {$\cdots$};
-\end{tikzpicture}}
-\caption{Lorem ipsum dolor sit amet}\label{img:index}
-\end{figure}
+The core problem of this thesis is to design a methodologically sound framework
+for evaluating mobile face-processing pipelines implemented with ExecuTorch.
+The framework must support equivalent iOS and Android applications, consistent
+measurement conditions, and post-hoc validation of quality metrics.
 
-%---------------------------------------------------------------
-\section{Ut enim ad minim veniam}
-%---------------------------------------------------------------
-
-\lipsum[2-4]
-
-%---------------------------------------------------------------
-\subsection{Ut enim ad minim veniam}
-%---------------------------------------------------------------
-
-Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Duis condimentum augue id magna semper rutrum. Aliquam ornare wisi eu metus. Fusce aliquam vestibulum ipsum. Vivamus ac leo pretium faucibus~\ref{img:index}.
-
-\begin{itemize}
-    \item Ut enim ad minim veniam, quis nostrud
-    \item Ut enim ad minim 
-    \item Ut enim ad minim veniam, quis 
-    \begin{itemize}
-        \item Ut enim ad
-        \item Ut enim ad
-        \begin{itemize}
-            \item Ut enim 
-            \item Ut enim 
-            \begin{itemize}
-            \item Ut enim 
-            \item Ut enim 
-        \end{itemize}
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-\section{Class aptent taciti}
-
-
-Even though dark mode can be very nice for websites and apps, it does not look good when printed. Consider using white mode when print-screening dark-moded content. The contrast with the white page is too big, as seen in Figure~\ref{fig:Darkmode}.
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\linewidth]{images/darkmode}
-    \caption{White and dark mode comparison.~\cite{darkMode}}
-    \label{fig:Darkmode}
-\end{figure}
-
-
-\subsection{Class aptent taciti}
-
-\lipsum[6-7]
-
+The benchmarked workload is an end-to-end two-stage pipeline:
 \begin{enumerate}
-    \item Ut enim ad minim veniam, quis nostrud
-    \item Ut enim ad minim 
-    \item Ut enim ad minim veniam, quis 
-    \begin{enumerate}
-        \item Ut enim ad
-        \item Ut enim ad
-        \begin{enumerate}
-            \item Ut enim 
-            \item Ut enim 
-            \begin{enumerate}
-            \item Ut enim 
-            \item Ut enim 
-        \end{enumerate}
-        \end{enumerate}
-    \end{enumerate}
+    \item face detection in an input image,
+    \item facial landmark estimation on detected face crops.
 \end{enumerate}
 
+The thesis intentionally focuses on theoretical and methodological parts.
+Numerical benchmark outcomes are out of scope of this text.
+
+\section{Research objectives}
+
+Theoretical and engineering objectives of the thesis are:
+\begin{itemize}
+    \item summarize the main concepts of on-device inference relevant to mobile
+          face-processing;
+    \item describe ExecuTorch architecture and deployment workflow for mobile
+          targets \cite{executorch_how,executorch_arch};
+    \item define a reproducible benchmark protocol for latency, throughput, and
+          landmark accuracy;
+    \item identify validity threats (thermal throttling, backend asymmetry,
+          unsupported operators, logging artifacts) and propose mitigations.
+\end{itemize}
+
+\section{Main contributions}
+
+The thesis contributes:
+\begin{itemize}
+    \item a structured theoretical overview connecting mobile hardware
+          constraints, model optimization, and runtime system design;
+    \item an ExecuTorch-focused deployment explanation covering export,
+          lowering, delegation, and runtime execution
+          \cite{executorch_export,executorch_runtime,executorch_delegate};
+    \item a practical methodology for fair cross-platform benchmarking of
+          detector--landmark pipelines;
+    \item a reproducibility-oriented data handling workflow suitable for
+          independent audit and future extension.
+\end{itemize}
+
+\section{Thesis structure}
+
+Chapter~2 introduces theoretical background: mobile inference constraints,
+efficient model design, quantization, and face-processing tasks. Chapter~3
+explains ExecuTorch architecture and backend delegation for mobile deployment.
+Chapter~4 defines the benchmark methodology, metrics, protocol, and validity
+controls. The final chapter concludes the thesis.
 
 %---------------------------------------------------------------
-\section{Ut enim ad minim veniam, quis nostrud}
+\chapter{Theoretical background}
 %---------------------------------------------------------------
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla non arcu lacinia neque faucibus fringilla. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Aliquam erat volutpat. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo.\footnote{Ut enim ad minim veniam, quis nostrud exercitation.} Etiam dictum tincidunt diam. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Nulla est. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+\section{On-device inference in mobile environments}
 
-\begin{lstlisting}[caption={Zbytečný kód},label=list:8-6,captionpos=b,float,abovecaptionskip=-\medskipamount,abovecaptionskip=\medskipamount,language=C]
-    #include<stdio.h>
-    #include<iostream>
-    // A comment
-    int main(void)
-    {
-        printf("Hello World\n");
-        return 0;
-    }
-\end{lstlisting}
+Mobile AI systems are typically deployed on heterogeneous Systems-on-Chip
+(SoCs), where CPU, GPU, and dedicated NPUs coexist
+\cite{lee2019mobilegpu,wang2020mobilesoc}. Compared to server inference,
+mobile workloads operate under tighter thermal and power limits and often share
+resources with interactive foreground tasks.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% alternative using package minted for source highlighting
-% package minted requires execution with `-shell-escape'
-% e.g., `xelatex -shell-escape ctufit-thesis.tex'
-% \begin{listing}
-% \begin{minted}{C}
-%     #include<stdio.h>
-%     #include<iostream>
-%     // A comment
-%     int main(void)
-%     {
-%         printf("Hello World\n");
-%         return 0;
-%     }
-% \end{minted}
-% \caption{Zbytečný kód}\label{list:8-6}
-% \end{listing}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Aenean id metus id velit ullamcorper pulvinar. Fusce wisi. Integer lacinia. Aliquam id dolor. Pellentesque pretium lectus id turpis. Suspendisse sagittis ultrices augue. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Sed ac dolor sit amet purus malesuada congue.~\cite{Crochemore2002}
+From a systems perspective, latency depends on several layers:
+\begin{itemize}
+    \item model architecture (operator types, tensor shapes, parameter count),
+    \item runtime backend (kernel library, operator fusion, threading policy),
+    \item hardware mapping (CPU/GPU/NPU dispatch),
+    \item memory subsystem behavior (cache locality, bandwidth pressure),
+    \item thermal governor and dynamic voltage/frequency scaling (DVFS).
+\end{itemize}
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci. Duis viverra diam non justo. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Duis condimentum augue id magna semper rutrum. Aliquam ornare wisi eu metus. Fusce aliquam vestibulum ipsum. Vivamus ac leo pretium faucibus.~\cite{Motwani2014}
+As a consequence, the same neural network can show substantially different
+performance across devices and software stacks
+\cite{li2024mobilebenchmark,reddi2022mlperfmobile}.
+
+\section{Hardware and system constraints}
+
+\subsection{CPU, GPU, and NPU roles}
+
+CPUs provide broad operator coverage and predictable behavior, but may not offer
+the highest throughput for dense tensor computations. Mobile GPUs can improve
+throughput for selected workloads, while NPUs may deliver superior
+energy-efficiency when supported operators map well to accelerator kernels
+\cite{lee2019mobilegpu,wang2020mobilesoc}. In real deployments, unsupported
+subgraphs frequently fall back to CPU, introducing synchronization and memory
+transfer overhead.
+
+\subsection{Power and thermal behavior}
+
+Peak performance is often not sustainable in handheld devices. Prolonged
+inference can trigger thermal throttling, reducing frequency and increasing
+latency variance. Benchmark methodology must therefore control ambient
+conditions, warm-up state, and per-run timing windows
+\cite{li2024mobilebenchmark}.
+
+\section{Efficient neural networks for mobile vision}
+
+The shift from server-centric CNNs to mobile-friendly architectures was enabled
+by operator-level efficiency ideas such as depthwise separable convolution,
+inverted residual blocks, and channel shuffle
+\cite{howard2017mobilenets,sandler2018mobilenetv2,zhang2018shufflenet}.
+SqueezeNet demonstrated that competitive accuracy can be achieved with
+significantly fewer parameters \cite{iandola2016squeezenet}.
+
+For mobile face-processing, both detector and landmark models must be efficient.
+The detector controls how many candidate faces are forwarded to the second
+stage, while the landmark model dominates per-face regression cost.
+
+\section{Model compression and quantization}
+
+Compression and quantization reduce memory footprint and often improve runtime
+performance. Classical compression includes pruning and weight sharing
+\cite{han2016deepcompression}. In practical mobile deployment, integer
+quantization is especially important because INT8 kernels can be faster and more
+energy-efficient than FP32 on supported hardware \cite{jacob2018quantization}.
+
+Post-training quantization (PTQ) is attractive for deployment pipelines because
+it does not require full retraining. However, sensitivity varies across models
+and layers; accuracy degradation can occur without representative calibration
+and proper backend support \cite{krishnamoorthi2018quantizing}.
+
+\section{Face detection and landmark estimation}
+
+\subsection{Task definitions}
+
+Face detection localizes faces with bounding boxes. Landmark estimation predicts
+keypoint coordinates (e.g., eye corners, nose tip, mouth corners), usually on a
+cropped face image. These tasks are strongly coupled in end-to-end systems:
+detection quality and crop geometry directly influence landmark quality.
+
+\subsection{Representative models}
+
+RetinaFace is a strong one-stage detector with high robustness under challenging
+conditions \cite{deng2020retinaface}. FaceBoxes is a lightweight detector
+explicitly designed for CPU real-time operation \cite{zhang2017faceboxes}.
+
+For landmarks, PFLD emphasizes compactness and speed \cite{guo2019pfld}.
+MobileFaceNet provides a lightweight backbone originally developed for mobile
+face recognition and often reused for landmark regression
+\cite{chen2018mobilefacenets}. PIPNet combines heatmap-style reasoning with
+low-resolution efficient heads for practical landmark localization
+\cite{jin2021pipnet}.
+
+\subsection{Datasets and annotation uncertainty}
+
+In this thesis, AFW annotations are used for wild-condition landmark evaluation,
+originating from the face detection and pose estimation work of Zhu and
+Ramanan \cite{zhu2012facedetectionwild}. As with most in-the-wild datasets,
+annotation noise, partial occlusion, and pose diversity should be treated as
+intrinsic uncertainty rather than pure model error.
+
+\section{Benchmarking principles}
+
+Prior benchmarking studies stress that meaningful comparisons require controlled
+experimental factors: fixed run rules, warm-up handling, hardware affinity,
+consistent data preprocessing, and transparent logging
+\cite{reddi2022mlperfmobile,li2024mobilebenchmark}. Consequently, this thesis
+adopts a protocol-first approach: theory and methodology are defined before any
+result interpretation.
 
 %---------------------------------------------------------------
-\subsection{Ut enim ad minim veniam, quis nostrud}
+\chapter{ExecuTorch for mobile deployment}
 %---------------------------------------------------------------
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Nulla non arcu lacinia neque faucibus fringilla. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Aliquam erat volutpat. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Etiam dictum tincidunt diam. In laoreet, magna id viverra tincidunt, sem odio bibendum justo.~\cite{Sestakova2018} 
+\section{Why ExecuTorch}
 
-\begin{table}\centering
-\begin{tabular}{l|l|c|c}
-	Typ		& Prostředí		& \LaTeX{}ovská zkratka	& \TeX{}ovská zkratka	\tabularnewline \hline 
- 	Text		& \verb|math|		& \verb|\(...\)|	& \verb|$...$|	\tabularnewline \hline
- 	Displayed	& \verb|displaymath|	& \verb|\[...\]|	& \verb|$$...$$|	\tabularnewline 
-\end{tabular}
-\caption[Příklad tabulky]{Zadávání matematiky}
-\label{tab:matematika}
-\end{table}
+ExecuTorch is a PyTorch edge deployment stack designed for efficient on-device
+inference across mobile and embedded targets
+\cite{executorch_how,executorch_arch}. Its central design principle is
+\emph{ahead-of-time} (AOT) preparation: expensive transformation and planning
+steps are performed before deployment, so runtime execution remains lightweight.
 
+\section{Conceptual architecture}
 
-Nulla est. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Aenean id metus id velit ullamcorper pulvinar. 
+ExecuTorch organizes model deployment into three phases
+\cite{executorch_how,executorch_arch}:
+\begin{enumerate}
+    \item export a PyTorch model to graph form,
+    \item lower and optimize the graph for edge execution,
+    \item execute the serialized program with a small C++ runtime.
+\end{enumerate}
 
-\subsubsection{Class aptent taciti}
+The terminology of ATen/Core ATen/Edge/Backend dialects defines progressive
+lowering from general PyTorch representation toward target-specific execution
+\cite{executorch_concepts}.
 
-\begin{definition}[Optional label]
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{definition}
+\section{Export and lowering workflow}
 
-\begin{example}
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{example}
+The practical workflow consists of:
+\begin{enumerate}
+    \item model export using \texttt{torch.export},
+    \item backend-aware lowering via
+          \texttt{to\_edge\_transform\_and\_lower},
+    \item emission of a serialized \texttt{.pte} artifact.
+\end{enumerate}
 
-\paragraph{Nadpis 5. úrovně}
+This process supports dynamic shape constraints and optional separation of
+program and tensor data into \texttt{.pte} and \texttt{.ptd} files
+\cite{executorch_export,executorch_pte,executorch_ptd,pytorch_export}.
 
-\begin{theorem}
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{theorem}
+\section{Delegation and partitioning}
 
-\begin{proof}
-Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{proof}
+ExecuTorch uses delegates to offload supported subgraphs to backend-specific
+implementations \cite{executorch_delegate}. A partitioner tags lowerable graph
+regions; unsupported regions remain in portable execution. This mixed execution
+model improves portability but can create overhead from frequent backend
+boundaries.
 
-\paragraph{Level 5 heading}
+For this thesis, two backends are central:
+\begin{itemize}
+    \item \textbf{XNNPACK}: optimized CPU backend with broad mobile support,
+          including quantized paths \cite{executorch_xnnpack,xnnpack_repo};
+    \item \textbf{Core ML delegate}: Apple backend path that can dispatch to CPU,
+          GPU, or ANE depending on model and platform capabilities
+          \cite{executorch_coreml,apple_coreml}.
+\end{itemize}
 
-\begin{corollary}
-Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{corollary}
+\section{Runtime design and implications for benchmarking}
 
-\begin{proposition}
-Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{proposition}
+The runtime loads \texttt{.pte} programs, resolves operator kernels or delegate
+entry points, and executes a preplanned instruction sequence
+\cite{executorch_runtime}. Because planning is mostly AOT, runtime overhead is
+low and easier to reason about than dynamic graph execution.
 
-\begin{note}
-Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{note}
+For benchmarking, this has three practical implications:
+\begin{itemize}
+    \item model initialization and first-run costs must be separated from
+          steady-state latency;
+    \item backend registration/linking correctness is mandatory, otherwise runs
+          silently degrade to slower fallback paths;
+    \item exported artifact provenance (backend, precision, shape constraints)
+          must be tracked in run metadata.
+\end{itemize}
 
-\begin{remark}
-Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{remark}
+\section{Quantization in ExecuTorch}
 
-\begin{lemma}
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce suscipit libero eget elit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aliquam id dolor. Curabitur bibendum justo non orci.
-\end{lemma}
+ExecuTorch integrates quantization workflows through backend-specific
+configurations, commonly using PT2E/torchao-based preparation and conversion
+\cite{executorch_quantization,torchao_pt2e}. Since quantization support differs
+across delegates and operators, each quantized artifact must be validated for
+both numerical behavior and actual backend coverage.
 
-\lipsum[1-2]
+\section{Practical limitations}
 
-% \subsection{Class aptent taciti sociosqu}
-% 
-% \lipsum[4-5]
+In real projects, deployment quality is affected by operator support matrices,
+toolchain version compatibility, and backend-specific converter behavior. These
+issues are not edge cases; they are a normal part of mobile ML engineering and
+must be documented alongside benchmark methodology.
 
 %---------------------------------------------------------------
-\chapter{Lorem ipsum}
+\chapter{Benchmark methodology}
 %---------------------------------------------------------------
 
-\begin{chapterabstract}
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. 
-\end{chapterabstract}
+\section{Methodological goals}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Suspendisse sagittis ultrices augue. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Pellentesque pretium lectus id turpis.~\cite{Kopka2004}
+The benchmark design in this thesis follows two goals:
+\begin{enumerate}
+    \item produce comparable latency/throughput/accuracy measurements across
+          iOS and Android,
+    \item preserve raw artifacts needed for independent recomputation and
+          audit.
+\end{enumerate}
 
-\section{Donec odio tempus molestie}
+The approach extends prior benchmarking ideas from mobile inference literature
+\cite{li2024mobilebenchmark,reddi2022mlperfmobile} and adapts them to
+face-processing pipelines.
 
-\lipsum[2]~\cite{def:1, def:2}
+\section{Evaluated pipeline}
 
-\subsection{Class aptent taciti}
+Each benchmark run executes an end-to-end pipeline:
+\begin{enumerate}
+    \item detector preprocessing,
+    \item detector inference,
+    \item detector postprocessing (box decoding and filtering),
+    \item face crop generation,
+    \item landmark model preprocessing,
+    \item landmark inference,
+    \item landmark postprocessing.
+\end{enumerate}
 
-\lipsum[2-3]
+End-to-end timing includes all stages above, not only neural forward passes.
+This reflects application-level latency perceived by users.
 
-\begin{description}
-\item[Kapitola 1] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora tor\-quent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
+\section{Model families and configuration space}
 
-\item[Kapitola 2] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora tor\-quent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
+The methodology supports multiple detector/landmark pairs and backend
+configurations. Typical factors include:
+\begin{itemize}
+    \item detector choice (e.g., RetinaFace vs FaceBoxes),
+    \item landmark architecture (e.g., PFLD, MobileFaceNet, PIPNet),
+    \item precision variant (FP32, FP16 where available, INT8),
+    \item backend delegate (XNNPACK, Core ML, or portable fallback),
+    \item resolved batch size.
+\end{itemize}
 
-\item[Kapitola 3] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora tor\-quent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
+A complete run record stores these factors explicitly, so later analysis does
+not depend on file naming conventions alone.
 
-\item[Kapitola 4] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora tor\-quent per conubia nostra, per inceptos hymenaeos. Cras pede libero, dapibus nec, pretium sit amet, tempor quis.~\cite{jakZiskatAcko}
-\end{description}
+\section{iOS and Android implementation parity}
 
-\lipsum[2]
+Because platform asymmetries can bias conclusions, iOS and Android benchmark
+applications are designed to be feature-equivalent at the pipeline level.
+Equivalent behavior includes:
+\begin{itemize}
+    \item identical preprocessing parameters,
+    \item identical postprocessing logic and thresholds,
+    \item consistent metric collection and export schema,
+    \item consistent handling of warm-up and measured iterations.
+\end{itemize}
 
-\section{Lorem ipsum dolor sit amet}
+This principle follows the project guideline that iOS and Android applications
+should remain equivalent in features and purpose.
 
-\lipsum[3-5]
+\section{Dataset and inputs}
+
+AFW-based landmark annotations are used for accuracy-oriented offline
+recomputation \cite{zhu2012facedetectionwild}. Input assets and ordering are
+versioned as part of run metadata. For each run, used-input logs are exported to
+avoid ambiguity caused by dynamic file-system ordering.
+
+\section{Metrics}
+
+\subsection{Latency and throughput}
+
+Let $T_{\text{run}}$ be measured end-to-end runtime for $N$ processed frames. The
+average throughput is
+\begin{equation}
+\mathrm{FPS} = \frac{N}{T_{\text{run}}}.
+\end{equation}
+
+Per-frame latency is measured in milliseconds and summarized by robust
+statistics (median and selected percentiles), not only arithmetic means.
+
+\subsection{Landmark accuracy}
+
+For $N$ faces and $K$ landmarks, normalized mean error (NME) is defined as
+\begin{equation}
+\mathrm{NME} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}
+\frac{\lVert \hat{\mathbf{p}}_{n,k} - \mathbf{p}_{n,k} \rVert_2}{d_n},
+\end{equation}
+where $\hat{\mathbf{p}}_{n,k}$ is predicted landmark position,
+$\mathbf{p}_{n,k}$ is ground truth, and $d_n$ is the normalization distance
+(e.g., inter-ocular distance).
+
+\subsection{Optional energy metrics}
+
+If platform tooling allows reliable collection, energy-related signals can be
+logged as supplementary indicators. In this thesis, latency and accuracy metrics
+remain primary.
+
+\section{Measurement protocol}
+
+To reduce noise and measurement bias, each benchmark condition follows a fixed
+protocol:
+\begin{itemize}
+    \item dedicated warm-up iterations before timed measurement,
+    \item fixed number of measured iterations,
+    \item stable device state (charging policy, background app control,
+          thermal preconditioning),
+    \item separate logging for initialization, inference, and optional
+          postprocessing stages.
+\end{itemize}
+
+Runs that violate schema, contain missing key payloads, or fail consistency
+checks are flagged for exclusion from aggregate statistics.
+
+\section{Run artifacts and offline analysis}
+
+Every run exports a machine-readable summary plus raw samples. Offline analysis
+scripts recompute aggregate statistics and, when possible, recompute accuracy
+from per-image predictions instead of trusting prefilled summary fields. This
+post-hoc recomputation improves robustness against stale metadata and partial
+export errors.
+
+\section{Threats to validity}
+
+Main threats and mitigations include:
+\begin{itemize}
+    \item \textbf{Thermal drift}: controlled warm-up and repeated runs;
+    \item \textbf{Backend asymmetry}: shared-configuration comparisons for
+          cross-device claims;
+    \item \textbf{Unsupported operators}: explicit reporting of delegate
+          coverage and fallback paths;
+    \item \textbf{Data leakage or ordering artifacts}: deterministic input lists
+          and exported input manifests;
+    \item \textbf{Metric inconsistency}: central offline recomputation of
+          statistics.
+\end{itemize}
+
+\section{Ethical and privacy considerations}
+
+The thesis evaluates technical performance of face-processing models and does
+not develop identity recognition functionality. Nevertheless, any deployment of
+face analytics should follow legal and ethical constraints for biometric data,
+including transparent purpose limitation, secure storage, and user consent where
+required.
+
+%---------------------------------------------------------------
+\chapter{Conclusion}
+%---------------------------------------------------------------
+
+This thesis presents the theoretical and methodological basis for benchmarking
+mobile face-processing inference with ExecuTorch. The text first establishes
+mobile inference constraints, then connects them to efficient model design,
+quantization, and runtime backend behavior. It further explains ExecuTorch’s
+export-to-runtime path, delegate mechanism, and artifact formats relevant to
+practical deployment.
+
+A reproducible benchmark methodology is defined for end-to-end detector plus
+landmark pipelines on iOS and Android, with explicit metric definitions,
+protocol controls, and validity safeguards. The methodology is designed to
+support fair cross-platform comparison and independent recomputation from raw
+artifacts.
+
+The resulting framework provides a solid base for empirical evaluation and
+future extension, including additional devices, backends, and optimization
+strategies. Numerical evaluation outcomes are intentionally outside the scope of
+this text.

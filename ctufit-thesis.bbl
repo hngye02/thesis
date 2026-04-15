@@ -1,0 +1,1445 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wang2020mobilesoc}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=5c488767e526b2491cb0c2efadada439}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Siqi},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a39d42003e527c2170583ad365871b37}{%
+           family={Pathania},
+           familyi={P\bibinitperiod},
+           given={Anuj},
+           giveni={A\bibinitperiod}}}%
+        {{hash=64cf93678ff26b47b594fb5968fbd4e5}{%
+           family={Mitra},
+           familyi={M\bibinitperiod},
+           given={Tulika},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{fullhash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{fullhashraw}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{bibnamehash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{authorbibnamehash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{authornamehash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{authorfullhash}{e9b2d518f03f4650ebf06a2540e4b815}
+      \strng{authorfullhashraw}{e9b2d518f03f4650ebf06a2540e4b815}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Design \& Test}
+      \field{number}{5}
+      \field{title}{Neural Network Inference on Mobile SoCs}
+      \field{volume}{37}
+      \field{year}{2020}
+      \field{pages}{50\bibrangedash 57}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/MDAT.2020.2968258
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8963950
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8963950
+      \endverb
+    \endentry
+    \entry{li2024mobilebenchmark}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=a372b97ebd6048931b8a4740f8163c2c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhuojin},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=fa557ec13f21c712f894fd6ac225ca81}{%
+           family={Paolieri},
+           familyi={P\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cbf06d91e0b2b1f68a887feb394c989e}{%
+           family={Golubchik},
+           familyi={G\bibinitperiod},
+           given={Leana},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{fullhash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{fullhashraw}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{bibnamehash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{authorbibnamehash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{authornamehash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{authorfullhash}{25be9db6c380355d407c0e5ac4bde414}
+      \strng{authorfullhashraw}{25be9db6c380355d407c0e5ac4bde414}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 7th International Workshop on Edge Systems, Analytics and Networking (EdgeSys '24)}
+      \field{title}{A Benchmark for ML Inference Latency on Mobile Devices}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1145/3642968.3654818
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3642968.3654818
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3642968.3654818
+      \endverb
+    \endentry
+    \entry{reddi2022mlperfmobile}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=ffa72a5331db6a0a5696041c81fd2086}{%
+           family={Reddi},
+           familyi={R\bibinitperiod},
+           given={Vijay\bibnamedelima Janapa},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=c6e54769f6c3706126b769dae52686fd}{%
+           family={Kanter},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ebffff621701d79ab707e6a667522919}{%
+           family={Mattson},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=9f9b1ab4032faef165150e04ac308523}{%
+           family={Duke},
+           familyi={D\bibinitperiod},
+           given={Jared},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3fff6964369ca1661ec6f827dd753fad}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Thai},
+           giveni={T\bibinitperiod}}}%
+        {{hash=8b37429d8d4d8b05be3d1afb96df30a9}{%
+           family={Chukka},
+           familyi={C\bibinitperiod},
+           given={Ramesh},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2508d78eef3a1b7f34fe54154ad738cb}{%
+           family={Shiring},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod}}}%
+        {{hash=291b4ae8d3c53a1b1c219e17a7afdec9}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Koan-Sin},
+           giveni={K\bibinithyphendelim S\bibinitperiod}}}%
+        {{hash=c77248ed4c637fd5ab5f583bb57f0576}{%
+           family={Charlebois},
+           familyi={C\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f021da6ab41ae82bb262c717af9e38d3}{%
+           family={Chou},
+           familyi={C\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{fullhash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{fullhashraw}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{bibnamehash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{authorbibnamehash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{authornamehash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{authorfullhash}{93019ec41c6f7bb62d4660e75f0179f5}
+      \strng{authorfullhashraw}{93019ec41c6f7bb62d4660e75f0179f5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of Machine Learning and Systems}
+      \field{title}{MLPerf Mobile Inference Benchmark: An Industry-Standard Open-Source Machine Learning Benchmark for On-Device AI}
+      \field{volume}{4}
+      \field{year}{2022}
+      \field{pages}{352\bibrangedash 369}
+      \range{pages}{18}
+      \verb{urlraw}
+      \verb https://proceedings.mlsys.org/paper_files/paper/2022/hash/a2b2702ea7e682c5ea2c20e8f71efb0c-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlsys.org/paper_files/paper/2022/hash/a2b2702ea7e682c5ea2c20e8f71efb0c-Abstract.html
+      \endverb
+    \endentry
+    \entry{executorch_how}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How ExecuTorch Works}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
+      \endverb
+    \endentry
+    \entry{executorch_arch}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Architecture and Components --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \endverb
+    \endentry
+    \entry{executorch_export}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Model Export and Lowering --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
+      \endverb
+    \endentry
+    \entry{executorch_runtime}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{4}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ExecuTorch Runtime Overview}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/runtime-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/runtime-overview.html
+      \endverb
+    \endentry
+    \entry{executorch_delegate}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{5}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Backends and Delegates --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/compiler-delegate-and-partitioner.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/compiler-delegate-and-partitioner.html
+      \endverb
+    \endentry
+    \entry{lee2019mobilegpu}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=34ea7cffda58c3dbe4f6a54a086b1f5f}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Juhyun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0ac4b00567952fe9ff2d5d5015a3c453}{%
+           family={Chirkov},
+           familyi={C\bibinitperiod},
+           given={Nikolay},
+           giveni={N\bibinitperiod}}}%
+        {{hash=cb84d315df550532fa24334250bac7b9}{%
+           family={Ignasheva},
+           familyi={I\bibinitperiod},
+           given={Ekaterina},
+           giveni={E\bibinitperiod}}}%
+        {{hash=a3cfdf850ae801bed662ba280e0ffe41}{%
+           family={Pisarchyk},
+           familyi={P\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=992bcb03be0379101a79d745b20a5fc9}{%
+           family={Shieh},
+           familyi={S\bibinitperiod},
+           given={Mogan},
+           giveni={M\bibinitperiod}}}%
+        {{hash=da85d57f68a2b54dcaacd6c41d26ad52}{%
+           family={Riccardi},
+           familyi={R\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=f655d7160acdff030daa9c3de9170e15}{%
+           family={Sarokin},
+           familyi={S\bibinitperiod},
+           given={Raman},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7b31c6acf926ceafcefb420c39953535}{%
+           family={Kulik},
+           familyi={K\bibinitperiod},
+           given={Andrei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bc9b23f96eed985127659775e2b92e3e}{%
+           family={Grundmann},
+           familyi={G\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{fullhash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{fullhashraw}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{bibnamehash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{authorbibnamehash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{authornamehash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{authorfullhash}{0cc9f3f0efafceca4138d296b71f9add}
+      \strng{authorfullhashraw}{0cc9f3f0efafceca4138d296b71f9add}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1907.01989}
+      \field{title}{On-Device Neural Net Inference with Mobile GPUs}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.48550/arXiv.1907.01989
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1907.01989
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1907.01989
+      \endverb
+    \endentry
+    \entry{howard2017mobilenets}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=0cedb03f907400fc304fdfaa1f7e2085}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={Andrew\bibnamedelima G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=d767e8e4d733bcf728bcdf2c193462f7}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Menglong},
+           giveni={M\bibinitperiod}}}%
+        {{hash=31960f03389184b7f052f5b197cc9fdf}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=6cbb997a11c6922af719c32863261918}{%
+           family={Kalenichenko},
+           familyi={K\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod}}}%
+        {{hash=47ad65c82b1de7d642988df185d7d8ea}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Weijun},
+           giveni={W\bibinitperiod}}}%
+        {{hash=7dcb9c6d4d4251a7e32b502d03c9354b}{%
+           family={Weyand},
+           familyi={W\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=8f221f2afb0b5a3d95b3e97101924922}{%
+           family={Andreetto},
+           familyi={A\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c707ec5b5997dc408a14a34a8380166c}{%
+           family={Adam},
+           familyi={A\bibinitperiod},
+           given={Hartwig},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{cffcf38c642164887a370768f5701b8e}
+      \strng{fullhash}{cffcf38c642164887a370768f5701b8e}
+      \strng{fullhashraw}{cffcf38c642164887a370768f5701b8e}
+      \strng{bibnamehash}{cffcf38c642164887a370768f5701b8e}
+      \strng{authorbibnamehash}{cffcf38c642164887a370768f5701b8e}
+      \strng{authornamehash}{cffcf38c642164887a370768f5701b8e}
+      \strng{authorfullhash}{cffcf38c642164887a370768f5701b8e}
+      \strng{authorfullhashraw}{cffcf38c642164887a370768f5701b8e}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1704.04861}
+      \field{title}{MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.48550/arXiv.1704.04861
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1704.04861
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1704.04861
+      \endverb
+    \endentry
+    \entry{sandler2018mobilenetv2}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=8f90fd131c2bbfde4d0e9fdd7ed4ea8b}{%
+           family={Sandler},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=315c4166fc1f7cb66324a7f0d82827cd}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d767e8e4d733bcf728bcdf2c193462f7}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Menglong},
+           giveni={M\bibinitperiod}}}%
+        {{hash=48f4090a93cf9f445057a9d6defe7973}{%
+           family={Zhmoginov},
+           familyi={Z\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9dddfcfd529634a150ee38ee5c0203d7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Liang-Chieh},
+           giveni={L\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{fullhash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{fullhashraw}{8d58d04315a5e1c06300772330b235d7}
+      \strng{bibnamehash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{authorbibnamehash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{authornamehash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{authorfullhash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{authorfullhashraw}{8d58d04315a5e1c06300772330b235d7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{MobileNetV2: Inverted Residuals and Linear Bottlenecks}
+      \field{year}{2018}
+      \field{pages}{4510\bibrangedash 4520}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/CVPR.2018.00474
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/CVPR.2018.00474
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/CVPR.2018.00474
+      \endverb
+    \endentry
+    \entry{zhang2018shufflenet}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=5c1e75bf6f2b5386a54aff442f04d5cf}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Xinyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a24609d7dfcf8f716059c40ed11ba974}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Mengxiao},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f85751488058842b5777c7b4074077b5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{fullhash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{fullhashraw}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{bibnamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{authorbibnamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{authornamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{authorfullhash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \strng{authorfullhashraw}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices}
+      \field{year}{2018}
+      \field{pages}{6848\bibrangedash 6856}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/CVPR.2018.00716
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/CVPR.2018.00716
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/CVPR.2018.00716
+      \endverb
+    \endentry
+    \entry{iandola2016squeezenet}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=94dab96826129cba595a6297d3d8ffa6}{%
+           family={Iandola},
+           familyi={I\bibinitperiod},
+           given={Forrest\bibnamedelima N.},
+           giveni={F\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=5b467b1e4271559b03ceb8c16befd89e}{%
+           family={Moskewicz},
+           familyi={M\bibinitperiod},
+           given={Matthew\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=732badbf604cd5c952f3aaa13bb3f894}{%
+           family={Ashraf},
+           familyi={A\bibinitperiod},
+           given={Khalid},
+           giveni={K\bibinitperiod}}}%
+        {{hash=873e4e07ff73d563d2651d20ffaf99e0}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Song},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c4a8df92e1f8e22aa2062da8bcfd402d}{%
+           family={Dally},
+           familyi={D\bibinitperiod},
+           given={William\bibnamedelima J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=994177386e5a63171a7be588e97df7e5}{%
+           family={Keutzer},
+           familyi={K\bibinitperiod},
+           given={Kurt},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{fullhash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{fullhashraw}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{bibnamehash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{authorbibnamehash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{authornamehash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{authorfullhash}{f9ae50bda5d680115801b29cea2f1a3a}
+      \strng{authorfullhashraw}{f9ae50bda5d680115801b29cea2f1a3a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1602.07360}
+      \field{title}{SqueezeNet: AlexNet-Level Accuracy with 50x Fewer Parameters and <1MB Model Size}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.48550/arXiv.1602.07360
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1602.07360
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1602.07360
+      \endverb
+    \endentry
+    \entry{han2016deepcompression}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=873e4e07ff73d563d2651d20ffaf99e0}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Song},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1341c7c7f8d6acc2c0c244d6526ff658}{%
+           family={Mao},
+           familyi={M\bibinitperiod},
+           given={Huizi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c4a8df92e1f8e22aa2062da8bcfd402d}{%
+           family={Dally},
+           familyi={D\bibinitperiod},
+           given={William\bibnamedelima J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{fullhash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{fullhashraw}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{bibnamehash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{authorbibnamehash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{authornamehash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{authorfullhash}{84bcde7dcf518d77e606ada9b3016020}
+      \strng{authorfullhashraw}{84bcde7dcf518d77e606ada9b3016020}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1510.00149}
+      \field{title}{Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.48550/arXiv.1510.00149
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1510.00149
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1510.00149
+      \endverb
+    \endentry
+    \entry{jacob2018quantization}{inproceedings}{}{}
+      \name{author}{8}{}{%
+        {{hash=73f11c7544252601f7e8c5f614c660f2}{%
+           family={Jacob},
+           familyi={J\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=aa58f2ae95227046f2fbba114f0fb625}{%
+           family={Kligys},
+           familyi={K\bibinitperiod},
+           given={Skirmantas},
+           giveni={S\bibinitperiod}}}%
+        {{hash=31960f03389184b7f052f5b197cc9fdf}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d767e8e4d733bcf728bcdf2c193462f7}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Menglong},
+           giveni={M\bibinitperiod}}}%
+        {{hash=436cfd289182e9d6b0a46d79b8e91b6e}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=315c4166fc1f7cb66324a7f0d82827cd}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c707ec5b5997dc408a14a34a8380166c}{%
+           family={Adam},
+           familyi={A\bibinitperiod},
+           given={Hartwig},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6cbb997a11c6922af719c32863261918}{%
+           family={Kalenichenko},
+           familyi={K\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{fullhash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{fullhashraw}{3ad38e526037fc692f33aef3160b0293}
+      \strng{bibnamehash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{authorbibnamehash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{authornamehash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{authorfullhash}{3ad38e526037fc692f33aef3160b0293}
+      \strng{authorfullhashraw}{3ad38e526037fc692f33aef3160b0293}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference}
+      \field{year}{2018}
+      \field{pages}{2704\bibrangedash 2713}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/CVPR.2018.00286
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/CVPR.2018.00286
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/CVPR.2018.00286
+      \endverb
+    \endentry
+    \entry{krishnamoorthi2018quantizing}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4a691df37485846988162c4f0639d2f0}{%
+           family={Krishnamoorthi},
+           familyi={K\bibinitperiod},
+           given={Raghuraman},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{4a691df37485846988162c4f0639d2f0}
+      \strng{fullhash}{4a691df37485846988162c4f0639d2f0}
+      \strng{fullhashraw}{4a691df37485846988162c4f0639d2f0}
+      \strng{bibnamehash}{4a691df37485846988162c4f0639d2f0}
+      \strng{authorbibnamehash}{4a691df37485846988162c4f0639d2f0}
+      \strng{authornamehash}{4a691df37485846988162c4f0639d2f0}
+      \strng{authorfullhash}{4a691df37485846988162c4f0639d2f0}
+      \strng{authorfullhashraw}{4a691df37485846988162c4f0639d2f0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1806.08342}
+      \field{title}{Quantizing Deep Convolutional Networks for Efficient Inference: A Whitepaper}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.48550/arXiv.1806.08342
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1806.08342
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1806.08342
+      \endverb
+    \endentry
+    \entry{deng2020retinaface}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=6ead2c77e3080af378f5abe533067479}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Jiankang},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5dfa2e1cec77c8779469085a05d6a696}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Jia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bad06b3bf1f99ca6bfebdc5499583f0b}{%
+           family={Ververas},
+           familyi={V\bibinitperiod},
+           given={Evangelos},
+           giveni={E\bibinitperiod}}}%
+        {{hash=77919a913a57cee542eae85d6b4b3a96}{%
+           family={Kotsia},
+           familyi={K\bibinitperiod},
+           given={Irene},
+           giveni={I\bibinitperiod}}}%
+        {{hash=2ac8d8aacb76b57beadc21f996305b69}{%
+           family={Zafeiriou},
+           familyi={Z\bibinitperiod},
+           given={Stefanos},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{fullhash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{fullhashraw}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{bibnamehash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{authorbibnamehash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{authornamehash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{authorfullhash}{5f9c7633e62b285cc97c5f32ce23db55}
+      \strng{authorfullhashraw}{5f9c7633e62b285cc97c5f32ce23db55}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1905.00641}
+      \field{title}{RetinaFace: Single-Stage Dense Face Localisation in the Wild}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.48550/arXiv.1905.00641
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1905.00641
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1905.00641
+      \endverb
+    \endentry
+    \entry{zhang2017faceboxes}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=72814af76d82a529c5b3e3c609eff0fa}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shifeng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cd3a0d773c3a35993add0741945aaff2}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=d106e766d9de3c78aab61ad86235b9f1}{%
+           family={Lei},
+           familyi={L\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b942c29e6e7d81eee4ec9d81577f1578}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Hailin},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1b04dc0167b8757600dcff89f2984a8d}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaobo},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bdcfe781c06e01fe86f42230e738c1b4}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Stan\bibnamedelima Z.},
+           giveni={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{fullhash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{fullhashraw}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{bibnamehash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{authorbibnamehash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{authornamehash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{authorfullhash}{42ef5e1ab1a5681eda281ccee15f8175}
+      \strng{authorfullhashraw}{42ef5e1ab1a5681eda281ccee15f8175}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Joint Conference on Biometrics (IJCB)}
+      \field{title}{FaceBoxes: A CPU Real-Time Face Detector with High Accuracy}
+      \field{year}{2017}
+      \field{pages}{1\bibrangedash 9}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/BTAS.2017.8272675
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/BTAS.2017.8272675
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/BTAS.2017.8272675
+      \endverb
+    \endentry
+    \entry{guo2019pfld}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=71290e7f5dd0007811a86560d990ecbd}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Xiaojie},
+           giveni={X\bibinitperiod}}}%
+        {{hash=28cc92bee9dc2c699ad036750b99883a}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Siyuan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a71ec9b0799a46b55b420dbeb4bb4057}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jinke},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e121f4cf1a081a22e039fb23d1a5b1d2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jiawan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=42a43b68e533e39bbf05038fad61a09b}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Jiayi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8601659a37cae9b8932645c653921e5b}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Lin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=bc86801edf24b9379fb947d2c2116b4b}{%
+           family={Ling},
+           familyi={L\bibinitperiod},
+           given={Haibin},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{fullhash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{fullhashraw}{11f7647693f2a24979c51bf347962ea8}
+      \strng{bibnamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authorbibnamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authornamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authorfullhash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authorfullhashraw}{11f7647693f2a24979c51bf347962ea8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1902.10859}
+      \field{title}{PFLD: A Practical Facial Landmark Detector}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.48550/arXiv.1902.10859
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1902.10859
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1902.10859
+      \endverb
+    \endentry
+    \entry{chen2018mobilefacenets}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=64288176f389838aa5917ebca5ce2455}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=621013bf54d3546375ad71f17f020b5b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bfc840f1acedd564fad08ab8540b8df7}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1f64b6a433c4e65fe0f700ca385f0327}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{fullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{fullhashraw}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{bibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authorbibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authornamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authorfullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authorfullhashraw}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Biometric Recognition (CCBR 2018)}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{MobileFaceNets: Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices}
+      \field{volume}{10996}
+      \field{year}{2018}
+      \field{pages}{428\bibrangedash 438}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/978-3-319-97909-0_46
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-319-97909-0_46
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-319-97909-0_46
+      \endverb
+    \endentry
+    \entry{jin2021pipnet}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ca9bcedfafe5131f3503087f483ff154}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Haibo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fefae411460b7a1ed070285e1e38e923}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Shengcai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a19a5e715fda869516c9d9d4ffbfd7f7}{%
+           family={Shao},
+           familyi={S\bibinitperiod},
+           given={Ling},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{fullhash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{fullhashraw}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{bibnamehash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{authorbibnamehash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{authornamehash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{authorfullhash}{ff01e83907c99f8659847d430cf63a7d}
+      \strng{authorfullhashraw}{ff01e83907c99f8659847d430cf63a7d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Vision}
+      \field{number}{12}
+      \field{title}{Pixel-in-Pixel Net: Towards Efficient Facial Landmark Detection in the Wild}
+      \field{volume}{129}
+      \field{year}{2021}
+      \field{pages}{3174\bibrangedash 3194}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/s11263-021-01521-4
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11263-021-01521-4
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11263-021-01521-4
+      \endverb
+    \endentry
+    \entry{zhu2012facedetectionwild}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=8555f78be5f6050d5a2f661b2d0e841e}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiangxin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=aedcd3831845183e070aef16857d83ea}{%
+           family={Ramanan},
+           familyi={R\bibinitperiod},
+           given={Deva},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{fullhash}{d6863774b464afee67df48ce7dda339f}
+      \strng{fullhashraw}{d6863774b464afee67df48ce7dda339f}
+      \strng{bibnamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authorbibnamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authornamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authorfullhash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authorfullhashraw}{d6863774b464afee67df48ce7dda339f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2012 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{Face Detection, Pose Estimation, and Landmark Localization in the Wild}
+      \field{year}{2012}
+      \field{pages}{2879\bibrangedash 2886}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CVPR.2012.6248014
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/CVPR.2012.6248014
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/CVPR.2012.6248014
+      \endverb
+    \endentry
+    \entry{executorch_concepts}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Concepts --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/concepts.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/concepts.html
+      \endverb
+    \endentry
+    \entry{executorch_pte}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{.pte file format --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/pte-file-format.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/pte-file-format.html
+      \endverb
+    \endentry
+    \entry{executorch_ptd}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{.ptd file format --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
+      \endverb
+    \endentry
+    \entry{pytorch_export}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{torch.export User Guide}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/docs/stable/user_guide/torch_compiler/export.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/docs/stable/user_guide/torch_compiler/export.html
+      \endverb
+    \endentry
+    \entry{executorch_xnnpack}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{10}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XNNPACK Backend --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
+      \endverb
+    \endentry
+    \entry{xnnpack_repo}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XNNPACK: High-efficiency Neural Network Operators}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/google/XNNPACK
+      \endverb
+      \verb{url}
+      \verb https://github.com/google/XNNPACK
+      \endverb
+    \endentry
+    \entry{executorch_coreml}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{11}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Core ML Backend --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \endverb
+    \endentry
+    \entry{apple_coreml}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9f6290f4436e5a2351f12e03b6433c3c}{%
+           family={{Apple}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{fullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{fullhashraw}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{bibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorbibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authornamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorfullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorfullhashraw}{9f6290f4436e5a2351f12e03b6433c3c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Core ML}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developer.apple.com/documentation/coreml
+      \endverb
+      \verb{url}
+      \verb https://developer.apple.com/documentation/coreml
+      \endverb
+    \endentry
+    \entry{executorch_quantization}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{12}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Quantization Overview --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/quantization-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/quantization-overview.html
+      \endverb
+    \endentry
+    \entry{torchao_pt2e}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=7c84d95e3d5c93ccd91416ee61a5bfa0}{%
+           family={{PyTorch AO Contributors}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{fullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{fullhashraw}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{bibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authorbibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authornamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authorfullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authorfullhashraw}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PT2E Quantization Tutorials and Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,13 +1,19 @@
-\chapter{Obsah příloh}
-% Contents of the attachment
+%---------------------------------------------------------------
+\chapter{Contents of the attachment}
+%---------------------------------------------------------------
 
-	\dirtree{%
-		.1 /.
-		.2 readme.txt\DTcomment{stručný popis obsahu média}.
-		.2 exe\DTcomment{adresář se spustitelnou formou implementace}.
-		.2 src.
-		.3 impl\DTcomment{zdrojové kódy implementace}.
-		.3 thesis\DTcomment{zdrojová forma práce ve formátu \LaTeX{}}.
-		.2 text\DTcomment{text práce}.
-		.3 thesis.pdf\DTcomment{text práce ve formátu PDF}.
-	}
+The electronic attachment contains the source code of the benchmark applications,
+benchmarking scripts, collected run exports and the thesis sources.
+
+\dirtree{%
+    .1 /.
+    .2 android/\DTcomment{Android benchmark app source code}.
+    .2 ios/\DTcomment{iOS benchmark app source code}.
+    .2 benchmarks/\DTcomment{Benchmark harness, analysis scripts, and results}.
+    .3 analysis/\DTcomment{JSON aggregation, charting and table export scripts}.
+    .3 results/\DTcomment{Collected exported runs + generated charts/tables}.
+    .2 models/\DTcomment{Detector and landmark model files used by the apps}.
+    .2 thesis/\DTcomment{\LaTeX{} sources of the thesis}.
+    .3 ctufit-thesis.tex\DTcomment{Main thesis entry point}.
+    .3 text/\DTcomment{Chapter sources}.
+}

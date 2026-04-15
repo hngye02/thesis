@@ -1,4 +1,38 @@
-\chapter{Nějaká příloha}
+%---------------------------------------------------------------
+\chapter{Reproducibility}
+%---------------------------------------------------------------
 
+This appendix lists the commands used to regenerate the CSV data and the charts
+used in the thesis.
 
-Sem přijde to, co nepatří do hlavní části.
+\section{Generate filtered combined CSV (iPhone 14 + Redmi Note 8 Pro, BS \textless= 8)}
+
+From the repository root:
+
+\begin{verbatim}
+./.venv/bin/python benchmarks/analysis/plot_runs_dashboard.py \
+  --mobile-root benchmarks/results/mobile \
+  --pc-root benchmarks/results/pc/runs \
+  --devices "iphone 14,xiaomi redmi note 8 pro" \
+  --max-resolved-batch 8 \
+  --output-csv benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
+  --output-dir benchmarks/results/combined/charts_phone_compare_bs8 \
+  --focus-device "iphone 14"
+\end{verbatim}
+
+\section{Generate curated thesis charts (per-device + combined)}
+
+\begin{verbatim}
+./.venv/bin/python benchmarks/analysis/plot_phone_pair_thesis.py \
+  --input-csv benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
+  --output-dir thesis/images/benchmarks \
+  --max-batch 8
+\end{verbatim}
+
+\section{Optional summary tables}
+
+\begin{verbatim}
+./.venv/bin/python benchmarks/analysis/summarize_benchmarks.py \
+  --input benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
+  --output-dir benchmarks/results/combined/tables_phone_compare_bs8
+\end{verbatim}
