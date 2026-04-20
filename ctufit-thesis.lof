@@ -12,19 +12,19 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median FPS: PC vs focus device (from combined charts).}}{15}{figure.caption.10}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 median landmark-inference latency: PC vs focus device (from combined charts).}}{16}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Focus device: BS=1 speed by backend and quantization.}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Focus device: BS=1 speed by backend and quantization.}}{17}{figure.caption.12}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{17}{figure.caption.13}%
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0 (XNNPACK variants).}}{18}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PipNet ResNet18 (XNNPACK variants).}}{18}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: INT8 vs FP32 speed comparison at BS=1.}}{19}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PipNet ResNet18 (XNNPACK variants).}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: INT8 vs FP32 speed comparison at BS=1.}}{20}{figure.caption.19}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{20}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs.}}{20}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median FPS (device-focused chart pack).}}{21}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{21}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14: BS=1 speed by backend and quantization.}}{21}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: INT8 and FP32 speed comparison at BS=1.}}{22}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{23}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{23}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs.}}{21}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median FPS (device-focused chart pack).}}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{22}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14: BS=1 speed by backend and quantization.}}{22}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: INT8 and FP32 speed comparison at BS=1.}}{23}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{24}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{25}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 

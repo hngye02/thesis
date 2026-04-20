@@ -8,10 +8,10 @@
 \setcounter{page}{1}
 
 \begin{chapterabstract}
-This thesis addresses the engineering problem of deploying and evaluating
-modern face-processing neural networks directly on mobile devices. The work
-focuses on the theoretical foundations and experimental methodology required
-for trustworthy benchmarking of face detection and facial landmark estimation
+This thesis addresses problem of deploying and evaluating
+modern neural networks designed for detecting facial landmarks directly on mobile devices. 
+The work focuses on the theoretical foundations and experimental methodology required
+for benchmarking of face detection and facial landmark estimation
 on Android and iOS using ExecuTorch and backend delegates.
 \end{chapterabstract}
 
@@ -19,23 +19,22 @@ on Android and iOS using ExecuTorch and backend delegates.
 
 On-device inference has become a key requirement for many applications, because 
 it improves privacy, reduces round-trip latency, and
-allows offline operation. At the same time, mobile deployment is constrained by
+allows offloading compute resource to edge devices. At the same time, mobile devices are constrained by
 strict limits on compute throughput, memory bandwidth, power, and thermal
 budget \cite{wang2020mobilesoc,li2024mobilebenchmark}. In practice, this
 means that achieving good model accuracy is not sufficient; the full
 end-to-end system must also be efficient.
 
 Recent community benchmarks confirm that measured latency strongly depends on
-hardware configuration, runtime backend, numerical precision, and measurement
-protocol \cite{reddi2022mlperfmobile,li2024mobilebenchmark}.
+hardware configuration, runtime backend, numerical precision. \cite{reddi2022mlperfmobile,li2024mobilebenchmark}.
 
 \section{Problem statement}
 
-The core of this thesis is to evaluate mobile face-processing pipelines 
+The core of this thesis is to evaluate neural networks for detecting facial landmarks on mobile devices, with a focus on configurations 
 implemented with ExecuTorch. The benchmark must support equivalent iOS and 
 Android applications, consistent measurement conditions, and validation of quality metrics.
 
-The benchmarked workload is an end-to-end two-stage pipeline:
+The benchmark is a two-stage pipeline:
 \begin{enumerate}
     \item face detection in an input image,
     \item facial landmark estimation on detected face crops.
@@ -54,9 +53,6 @@ Objectives of the thesis are:
     \item analyze INT8 PTQ optimization impact on speed and quality.
 \end{itemize}
 
-Energy-related measurements are treated as optional/auxiliary in this thesis,
-depending on data availability and measurement reliability per device.
-
 \section{Alignment with thesis assignment tasks}
 
 The assignment tasks are covered as follows:
@@ -70,22 +66,10 @@ The assignment tasks are covered as follows:
     \item \textbf{Android/iOS testing scenario:} Chapter~4 documents feature
           parity and unified measurement schema for both mobile apps.
     \item \textbf{Latency/FPS (and optional energy):} Chapter~4 defines metrics
-          and logging; Chapter~5 reports measured cross-device results.
+          and logging; Chapter~5 reports results measured on various devices.
     \item \textbf{Optimization impact (quantization):} Chapter~3 explains PTQ
           export workflow and Chapter~5 compares FP32 vs INT8 behavior.
 \end{enumerate}
-
-\section{Thesis structure}
-
-Chapter~2 introduces theoretical background: mobile inference constraints,
-efficient model design, quantization, and face-processing tasks. Chapter~3
-explains ExecuTorch architecture and backend delegation for mobile deployment.
-Chapter~4 defines the benchmark methodology, metrics, protocol, and validity
-controls. Chapter~5 presents and interprets experimental results. The final
-chapter concludes the thesis.
-
-In-text citations and bibliography records are formatted using the numeric
-method of ČSN ISO 690 via the \texttt{biblatex-iso690} style.
 
 %---------------------------------------------------------------
 \chapter{Theoretical background}
@@ -97,7 +81,7 @@ Mobile AI systems are typically deployed on heterogeneous Systems-on-Chip
 (SoCs), where CPU, GPU, and dedicated NPUs coexist
 \cite{lee2019mobilegpu,wang2020mobilesoc}. Compared to server inference,
 mobile workloads operate under tighter thermal and power limits and often share
-resources with other foreground tasks.
+resources with other tasks.
 
 Latency depends on several things:
 \begin{itemize}
@@ -106,7 +90,7 @@ Latency depends on several things:
     \item hardware mapping (CPU/GPU/NPU dispatch),
 \end{itemize}
 
-As a consequence, the same neural network can show substantially different
+That means the same neural network can show very different
 performance across devices and software stacks
 \cite{li2024mobilebenchmark,reddi2022mlperfmobile}.
 
@@ -118,7 +102,7 @@ CPUs provide broad operator coverage and predictable behavior, but may not offer
 the highest throughput for dense tensor computations. Mobile GPUs can improve
 throughput for selected workloads, while NPUs may deliver superior
 energy-efficiency when supported operators map well to accelerator kernels
-\cite{lee2019mobilegpu,wang2020mobilesoc}. In real deployments, unsupported
+\cite{lee2019mobilegpu,wang2020mobilesoc}. In real applications, unsupported
 subgraphs frequently fall back to CPU, and thus synchronization and memory
 transfer overhead become issues.
 
@@ -126,8 +110,7 @@ transfer overhead become issues.
 
 Peak performance is often not sustainable in mobile devices. Very long
 inference can trigger thermal throttling, reducing frequency and increasing
-latency.
-\cite{li2024mobilebenchmark}.
+latency \cite{li2024mobilebenchmark}.
 
 \section{Efficient neural networks for mobile vision}
 
@@ -138,12 +121,12 @@ inverted residual blocks, and channel shuffle
 SqueezeNet demonstrated that competitive accuracy can be achieved with
 significantly fewer parameters \cite{iandola2016squeezenet}.
 
-For mobile face-processing, both detector and landmark models must be efficient.
+For processing faces on mobile devices, both detector and landmark models must be efficient.
 
 \section{Model compression and quantization}
 
 Compression and quantization reduce memory footprint and often improve runtime
-performance. Classical compression includes pruning and weight sharing
+performance. The most common compression techniques include pruning and weight sharing
 \cite{han2016deepcompression}. In practical mobile deployment, integer
 quantization is especially important because INT8 kernels can be faster and more
 energy-efficient than FP32 on supported hardware \cite{jacob2018quantization}.
@@ -184,12 +167,12 @@ Two design choices are central for this work:
     \item \textbf{Static vs dynamic activations:} static PTQ calibrates
           activation ranges offline; dynamic approaches estimate part of the
           range online. Static PTQ is often faster when backend support is
-          strong.
+          good.
 \end{itemize}
 
 INT8 often improves speed for two reasons: lower memory traffic (INT8 tensors
 are 4$\times$ smaller than FP32) and faster vectorized kernels. However, real
-end-to-end gains depend on operator coverage. If part of the graph falls back
+inference latency reduction depends on operator coverage. If part of the graph falls back
 to non-quantized execution, conversion overhead can reduce the expected speedup
 \cite{krishnamoorthi2018quantizing}.
 
@@ -217,8 +200,7 @@ low-resolution efficient heads for practical landmark localization
 
 In the benchmark matrix used in this thesis, the main detector+landmark
 combinations are based on RetinaFace-MNet0.25 or FaceBoxesV2 with
-MobileFaceNet, PFLD-MNv2-0.25, PFLD-MNv2-1.0, and PipNet-ResNet18
-(plus PFLD-Blaze in selected runs).
+MobileFaceNet, PFLD-MNv2-0.25, PFLD-MNv2-1.0, and PipNet-ResNet18.
 
 \begin{table}[htbp]
 \centering
@@ -252,7 +234,7 @@ Ramanan \cite{zhu2012facedetectionwild}.
 \section{Why ExecuTorch}
 
 ExecuTorch is a PyTorch edge deployment stack designed for efficient on-device
-inference across mobile and embedded targets
+inference across mobile and embedded devices
 \cite{executorch_how,executorch_arch}. Its central design principle is
 \emph{ahead-of-time} (AOT) preparation: expensive transformation and planning
 steps are performed before deployment, so runtime execution remains lightweight.
@@ -303,12 +285,12 @@ ExecuTorch implements quantization through backend specific
 configurations, commonly using PT2E/torchao-based preparation and conversion
 \cite{executorch_quantization,torchao_pt2e}. In this project, INT8 exports are
 produced for XNNPACK by
-\texttt{models/export\_landmark\_models\_xnnpack\_quantized.py}, which applies
+\texttt{models/export\_landmark\_models\_xnnpack\_quantized.py}, which does
 symmetric PTQ.
 
 \subsection{What INT8 PTQ means in this deployment pipeline}
 
-In practical terms, the exported graph replaces supported FP32 operators with
+Simply put, the exported graph replaces supported FP32 operators with
 INT8 kernels (mainly convolution and linear-family operations in XNNPACK). The
 internal arithmetic is typically INT8$\times$INT8 with INT32 accumulation,
 followed by requantization to the next expected tensor format.
@@ -322,12 +304,11 @@ This usually helps mobile inference because:
 
 However, measured gains depend on full-graph compatibility. If unsupported
 operators force fallback segments, extra quantize/dequantize boundaries appear
-and reduce net speed benefit. This explains why model-wise INT8 speedups in the
-results chapter are not uniform.
+and reduce net speed benefit. This explains why INT8 speedups in the
+results chapter are not uniform across all models.
 
-For landmark regression, INT8 error sensitivity is model-dependent: models with
-stronger redundancy can absorb quantization noise better, while compact or
-outlier-sensitive layers may show visible NME degradation if calibration is not
+For landmark regression, INT8 error sensitivity is depends on the model: compact or
+outlier-sensitive layers can produce NME degradation if calibration is not
 representative.
 
 \subsection{Implemented PTQ workflow in the export scripts}
@@ -341,17 +322,15 @@ For each model and selected quantization method, the script runs:
     \item lower to ExecuTorch with XNNPACK partitioner and serialize \texttt{.pte}.
 \end{enumerate}
 
-Two INT8 methods are implemented:
+The INT8 methods implemented:
 \begin{itemize}
     \item \texttt{pc}: per-channel weight quantization
           (file suffix \texttt{\_xnnpack\_int8}),
-    \item \texttt{pt}: per-tensor weight quantization
-          (file suffix \texttt{\_xnnpack\_int8\_pt}).
 \end{itemize}
 
 The quantizer setup is created by
 \texttt{get\_symmetric\_quantization\_config(is\_per\_channel, is\_dynamic)}.
-Hence the key internal PTQ parameters are:
+And the key internal PTQ parameters are:
 \begin{itemize}
     \item \texttt{is\_per\_channel} $\in \{\texttt{True},\texttt{False}\}$,
     \item \texttt{is\_dynamic} $\in \{\texttt{True},\texttt{False}\}$.
@@ -378,7 +357,7 @@ b_{\text{mid}} =
 \subsection{Model-specific safety workarounds used during quantized export}
 
 The implemented export pipeline contains explicit safeguards discovered during
-practical deployment testing:
+the export process to improve stability and quality of the generated INT8 artifacts. These include:
 \begin{itemize}
     \item \textbf{MobileFaceNet output stabilization:} fusion of
           \texttt{Linear+BatchNorm1d} in the output head and export as a
@@ -386,11 +365,6 @@ practical deployment testing:
     \item \textbf{MobileFaceNet XNNPACK stability:} exclusion of
           \texttt{PreluConfig} from XNNPACK delegation to avoid unstable runtime
           behavior;
-    \item \textbf{MobileFaceNet static INT8 workaround:} static-shape export may
-          reuse a dynamic-activation PTQ graph
-          (controlled by \texttt{MOBILEFACENET\_STATIC\_INT8\_DYNAMIC\_ACT\_WORKAROUND});
-    \item \textbf{Method filtering:} per-tensor INT8 is not used for
-          MobileFaceNet in this export pipeline due to known instability.
 \end{itemize}
 
 \subsection{Export-script parameters relevant to quantization}
@@ -417,7 +391,7 @@ The quantized export process is controlled through environment parameters:
 For completeness, the same export ecosystem also accepts backend-target
 parameters used by non-quantized scripts
 (\texttt{QNN\_SOC\_MODEL}, \texttt{MTK\_PLATFORM\_CONFIG},
-\texttt{SAMSUNG\_CHIPSET}, \texttt{EXPORT\_APPLE\_BACKENDS}), which influence
+\texttt{SAMSUNG\_CHIPSET}, \texttt{EXPORT\_APPLE\_BACKENDS}), which have an effect on
 which delegate variants are generated but do not change INT8 calibration rules.
 
 %---------------------------------------------------------------
@@ -473,13 +447,9 @@ Equivalent behavior includes:
     \item consistent warm-up and measured iterations.
 \end{itemize}
 
-This principle follows the project guideline that iOS and Android applications
-should remain equivalent in features and purpose.
-
 \section{Dataset and inputs}
 
-AFW-based landmark annotations are used for accuracy-oriented offline
-recomputation \cite{zhu2012facedetectionwild}.
+AFW-based landmark annotations are used for evaluation of the accuracy \cite{zhu2012facedetectionwild}.
 
 \section{Metrics}
 
@@ -510,13 +480,12 @@ Run throughput follows the exported timing summary:
 
 BS=1 charts compare median FPS by landmark configuration. Batch-scaling charts
 plot median FPS as a function of resolved landmark batch size
-($b \in \{1,2,4,8\}$ in the curated thesis set). Runs marked with runtime
-fallback to BS=1 are excluded from scaling comparisons.
+($b \in \{1,2,4,8\}$ in the curated thesis set).
 
 \subsection{Landmark accuracy}
 
 Accuracy is recomputed offline from exported per-image predicted landmarks and
-AFW ground truth annotations. For $N$ evaluated images and $K$ landmarks,
+AFW ground truth annotations \cite{zhu2012facedetectionwild}. For $N$ evaluated images and $K$ landmarks,
 inter-ocular NME is
 \begin{equation}
 \mathrm{NME}_{\text{iod}} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}
@@ -524,17 +493,12 @@ inter-ocular NME is
 \end{equation}
 where $d^{\text{iod}}_n$ is the inter-ocular distance for image $n$.
 
-The analysis also keeps FR@0.08, FR@0.1 and AUC@0.1 as supplementary accuracy
-statistics, while the main thesis charts use median
-$\mathrm{NME}_{\text{iod}}$ (lower is better). By analysis rule, accuracy plots
-use iOS rows with valid recomputation payloads (non-zero evaluated images).
-
 \subsection{Optional energy metrics}
 
 If platform tooling allows reliable collection, energy-related signals can be
 logged as supplementary indicators. In this thesis, landmark-inference
-latency, throughput, and landmark accuracy remain primary.
-
+latency, throughput, and landmark accuracy remain primary. Energy metrics are very hard to obtain.
+They are not included in the main results chapter, but they are collected when possible and stored in the raw artifacts for future analysis.
 \section{Measurement protocol}
 
 To reduce noise and measurement bias, each benchmark condition follows a fixed
@@ -548,16 +512,12 @@ protocol:
           postprocessing stages.
 \end{itemize}
 
-Runs that violate schema, contain missing key payloads, or fail consistency
-checks are flagged for exclusion from aggregate statistics.
-
 \section{Run artifacts and offline analysis}
 
 Every run exports a machine-readable summary plus raw samples. Offline analysis
-scripts recompute aggregate statistics and, when possible, recompute accuracy
-from per-image predictions instead of trusting prefilled summary fields. This
-post-hoc recomputation improves robustness against stale metadata and partial
-export errors.
+scripts recompute aggregate statistics and recompute accuracy
+from image predictions instead of trusting prefilled summary fields. This allows for more flexible and transparent analysis, 
+as well as the possibility to add new metrics without rerunning benchmarks.
 
 \section{Threats to validity}
 
@@ -576,15 +536,8 @@ Main threats and mitigations include:
 
 \section{Result scope and source artifacts}
 
-This chapter uses only generated artifacts from
-\texttt{benchmarks/results/combined}. Figures are loaded directly from
-\texttt{../benchmarks/results/combined/charts/*} and all numeric tables are
-based on CSV files in \texttt{benchmarks/results/combined/tables/*}.
-
 The main simplified dashboard is configured around one focus mobile device
-(Xiaomi Redmi Note 8 Pro) with PC reference rows. In addition, per-device chart
-packs generated in \texttt{benchmarks/results/combined/charts/device\_iphone\_14}
-are used below to include iPhone 14 specific analysis and tables.
+(Xiaomi Redmi Note 8 Pro) with PC reference rows. In addition iPhone 14 results are included.
 
 \section{BS=1 speed and latency overview (PC vs focus device)}
 
@@ -602,10 +555,21 @@ are used below to include iPhone 14 specific analysis and tables.
     \label{fig:simple-bs1-latency}
 \end{figure}
 
-Figures~\ref{fig:simple-bs1-fps} and~\ref{fig:simple-bs1-latency} show the
-expected gap between desktop and mobile execution at BS=1. The PC reference is
-consistently faster and has lower landmark-inference latency, while the focus
-phone remains the practical on-device target for deployment-oriented testing.
+Figures~\ref{fig:simple-bs1-fps} and~\ref{fig:simple-bs1-latency} quantify the
+gap between desktop and mobile execution at BS=1. The PC reaches roughly
+16--25~FPS across all four landmark models, while the focus phone falls into a
+much narrower 3--8~FPS band. The gap is not uniform: it is smallest for the
+lightweight PFLD-MNv2-0.25 (PC/phone $\approx$~2.0$\times$ in FPS) and largest
+for PipNet-R18 in FP32, where the PC is roughly an order of magnitude faster
+($24.86$ vs $2.28$~FPS, i.e.\ $\sim$10.9$\times$). End-to-end latency mirrors
+this asymmetry: the PC stays close to the camera-driven 60~ms floor for every
+model, whereas the phone latency varies from $\sim$105~ms (PFLD-MNv2-0.25) to
+$\sim$420~ms (PipNet-R18 FP32). Two observations follow. First, PC numbers act
+as an upper bound that is dominated by pipeline overhead rather than landmark
+inference, so they cannot be used as a proxy for on-device behaviour. Second,
+the per-model spread on the phone is large enough that backend and
+quantization choice---not raw model FLOPs alone---will determine whether a
+given configuration is deployable in real time.
 
 \section{Focus-device backend and quantization at BS=1}
 
@@ -650,11 +614,34 @@ All numeric table values in this chapter are taken from
 \path{simple_batch_scaling_pc_vs_focus_device.csv}, and
 \path{simple_pc_int8_vs_xiaomi_redmi_note_8_pro_xnn_speedup_bs1.csv}.
 
-Table~\ref{tab:focus-bs1-raw} confirms what is visible in
-Figures~\ref{fig:focus-bs1-fps} and~\ref{fig:focus-bs1-nme}: INT8 improves
-runtime strongly for heavier models (especially PipNet ResNet18 and
-PFLD-MNv2-1.0), while accuracy impact is model-dependent. For MobileFaceNet,
-accuracy is almost unchanged; for PFLD-MNv2-1.0, NME increases.
+Table~\ref{tab:focus-bs1-raw} together with
+Figures~\ref{fig:focus-bs1-fps} and~\ref{fig:focus-bs1-nme} reveals a clear
+two-regime pattern on the focus device. \emph{Compute-bound} models---those
+whose FP32 landmark forward pass dominates the pipeline---benefit strongly
+from INT8: PipNet-R18 gains 2.42$\times$ in FPS ($2.28 \rightarrow 5.53$) and
+its landmark inference drops from $352$~ms to $97$~ms (a 3.6$\times$
+reduction); PFLD-MNv2-1.0 gains 1.24$\times$ in FPS but 2.6$\times$ in
+landmark latency ($61.5 \rightarrow 23.8$~ms). \emph{Pipeline-bound}
+configurations---where landmark inference is already a small fraction of
+end-to-end time---show almost no FPS movement: PFLD-MNv2-0.25 stays at
+$\sim$8~FPS and MobileFaceNet at $\sim$3.4~FPS regardless of quantization. The
+MobileFaceNet case is particularly informative: the FP32 landmark forward is
+already only $\sim$184~ms out of a $\sim$277~ms end-to-end budget, but the
+remaining $\sim$93~ms (heavy RetinaFace detector plus pre/post-processing)
+caps any benefit from compressing the landmark stage further.
+
+The accuracy picture is correspondingly model-dependent. NME for MobileFaceNet
+is essentially unchanged ($0.0428 \rightarrow 0.0428$, $<0.1\%$ relative) and
+PipNet-R18 only degrades by $\sim$3.7\% relative ($0.0446 \rightarrow 0.0463$).
+The PFLD family is more sensitive: PFLD-MNv2-0.25 loses $\sim$6\% relative NME
+($0.0978 \rightarrow 0.1039$) and the heavier PFLD-MNv2-1.0 loses $\sim$27\%
+relative ($0.0798 \rightarrow 0.1014$). The PFLD-MNv2-1.0 case is the
+canonical speed/accuracy trade-off in this benchmark: a 24\% FPS gain costs a
+27\% NME increase, which may or may not be acceptable depending on the
+downstream use case. PipNet-R18 INT8, by contrast, is a near-Pareto win---the
+largest speed gain in the matrix accompanied by a barely measurable accuracy
+loss---making it the strongest INT8 candidate among the tested models on this
+device.
 
 \section{Batch scaling on focus device (BS=1,2,4,8)}
 
@@ -706,11 +693,21 @@ PipNet-R18    & INT8 & 97.46  & 55.81  & 37.10  & 27.26 \\
 \label{tab:focus-batch-lm-ms}
 \end{table}
 
-The batch-scaling tables provide two complementary views. FPS stays relatively
-stable across larger batch sizes, while per-image landmark latency drops
-substantially. This indicates that batching makes landmark forward pass more
-efficient, but full pipeline throughput is constrained by additional stages
-(detector and surrounding pipeline steps).
+The two batch-scaling tables together expose where the on-device pipeline
+spends its time. End-to-end FPS for PFLD-MNv2-1.0 stays in a tight $5.4$--$6.0$
+range (FP32) and $7.2$--$7.7$ range (INT8) from BS=1 to BS=8, while PipNet-R18
+hovers at $\sim$2.3~FPS (FP32) and $\sim$5.4--5.7~FPS (INT8). In contrast,
+per-image landmark inference latency falls almost linearly with batch size:
+PFLD-MNv2-1.0 INT8 drops from $23.78$~ms to $5.29$~ms ($4.5\times$ across
+$8\times$ batch), and PipNet-R18 INT8 from $97.46$~ms to $27.26$~ms
+($3.6\times$). The implication is that XNNPACK is genuinely amortising kernel
+overhead and exploiting cache reuse inside the landmark forward pass, but the
+fixed per-frame cost of detection, ROI cropping, and post-processing is large
+enough on this device to swallow those gains at the end-to-end level. In
+practical terms, batching is only useful here if the application can consume
+landmark outputs offline (e.g.\ multi-frame analysis, gallery enrolment); for
+single-frame real-time use, BS=1 is essentially optimal because the pipeline
+is detector-bound, not landmark-bound.
 
 \section{Quantization deltas and cumulative error behavior}
 
@@ -743,7 +740,6 @@ efficient, but full pipeline throughput is constrained by additional stages
 Model & PC INT8 FPS & Focus INT8 FPS & PC E2E [ms] & Focus E2E [ms] \\
 \hline
 MobileFaceNet      & 16.75 & 3.46 & 59.64 & 272.20 \\
-PFLD-Blaze         & 16.44 & 7.96 & 60.68 & 108.49 \\
 PFLD-MNv2-0.25     & 16.63 & 8.24 & 59.92 & 104.81 \\
 PFLD-MNv2-1.0      & 16.35 & 7.22 & 61.01 & 121.56 \\
 PipNet-R18         & 24.86 & 5.53 & 40.19 & 164.59 \\
@@ -753,10 +749,28 @@ PipNet-R18         & 24.86 & 5.53 & 40.19 & 164.59 \\
 \label{tab:pc-vs-focus-raw}
 \end{table}
 
-Table~\ref{tab:pc-vs-focus-raw} is intentionally numeric-only (no ratio
-columns). It gives direct deployment context: for every model, the same INT8
-configuration is faster on PC, while the mobile path keeps practical on-device
-latency and accuracy characteristics for real usage.
+Figure~\ref{fig:focus-int8-speed} summarises the BS=1 INT8/FP32 FPS ratio per
+model and makes the two-regime story visually explicit: MobileFaceNet and
+PFLD-MNv2-0.25 sit on the unity line ($1.02\times$ and $1.02\times$),
+PFLD-MNv2-1.0 reaches $1.24\times$, and PipNet-R18 is the clear outlier at
+$2.42\times$. Combined with the cumulative NME curves
+(Figure~\ref{fig:focus-cdf-nme}), where the FP32 and INT8 distributions
+overlap closely for MobileFaceNet and PipNet-R18 but separate visibly for
+PFLD-MNv2-1.0, the data supports a simple deployment heuristic: prefer INT8
+unconditionally for PipNet-R18, treat it as a free-but-small win for
+MobileFaceNet, and treat it as a conscious accuracy/throughput trade for the
+PFLD family.
+
+Table~\ref{tab:pc-vs-focus-raw} closes the section with the absolute
+deployment gap. After INT8 quantization on both sides, PC throughput is still
+$2.0\times$--$4.8\times$ higher than the phone, and the gap is largest for
+the smallest models (MobileFaceNet at $4.85\times$) because their on-device
+runtime is dominated by fixed pipeline cost while PC stays near the 60~ms
+camera-cycle floor. The ratio is therefore not a measure of model
+``portability'' but a measure of how thoroughly each platform's pipeline cost
+hides the landmark-stage savings. The mobile column should be read as the
+ground truth for deployment planning; the PC column only sets an upper-bound
+expectation under ideal compute conditions.
 
 \section{iPhone 14 charts, tables, and interpretation}
 
@@ -822,18 +836,37 @@ PipNet-R18         & 133.35 & 338.35 & 186.01 & 13698.42 \\
 \label{tab:iphone-bs1-e2e}
 \end{table}
 
-Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} explain the main
-backend trend on iPhone 14. Core ML is consistently fastest because it can use
-highly optimized Apple kernels and delegate scheduling across Apple hardware.
-XNNPACK is slower than Core ML but remains practical. Portable execution is by
-far the slowest because it runs generic kernels without strong backend-specific
-acceleration.
+Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} expose three
+distinct backend regimes on iPhone 14. The most striking pattern is that Core
+ML delivers a remarkably uniform $7.1$--$8.6$~FPS across all four landmark
+models---from the smallest PFLD-MNv2-0.25 to the heaviest PipNet-R18---which
+is only possible because Apple's accelerated kernels reduce the landmark
+forward pass to essentially zero (median landmark inference of $0.34$--$1.43$~ms
+for Core ML in the underlying CSV). At that point, the bottleneck has moved
+entirely to the detector (RetinaFace / FaceBoxesV2) and the surrounding
+pre/post-processing, and end-to-end FPS becomes a measure of pipeline cost
+rather than model cost. This is a different operating point from XNNPACK,
+where landmark inference is still measurable (4--44~ms in FP32) and therefore
+still tunable through quantization.
 
-INT8 gains depend on model complexity. For smaller models (MobileFaceNet,
-PFLD-MNv2-0.25), FPS gains are modest because detector and fixed pipeline costs
-already consume a large share of total runtime. For heavier models
-(PFLD-MNv2-1.0 and especially PipNet-R18), INT8 reduces compute and memory
-traffic enough to produce much larger end-to-end improvements.
+The XNNPACK-vs-Portable comparison quantifies the cost of giving up
+backend-specific acceleration: Portable is $17$--$97\times$ slower than Core
+ML on the same model
+(see~\path{benchmarks/results/combined/tables/iphone14_backend_speedups_bs1.csv}),
+ranging from $17.3\times$ for PFLD-MNv2-0.25 to $97.1\times$ for PipNet-R18.
+Portable is therefore unsuitable for any deployed configuration; it is only
+useful as a correctness baseline.
+
+The INT8/FP32 split on XNNPACK follows the same model-dependent pattern as on
+the Xiaomi: PipNet-R18 is again the largest winner (FPS $2.81 \rightarrow
+4.94$, $1.76\times$; landmark inference $44.5 \rightarrow 9.7$~ms,
+$4.6\times$), PFLD-MNv2-1.0 moves modestly ($1.10\times$ FPS, $3.4\times$
+landmark inference), and the smaller models barely move ($\leq 1.05\times$
+FPS). The fact that PFLD-MNv2-1.0 INT8 cuts landmark inference by $3.4\times$
+without translating into a comparable FPS gain confirms that the iOS pipeline,
+like the Android one, is detector-bound for small landmark models---only
+PipNet-R18 has a heavy enough forward pass for INT8 to surface at the
+end-to-end level.
 
 \begin{figure}[htbp]
     \centering
@@ -883,11 +916,19 @@ PipNet-R18    & INT8 & 9.66 & 4.82 & 2.46 & 1.22 \\
 \label{tab:iphone-batch-lm}
 \end{table}
 
-The iPhone 14 batch-scaling pattern matches the focus-device behavior: FPS is
-relatively stable as batch increases, while per-image landmark latency drops
-strongly. The reason is that batching improves arithmetic efficiency inside the
-landmark forward pass, but detector, preprocessing, and postprocessing still
-limit overall pipeline FPS.
+The iPhone 14 batch-scaling pattern is qualitatively the same as on the
+Xiaomi---FPS is essentially flat while per-image landmark latency falls
+super-linearly with batch size---but the absolute numbers are extreme.
+PFLD-MNv2-1.0 INT8 lands at $0.17$~ms per image at BS=8, and PipNet-R18 INT8
+at $1.22$~ms; in both cases the landmark forward has effectively been
+amortised away. End-to-end FPS, however, only drifts from $5.78$ to $5.91$
+for PFLD-MNv2-1.0 FP32 and from $2.81$ to $2.93$ for PipNet-R18 FP32,
+confirming that what remains in the wall-clock time is detector and pipeline
+cost, not landmark inference. The practical takeaway for iPhone 14 deployment
+is the same as for the Xiaomi: increasing batch is a no-op for real-time
+single-frame use, and the only path to higher single-frame FPS is reducing
+detector cost or switching the landmark model to Core ML to remove
+landmark-stage time from the critical path entirely.
 
 \begin{table}[htbp]
 \centering
@@ -906,15 +947,29 @@ PipNet-R18         & 24.86 & 4.94 & 40.19 & 186.01 \\
 \label{tab:pc-vs-iphone-raw}
 \end{table}
 
-Table~\ref{tab:pc-vs-iphone-raw} gives direct context for deployment planning:
-PC remains faster for all tested models due higher compute throughput and
-memory bandwidth, while iPhone 14 still provides stable on-device performance
-in the practical FPS range.
+Table~\ref{tab:pc-vs-iphone-raw} sets the deployment context. With the same
+INT8 XNNPACK configuration on both sides, the PC is $2.46\times$ faster on
+PFLD-MNv2-0.25, $2.58\times$ on PFLD-MNv2-1.0, $3.12\times$ on MobileFaceNet,
+and $5.03\times$ on PipNet-R18. The pattern is again not driven by model
+``portability'' but by how much of each platform's wall-clock time is fixed
+pipeline cost: PC end-to-end stays close to the 40--60~ms detector-pipeline
+floor, while iPhone 14 sits in the $135$--$186$~ms range where the landmark
+forward pass still contributes a measurable share. Compared to the Xiaomi
+INT8 path (Table~\ref{tab:pc-vs-focus-raw}), the iPhone 14 is roughly
+$1.5\times$--$2\times$ faster in end-to-end terms on every model and closes
+the PC gap by a similar factor---a useful reference point when choosing
+between Android-class and iOS-class targets for deployment.
 
-For accuracy, the current combined export does not include valid recomputed NME
-rows for iPhone 14 in this filtered dataset, so iPhone-specific accuracy charts
-are not generated here. This is a data-availability limitation, not a runtime
-measurement issue.
+For accuracy, the current combined export does not include valid recomputed
+NME rows for iPhone 14 in this filtered dataset, so iPhone-specific accuracy
+charts are not generated here. This is a data-availability limitation, not a
+runtime measurement issue. Because the underlying landmark model and the INT8
+quantization recipe are identical to the Android path, the per-model
+relative-NME deltas observed in
+Figure~\ref{fig:focus-int8-accuracy-delta}---near-zero for MobileFaceNet and
+PipNet-R18, larger for the PFLD family---can be used as a first-order
+estimate of expected iPhone 14 accuracy behaviour pending a future evaluation
+pass.
 
 %---------------------------------------------------------------
 \chapter{Conclusion}
