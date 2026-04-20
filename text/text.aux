@@ -7,7 +7,6 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Problem statement}{1}{section.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Research objectives}{2}{section.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}Alignment with thesis assignment tasks}{2}{section.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}Thesis structure}{2}{section.1.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical background}{3}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -22,10 +21,10 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2.5}Face detection and landmark estimation}{5}{section.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Task definitions}{5}{subsection.2.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Representative models}{5}{subsection.2.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Datasets and annotation uncertainty}{5}{subsection.2.5.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Qualitative properties of models used in the benchmark matrix.}}{6}{table.caption.9}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{tab:model-properties-qual}{{2.1}{6}{Qualitative properties of models used in the benchmark matrix}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Datasets and annotation uncertainty}{6}{subsection.2.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}ExecuTorch for mobile deployment}{7}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -64,8 +63,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 median landmark-inference latency: PC vs focus device (from combined charts).}}{16}{figure.caption.11}\protected@file@percent }
 \newlabel{fig:simple-bs1-latency}{{5.2}{16}{BS=1 median landmark-inference latency: PC vs focus device (from combined charts)}{figure.caption.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}Focus-device backend and quantization at BS=1}{16}{section.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Focus device: BS=1 speed by backend and quantization.}}{17}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:focus-bs1-fps}{{5.3}{17}{Focus device: BS=1 speed by backend and quantization}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Focus device: BS=1 speed by backend and quantization.}}{16}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:focus-bs1-fps}{{5.3}{16}{Focus device: BS=1 speed by backend and quantization}{figure.caption.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{17}{figure.caption.13}\protected@file@percent }
 \newlabel{fig:focus-bs1-nme}{{5.4}{17}{Focus device: BS=1 NME accuracy by backend and quantization (lower is better)}{figure.caption.13}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Focus-device BS=1 XNNPACK metrics (raw values).}}{17}{table.caption.14}\protected@file@percent }
@@ -73,49 +72,49 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Batch scaling on focus device (BS=1,2,4,8)}{18}{section.5.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0 (XNNPACK variants).}}{18}{figure.caption.15}\protected@file@percent }
 \newlabel{fig:focus-batch-pfld10}{{5.5}{18}{Focus device batch scaling for PFLD-MNv2-1.0 (XNNPACK variants)}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PipNet ResNet18 (XNNPACK variants).}}{19}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:focus-batch-pipnet}{{5.6}{19}{Focus device batch scaling for PipNet ResNet18 (XNNPACK variants)}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PipNet ResNet18 (XNNPACK variants).}}{18}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:focus-batch-pipnet}{{5.6}{18}{Focus device batch scaling for PipNet ResNet18 (XNNPACK variants)}{figure.caption.16}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Focus-device batch scaling in FPS (raw values).}}{19}{table.caption.17}\protected@file@percent }
 \newlabel{tab:focus-batch-fps}{{5.2}{19}{Focus-device batch scaling in FPS (raw values)}{table.caption.17}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Focus-device batch scaling in landmark-inference latency (raw values).}}{19}{table.caption.18}\protected@file@percent }
 \newlabel{tab:focus-batch-lm-ms}{{5.3}{19}{Focus-device batch scaling in landmark-inference latency (raw values)}{table.caption.18}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Quantization deltas and cumulative error behavior}{20}{section.5.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: INT8 vs FP32 speed comparison at BS=1.}}{20}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:focus-int8-speed}{{5.7}{20}{Focus device: INT8 vs FP32 speed comparison at BS=1}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Quantization deltas and cumulative error behavior}{19}{section.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: INT8 vs FP32 speed comparison at BS=1.}}{19}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:focus-int8-speed}{{5.7}{19}{Focus device: INT8 vs FP32 speed comparison at BS=1}{figure.caption.19}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{20}{figure.caption.20}\protected@file@percent }
 \newlabel{fig:focus-int8-accuracy-delta}{{5.8}{20}{Focus device: INT8 vs FP32 NME difference at BS=1}{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs.}}{21}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:focus-cdf-nme}{{5.9}{21}{Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs}{figure.caption.21}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 raw metrics.}}{21}{table.caption.22}\protected@file@percent }
-\newlabel{tab:pc-vs-focus-raw}{{5.4}{21}{BS=1 PC INT8 and focus-device INT8 raw metrics}{table.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median FPS (device-focused chart pack).}}{22}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:iphone-simple-fps}{{5.10}{22}{iPhone 14: BS=1 median FPS (device-focused chart pack)}{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{22}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:iphone-simple-latency}{{5.11}{22}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs.}}{20}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:focus-cdf-nme}{{5.9}{20}{Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs}{figure.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 raw metrics.}}{20}{table.caption.22}\protected@file@percent }
+\newlabel{tab:pc-vs-focus-raw}{{5.4}{20}{BS=1 PC INT8 and focus-device INT8 raw metrics}{table.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}iPhone 14 charts, tables, and interpretation}{21}{section.5.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median FPS (device-focused chart pack).}}{21}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:iphone-simple-fps}{{5.10}{21}{iPhone 14: BS=1 median FPS (device-focused chart pack)}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{21}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:iphone-simple-latency}{{5.11}{21}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.24}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14: BS=1 speed by backend and quantization.}}{22}{figure.caption.25}\protected@file@percent }
 \newlabel{fig:iphone-focus-backend}{{5.12}{22}{iPhone 14: BS=1 speed by backend and quantization}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: INT8 and FP32 speed comparison at BS=1.}}{23}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:iphone-int8-speed}{{5.13}{23}{iPhone 14: INT8 and FP32 speed comparison at BS=1}{figure.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 throughput by backend (raw values).}}{23}{table.caption.27}\protected@file@percent }
-\newlabel{tab:iphone-bs1-fps}{{5.5}{23}{iPhone 14 BS=1 throughput by backend (raw values)}{table.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend (raw values).}}{23}{table.caption.28}\protected@file@percent }
-\newlabel{tab:iphone-bs1-e2e}{{5.6}{23}{iPhone 14 BS=1 end-to-end latency by backend (raw values)}{table.caption.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}iPhone 14 charts, tables, and interpretation}{24}{section.5.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{24}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:iphone-batch-pfld10}{{5.14}{24}{iPhone 14 batch scaling for PFLD-MNv2-1.0}{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{25}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:iphone-batch-pipnet}{{5.15}{25}{iPhone 14 batch scaling for PipNet ResNet18}{figure.caption.30}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in FPS (raw values).}}{25}{table.caption.31}\protected@file@percent }
-\newlabel{tab:iphone-batch-fps}{{5.7}{25}{iPhone 14 batch scaling in FPS (raw values)}{table.caption.31}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency (raw values).}}{25}{table.caption.32}\protected@file@percent }
-\newlabel{tab:iphone-batch-lm}{{5.8}{25}{iPhone 14 batch scaling in landmark-inference latency (raw values)}{table.caption.32}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 raw metrics.}}{26}{table.caption.33}\protected@file@percent }
-\newlabel{tab:pc-vs-iphone-raw}{{5.9}{26}{BS=1 PC INT8 and iPhone 14 INT8 raw metrics}{table.caption.33}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{27}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: INT8 and FP32 speed comparison at BS=1.}}{22}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:iphone-int8-speed}{{5.13}{22}{iPhone 14: INT8 and FP32 speed comparison at BS=1}{figure.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 throughput by backend (raw values).}}{22}{table.caption.27}\protected@file@percent }
+\newlabel{tab:iphone-bs1-fps}{{5.5}{22}{iPhone 14 BS=1 throughput by backend (raw values)}{table.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend (raw values).}}{22}{table.caption.28}\protected@file@percent }
+\newlabel{tab:iphone-bs1-e2e}{{5.6}{22}{iPhone 14 BS=1 end-to-end latency by backend (raw values)}{table.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{23}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:iphone-batch-pfld10}{{5.14}{23}{iPhone 14 batch scaling for PFLD-MNv2-1.0}{figure.caption.29}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in FPS (raw values).}}{23}{table.caption.31}\protected@file@percent }
+\newlabel{tab:iphone-batch-fps}{{5.7}{23}{iPhone 14 batch scaling in FPS (raw values)}{table.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{24}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:iphone-batch-pipnet}{{5.15}{24}{iPhone 14 batch scaling for PipNet ResNet18}{figure.caption.30}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency (raw values).}}{24}{table.caption.32}\protected@file@percent }
+\newlabel{tab:iphone-batch-lm}{{5.8}{24}{iPhone 14 batch scaling in landmark-inference latency (raw values)}{table.caption.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 raw metrics.}}{24}{table.caption.33}\protected@file@percent }
+\newlabel{tab:pc-vs-iphone-raw}{{5.9}{24}{BS=1 PC INT8 and iPhone 14 INT8 raw metrics}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{25}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{text/text}{
-\setcounter{page}{28}
+\setcounter{page}{26}
 \setcounter{equation}{0}
 \setcounter{enumi}{7}
 \setcounter{enumii}{0}
@@ -140,7 +139,7 @@
 \setcounter{Item}{30}
 \setcounter{Hfootnote}{0}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{56}
+\setcounter{bookmark@seq@number}{55}
 \setcounter{AM@survey}{0}
 \setcounter{tabx@nest}{0}
 \setcounter{listtotal}{0}
@@ -151,7 +150,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{40}
+\setcounter{instcount}{0}
 \setcounter{maxnames}{99}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{3}

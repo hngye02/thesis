@@ -561,15 +561,7 @@ gap between desktop and mobile execution at BS=1. The PC reaches roughly
 much narrower 3--8~FPS band. The gap is not uniform: it is smallest for the
 lightweight PFLD-MNv2-0.25 (PC/phone $\approx$~2.0$\times$ in FPS) and largest
 for PipNet-R18 in FP32, where the PC is roughly an order of magnitude faster
-($24.86$ vs $2.28$~FPS, i.e.\ $\sim$10.9$\times$). End-to-end latency mirrors
-this asymmetry: the PC stays close to the camera-driven 60~ms floor for every
-model, whereas the phone latency varies from $\sim$105~ms (PFLD-MNv2-0.25) to
-$\sim$420~ms (PipNet-R18 FP32). Two observations follow. First, PC numbers act
-as an upper bound that is dominated by pipeline overhead rather than landmark
-inference, so they cannot be used as a proxy for on-device behaviour. Second,
-the per-model spread on the phone is large enough that backend and
-quantization choice---not raw model FLOPs alone---will determine whether a
-given configuration is deployable in real time.
+($24.86$ vs $2.28$~FPS, i.e.\ $\sim$10.9$\times$).
 
 \section{Focus-device backend and quantization at BS=1}
 
@@ -608,27 +600,10 @@ PipNet-R18         & INT8 & 5.53 & 97.46  & 164.59 & 0.0463 \\
 \label{tab:focus-bs1-raw}
 \end{table}
 
-All numeric table values in this chapter are taken from
-\path{benchmarks/results/combined/tables}, mainly
-\path{simple_bs1_pc_vs_focus_device.csv},
-\path{simple_batch_scaling_pc_vs_focus_device.csv}, and
-\path{simple_pc_int8_vs_xiaomi_redmi_note_8_pro_xnn_speedup_bs1.csv}.
-
-Table~\ref{tab:focus-bs1-raw} together with
-Figures~\ref{fig:focus-bs1-fps} and~\ref{fig:focus-bs1-nme} reveals a clear
-two-regime pattern on the focus device. \emph{Compute-bound} models---those
-whose FP32 landmark forward pass dominates the pipeline---benefit strongly
-from INT8: PipNet-R18 gains 2.42$\times$ in FPS ($2.28 \rightarrow 5.53$) and
+PipNet-R18 gains 2.42$\times$ in FPS ($2.28 \rightarrow 5.53$) and
 its landmark inference drops from $352$~ms to $97$~ms (a 3.6$\times$
 reduction); PFLD-MNv2-1.0 gains 1.24$\times$ in FPS but 2.6$\times$ in
-landmark latency ($61.5 \rightarrow 23.8$~ms). \emph{Pipeline-bound}
-configurations---where landmark inference is already a small fraction of
-end-to-end time---show almost no FPS movement: PFLD-MNv2-0.25 stays at
-$\sim$8~FPS and MobileFaceNet at $\sim$3.4~FPS regardless of quantization. The
-MobileFaceNet case is particularly informative: the FP32 landmark forward is
-already only $\sim$184~ms out of a $\sim$277~ms end-to-end budget, but the
-remaining $\sim$93~ms (heavy RetinaFace detector plus pre/post-processing)
-caps any benefit from compressing the landmark stage further.
+landmark latency ($61.5 \rightarrow 23.8$~ms).
 
 The accuracy picture is correspondingly model-dependent. NME for MobileFaceNet
 is essentially unchanged ($0.0428 \rightarrow 0.0428$, $<0.1\%$ relative) and
@@ -638,7 +613,7 @@ The PFLD family is more sensitive: PFLD-MNv2-0.25 loses $\sim$6\% relative NME
 relative ($0.0798 \rightarrow 0.1014$). The PFLD-MNv2-1.0 case is the
 canonical speed/accuracy trade-off in this benchmark: a 24\% FPS gain costs a
 27\% NME increase, which may or may not be acceptable depending on the
-downstream use case. PipNet-R18 INT8, by contrast, is a near-Pareto win---the
+actual use case. PipNet-R18 INT8, by contrast, is a near-Pareto win---the
 largest speed gain in the matrix accompanied by a barely measurable accuracy
 loss---making it the strongest INT8 candidate among the tested models on this
 device.
@@ -693,21 +668,13 @@ PipNet-R18    & INT8 & 97.46  & 55.81  & 37.10  & 27.26 \\
 \label{tab:focus-batch-lm-ms}
 \end{table}
 
-The two batch-scaling tables together expose where the on-device pipeline
-spends its time. End-to-end FPS for PFLD-MNv2-1.0 stays in a tight $5.4$--$6.0$
+FPS for PFLD-MNv2-1.0 stays in a tight $5.4$--$6.0$
 range (FP32) and $7.2$--$7.7$ range (INT8) from BS=1 to BS=8, while PipNet-R18
 hovers at $\sim$2.3~FPS (FP32) and $\sim$5.4--5.7~FPS (INT8). In contrast,
 per-image landmark inference latency falls almost linearly with batch size:
 PFLD-MNv2-1.0 INT8 drops from $23.78$~ms to $5.29$~ms ($4.5\times$ across
 $8\times$ batch), and PipNet-R18 INT8 from $97.46$~ms to $27.26$~ms
-($3.6\times$). The implication is that XNNPACK is genuinely amortising kernel
-overhead and exploiting cache reuse inside the landmark forward pass, but the
-fixed per-frame cost of detection, ROI cropping, and post-processing is large
-enough on this device to swallow those gains at the end-to-end level. In
-practical terms, batching is only useful here if the application can consume
-landmark outputs offline (e.g.\ multi-frame analysis, gallery enrolment); for
-single-frame real-time use, BS=1 is essentially optimal because the pipeline
-is detector-bound, not landmark-bound.
+($3.6\times$).
 
 \section{Quantization deltas and cumulative error behavior}
 
@@ -757,20 +724,14 @@ $2.42\times$. Combined with the cumulative NME curves
 (Figure~\ref{fig:focus-cdf-nme}), where the FP32 and INT8 distributions
 overlap closely for MobileFaceNet and PipNet-R18 but separate visibly for
 PFLD-MNv2-1.0, the data supports a simple deployment heuristic: prefer INT8
-unconditionally for PipNet-R18, treat it as a free-but-small win for
-MobileFaceNet, and treat it as a conscious accuracy/throughput trade for the
-PFLD family.
+unconditionally for PipNet-R18, for
+MobileFaceNet we can consider INT8 quantization as a free but small win , 
+and for the PFLD family models we have to consider if the accuracy/throughput tradeoff is worth it.
 
-Table~\ref{tab:pc-vs-focus-raw} closes the section with the absolute
+Table~\ref{tab:pc-vs-focus-raw} shows the absolute
 deployment gap. After INT8 quantization on both sides, PC throughput is still
 $2.0\times$--$4.8\times$ higher than the phone, and the gap is largest for
-the smallest models (MobileFaceNet at $4.85\times$) because their on-device
-runtime is dominated by fixed pipeline cost while PC stays near the 60~ms
-camera-cycle floor. The ratio is therefore not a measure of model
-``portability'' but a measure of how thoroughly each platform's pipeline cost
-hides the landmark-stage savings. The mobile column should be read as the
-ground truth for deployment planning; the PC column only sets an upper-bound
-expectation under ideal compute conditions.
+the smallest models (MobileFaceNet at $4.85\times$).
 
 \section{iPhone 14 charts, tables, and interpretation}
 
@@ -836,24 +797,21 @@ PipNet-R18         & 133.35 & 338.35 & 186.01 & 13698.42 \\
 \label{tab:iphone-bs1-e2e}
 \end{table}
 
-Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} expose three
-distinct backend regimes on iPhone 14. The most striking pattern is that Core
+Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} the difference between 
+three different backend delegates on iPhone 14. The most striking pattern is that Core
 ML delivers a remarkably uniform $7.1$--$8.6$~FPS across all four landmark
 models---from the smallest PFLD-MNv2-0.25 to the heaviest PipNet-R18---which
 is only possible because Apple's accelerated kernels reduce the landmark
 forward pass to essentially zero (median landmark inference of $0.34$--$1.43$~ms
-for Core ML in the underlying CSV). At that point, the bottleneck has moved
+for Core ML in the underlying CSV). At that point, the bottleneck moves
 entirely to the detector (RetinaFace / FaceBoxesV2) and the surrounding
-pre/post-processing, and end-to-end FPS becomes a measure of pipeline cost
-rather than model cost. This is a different operating point from XNNPACK,
+pre/post-processing. This is a different operating point from XNNPACK,
 where landmark inference is still measurable (4--44~ms in FP32) and therefore
 still tunable through quantization.
 
-The XNNPACK-vs-Portable comparison quantifies the cost of giving up
+The XNNPACK-vs-Portable comparison shows the cost of giving up
 backend-specific acceleration: Portable is $17$--$97\times$ slower than Core
-ML on the same model
-(see~\path{benchmarks/results/combined/tables/iphone14_backend_speedups_bs1.csv}),
-ranging from $17.3\times$ for PFLD-MNv2-0.25 to $97.1\times$ for PipNet-R18.
+ML on the same model ranging from $17.3\times$ for PFLD-MNv2-0.25 to $97.1\times$ for PipNet-R18.
 Portable is therefore unsuitable for any deployed configuration; it is only
 useful as a correctness baseline.
 
@@ -862,11 +820,7 @@ the Xiaomi: PipNet-R18 is again the largest winner (FPS $2.81 \rightarrow
 4.94$, $1.76\times$; landmark inference $44.5 \rightarrow 9.7$~ms,
 $4.6\times$), PFLD-MNv2-1.0 moves modestly ($1.10\times$ FPS, $3.4\times$
 landmark inference), and the smaller models barely move ($\leq 1.05\times$
-FPS). The fact that PFLD-MNv2-1.0 INT8 cuts landmark inference by $3.4\times$
-without translating into a comparable FPS gain confirms that the iOS pipeline,
-like the Android one, is detector-bound for small landmark models---only
-PipNet-R18 has a heavy enough forward pass for INT8 to surface at the
-end-to-end level.
+FPS).
 
 \begin{figure}[htbp]
     \centering
@@ -917,18 +871,11 @@ PipNet-R18    & INT8 & 9.66 & 4.82 & 2.46 & 1.22 \\
 \end{table}
 
 The iPhone 14 batch-scaling pattern is qualitatively the same as on the
-Xiaomi---FPS is essentially flat while per-image landmark latency falls
-super-linearly with batch size---but the absolute numbers are extreme.
+Xiaomi.
 PFLD-MNv2-1.0 INT8 lands at $0.17$~ms per image at BS=8, and PipNet-R18 INT8
 at $1.22$~ms; in both cases the landmark forward has effectively been
 amortised away. End-to-end FPS, however, only drifts from $5.78$ to $5.91$
-for PFLD-MNv2-1.0 FP32 and from $2.81$ to $2.93$ for PipNet-R18 FP32,
-confirming that what remains in the wall-clock time is detector and pipeline
-cost, not landmark inference. The practical takeaway for iPhone 14 deployment
-is the same as for the Xiaomi: increasing batch is a no-op for real-time
-single-frame use, and the only path to higher single-frame FPS is reducing
-detector cost or switching the landmark model to Core ML to remove
-landmark-stage time from the critical path entirely.
+for PFLD-MNv2-1.0 FP32 and from $2.81$ to $2.93$ for PipNet-R18 FP32.
 
 \begin{table}[htbp]
 \centering
@@ -950,36 +897,17 @@ PipNet-R18         & 24.86 & 4.94 & 40.19 & 186.01 \\
 Table~\ref{tab:pc-vs-iphone-raw} sets the deployment context. With the same
 INT8 XNNPACK configuration on both sides, the PC is $2.46\times$ faster on
 PFLD-MNv2-0.25, $2.58\times$ on PFLD-MNv2-1.0, $3.12\times$ on MobileFaceNet,
-and $5.03\times$ on PipNet-R18. The pattern is again not driven by model
-``portability'' but by how much of each platform's wall-clock time is fixed
-pipeline cost: PC end-to-end stays close to the 40--60~ms detector-pipeline
-floor, while iPhone 14 sits in the $135$--$186$~ms range where the landmark
-forward pass still contributes a measurable share. Compared to the Xiaomi
-INT8 path (Table~\ref{tab:pc-vs-focus-raw}), the iPhone 14 is roughly
-$1.5\times$--$2\times$ faster in end-to-end terms on every model and closes
-the PC gap by a similar factor---a useful reference point when choosing
-between Android-class and iOS-class targets for deployment.
-
-For accuracy, the current combined export does not include valid recomputed
-NME rows for iPhone 14 in this filtered dataset, so iPhone-specific accuracy
-charts are not generated here. This is a data-availability limitation, not a
-runtime measurement issue. Because the underlying landmark model and the INT8
-quantization recipe are identical to the Android path, the per-model
-relative-NME deltas observed in
-Figure~\ref{fig:focus-int8-accuracy-delta}---near-zero for MobileFaceNet and
-PipNet-R18, larger for the PFLD family---can be used as a first-order
-estimate of expected iPhone 14 accuracy behaviour pending a future evaluation
-pass.
+and $5.03\times$ on PipNet-R18.
 
 %---------------------------------------------------------------
 \chapter{Conclusion}
 %---------------------------------------------------------------
 
-This thesis presented a full benchmark workflow for mobile face-processing
-models with ExecuTorch, from theoretical background and export details to
-cross-platform runtime evaluation.
+This thesis presented a full benchmark for landmark detection models on mobile devices
+with ExecuTorch, from theoretical background and export details to
+cross platform runtime evaluation.
 
-With respect to the assignment goals, the thesis delivered:
+The thesis delivered:
 \begin{itemize}
     \item implementation and comparison of mobile inference paths on both iOS
           and Android,
@@ -989,16 +917,13 @@ With respect to the assignment goals, the thesis delivered:
     \item optional energy-related telemetry as auxiliary data where available.
 \end{itemize}
 
-Using only generated artifacts in \texttt{benchmarks/results/combined}, the
-results show four main points:
+The results show four main points:
 \begin{itemize}
     \item backend and quantization selection strongly influence runtime;
     \item INT8 can provide major latency and FPS gains for heavier landmark
           models, but accuracy impact depends on the model;
-    \item increasing batch size improves per-image landmark-inference latency,
-          while end-to-end FPS may change only modestly;
-    \item PC reference runs are useful for capacity comparison, but deployment
-          decisions must be made from mobile-device measurements.
+    \item increasing batch size improves per-image landmark-inference latency
+    \item PC reference runs are useful for capacity comparison
 \end{itemize}
 
 Overall, the implemented methodology and artifact pipeline provide a
