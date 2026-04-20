@@ -2,10 +2,10 @@
 \chapter{Reproducibility}
 %---------------------------------------------------------------
 
-This appendix lists the commands used to regenerate the CSV data and the charts
-used in the thesis.
+This appendix lists the commands used to regenerate the CSV data, charts, and
+tables referenced in the thesis.
 
-\section{Generate filtered combined CSV (iPhone 14 + Redmi Note 8 Pro, BS \textless= 8)}
+\section{Generate combined CSV and chart suite (used in thesis)}
 
 From the repository root:
 
@@ -13,26 +13,35 @@ From the repository root:
 ./.venv/bin/python benchmarks/analysis/plot_runs_dashboard.py \
   --mobile-root benchmarks/results/mobile \
   --pc-root benchmarks/results/pc/runs \
-  --devices "iphone 14,xiaomi redmi note 8 pro" \
+  --focus-device "xiaomi redmi note 8 pro" \
   --max-resolved-batch 8 \
-  --output-csv benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
-  --output-dir benchmarks/results/combined/charts_phone_compare_bs8 \
-  --focus-device "iphone 14"
+  --output-csv benchmarks/results/combined/combined_runs_from_json.csv \
+  --output-dir benchmarks/results/combined/charts
 \end{verbatim}
 
-\section{Generate curated thesis charts (per-device + combined)}
-
-\begin{verbatim}
-./.venv/bin/python benchmarks/analysis/plot_phone_pair_thesis.py \
-  --input-csv benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
-  --output-dir thesis/images/benchmarks \
-  --max-batch 8
-\end{verbatim}
-
-\section{Optional summary tables}
+\section{Generate summary tables (used in thesis)}
 
 \begin{verbatim}
 ./.venv/bin/python benchmarks/analysis/summarize_benchmarks.py \
-  --input benchmarks/results/combined/combined_runs_phone_compare_bs8.csv \
-  --output-dir benchmarks/results/combined/tables_phone_compare_bs8
+  --input benchmarks/results/combined/combined_runs_from_json.csv \
+  --output-dir benchmarks/results/combined/tables \
+  --focus-device "xiaomi redmi note 8 pro"
+\end{verbatim}
+
+\section{Export INT8 XNNPACK landmark models (PTQ)}
+
+\begin{verbatim}
+EXPORT_BATCH_SIZES=1 \
+EXPORT_DYNAMIC_BATCH=1 \
+EXPORT_DYNAMIC_MIN_BATCH=1 \
+EXPORT_DYNAMIC_MAX_BATCH=128 \
+XNNPACK_INT8_CALIBRATION_SAMPLES=32 \
+XNNPACK_INT8_METHODS=pc,pt \
+./models/export_landmark_models_xnnpack_quantized.sh
+\end{verbatim}
+
+Optional MobileFaceNet stability switch (enabled by default):
+
+\begin{verbatim}
+MOBILEFACENET_STATIC_INT8_DYNAMIC_ACT_WORKAROUND=1
 \end{verbatim}

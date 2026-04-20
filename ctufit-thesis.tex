@@ -51,7 +51,7 @@
 \ctufitauthorsurnames{Nguyen} % replace with your surname(s) / family name(s)
 \ctufitauthorgivennames{Hung Manh} % replace with your first name(s) / given name(s)
 \ctufitsupervisor{Ing.\,Jan Čech,\,Ph.D.} % replace with name of your supervisor/advisor (include academic degrees)
-\ctufitdepartment{Department of Cybernetics} % replace with the department of your defence
+\ctufitdepartment{Department of Applied Mathematics} % replace with the department of your defence
 \ctufitprogram{Informatics} % replace with your study program
 \ctufitspecialisation{Artificial intelligence} % replace with your specialisation
 \ctufityear{2026} % replace with the year of your defence
@@ -105,7 +105,17 @@
 %%%%%%%%%%%%%%%%%%%%%%
 \usepackage{dirtree}
 %\usepackage{lipsum,tikz} % removed (template example packages)
-\usepackage[style=iso-numeric]{biblatex}
+% ČSN ISO 690 compliant citation/bibliography style (numeric method)
+\usepackage[
+    backend=biber,
+    style=iso-numeric,
+    autolang=other,
+    currentlang,
+    doi=true,
+    isbn=true,
+    url=true,
+    eprint=true
+]{biblatex}
 \usepackage{csquotes} % recommended by biblatex when using babel
 \addbibresource{text/bib-database.bib}
 \usepackage{xurl}
@@ -121,7 +131,7 @@
 
 \thispagestyle{empty}\maketitle\thispagestyle{empty}\cleardoublepage % do not remove these four commands
 
-\includepdf[pages={1-}]{example-assignment-include.pdf} % replace this file with your thesis assignment generated from ProjectsFIT
+\includepdf[pages={1-}]{Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf}
 
 \imprintpage % do not remove this command
 \stopTOCentries
@@ -150,8 +160,19 @@ I also thank my family and friends for their encouragement.
 % ENG: choose one of approved texts of the declaration. DO NOT CREATE YOUR OWN. Find the approved texts at https://courses.fit.cvut.cz/SFE/download/index.html#_documents (document Declaration for FT in English)
 % CZE/SLO: Vyberte jedno z fakultou schvalenych prohlaseni. NEVKLADEJTE VLASTNI TEXT. Schvalena prohlaseni najdete zde: https://courses.fit.cvut.cz/SZZ/dokumenty/index.html#_dokumenty (prohlášení do ZP)
 \begin{declarationpage}
-\textit{TODO: Insert one of the approved declaration texts provided by FIT CTU
-and fill in the required information.}
+I hereby declare that the presented thesis is my own work and that I have cited all
+sources of information in accordance with the Guideline for adhering to ethical
+principles when elaborating an academic final thesis.
+
+I acknowledge that my thesis is subject to the rights and obligations stipulated by the
+Act No.\,121/2000 Coll., the Copyright Act, as amended, in particular that the Czech
+Technical University in Prague has the right to conclude a license agreement on the
+utilization of this thesis as a school work under the provisions of Article\,60\,(1) of the
+Act.
+
+I declare that I have used AI tools during the preparation and writing of my thesis.
+I have verified the generated content. I confirm that I am aware that I am fully
+responsible for the content of the thesis.
 \end{declarationpage}
 %%%%%%%%%%%%%%%%%%%
 % DECLARATION END
