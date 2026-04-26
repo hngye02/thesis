@@ -1,10 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.5)  20 APR 2026 23:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.5)  20 APR 2026 23:23
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
+ \write18 enabled.
  %&-line parsing enabled.
-**/Users/danielnguyen/Desktop/BP/thesis/ctufit-thesis
-(/Users/danielnguyen/Desktop/BP/thesis/ctufit-thesis.tex
+**ctufit-thesis.tex
+(./ctufit-thesis.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./ctufit-thesis.cls
@@ -26,15 +25,19 @@ File: bk11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 274.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/xetex.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `RGB' extended on input line 1365.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
@@ -43,17 +46,22 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/svgnam.def
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/svgnam.def
 File: svgnam.def 2024/09/29 v3.02 Predefined colors according to SVG 1.1 (UK)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/newfloat/newfloat.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/newfloat/newfloat.sty
 Package: newfloat 2023/10/01 v1.2 Defining new floating environments (AR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
 Package newfloat Info: Document class `book' detected (original).
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/silence/silence.sty
-Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error messages
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/silence/silence.sty
+Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
+sages
 \sl@Save=\count267
 \sl@StateNumber=\count268
 \sl@MessageCount=\count269
@@ -74,24 +82,29 @@ LaTeX Info: Redefining \GenericWarning on input line 433.
 \sl@TempBOE=\toks24
 \sl@BankOfErrors=\toks25
 LaTeX Info: Redefining \GenericError on input line 601.
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaT
+eX and XeLaTeX
 \babel@savecnt=\count277
 \U@D=\dimen142
 \l@unhyphenated=\language90
- (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/xebabel.def)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/xebabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count278
 Package babel Info: Main language set with 'main='. Except if you have
 (babel)             problems, prefer the default mechanism for setting
 (babel)             the main language, i.e., as the last declared.
 (babel)             Reported on input line 4095.
- (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-czech/czech.ldf
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-czech/czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
 Package babel Info: Making " an active character on input line 172.
 \cs@wordlen=\count279
 Package babel Info: Making - an active character on input line 226.
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
@@ -99,17 +112,22 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language22). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language22). Reported on input line 108.
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/cs/babel-czech.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/cs/babel-czech.tex
 Package babel Info: Importing font and identification data for czech
 (babel)             from babel-cs.ini. Reported on input line 11.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count280
@@ -124,11 +142,14 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen149
 \Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks26
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen151
 \captionmargin=\dimen152
@@ -142,8 +163,10 @@ Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count283
 \c@continuedfloat=\count284
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
 \f@nch@headwidth=\skip51
 \f@nch@offset@elh=\skip52
 \f@nch@offset@erh=\skip53
@@ -159,7 +182,8 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthC=\skip63
 \f@nch@widthR=\skip64
 \@temptokenb=\toks27
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box52
 \beforetitleunit=\skip65
@@ -170,7 +194,8 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidth=\dimen161
 \titlewidthlast=\dimen162
 \titlewidthfirst=\dimen163
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks29
 \thm@bodyfont=\toks30
@@ -181,9 +206,11 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip68
 \thm@headsep=\skip69
 \dth@everypar=\toks34
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
- (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count285
 \calc@Bcount=\count286
@@ -195,23 +222,28 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count287
 \calc@Cskip=\skip72
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
 \@mathmargin=\skip73
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks35
 \ex@=\dimen166
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen167
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count288
@@ -273,9 +305,11 @@ LaTeX Info: Redefining \] on input line 2954.
 \l_MT_below_shortintertext_sep=\dimen181
 \xmathstrut@box=\box55
 \xmathstrut@dim=\dimen182
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -284,72 +318,98 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 \c@theorem=\count301
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/pdfx.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/pdfx.sty
 Package: pdfx 2024/06/24 v1.6.5f PDF/X and PDF/A support (CVR/HTH/RRM/PS)
 \pdfx@minorversion=\count302
 \pdfx@majorversion=\count303
 \pdfmajorversion=\count304
 \pdfminorversion=\count305
- (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/everyshi/everyshi.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/everyshi/everyshi.sty
 Package: everyshi 2020/11/18 v4.00 EveryShipout Package
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/l8u-penc.def
-File: l8u-penc.def 2017/06/23 v0.8 Custom LaTeX file, for UTF8 encoded letters and symbols
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/l8u-penc.def
+File: l8u-penc.def 2017/06/23 v0.8 Custom LaTeX file, for UTF8 encoded letters 
+and symbols
 LaTeX Info: Composite with undeclared \b in encoding L8U on input line 278.
 )
 \pdfxsafeforxmp@toks=\toks40
 \pdfx@tmptoks=\toks41
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
- (/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count306
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count307
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
 )
 \@linkdim=\dimen183
 \Hy@linkcounter=\count308
 \Hy@pagecounter=\count309
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count310
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `pdfa' set `true' on input line 4040.
@@ -361,16 +421,20 @@ Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
 \c@Hy@tempcnt=\count311
- (/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
 \XeTeXLinkMargin=\dimen184
- (/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
 \Fld@menulength=\count312
 \Field@Width=\dimen185
@@ -382,7 +446,8 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring OFF on input line 6062.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode ON on input line 6070.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -391,35 +456,46 @@ package with kernel methods
 \c@Hfootnote=\count315
 )
 Package hyperref Info: Driver: hxetex.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hxetex.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2024-11-05 v7.01l Hyperref driver for XeTeX
 \pdfm@box=\box56
 \c@Hy@AnnotLevel=\count316
 \HyField@AnnotCount=\count317
 \Fld@listcount=\count318
 \c@bookmark@seq@number=\count319
- (/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
 with kernel methods
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
 )
 \Hy@SectionHShift=\skip77
 )
 Package hyperref Info: Option `psdextra' set `true' on input line 1535.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/psdextra.def
 File: psdextra.def 2024-11-05 v7.01l Hyperref: Additions to PDF string support
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/colorprofiles/colorprofiles.sty
-Package: colorprofiles 2018/11/01 v1.0.1 color profiles for PDF/X and PDF/A support
- (/usr/local/texlive/2025/texmf-dist/tex/generic/colorprofiles/colorprofiles.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/AdobeColorProfiles.tex)
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/colorprofiles/colorprofiles.sty
+Package: colorprofiles 2018/11/01 v1.0.1 color profiles for PDF/X and PDF/A sup
+port
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/colorprofiles/colorprofiles.tex
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfx/AdobeColorProfiles.tex)
 ** pdfx: Metadata file ctufit-thesis.xmpdata read successfully.
-(./ctufit-thesis.xmpdata) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+(./ctufit-thesis.xmpdata)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/xmpincl/xmpincl.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xmpincl/xmpincl.sty
 Package: xmpincl 2021/09/22 v2.4 Include XMP data in pdflatex
 )
 Using XMP template file: pdfa.xmp
@@ -429,25 +505,32 @@ Using XMP template file: pdfa.xmp
 
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/ellipsis/ellipsis.sty
 Package: ellipsis 2020/05/22 v1.8 fixes spacing around ellipses (three dots)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 LaTeX Info: Redefining \textellipsis on input line 77.
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 87.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2025/01/30 v0.6e Insert pages of external PDF documents (AM)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdima=\dimen187
 \ESO@tempdimb=\dimen188
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 106.
@@ -458,7 +541,8 @@ Package graphics Info: Driver file: xetex.def on input line 106.
 \AM@pagewidth=\dimen191
 \AM@pageheight=\dimen192
 \AM@fboxrule=\dimen193
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/ppxetex.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/ppxetex.def
 File: ppxetex.def 2025/01/30 v0.6e Pdfpages driver for XeTeX (AM)
 )
 \pdfpages@includegraphics@status=\count320
@@ -469,9 +553,12 @@ File: ppxetex.def 2025/01/30 v0.6e Pdfpages driver for XeTeX (AM)
 \AM@lof@heading=\toks44
 \c@AM@survey=\count322
 \AM@templatesizebox=\box58
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/dirtree/dirtree.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/dirtree/dirtree.sty
 Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
- (/usr/local/texlive/2025/texmf-dist/tex/generic/dirtree/dirtree.tex `dirtree' v0.32, 2012/12/11 (jcc)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/dirtree/dirtree.tex
+`dirtree' v0.32, 2012/12/11 (jcc)
 \DT@offset=\dimen194
 \DT@width=\dimen195
 \DT@sep=\dimen196
@@ -488,12 +575,15 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 \DT@baselineskip=\dimen259
 )
 File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count327
- (/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
 \c@tabx@nest=\count328
@@ -555,12 +645,14 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \c@mincompwidth=\count373
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'iso-numeric.dbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.dbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.dbx
 File: iso-numeric.dbx 2022/03/20 v0.4.1 ISO 690 biblatex data model extension
 )
 Package biblatex Info: Trying to load biblatex custom data model...
@@ -651,15 +743,18 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshorteditorwidth=\skip99
 Package biblatex Info: Trying to load enhanced support for Unicode engines...
 Package biblatex Info: ... file 'blx-unicode.def' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-unicode.def)
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
 \c@textcitecount=\count444
 \c@textcitetotal=\count445
@@ -677,11 +772,13 @@ File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load bibliography style 'iso-numeric'...
 Package biblatex Info: ... file 'iso-numeric.bbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.bbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.bbx
 File: iso-numeric.bbx 2022/03/20 v0.4.1 ISO 690 biblatex bibliography style
 Package biblatex Info: Trying to load bibliography style 'iso'...
 Package biblatex Info: ... file 'iso.bbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso.bbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso.bbx
 File: iso.bbx 2022/03/20 v0.4.1 ISO 690 biblatex bibliography style
 Package biblatex-iso690 Info: Space colon enabled: false.
 Package biblatex-iso690 Info: Total pages enabled: false.
@@ -693,19 +790,27 @@ Package biblatex-iso690 Info: DOI field enabled: true.
 Package biblatex-iso690 Info: eprint field enabled: true.
 Package biblatex-iso690 Info: Article publication info enabled: false.
 Package biblatex-iso690 Info: Use current language for the bibliography: false.
-Package biblatex-iso690 Info: Use no end dot for the bibliography entries: false.
-Package biblatex Info: Delimiter 'multinamedelim' in context '' already defined, overwriting.
-Package biblatex Info: Delimiter 'finalnamedelim' in context '' already defined, overwriting.
-Package biblatex Info: Delimiter 'editortypedelim' in context '' already defined, overwriting.
-Package biblatex Info: Delimiter 'authortypedelim' in context '' already defined, overwriting.
+
+Package biblatex-iso690 Info: Use no end dot for the bibliography entries: fals
+e.
+Package biblatex Info: Delimiter 'multinamedelim' in context '' already defined
+, overwriting.
+Package biblatex Info: Delimiter 'finalnamedelim' in context '' already defined
+, overwriting.
+Package biblatex Info: Delimiter 'editortypedelim' in context '' already define
+d, overwriting.
+Package biblatex Info: Delimiter 'authortypedelim' in context '' already define
+d, overwriting.
 ))
 Package biblatex Info: Trying to load citation style 'iso-numeric'...
 Package biblatex Info: ... file 'iso-numeric.cbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.cbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-numeric.cbx
 File: iso-numeric.cbx 2022/03/20 v0.4.1 ISO 690 biblatex citation style
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
 File: numeric.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -721,8 +826,10 @@ Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load citation style 'iso-fullcite'...
 Package biblatex Info: ... file 'iso-fullcite.cbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-fullcite.cbx
-File: iso-fullcite.cbx 2022/03/20 v0.4.1 ISO 690 biblatex fullcite modifications
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/iso-fullcite.cbx
+File: iso-fullcite.cbx 2022/03/20 v0.4.1 ISO 690 biblatex fullcite modification
+s
 Package biblatex Info: Redefining '\fullcite'.
 Package biblatex Info: Redefining '\footfullcite'.
 )
@@ -741,9 +848,11 @@ Package biblatex-iso690 Info: eprint field enabled: true.
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
- (/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2025-01-18 L3 programming layer (loader) 
- (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
 \g__graphics_track_int=\count453
 \l__pdf_internal_box=\box59
@@ -754,11 +863,14 @@ Package biblatex Info: ... and expl3
 (biblatex)             2025-01-18 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
+))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
 \csq@reset=\count456
 \csq@gtype=\count457
@@ -767,14 +879,17 @@ Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
 \csq@maxlvl=\count460
 \csq@tshold=\count461
 \csq@ltx@everypar=\toks45
- (/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xurl/xurl.sty
+))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 
 xurl: Set penalties for biblatex
@@ -783,29 +898,30 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
- (./ctufit-thesis.aux (./text/text.aux) (./text/appendix.aux) (./text/medium.aux))
+ (./ctufit-thesis.aux (./text/text.aux) (./text/appendix.aux)
+(./text/medium.aux))
 \openout1 = `ctufit-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
 \metadatafile=\write5
 \openout5 = `ctufit-thesis.xmpdata'.
 
@@ -847,47 +963,58 @@ LaTeX Font Info:    ... okay on input line 129.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 129.
+Package hyperref Info: Link coloring OFF on input line 134.
 (./ctufit-thesis.out) (./ctufit-thesis.out)
 \@outlinefile=\write6
 \openout6 = `ctufit-thesis.out'.
 
-LaTeX Info: Redefining \dots on input line 129.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+LaTeX Info: Redefining \dots on input line 134.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
-Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.st
+y
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+
 ))
 Package biblatex Info: Trying to load language 'english' -> 'english-iso'...
 Package biblatex Info: ... file 'english-iso.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/english-iso.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/english-iso.lbx
 File: english-iso.lbx 2022/03/20 v0.4.1 ISO 690 extended biblatex localization
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 ))
 Package biblatex Info: Trying to load language 'czech' -> 'czech-iso'...
 Package biblatex Info: ... file 'czech-iso.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/czech-iso.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex-iso690/czech-iso.lbx
 File: czech-iso.lbx 2022/03/20 v0.4.1 ISO 690 extended biblatex localization
 Package biblatex Info: Trying to load language 'czech'...
 Package biblatex Info: ... file 'czech.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/czech.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/czech.lbx
 File: czech.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load language 'czech'...
 Package biblatex Info: ... file 'czech.lbx' found.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/czech.lbx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/czech.lbx
 File: czech.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 ))
 Package biblatex Info: XeTeX detected.
@@ -897,478 +1024,11 @@ Package biblatex Info: Automatic encoding selection.
 \openout4 = `ctufit-thesis.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-
-
-Package biblatex Warning: File 'ctufit-thesis.bbl' is wrong format version - expected 3.3.
-
 Package biblatex Info: ... file 'ctufit-thesis.bbl' found.
+
 (./ctufit-thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 129.
-Package biblatex Info: Reference segment=0 on input line 129.
-
-Overfull \hbox (15.95685pt too wide) in paragraph at lines 23--130
-[]\TU/lmr/m/n/10.95 author3hash=5c488767e526b2491cb0c2efadada439family=Wang, familyi=W.,
- []
-
-
-Overfull \hbox (22.20367pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 given=Siqi, giveni=S.hash=a39d42003e527c2170583ad365871b37family=Pathania,
- []
-
-
-Overfull \hbox (61.14407pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=P., given=Anuj, giveni=A.hash=64cf93678ff26b47b594fb5968fbd4e5family=Mitra,
- []
-
-
-Overfull \hbox (145.07825pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=M., given=Tulika, giveni=T.                   author3hash=a372b97ebd6048931b8a4740f8163c2cfamily=Li,
- []
-
-
-Overfull \hbox (80.42702pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Zhuojin, giveni=Z.hash=fa557ec13f21c712f894fd6ac225ca81family=Paolieri,
- []
-
-
-Overfull \hbox (94.05975pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=P., given=Marco, giveni=M.hash=cbf06d91e0b2b1f68a887feb394c989efamily=Golubchik,
- []
-
-
-Overfull \hbox (38.58708pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 thor9hash=34ea7cffda58c3dbe4f6a54a086b1f5ffamily=Lee, familyi=L., given=Juhyun,
- []
-
-
-Overfull \hbox (10.0492pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 giveni=J.hash=0ac4b00567952fe9ff2d5d5015a3c453family=Chirkov, familyi=C.,
- []
-
-
-Overfull \hbox (42.48308pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 given=Nikolay, giveni=N.hash=cb84d315df550532fa24334250bac7b9family=Ignasheva,
- []
-
-
-Overfull \hbox (100.13701pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=I., given=Ekaterina, giveni=E.hash=a3cfdf850ae801bed662ba280e0ffe41family=Pisarchyk,
- []
-
-
-Overfull \hbox (67.83453pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=P., given=Yury, giveni=Y.hash=992bcb03be0379101a79d745b20a5fc9family=Shieh,
- []
-
-
-Overfull \hbox (93.3699pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Mogan, giveni=M.hash=da85d57f68a2b54dcaacd6c41d26ad52family=Riccardi,
- []
-
-
-Overfull \hbox (75.7185pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=R., given=Fabio, giveni=F.hash=f655d7160acdff030daa9c3de9170e15family=Sarokin,
- []
-
-
-Overfull \hbox (70.03546pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Raman, giveni=R.hash=7b31c6acf926ceafcefb420c39953535family=Kulik,
- []
-
-
-Overfull \hbox (108.8313pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Andrei, giveni=A.hash=bc9b23f96eed985127659775e2b92e3efamily=Grundmann,
- []
-
-
-Overfull \hbox (165.47931pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=G., given=Matthias, giveni=M.               author8hash=0cedb03f907400fc304fdfaa1f7e2085family=Howard,
- []
-
-
-Overfull \hbox (99.44962pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Andrew G., giveni=A. G.hash=d767e8e4d733bcf728bcdf2c193462f7family=Zhu,
- []
-
-
-Overfull \hbox (82.52942pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Menglong, giveni=M.hash=31960f03389184b7f052f5b197cc9fdffamily=Chen,
- []
-
-
-Overfull \hbox (94.3554pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=C., given=Bo, giveni=B.hash=6cbb997a11c6922af719c32863261918family=Kalenichenko,
- []
-
-
-Overfull \hbox (83.1864pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Dmitry, giveni=D.hash=47ad65c82b1de7d642988df185d7d8eafamily=Wang,
- []
-
-
-Overfull \hbox (101.10062pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=W., given=Weijun, giveni=W.hash=7dcb9c6d4d4251a7e32b502d03c9354bfamily=Weyand,
- []
-
-
-Overfull \hbox (99.05296pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=W., given=Tobias, giveni=T.hash=8f221f2afb0b5a3d95b3e97101924922family=Andreetto,
- []
-
-
-Overfull \hbox (79.78094pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=A., given=Marco, giveni=M.hash=c707ec5b5997dc408a14a34a8380166cfamily=Adam,
- []
-
-
-Overfull \hbox (162.96085pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=A., given=Hartwig, giveni=H.               author5hash=8f90fd131c2bbfde4d0e9fdd7ed4ea8bfamily=Sandler,
- []
-
-
-Overfull \hbox (76.2003pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Mark, giveni=M.hash=315c4166fc1f7cb66324a7f0d82827cdfamily=Howard,
- []
-
-
-Overfull \hbox (71.30566pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Andrew, giveni=A.hash=d767e8e4d733bcf728bcdf2c193462f7family=Zhu,
- []
-
-
-Overfull \hbox (111.73306pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Menglong, giveni=M.hash=48f4090a93cf9f445057a9d6defe7973family=Zhmoginov,
- []
-
-
-Overfull \hbox (74.03224pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Andrey, giveni=A.hash=9dddfcfd529634a150ee38ee5c0203d7family=Chen,
- []
-
-
-Overfull \hbox (199.36348pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=C., given=Liang-Chieh, giveni=L.[]C.                 author4hash=5e72bc22dbcf0984c6d113d280e36990family=Zhang,
- []
-
-
-Overfull \hbox (70.6596pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Xiangyu, giveni=X.hash=5c1e75bf6f2b5386a54aff442f04d5cffamily=Zhou,
- []
-
-
-Overfull \hbox (58.65842pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Xinyu, giveni=X.hash=a24609d7dfcf8f716059c40ed11ba974family=Lin,
- []
-
-
-Overfull \hbox (85.12453pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Mengxiao, giveni=M.hash=f85751488058842b5777c7b4074077b5family=Sun,
- []
-
-
-Overfull \hbox (148.58835pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Jian, giveni=J.                 author6hash=94dab96826129cba595a6297d3d8ffa6family=Iandola,
- []
-
-
-Overfull \hbox (125.87193pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=I., given=Forrest N., giveni=F. N.hash=5b467b1e4271559b03ceb8c16befd89efamily=Moskewicz,
- []
-
-
-Overfull \hbox (128.8832pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=M., given=Matthew W., giveni=M. W.hash=732badbf604cd5c952f3aaa13bb3f894family=Ashraf,
- []
-
-
-Overfull \hbox (62.14055pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=A., given=Khalid, giveni=K.hash=873e4e07ff73d563d2651d20ffaf99e0family=Han,
- []
-
-
-Overfull \hbox (61.40686pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Song, giveni=S.hash=c4a8df92e1f8e22aa2062da8bcfd402dfamily=Dally,
- []
-
-
-Overfull \hbox (119.19243pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=D., given=William J., giveni=W. J.hash=994177386e5a63171a7be588e97df7e5family=Keutzer,
- []
-
-
-Overfull \hbox (127.00102pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Kurt, giveni=K.               author3hash=873e4e07ff73d563d2651d20ffaf99e0family=Han,
- []
-
-
-Overfull \hbox (53.9061pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Song, giveni=S.hash=1341c7c7f8d6acc2c0c244d6526ff658family=Mao,
- []
-
-
-Overfull \hbox (67.4841pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=M., given=Huizi, giveni=H.hash=c4a8df92e1f8e22aa2062da8bcfd402dfamily=Dally,
- []
-
-
-Overfull \hbox (174.72354pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=D., given=William J., giveni=W. J.               author8hash=73f11c7544252601f7e8c5f614c660f2family=Jacob,
- []
-
-
-Overfull \hbox (70.2764pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=J., given=Benoit, giveni=B.hash=aa58f2ae95227046f2fbba114f0fb625family=Kligys,
- []
-
-
-Overfull \hbox (87.48978pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Skirmantas, giveni=S.hash=31960f03389184b7f052f5b197cc9fdffamily=Chen,
- []
-
-
-Overfull \hbox (46.31776pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=C., given=Bo, giveni=B.hash=d767e8e4d733bcf728bcdf2c193462f7family=Zhu,
- []
-
-
-Overfull \hbox (91.0485pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Menglong, giveni=M.hash=436cfd289182e9d6b0a46d79b8e91b6efamily=Tang,
- []
-
-
-Overfull \hbox (95.31898pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=T., given=Matthew, giveni=M.hash=315c4166fc1f7cb66324a7f0d82827cdfamily=Howard,
- []
-
-
-Overfull \hbox (85.25595pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Andrew, giveni=A.hash=c707ec5b5997dc408a14a34a8380166cfamily=Adam,
- []
-
-
-Overfull \hbox (120.25215pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=A., given=Hartwig, giveni=H.hash=6cbb997a11c6922af719c32863261918family=Kalenichenko,
- []
-
-
-Overfull \hbox (204.11578pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Dmitry, giveni=D.                 author1hash=4a691df37485846988162c4f0639d2f0family=Krishnamoorthi,
- []
-
-
-Overfull \hbox (175.8161pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Raghuraman, giveni=R.               author5hash=6ead2c77e3080af378f5abe533067479family=Deng,
- []
-
-
-Overfull \hbox (77.87566pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=D., given=Jiankang, giveni=J.hash=5dfa2e1cec77c8779469085a05d6a696family=Guo,
- []
-
-
-Overfull \hbox (68.75432pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=G., given=Jia, giveni=J.hash=bad06b3bf1f99ca6bfebdc5499583f0bfamily=Ververas,
- []
-
-
-Overfull \hbox (97.21336pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=V., given=Evangelos, giveni=E.hash=77919a913a57cee542eae85d6b4b3a96family=Kotsia,
- []
-
-
-Overfull \hbox (82.89076pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=K., given=Irene, giveni=I.hash=2ac8d8aacb76b57beadc21f996305b69family=Zafeiriou,
- []
-
-
-Overfull \hbox (150.75156pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Stefanos, giveni=S.               author6hash=72814af76d82a529c5b3e3c609eff0fafamily=Zhang,
- []
-
-
-Overfull \hbox (67.62646pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Shifeng, giveni=S.hash=cd3a0d773c3a35993add0741945aaff2family=Zhu,
- []
-
-
-Overfull \hbox (74.16364pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Xiangyu, giveni=X.hash=d106e766d9de3c78aab61ad86235b9f1family=Lei,
- []
-
-
-Overfull \hbox (51.92416pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Zhen, giveni=Z.hash=b942c29e6e7d81eee4ec9d81577f1578family=Shi,
- []
-
-
-Overfull \hbox (70.3749pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Hailin, giveni=H.hash=1b04dc0167b8757600dcff89f2984a8dfamily=Wang,
- []
-
-
-Overfull \hbox (59.54536pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=W., given=Xiaobo, giveni=X.hash=bdcfe781c06e01fe86f42230e738c1b4family=Li,
- []
-
-
-Overfull \hbox (161.89497pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Stan Z., giveni=S. Z.                 author8hash=71290e7f5dd0007811a86560d990ecbdfamily=Guo,
- []
-
-
-Overfull \hbox (64.17722pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=G., given=Xiaojie, giveni=X.hash=28cc92bee9dc2c699ad036750b99883afamily=Li,
- []
-
-
-Overfull \hbox (66.8928pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Siyuan, giveni=S.hash=a71ec9b0799a46b55b420dbeb4bb4057family=Yu,
- []
-
-
-Overfull \hbox (67.6265pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Y., given=Jinke, giveni=J.hash=e121f4cf1a081a22e039fb23d1a5b1d2family=Zhang,
- []
-
-
-Overfull \hbox (63.06032pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Jiawan, giveni=J.hash=42a43b68e533e39bbf05038fad61a09bfamily=Ma,
- []
-
-
-Overfull \hbox (57.2568pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=M., given=Jiayi, giveni=J.hash=8601659a37cae9b8932645c653921e5bfamily=Ma,
- []
-
-
-Overfull \hbox (46.46013pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=M., given=Lin, giveni=L.hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9family=Liu,
- []
-
-
-Overfull \hbox (60.94698pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Wei, giveni=W.hash=bc86801edf24b9379fb947d2c2116b4bfamily=Ling,
- []
-
-
-Overfull \hbox (146.5796pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Haibin, giveni=H.               author4hash=64288176f389838aa5917ebca5ce2455family=Chen,
- []
-
-
-Overfull \hbox (59.89575pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=C., given=Sheng, giveni=S.hash=621013bf54d3546375ad71f17f020b5bfamily=Liu,
- []
-
-
-Overfull \hbox (57.53053pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Yang, giveni=Y.hash=bfc840f1acedd564fad08ab8540b8df7family=Gao,
- []
-
-
-Overfull \hbox (59.17303pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=G., given=Xiang, giveni=X.hash=1f64b6a433c4e65fe0f700ca385f0327family=Han,
- []
-
-
-Overfull \hbox (129.8602pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=H., given=Zhen, giveni=Z.                    author3hash=ca9bcedfafe5131f3503087f483ff154family=Jin,
- []
-
-
-Overfull \hbox (61.20978pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=J., given=Haibo, giveni=H.hash=fefae411460b7a1ed070285e1e38e923family=Liao,
- []
-
-
-Overfull \hbox (73.57231pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=L., given=Shengcai, giveni=S.hash=a19a5e715fda869516c9d9d4ffbfd7f7family=Shao,
- []
-
-
-Overfull \hbox (135.50798pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=S., given=Ling, giveni=L.                   author2hash=8555f78be5f6050d5a2f661b2d0e841efamily=Zhu,
- []
-
-
-Overfull \hbox (105.17401pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=Z., given=Xiangxin, giveni=X.hash=aedcd3831845183e070aef16857d83eafamily=Ramanan,
- []
-
-
-Overfull \hbox (161.07133pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=R., given=Deva, giveni=D.                 author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (110.2137pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (103.98314pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=8b36e9207c24c76e6719268e49201d94family=Google,
- []
-
-
-Overfull \hbox (49.78699pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=G.                   author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (92.6718pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=9f6290f4436e5a2351f12e03b6433c3cfamily=Apple,
- []
-
-
-Overfull \hbox (49.40375pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 familyi=A.                   author1hash=20934bb6b6fc16457bce17b3d0b7bacefamily=PyTorch
- []
-
-
-Overfull \hbox (106.22789pt too wide) in paragraph at lines 23--130
-\TU/lmr/m/n/10.95 Foundation, familyi=P.                    author1hash=7c84d95e3d5c93ccd91416ee61a5bfa0family=PyTorch
- []
-
-
-
-[1
-
-]
-
-[2]
-
-[3]
+Package biblatex Info: Reference section=0 on input line 134.
+Package biblatex Info: Reference segment=0 on input line 134.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: <default>
@@ -1409,34 +1069,53 @@ File: images/logoCVUT.pdf Graphic file (type pdf)
 
 
 
+
 ]
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf>
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 1>
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 1>
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 1>
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 1>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 1>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 1>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 1>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 1>
 
 
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 1>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 1>
 [1
 
 
 
 ]
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 2>
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 2>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 2>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 2>
 
 
-File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf Graphic file (type pdf)
-<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf, page 2>
+File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devi
+ces.pdf Graphic file (type pdf)
+<use Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
+es.pdf, page 2>
 [2
 
 ]
@@ -1444,16 +1123,19 @@ File: Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devic
 [3
 
 ]
-Underfull \hbox (badness 4569) in paragraph at lines 145--147
+Underfull \hbox (badness 4569) in paragraph at lines 150--152
 []\TU/lmr/m/it/10.95 I would like to thank my supervisor Ing.Jan
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 154
+.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 154
+.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
@@ -1473,7 +1155,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (./ctufit-thesis.toc
 Overfull \hbox (0.6848pt too wide) in paragraph at lines 36--36
- [][] [][]\TU/lmr/m/n/10.95 Model-specific safety workarounds used during quantized 
+ [][] [][]\TU/lmr/m/n/10.95 Model-specific safety workarounds used during quant
+ized 
  []
 
 
@@ -1510,18 +1193,6 @@ Overfull \hbox (0.6848pt too wide) in paragraph at lines 36--36
  (./text/text.tex
 Chapter 1.
 
-LaTeX Warning: Citation 'wang2020mobilesoc' on page 1 undefined on input line 24.
-
-
-LaTeX Warning: Citation 'li2024mobilebenchmark' on page 1 undefined on input line 24.
-
-
-LaTeX Warning: Citation 'reddi2022mlperfmobile' on page 1 undefined on input line 29.
-
-
-LaTeX Warning: Citation 'li2024mobilebenchmark' on page 1 undefined on input line 29.
-
-
 
 [1
 
@@ -1532,108 +1203,19 @@ LaTeX Warning: Citation 'li2024mobilebenchmark' on page 1 undefined on input lin
 [2]
 Chapter 2.
 
-LaTeX Warning: Citation 'lee2019mobilegpu' on page 3 undefined on input line 82.
-
-
-LaTeX Warning: Citation 'wang2020mobilesoc' on page 3 undefined on input line 82.
-
-
-LaTeX Warning: Citation 'li2024mobilebenchmark' on page 3 undefined on input line 95.
-
-
-LaTeX Warning: Citation 'reddi2022mlperfmobile' on page 3 undefined on input line 95.
-
-
-Overfull \hbox (59.7403pt too wide) in paragraph at lines 93--96
-\TU/lmr/m/n/10.95 across devices and software stacks [[], []]. 
- []
-
-
-LaTeX Warning: Citation 'lee2019mobilegpu' on page 3 undefined on input line 105.
-
-
-LaTeX Warning: Citation 'wang2020mobilesoc' on page 3 undefined on input line 105.
-
-
-LaTeX Warning: Citation 'li2024mobilebenchmark' on page 3 undefined on input line 113.
-
-
 
 [3
 
 ]
 
-LaTeX Warning: Citation 'howard2017mobilenets' on page 4 undefined on input line 120.
-
-
-LaTeX Warning: Citation 'sandler2018mobilenetv2' on page 4 undefined on input line 120.
-
-
-LaTeX Warning: Citation 'zhang2018shufflenet' on page 4 undefined on input line 120.
-
-
-LaTeX Warning: Citation 'iandola2016squeezenet' on page 4 undefined on input line 122.
-
-
-Overfull \hbox (8.9104pt too wide) in paragraph at lines 117--123
-[]\TU/lmr/m/n/10.95 , []]. SqueezeNet demonstrated
- []
-
-
-LaTeX Warning: Citation 'han2016deepcompression' on page 4 undefined on input line 130.
-
-
-LaTeX Warning: Citation 'jacob2018quantization' on page 4 undefined on input line 132.
-
-
-
 [4]
-
-LaTeX Warning: Citation 'krishnamoorthi2018quantizing' on page 5 undefined on input line 177.
-
-
-LaTeX Warning: Citation 'deng2020retinaface' on page 5 undefined on input line 191.
-
-
-LaTeX Warning: Citation 'zhang2017faceboxes' on page 5 undefined on input line 192.
-
-
-LaTeX Warning: Citation 'guo2019pfld' on page 5 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'chen2018mobilefacenets' on page 5 undefined on input line 197.
-
-
-LaTeX Warning: Citation 'jin2021pipnet' on page 5 undefined on input line 199.
-
-
-Overfull \hbox (37.18117pt too wide) in paragraph at lines 194--200
-\TU/lmr/m/n/10.95 face recognition and often reused for landmark regression [[]].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
 []\TU/lmr/m/n/10 Relative
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--212
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
 []\TU/lmr/m/n/10 RetinaFace-
- []
-
-
-Overfull \hbox (2.22089pt too wide) in paragraph at lines 214--214
-[]\TU/lmr/m/n/10 Landmark| 
- []
-
-
-Overfull \hbox (2.22089pt too wide) in paragraph at lines 215--215
-[]\TU/lmr/m/n/10 Landmark| 
- []
-
-
-Overfull \hbox (2.22089pt too wide) in paragraph at lines 216--216
-[]\TU/lmr/m/n/10 Landmark| 
  []
 
 
@@ -1642,12 +1224,24 @@ Overfull \hbox (2.22089pt too wide) in paragraph at lines 217--217
  []
 
 
-Overfull \hbox (23.81494pt too wide) in paragraph at lines 208--220
- [][] 
+Overfull \hbox (2.22089pt too wide) in paragraph at lines 218--218
+[]\TU/lmr/m/n/10 Landmark| 
  []
 
 
-LaTeX Warning: Citation 'zhu2012facedetectionwild' on page 5 undefined on input line 228.
+Overfull \hbox (2.22089pt too wide) in paragraph at lines 219--219
+[]\TU/lmr/m/n/10 Landmark| 
+ []
+
+
+Overfull \hbox (2.22089pt too wide) in paragraph at lines 220--220
+[]\TU/lmr/m/n/10 Landmark| 
+ []
+
+
+Overfull \hbox (23.81494pt too wide) in paragraph at lines 211--223
+ [][] 
+ []
 
 
 
@@ -1656,92 +1250,36 @@ LaTeX Warning: Citation 'zhu2012facedetectionwild' on page 5 undefined on input 
 [6]
 Chapter 3.
 
-LaTeX Warning: Citation 'executorch_how' on page 7 undefined on input line 238.
-
-
-LaTeX Warning: Citation 'executorch_arch' on page 7 undefined on input line 238.
-
-
-Overfull \hbox (43.76428pt too wide) in paragraph at lines 236--241
-\TU/lmr/m/n/10.95 inference across mobile and embedded devices [[], []].
- []
-
-
-LaTeX Warning: Citation 'executorch_how' on page 7 undefined on input line 245.
-
-
-LaTeX Warning: Citation 'executorch_arch' on page 7 undefined on input line 245.
-
-
-Overfull \hbox (1.1228pt too wide) in paragraph at lines 244--246
-\TU/lmr/m/n/10.95 ExecuTorch organizes model deployment into three phases [[],
- []
-
-
-LaTeX Warning: Citation 'executorch_export' on page 7 undefined on input line 264.
-
-
-LaTeX Warning: Citation 'executorch_pte' on page 7 undefined on input line 264.
-
-
-LaTeX Warning: Citation 'executorch_ptd' on page 7 undefined on input line 264.
-
-
-LaTeX Warning: Citation 'pytorch_export' on page 7 undefined on input line 264.
-
-
 
 [7
 
 ]
-
-LaTeX Warning: Citation 'executorch_delegate' on page 8 undefined on input line 269.
-
-
-LaTeX Warning: Citation 'executorch_xnnpack' on page 8 undefined on input line 276.
-
-
-LaTeX Warning: Citation 'xnnpack_repo' on page 8 undefined on input line 276.
-
-
-LaTeX Warning: Citation 'executorch_coreml' on page 8 undefined on input line 279.
-
-
-LaTeX Warning: Citation 'apple_coreml' on page 8 undefined on input line 279.
-
-
-Overfull \hbox (12.43857pt too wide) in paragraph at lines 277--280
-\TU/lmr/m/n/10.95 or ANE depending on model and platform capabilities [[],
+Overfull \hbox (195.44244pt too wide) in paragraph at lines 287--293
+\TU/lmr/m/n/10.95 this project, INT8 exports are produced for XNNPACK by \TU/lm
+tt/m/n/10.95 models/export_landmark_models_xnnpack_quantized.py\TU/lmr/m/n/10.9
+5 ,
  []
 
 
-LaTeX Warning: Citation 'executorch_quantization' on page 8 undefined on input line 286.
-
-
-LaTeX Warning: Citation 'torchao_pt2e' on page 8 undefined on input line 286.
-
-
-Overfull \hbox (83.08351pt too wide) in paragraph at lines 284--290
-\TU/lmr/m/n/10.95 commonly using PT2E/torchao-based preparation and conversion [[],
+Overfull \hbox (17.07195pt too wide) in paragraph at lines 317--317
+|[]\TU/lmr/bx/n/14.4 Implemented PTQ workflow in the export scripts| 
  []
 
 
 
 [8]
-Overfull \hbox (17.07195pt too wide) in paragraph at lines 314--314
-|[]\TU/lmr/bx/n/14.4 Implemented PTQ workflow in the export scripts| 
- []
-
-
-Overfull \hbox (84.50168pt too wide) in paragraph at lines 331--334
-[]\TU/lmr/m/n/10.95 The quantizer setup is created by \TU/lmtt/m/n/10.95 get_symmetric_quantization_config(is_per_channel,
+Overfull \hbox (84.50168pt too wide) in paragraph at lines 334--337
+[]\TU/lmr/m/n/10.95 The quantizer setup is created by \TU/lmtt/m/n/10.95 get_sy
+mmetric_quantization_config(is_per_channel,
  []
 
 
 
 [9]
-Overfull \hbox (22.2563pt too wide) in paragraph at lines 391--396
-\TU/lmr/m/n/10.95 parameters used by non-quantized scripts (\TU/lmtt/m/n/10.95 QNN_SOC_MODEL\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 MTK_PLATFORM_CONFIG\TU/lmr/m/n/10.95 ,
+Overfull \hbox (22.2563pt too wide) in paragraph at lines 394--399
+\TU/lmr/m/n/10.95 parameters used by non-quantized scripts (\TU/lmtt/m/n/10.95 
+QNN_SOC_MODEL\TU/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 MTK_PLATFORM_CONFIG\TU/lmr/
+m/n/10.95 ,
  []
 
 
@@ -1749,8 +1287,9 @@ Overfull \hbox (22.2563pt too wide) in paragraph at lines 391--396
 [10]
 Chapter 4.
 
-Overfull \hbox (5.65074pt too wide) in paragraph at lines 405--407
-[]\TU/lmr/m/n/10.95 produce comparable latency/throughput/accuracy measurements across iOS
+Overfull \hbox (5.65074pt too wide) in paragraph at lines 408--410
+[]\TU/lmr/m/n/10.95 produce comparable latency/throughput/accuracy measurements
+ across iOS
  []
 
 
@@ -1758,46 +1297,50 @@ Overfull \hbox (5.65074pt too wide) in paragraph at lines 405--407
 [11
 
 ]
-
-LaTeX Warning: Citation 'zhu2012facedetectionwild' on page 12 undefined on input line 452.
-
-
-Overfull \hbox (16.02261pt too wide) in paragraph at lines 466--470
-[]\TU/lmr/m/n/10.95 For each run, this metric is extracted from per-iteration \TU/lmtt/m/n/10.95 landmarkInferenceMs
+Overfull \hbox (16.02261pt too wide) in paragraph at lines 469--473
+[]\TU/lmr/m/n/10.95 For each run, this metric is extracted from per-iteration \
+TU/lmtt/m/n/10.95 landmarkInferenceMs
  []
 
 
 
 [12]
 
-LaTeX Warning: Citation 'zhu2012facedetectionwild' on page 13 undefined on input line 488.
-
-
-
 [13]
 
 [14]
 Chapter 5.
-File: ../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_device.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_device.png>
-File: ../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png>
+File: ../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_devic
+e.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_device.png
+>
+File: ../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_d
+evice.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device
+.png>
 
 
 [15
 
 ]
-Overfull \hbox (3.43213pt too wide) in paragraph at lines 566--566
+Overfull \hbox (3.43213pt too wide) in paragraph at lines 569--569
 |[]\TU/lmr/bx/n/14.4 Focus-device backend and quantization at BS=1| 
  []
 
-File: ../benchmarks/results/combined/charts/focus_01_bs1_fps_backend_quant.png Graphic file (type bmp)
+File: ../benchmarks/results/combined/charts/focus_01_bs1_fps_backend_quant.png 
+Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_01_bs1_fps_backend_quant.png>
-File: ../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png Graphic file (type bmp)
+File: ../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant
+.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png>
 
-Overfull \hbox (5.7292pt too wide) in paragraph at lines 608--620
-\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1039$\TU/lmr/m/n/10.95 ) and the heavier PFLD-MNv2-1.0 loses $\OMS/cmsy/m/n/10.95 ^^X$\TU/lmr/m/n/10.95 27% relative ($\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0798 \OMS/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1014$\TU/lmr/m/n/10.95 ).
+
+Overfull \hbox (5.7292pt too wide) in paragraph at lines 611--623
+\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1039$\TU/lmr/m/n/10
+.95 ) and the heavier PFLD-MNv2-1.0 loses $\OMS/cmsy/m/n/10.95 ^^X$\TU/lmr/m/n/
+10.95 27% relative ($\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.9
+5 0798 \OMS/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/
+m/n/10.95 1014$\TU/lmr/m/n/10.95 ).
  []
 
 
@@ -1805,27 +1348,37 @@ Overfull \hbox (5.7292pt too wide) in paragraph at lines 608--620
 [16]
 
 [17]
-File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png>
-File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resnet18.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resnet18.png>
+File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mo
+bilenetv2_10.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilen
+etv2_10.png>
+File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_
+resnet18.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resne
+t18.png>
 
 
 [18]
-File: ../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_bs1.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_bs1.png>
-File: ../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png>
-File: ../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png Graphic file (type bmp)
+File: ../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_b
+s1.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_bs1.pn
+g>
+File: ../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_
+delta_bs1.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta
+_bs1.png>
+File: ../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.pn
+g Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png>
 
-Overfull \hbox (29.21152pt too wide) in paragraph at lines 705--715
+Overfull \hbox (29.21152pt too wide) in paragraph at lines 708--718
  [][] 
  []
 
 
-Overfull \hbox (1.07352pt too wide) in paragraph at lines 719--730
-\TU/lmr/m/n/10.95 makes the two-regime story visually explicit: MobileFaceNet and PFLD-MNv2-
+Overfull \hbox (1.07352pt too wide) in paragraph at lines 722--733
+\TU/lmr/m/n/10.95 makes the two-regime story visually explicit: MobileFaceNet a
+nd PFLD-MNv2-
  []
 
 
@@ -1833,21 +1386,29 @@ Overfull \hbox (1.07352pt too wide) in paragraph at lines 719--730
 [19]
 
 [20]
-File: ../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_focus_device.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_focus_device.png>
-File: ../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png>
-File: ../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_backend_quant.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_backend_quant.png>
-File: ../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_unquant_speedup_bs1.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_unquant_speedup_bs1.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_
+focus_device.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_focus
+_device.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_late
+ncy_focus_device.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_f
+ocus_device.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_b
+ackend_quant.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_backen
+d_quant.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_
+unquant_speedup_bs1.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_unqua
+nt_speedup_bs1.png>
 
-Overfull \hbox (31.0115pt too wide) in paragraph at lines 769--779
+Overfull \hbox (31.0115pt too wide) in paragraph at lines 772--782
  [][] 
  []
 
 
-Overfull \hbox (114.53152pt too wide) in paragraph at lines 786--796
+Overfull \hbox (114.53152pt too wide) in paragraph at lines 789--799
  [][] 
  []
 
@@ -1856,18 +1417,23 @@ Overfull \hbox (114.53152pt too wide) in paragraph at lines 786--796
 [21]
 
 [22]
-Overfull \hbox (8.31161pt too wide) in paragraph at lines 812--817
-[]\TU/lmr/m/n/10.95 The XNNPACK-vs-Portable comparison shows the cost of giving up backend-
+Overfull \hbox (8.31161pt too wide) in paragraph at lines 815--820
+[]\TU/lmr/m/n/10.95 The XNNPACK-vs-Portable comparison shows the cost of giving
+ up backend-
  []
 
-File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png>
-File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pipnet_resnet18.png Graphic file (type bmp)
-<../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pipnet_resnet18.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_sca
+ling_fps__pfld_mobilenetv2_10.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_
+fps__pfld_mobilenetv2_10.png>
+File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_sca
+ling_fps__pipnet_resnet18.png Graphic file (type bmp)
+<../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_
+fps__pipnet_resnet18.png>
 
 
 [23]
-Overfull \hbox (39.67151pt too wide) in paragraph at lines 883--893
+Overfull \hbox (39.67151pt too wide) in paragraph at lines 886--896
  [][] 
  []
 
@@ -1886,12 +1452,14 @@ Chapter 6.
 Appendix A.
 
 Overfull \hbox (42.60132pt too wide) in paragraph at lines 20--20
-[]  \TU/lmtt/m/n/10.95 --output-csv benchmarks/results/combined/combined_runs_from_json.csv \[] 
+[]  \TU/lmtt/m/n/10.95 --output-csv benchmarks/results/combined/combined_runs_f
+rom_json.csv \[] 
  []
 
 
 Overfull \hbox (13.85757pt too wide) in paragraph at lines 29--29
-[]  \TU/lmtt/m/n/10.95 --input benchmarks/results/combined/combined_runs_from_json.csv \[] 
+[]  \TU/lmtt/m/n/10.95 --input benchmarks/results/combined/combined_runs_from_j
+son.csv \[] 
  []
 
 
@@ -1909,46 +1477,99 @@ Overfull \hbox (26.58551pt too wide) in paragraph at lines 31--31
 ])
 
 [27]
+Overfull \hbox (1.5948pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 Jared; NGUYEN, Thai; CHUKKA, Ramesh; SHIRING, Ken; TAN, Koan-
 
-LaTeX Warning: Empty bibliography on input line 242.
+ []
 
-\openout2 = `text/medium.aux'.
 
-(./text/medium.tex)
+Overfull \hbox (15.03288pt too wide) in paragraph at lines 247--247
+[]\TU/lmr/m/n/10.95 LEE, Juhyun; CHIRKOV, Nikolay; IGNASHEVA, Ekaterina; PISARC
+HYK,
+ []
+
+
+Overfull \hbox (17.70953pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 Dmitry; WANG, Weijun; WEYAND, Tobias; ANDREETTO, Marco; ADAM,
+
+ []
+
+
 
 [28
 
 
 
 
+]
+Overfull \hbox (1.23341pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 HAN, Song; DALLY, William J.; KEUTZER, Kurt. SqueezeNet: Alex
+Net-
+ []
 
-] (./ctufit-thesis.aux (./text/text.aux) (./text/appendix.aux) (./text/medium.aux))
+
+Overfull \hbox (12.24915pt too wide) in paragraph at lines 247--247
+[]\TU/lmr/m/n/10.95 JACOB, Benoit; KLIGYS, Skirmantas; CHEN, Bo; ZHU, Menglong;
+ TANG,
+ []
+
+
+Overfull \hbox (19.86185pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 Matthew; HOWARD, Andrew; ADAM, Hartwig; KALENICHENKO, Dmitry.
+
+ []
+
+
+Overfull \hbox (24.22731pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 Quantization and Training of Neural Networks for Efficient In
+teger-Arithmetic-
+ []
+
+
+Overfull \hbox (3.20325pt too wide) in paragraph at lines 247--247
+[]\TU/lmr/m/n/10.95 KRISHNAMOORTHI, Raghuraman. Quantizing Deep Convolutional N
+et-
+ []
+
+
+Overfull \hbox (19.26201pt too wide) in paragraph at lines 247--247
+\TU/lmr/m/n/10.95 works for Efficient Inference: A Whitepaper. \TU/lmr/m/it/10.
+95 arXiv preprint arXiv:1806.08342\TU/lmr/m/n/10.95 .
+ []
+
+
+
+[29]
+
+[30]
+
+[31]
+\openout2 = `text/medium.aux'.
+
+ (./text/medium.tex)
+
+[32
+
+
+] (./ctufit-thesis.aux (./text/text.aux) (./text/appendix.aux)
+(./text/medium.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CE61F9C2EA560A7BFAB6A2F2F254237C;12252.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                ctufit-thesis
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: 3AF79AA5A671C0F0F94050DAD09A50C7;12359.
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27288 strings out of 473832
- 480737 string characters out of 5729481
- 1367603 words of memory out of 5000000
- 49935 multiletter control sequences out of 15000+600000
- 567568 words of font info for 90 fonts, out of 8000000 for 9000
+ 27366 strings out of 473832
+ 484106 string characters out of 5729481
+ 1381959 words of memory out of 5000000
+ 50012 multiletter control sequences out of 15000+600000
+ 567576 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,17n,109p,1511b,5566s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,109p,1477b,6605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ctufit-thesis.pdf (44 pages).
+Output written on ctufit-thesis.xdv (45 pages, 605404 bytes).
