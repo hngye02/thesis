@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{wang2020mobilesoc}{article}{}{}
+  \datalist[entry]{none/global//global/global}
+    \entry{wang2020mobilesoc}{article}{}
       \name{author}{3}{}{%
         {{hash=5c488767e526b2491cb0c2efadada439}{%
            family={Wang},
@@ -39,12 +39,10 @@
       }
       \strng{namehash}{e9b2d518f03f4650ebf06a2540e4b815}
       \strng{fullhash}{e9b2d518f03f4650ebf06a2540e4b815}
-      \strng{fullhashraw}{e9b2d518f03f4650ebf06a2540e4b815}
       \strng{bibnamehash}{e9b2d518f03f4650ebf06a2540e4b815}
       \strng{authorbibnamehash}{e9b2d518f03f4650ebf06a2540e4b815}
       \strng{authornamehash}{e9b2d518f03f4650ebf06a2540e4b815}
       \strng{authorfullhash}{e9b2d518f03f4650ebf06a2540e4b815}
-      \strng{authorfullhashraw}{e9b2d518f03f4650ebf06a2540e4b815}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -60,7 +58,7 @@
       \verb 10.1109/MDAT.2020.2968258
       \endverb
     \endentry
-    \entry{li2024mobilebenchmark}{inproceedings}{}{}
+    \entry{li2024mobilebenchmark}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=a372b97ebd6048931b8a4740f8163c2c}{%
            family={Li},
@@ -80,12 +78,10 @@
       }
       \strng{namehash}{25be9db6c380355d407c0e5ac4bde414}
       \strng{fullhash}{25be9db6c380355d407c0e5ac4bde414}
-      \strng{fullhashraw}{25be9db6c380355d407c0e5ac4bde414}
       \strng{bibnamehash}{25be9db6c380355d407c0e5ac4bde414}
       \strng{authorbibnamehash}{25be9db6c380355d407c0e5ac4bde414}
       \strng{authornamehash}{25be9db6c380355d407c0e5ac4bde414}
       \strng{authorfullhash}{25be9db6c380355d407c0e5ac4bde414}
-      \strng{authorfullhashraw}{25be9db6c380355d407c0e5ac4bde414}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -97,7 +93,190 @@
       \verb 10.1145/3642968.3654818
       \endverb
     \endentry
-    \entry{reddi2022mlperfmobile}{article}{}{}
+    \entry{chen2018mobilefacenets}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=64288176f389838aa5917ebca5ce2455}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=621013bf54d3546375ad71f17f020b5b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bfc840f1acedd564fad08ab8540b8df7}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1f64b6a433c4e65fe0f700ca385f0327}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{fullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{bibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authorbibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authornamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \strng{authorfullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Biometric Recognition (CCBR 2018)}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{MobileFaceNets: Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices}
+      \field{volume}{10996}
+      \field{year}{2018}
+      \field{pages}{428\bibrangedash 438}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/978-3-319-97909-0_46
+      \endverb
+    \endentry
+    \entry{zhu2012facedetectionwild}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=8555f78be5f6050d5a2f661b2d0e841e}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Xiangxin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=aedcd3831845183e070aef16857d83ea}{%
+           family={Ramanan},
+           familyi={R\bibinitperiod},
+           given={Deva},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{fullhash}{d6863774b464afee67df48ce7dda339f}
+      \strng{bibnamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authorbibnamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authornamehash}{d6863774b464afee67df48ce7dda339f}
+      \strng{authorfullhash}{d6863774b464afee67df48ce7dda339f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2012 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{Face Detection, Pose Estimation, and Landmark Localization in the Wild}
+      \field{year}{2012}
+      \field{pages}{2879\bibrangedash 2886}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CVPR.2012.6248014
+      \endverb
+    \endentry
+    \entry{guo2019pfld}{article}{}
+      \name{author}{8}{}{%
+        {{hash=71290e7f5dd0007811a86560d990ecbd}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Xiaojie},
+           giveni={X\bibinitperiod}}}%
+        {{hash=28cc92bee9dc2c699ad036750b99883a}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Siyuan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a71ec9b0799a46b55b420dbeb4bb4057}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jinke},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e121f4cf1a081a22e039fb23d1a5b1d2}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jiawan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=42a43b68e533e39bbf05038fad61a09b}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Jiayi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8601659a37cae9b8932645c653921e5b}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Lin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=bc86801edf24b9379fb947d2c2116b4b}{%
+           family={Ling},
+           familyi={L\bibinitperiod},
+           given={Haibin},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{fullhash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{bibnamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authorbibnamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authornamehash}{11f7647693f2a24979c51bf347962ea8}
+      \strng{authorfullhash}{11f7647693f2a24979c51bf347962ea8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1902.10859}
+      \field{title}{PFLD: A Practical Facial Landmark Detector}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.48550/arXiv.1902.10859
+      \endverb
+    \endentry
+    \entry{vrochidou2023facialpalsy}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b59844f57c74d69e91f506a9b6523644}{%
+           family={Vrochidou},
+           familyi={V\bibinitperiod},
+           given={Eleni},
+           giveni={E\bibinitperiod}}}%
+        {{hash=1f410f68b18c6a4f74ee2830b9bace34}{%
+           family={Papić},
+           familyi={P\bibinitperiod},
+           given={Vladan},
+           giveni={V\bibinitperiod}}}%
+        {{hash=91e528dbe5b53fd449283dd9d5e3e3e8}{%
+           family={Kalampokas},
+           familyi={K\bibinitperiod},
+           given={Theofanis},
+           giveni={T\bibinitperiod}}}%
+        {{hash=35ae72b9d81fe642d8802997bc11225d}{%
+           family={Papakostas},
+           familyi={P\bibinitperiod},
+           given={George\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \strng{fullhash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \strng{bibnamehash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \strng{authorbibnamehash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \strng{authornamehash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \strng{authorfullhash}{f2a284129c9d3bef680fa2722eda5e9b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Axioms}
+      \field{number}{12}
+      \field{title}{Automatic Facial Palsy Detection---From Mathematical Modeling to Deep Learning}
+      \field{volume}{12}
+      \field{year}{2023}
+      \field{pages}{1091}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/axioms12121091
+      \endverb
+    \endentry
+    \entry{reddi2022mlperfmobile}{article}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{10}{}{%
@@ -154,14 +333,12 @@
       }
       \strng{namehash}{93019ec41c6f7bb62d4660e75f0179f5}
       \strng{fullhash}{93019ec41c6f7bb62d4660e75f0179f5}
-      \strng{fullhashraw}{93019ec41c6f7bb62d4660e75f0179f5}
       \strng{bibnamehash}{93019ec41c6f7bb62d4660e75f0179f5}
       \strng{authorbibnamehash}{93019ec41c6f7bb62d4660e75f0179f5}
       \strng{authornamehash}{93019ec41c6f7bb62d4660e75f0179f5}
       \strng{authorfullhash}{93019ec41c6f7bb62d4660e75f0179f5}
-      \strng{authorfullhashraw}{93019ec41c6f7bb62d4660e75f0179f5}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proceedings of Machine Learning and Systems}
@@ -181,7 +358,7 @@
       \verb https://proceedings.mlsys.org/paper_files/paper/2022/hash/a2b2702ea7e682c5ea2c20e8f71efb0c-Abstract.html
       \endverb
     \endentry
-    \entry{lee2019mobilegpu}{article}{}{}
+    \entry{lee2019mobilegpu}{article}{}
       \name{author}{9}{}{%
         {{hash=34ea7cffda58c3dbe4f6a54a086b1f5f}{%
            family={Lee},
@@ -231,14 +408,12 @@
       }
       \strng{namehash}{0cc9f3f0efafceca4138d296b71f9add}
       \strng{fullhash}{0cc9f3f0efafceca4138d296b71f9add}
-      \strng{fullhashraw}{0cc9f3f0efafceca4138d296b71f9add}
       \strng{bibnamehash}{0cc9f3f0efafceca4138d296b71f9add}
       \strng{authorbibnamehash}{0cc9f3f0efafceca4138d296b71f9add}
       \strng{authornamehash}{0cc9f3f0efafceca4138d296b71f9add}
       \strng{authorfullhash}{0cc9f3f0efafceca4138d296b71f9add}
-      \strng{authorfullhashraw}{0cc9f3f0efafceca4138d296b71f9add}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1907.01989}
@@ -248,7 +423,185 @@
       \verb 10.48550/arXiv.1907.01989
       \endverb
     \endentry
-    \entry{howard2017mobilenets}{article}{}{}
+    \entry{executorch_xnnpack}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XNNPACK Backend --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
+      \endverb
+    \endentry
+    \entry{xnnpack_repo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XNNPACK: High-efficiency Neural Network Operators}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/google/XNNPACK
+      \endverb
+      \verb{url}
+      \verb https://github.com/google/XNNPACK
+      \endverb
+    \endentry
+    \entry{apple_coreml}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9f6290f4436e5a2351f12e03b6433c3c}{%
+           family={{Apple}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{fullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{bibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorbibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authornamehash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \strng{authorfullhash}{9f6290f4436e5a2351f12e03b6433c3c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Core ML}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developer.apple.com/documentation/coreml
+      \endverb
+      \verb{url}
+      \verb https://developer.apple.com/documentation/coreml
+      \endverb
+    \endentry
+    \entry{executorch_coreml}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Core ML Backend --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \endverb
+    \endentry
+    \entry{executorch_how}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How ExecuTorch Works}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
+      \endverb
+    \endentry
+    \entry{executorch_arch}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Architecture and Components --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \endverb
+    \endentry
+    \entry{howard2017mobilenets}{article}{}
       \name{author}{8}{}{%
         {{hash=0cedb03f907400fc304fdfaa1f7e2085}{%
            family={Howard},
@@ -293,14 +646,12 @@
       }
       \strng{namehash}{cffcf38c642164887a370768f5701b8e}
       \strng{fullhash}{cffcf38c642164887a370768f5701b8e}
-      \strng{fullhashraw}{cffcf38c642164887a370768f5701b8e}
       \strng{bibnamehash}{cffcf38c642164887a370768f5701b8e}
       \strng{authorbibnamehash}{cffcf38c642164887a370768f5701b8e}
       \strng{authornamehash}{cffcf38c642164887a370768f5701b8e}
       \strng{authorfullhash}{cffcf38c642164887a370768f5701b8e}
-      \strng{authorfullhashraw}{cffcf38c642164887a370768f5701b8e}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1704.04861}
@@ -310,7 +661,7 @@
       \verb 10.48550/arXiv.1704.04861
       \endverb
     \endentry
-    \entry{sandler2018mobilenetv2}{inproceedings}{}{}
+    \entry{sandler2018mobilenetv2}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=8f90fd131c2bbfde4d0e9fdd7ed4ea8b}{%
            family={Sandler},
@@ -340,14 +691,12 @@
       }
       \strng{namehash}{8d58d04315a5e1c06300772330b235d7}
       \strng{fullhash}{8d58d04315a5e1c06300772330b235d7}
-      \strng{fullhashraw}{8d58d04315a5e1c06300772330b235d7}
       \strng{bibnamehash}{8d58d04315a5e1c06300772330b235d7}
       \strng{authorbibnamehash}{8d58d04315a5e1c06300772330b235d7}
       \strng{authornamehash}{8d58d04315a5e1c06300772330b235d7}
       \strng{authorfullhash}{8d58d04315a5e1c06300772330b235d7}
-      \strng{authorfullhashraw}{8d58d04315a5e1c06300772330b235d7}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
@@ -359,7 +708,7 @@
       \verb 10.1109/CVPR.2018.00474
       \endverb
     \endentry
-    \entry{zhang2018shufflenet}{inproceedings}{}{}
+    \entry{zhang2018shufflenet}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
            family={Zhang},
@@ -384,14 +733,12 @@
       }
       \strng{namehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
       \strng{fullhash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
-      \strng{fullhashraw}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
       \strng{bibnamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
       \strng{authorbibnamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
       \strng{authornamehash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
       \strng{authorfullhash}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
-      \strng{authorfullhashraw}{2b7b29fe45fee2bd5ddb1dd1cbbff521}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
@@ -403,7 +750,7 @@
       \verb 10.1109/CVPR.2018.00716
       \endverb
     \endentry
-    \entry{iandola2016squeezenet}{article}{}{}
+    \entry{iandola2016squeezenet}{article}{}
       \name{author}{6}{}{%
         {{hash=94dab96826129cba595a6297d3d8ffa6}{%
            family={Iandola},
@@ -438,14 +785,12 @@
       }
       \strng{namehash}{f9ae50bda5d680115801b29cea2f1a3a}
       \strng{fullhash}{f9ae50bda5d680115801b29cea2f1a3a}
-      \strng{fullhashraw}{f9ae50bda5d680115801b29cea2f1a3a}
       \strng{bibnamehash}{f9ae50bda5d680115801b29cea2f1a3a}
       \strng{authorbibnamehash}{f9ae50bda5d680115801b29cea2f1a3a}
       \strng{authornamehash}{f9ae50bda5d680115801b29cea2f1a3a}
       \strng{authorfullhash}{f9ae50bda5d680115801b29cea2f1a3a}
-      \strng{authorfullhashraw}{f9ae50bda5d680115801b29cea2f1a3a}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1602.07360}
@@ -455,7 +800,7 @@
       \verb 10.48550/arXiv.1602.07360
       \endverb
     \endentry
-    \entry{han2016deepcompression}{article}{}{}
+    \entry{han2016deepcompression}{article}{}
       \name{author}{3}{}{%
         {{hash=873e4e07ff73d563d2651d20ffaf99e0}{%
            family={Han},
@@ -475,14 +820,12 @@
       }
       \strng{namehash}{84bcde7dcf518d77e606ada9b3016020}
       \strng{fullhash}{84bcde7dcf518d77e606ada9b3016020}
-      \strng{fullhashraw}{84bcde7dcf518d77e606ada9b3016020}
       \strng{bibnamehash}{84bcde7dcf518d77e606ada9b3016020}
       \strng{authorbibnamehash}{84bcde7dcf518d77e606ada9b3016020}
       \strng{authornamehash}{84bcde7dcf518d77e606ada9b3016020}
       \strng{authorfullhash}{84bcde7dcf518d77e606ada9b3016020}
-      \strng{authorfullhashraw}{84bcde7dcf518d77e606ada9b3016020}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1510.00149}
@@ -492,7 +835,7 @@
       \verb 10.48550/arXiv.1510.00149
       \endverb
     \endentry
-    \entry{jacob2018quantization}{inproceedings}{}{}
+    \entry{jacob2018quantization}{inproceedings}{}
       \name{author}{8}{}{%
         {{hash=73f11c7544252601f7e8c5f614c660f2}{%
            family={Jacob},
@@ -537,14 +880,12 @@
       }
       \strng{namehash}{3ad38e526037fc692f33aef3160b0293}
       \strng{fullhash}{3ad38e526037fc692f33aef3160b0293}
-      \strng{fullhashraw}{3ad38e526037fc692f33aef3160b0293}
       \strng{bibnamehash}{3ad38e526037fc692f33aef3160b0293}
       \strng{authorbibnamehash}{3ad38e526037fc692f33aef3160b0293}
       \strng{authornamehash}{3ad38e526037fc692f33aef3160b0293}
       \strng{authorfullhash}{3ad38e526037fc692f33aef3160b0293}
-      \strng{authorfullhashraw}{3ad38e526037fc692f33aef3160b0293}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
@@ -556,7 +897,7 @@
       \verb 10.1109/CVPR.2018.00286
       \endverb
     \endentry
-    \entry{krishnamoorthi2018quantizing}{article}{}{}
+    \entry{krishnamoorthi2018quantizing}{article}{}
       \name{author}{1}{}{%
         {{hash=4a691df37485846988162c4f0639d2f0}{%
            family={Krishnamoorthi},
@@ -566,14 +907,12 @@
       }
       \strng{namehash}{4a691df37485846988162c4f0639d2f0}
       \strng{fullhash}{4a691df37485846988162c4f0639d2f0}
-      \strng{fullhashraw}{4a691df37485846988162c4f0639d2f0}
       \strng{bibnamehash}{4a691df37485846988162c4f0639d2f0}
       \strng{authorbibnamehash}{4a691df37485846988162c4f0639d2f0}
       \strng{authornamehash}{4a691df37485846988162c4f0639d2f0}
       \strng{authorfullhash}{4a691df37485846988162c4f0639d2f0}
-      \strng{authorfullhashraw}{4a691df37485846988162c4f0639d2f0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1806.08342}
@@ -583,7 +922,36 @@
       \verb 10.48550/arXiv.1806.08342
       \endverb
     \endentry
-    \entry{deng2020retinaface}{article}{}{}
+    \entry{torchao_pt2e}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7c84d95e3d5c93ccd91416ee61a5bfa0}{%
+           family={{PyTorch AO Contributors}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{fullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{bibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authorbibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authornamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \strng{authorfullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PT2E Quantization Tutorials and Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
+      \endverb
+      \verb{url}
+      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
+      \endverb
+    \endentry
+    \entry{deng2020retinaface}{article}{}
       \name{author}{5}{}{%
         {{hash=6ead2c77e3080af378f5abe533067479}{%
            family={Deng},
@@ -613,14 +981,12 @@
       }
       \strng{namehash}{5f9c7633e62b285cc97c5f32ce23db55}
       \strng{fullhash}{5f9c7633e62b285cc97c5f32ce23db55}
-      \strng{fullhashraw}{5f9c7633e62b285cc97c5f32ce23db55}
       \strng{bibnamehash}{5f9c7633e62b285cc97c5f32ce23db55}
       \strng{authorbibnamehash}{5f9c7633e62b285cc97c5f32ce23db55}
       \strng{authornamehash}{5f9c7633e62b285cc97c5f32ce23db55}
       \strng{authorfullhash}{5f9c7633e62b285cc97c5f32ce23db55}
-      \strng{authorfullhashraw}{5f9c7633e62b285cc97c5f32ce23db55}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1905.00641}
@@ -630,7 +996,36 @@
       \verb 10.48550/arXiv.1905.00641
       \endverb
     \endentry
-    \entry{zhang2017faceboxes}{inproceedings}{}{}
+    \entry{retinaface_repo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e57ef13284c28e121372b441ca04719c}{%
+           family={{biubug6}},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{e57ef13284c28e121372b441ca04719c}
+      \strng{fullhash}{e57ef13284c28e121372b441ca04719c}
+      \strng{bibnamehash}{e57ef13284c28e121372b441ca04719c}
+      \strng{authorbibnamehash}{e57ef13284c28e121372b441ca04719c}
+      \strng{authornamehash}{e57ef13284c28e121372b441ca04719c}
+      \strng{authorfullhash}{e57ef13284c28e121372b441ca04719c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Pytorch RetinaFace}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/biubug6/Pytorch_Retinaface
+      \endverb
+      \verb{url}
+      \verb https://github.com/biubug6/Pytorch_Retinaface
+      \endverb
+    \endentry
+    \entry{zhang2017faceboxes}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=72814af76d82a529c5b3e3c609eff0fa}{%
            family={Zhang},
@@ -665,14 +1060,12 @@
       }
       \strng{namehash}{42ef5e1ab1a5681eda281ccee15f8175}
       \strng{fullhash}{42ef5e1ab1a5681eda281ccee15f8175}
-      \strng{fullhashraw}{42ef5e1ab1a5681eda281ccee15f8175}
       \strng{bibnamehash}{42ef5e1ab1a5681eda281ccee15f8175}
       \strng{authorbibnamehash}{42ef5e1ab1a5681eda281ccee15f8175}
       \strng{authornamehash}{42ef5e1ab1a5681eda281ccee15f8175}
       \strng{authorfullhash}{42ef5e1ab1a5681eda281ccee15f8175}
-      \strng{authorfullhashraw}{42ef5e1ab1a5681eda281ccee15f8175}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2017 IEEE International Joint Conference on Biometrics (IJCB)}
@@ -684,118 +1077,95 @@
       \verb 10.1109/BTAS.2017.8272675
       \endverb
     \endentry
-    \entry{guo2019pfld}{article}{}{}
-      \name{author}{8}{}{%
-        {{hash=71290e7f5dd0007811a86560d990ecbd}{%
-           family={Guo},
-           familyi={G\bibinitperiod},
-           given={Xiaojie},
-           giveni={X\bibinitperiod}}}%
-        {{hash=28cc92bee9dc2c699ad036750b99883a}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Siyuan},
-           giveni={S\bibinitperiod}}}%
-        {{hash=a71ec9b0799a46b55b420dbeb4bb4057}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Jinke},
-           giveni={J\bibinitperiod}}}%
-        {{hash=e121f4cf1a081a22e039fb23d1a5b1d2}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Jiawan},
-           giveni={J\bibinitperiod}}}%
-        {{hash=42a43b68e533e39bbf05038fad61a09b}{%
-           family={Ma},
-           familyi={M\bibinitperiod},
-           given={Jiayi},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8601659a37cae9b8932645c653921e5b}{%
-           family={Ma},
-           familyi={M\bibinitperiod},
-           given={Lin},
-           giveni={L\bibinitperiod}}}%
-        {{hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9}{%
-           family={Liu},
-           familyi={L\bibinitperiod},
-           given={Wei},
-           giveni={W\bibinitperiod}}}%
-        {{hash=bc86801edf24b9379fb947d2c2116b4b}{%
-           family={Ling},
-           familyi={L\bibinitperiod},
-           given={Haibin},
-           giveni={H\bibinitperiod}}}%
+    \entry{faceboxesv2_repo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}{%
+           family={{jhb86253817}},
+           familyi={j\bibinitperiod}}}%
       }
-      \strng{namehash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{fullhash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{fullhashraw}{11f7647693f2a24979c51bf347962ea8}
-      \strng{bibnamehash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{authorbibnamehash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{authornamehash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{authorfullhash}{11f7647693f2a24979c51bf347962ea8}
-      \strng{authorfullhashraw}{11f7647693f2a24979c51bf347962ea8}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{fullhash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{bibnamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authorbibnamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authornamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authorfullhash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1902.10859}
-      \field{title}{PFLD: A Practical Facial Landmark Detector}
-      \field{year}{2019}
-      \verb{doi}
-      \verb 10.48550/arXiv.1902.10859
+      \field{title}{FaceBoxesV2}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/jhb86253817/FaceBoxesV2
+      \endverb
+      \verb{url}
+      \verb https://github.com/jhb86253817/FaceBoxesV2
       \endverb
     \endentry
-    \entry{chen2018mobilefacenets}{inproceedings}{}{}
-      \name{author}{4}{}{%
-        {{hash=64288176f389838aa5917ebca5ce2455}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Sheng},
-           giveni={S\bibinitperiod}}}%
-        {{hash=621013bf54d3546375ad71f17f020b5b}{%
-           family={Liu},
-           familyi={L\bibinitperiod},
-           given={Yang},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=bfc840f1acedd564fad08ab8540b8df7}{%
-           family={Gao},
-           familyi={G\bibinitperiod},
-           given={Xiang},
-           giveni={X\bibinitperiod}}}%
-        {{hash=1f64b6a433c4e65fe0f700ca385f0327}{%
-           family={Han},
-           familyi={H\bibinitperiod},
-           given={Zhen},
-           giveni={Z\bibinitperiod}}}%
+    \entry{pfld68_repo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=89b5699fd0ac3208cb958908a290f078}{%
+           family={{github-luffy}},
+           familyi={g\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{fullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{fullhashraw}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{bibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{authorbibnamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{authornamehash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{authorfullhash}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \strng{authorfullhashraw}{5ee02808e43c43cc94ed7cb06d9a9425}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{89b5699fd0ac3208cb958908a290f078}
+      \strng{fullhash}{89b5699fd0ac3208cb958908a290f078}
+      \strng{bibnamehash}{89b5699fd0ac3208cb958908a290f078}
+      \strng{authorbibnamehash}{89b5699fd0ac3208cb958908a290f078}
+      \strng{authornamehash}{89b5699fd0ac3208cb958908a290f078}
+      \strng{authorfullhash}{89b5699fd0ac3208cb958908a290f078}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Biometric Recognition (CCBR 2018)}
-      \field{series}{Lecture Notes in Computer Science}
-      \field{title}{MobileFaceNets: Efficient CNNs for Accurate Real-Time Face Verification on Mobile Devices}
-      \field{volume}{10996}
-      \field{year}{2018}
-      \field{pages}{428\bibrangedash 438}
-      \range{pages}{11}
-      \verb{doi}
-      \verb 10.1007/978-3-319-97909-0_46
+      \field{title}{PFLD 68points Pytorch}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/github-luffy/PFLD_68points_Pytorch
+      \endverb
+      \verb{url}
+      \verb https://github.com/github-luffy/PFLD_68points_Pytorch
       \endverb
     \endentry
-    \entry{jin2021pipnet}{article}{}{}
+    \entry{mobilefacenet_pytorch_repo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=067e92e55b6dd838d37ad7f9ea33aa27}{%
+           family={{Xiaoccer}},
+           familyi={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \strng{fullhash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \strng{bibnamehash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \strng{authorbibnamehash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \strng{authornamehash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \strng{authorfullhash}{067e92e55b6dd838d37ad7f9ea33aa27}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MobileFaceNet Pytorch}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/Xiaoccer/MobileFaceNet_Pytorch
+      \endverb
+      \verb{url}
+      \verb https://github.com/Xiaoccer/MobileFaceNet_Pytorch
+      \endverb
+    \endentry
+    \entry{jin2021pipnet}{article}{}
       \name{author}{3}{}{%
         {{hash=ca9bcedfafe5131f3503087f483ff154}{%
            family={Jin},
@@ -815,14 +1185,12 @@
       }
       \strng{namehash}{ff01e83907c99f8659847d430cf63a7d}
       \strng{fullhash}{ff01e83907c99f8659847d430cf63a7d}
-      \strng{fullhashraw}{ff01e83907c99f8659847d430cf63a7d}
       \strng{bibnamehash}{ff01e83907c99f8659847d430cf63a7d}
       \strng{authorbibnamehash}{ff01e83907c99f8659847d430cf63a7d}
       \strng{authornamehash}{ff01e83907c99f8659847d430cf63a7d}
       \strng{authorfullhash}{ff01e83907c99f8659847d430cf63a7d}
-      \strng{authorfullhashraw}{ff01e83907c99f8659847d430cf63a7d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Computer Vision}
@@ -836,105 +1204,95 @@
       \verb 10.1007/s11263-021-01521-4
       \endverb
     \endentry
-    \entry{zhu2012facedetectionwild}{inproceedings}{}{}
-      \name{author}{2}{}{%
-        {{hash=8555f78be5f6050d5a2f661b2d0e841e}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={Xiangxin},
-           giveni={X\bibinitperiod}}}%
-        {{hash=aedcd3831845183e070aef16857d83ea}{%
-           family={Ramanan},
-           familyi={R\bibinitperiod},
-           given={Deva},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{d6863774b464afee67df48ce7dda339f}
-      \strng{fullhash}{d6863774b464afee67df48ce7dda339f}
-      \strng{fullhashraw}{d6863774b464afee67df48ce7dda339f}
-      \strng{bibnamehash}{d6863774b464afee67df48ce7dda339f}
-      \strng{authorbibnamehash}{d6863774b464afee67df48ce7dda339f}
-      \strng{authornamehash}{d6863774b464afee67df48ce7dda339f}
-      \strng{authorfullhash}{d6863774b464afee67df48ce7dda339f}
-      \strng{authorfullhashraw}{d6863774b464afee67df48ce7dda339f}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2012 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
-      \field{title}{Face Detection, Pose Estimation, and Landmark Localization in the Wild}
-      \field{year}{2012}
-      \field{pages}{2879\bibrangedash 2886}
-      \range{pages}{8}
-      \verb{doi}
-      \verb 10.1109/CVPR.2012.6248014
-      \endverb
-    \endentry
-    \entry{executorch_how}{online}{}{}
+    \entry{pipnet_repo}{online}{}
       \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
+        {{hash=d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}{%
+           family={{jhb86253817}},
+           familyi={j\bibinitperiod}}}%
       }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{How ExecuTorch Works}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
-      \endverb
-      \verb{url}
-      \verb https://pytorch.org/executorch/stable/intro-how-it-works.html
-      \endverb
-    \endentry
-    \entry{executorch_arch}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{namehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{fullhash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{bibnamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authorbibnamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authornamehash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
+      \strng{authorfullhash}{d6dcb8c9b9d6bf9edb7ce49eb5c7a3f3}
       \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Architecture and Components --- ExecuTorch Documentation}
-      \field{urlday}{14}
+      \field{title}{PIPNet}
+      \field{urlday}{29}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
       \field{year}{2026}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \verb https://github.com/jhb86253817/PIPNet
       \endverb
       \verb{url}
-      \verb https://pytorch.org/executorch/stable/getting-started-architecture.html
+      \verb https://github.com/jhb86253817/PIPNet
       \endverb
     \endentry
-    \entry{executorch_export}{online}{}{}
+    \entry{tensorflow_lite}{online}{}
+      \name{author}{1}{}{%
+        {{hash=074dd699710da0ec1eb45f13b31788e3}{%
+           family={{TensorFlow}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{fullhash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{bibnamehash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{authorbibnamehash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{authornamehash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{authorfullhash}{074dd699710da0ec1eb45f13b31788e3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TensorFlow Lite}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.tensorflow.org/lite
+      \endverb
+      \verb{url}
+      \verb https://www.tensorflow.org/lite
+      \endverb
+    \endentry
+    \entry{onnxruntime_mobile}{online}{}
+      \name{author}{1}{}{%
+        {{hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={{Microsoft}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deploy on Mobile --- ONNX Runtime Documentation}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://onnxruntime.ai/docs/tutorials/mobile/
+      \endverb
+      \verb{url}
+      \verb https://onnxruntime.ai/docs/tutorials/mobile/
+      \endverb
+    \endentry
+    \entry{pytorch_export}{online}{}
       \name{author}{1}{}{%
         {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
            family={{PyTorch Foundation}},
@@ -942,111 +1300,13 @@
       }
       \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \field{extraname}{3}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Model Export and Lowering --- ExecuTorch Documentation}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
-      \endverb
-      \verb{url}
-      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
-      \endverb
-    \endentry
-    \entry{executorch_pte}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \field{extraname}{4}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{.pte file format --- ExecuTorch Documentation}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/pte-file-format.html
-      \endverb
-      \verb{url}
-      \verb https://pytorch.org/executorch/stable/pte-file-format.html
-      \endverb
-    \endentry
-    \entry{executorch_ptd}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \field{extraname}{5}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{.ptd file format --- ExecuTorch Documentation}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
-      \endverb
-      \verb{url}
-      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
-      \endverb
-    \endentry
-    \entry{pytorch_export}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \field{extraname}{6}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{torch.export User Guide}
@@ -1062,7 +1322,7 @@
       \verb https://docs.pytorch.org/docs/stable/user_guide/torch_compiler/export.html
       \endverb
     \endentry
-    \entry{executorch_delegate}{online}{}{}
+    \entry{executorch_export}{online}{}
       \name{author}{1}{}{%
         {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
            family={{PyTorch Foundation}},
@@ -1070,15 +1330,73 @@
       }
       \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Model Export and Lowering --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/using-executorch-export.html
+      \endverb
+    \endentry
+    \entry{executorch_pte}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
       \field{extraname}{7}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{.pte file format --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/pte-file-format.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/pte-file-format.html
+      \endverb
+    \endentry
+    \entry{executorch_delegate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Understanding Backends and Delegates --- ExecuTorch Documentation}
@@ -1094,7 +1412,7 @@
       \verb https://pytorch.org/executorch/stable/compiler-delegate-and-partitioner.html
       \endverb
     \endentry
-    \entry{executorch_xnnpack}{online}{}{}
+    \entry{executorch_memory}{online}{}
       \name{author}{1}{}{%
         {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
            family={{PyTorch Foundation}},
@@ -1102,125 +1420,29 @@
       }
       \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \field{extraname}{8}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{XNNPACK Backend --- ExecuTorch Documentation}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
-      \endverb
-      \verb{url}
-      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-overview.html
-      \endverb
-    \endentry
-    \entry{xnnpack_repo}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=8b36e9207c24c76e6719268e49201d94}{%
-           family={{Google}},
-           familyi={G\bibinitperiod}}}%
-      }
-      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
-      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
-      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{XNNPACK: High-efficiency Neural Network Operators}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://github.com/google/XNNPACK
-      \endverb
-      \verb{url}
-      \verb https://github.com/google/XNNPACK
-      \endverb
-    \endentry
-    \entry{executorch_coreml}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
-           family={{PyTorch Foundation}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \field{extraname}{9}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Core ML Backend --- ExecuTorch Documentation}
+      \field{title}{Memory Planning --- ExecuTorch Documentation}
       \field{urlday}{14}
       \field{urlmonth}{4}
       \field{urlyear}{2026}
       \field{year}{2026}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \verb https://pytorch.org/executorch/stable/compiler-memory-planning.html
       \endverb
       \verb{url}
-      \verb https://pytorch.org/executorch/stable/backends/coreml/coreml-overview.html
+      \verb https://pytorch.org/executorch/stable/compiler-memory-planning.html
       \endverb
     \endentry
-    \entry{apple_coreml}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=9f6290f4436e5a2351f12e03b6433c3c}{%
-           family={{Apple}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{fullhash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{fullhashraw}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{bibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{authorbibnamehash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{authornamehash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{authorfullhash}{9f6290f4436e5a2351f12e03b6433c3c}
-      \strng{authorfullhashraw}{9f6290f4436e5a2351f12e03b6433c3c}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Core ML}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://developer.apple.com/documentation/coreml
-      \endverb
-      \verb{url}
-      \verb https://developer.apple.com/documentation/coreml
-      \endverb
-    \endentry
-    \entry{executorch_quantization}{online}{}{}
+    \entry{executorch_android}{online}{}
       \name{author}{1}{}{%
         {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
            family={{PyTorch Foundation}},
@@ -1228,15 +1450,133 @@
       }
       \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{fullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
       \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
-      \strng{authorfullhashraw}{20934bb6b6fc16457bce17b3d0b7bace}
       \field{extraname}{10}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Using ExecuTorch on Android}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/using-executorch-android.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/using-executorch-android.html
+      \endverb
+    \endentry
+    \entry{executorch_ios}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{11}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Using ExecuTorch on iOS}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/using-executorch-ios.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/using-executorch-ios.html
+      \endverb
+    \endentry
+    \entry{executorch_ptd}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{12}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{.ptd file format --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/ptd-file-format.html
+      \endverb
+    \endentry
+    \entry{executorch_xnnpack_quantization}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{13}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{XNNPACK Quantization --- ExecuTorch Documentation}
+      \field{urlday}{14}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-quantization.html
+      \endverb
+      \verb{url}
+      \verb https://pytorch.org/executorch/stable/backends/xnnpack/xnnpack-quantization.html
+      \endverb
+    \endentry
+    \entry{executorch_quantization}{online}{}
+      \name{author}{1}{}{%
+        {{hash=20934bb6b6fc16457bce17b3d0b7bace}{%
+           family={{PyTorch Foundation}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{fullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{bibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorbibnamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authornamehash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \strng{authorfullhash}{20934bb6b6fc16457bce17b3d0b7bace}
+      \field{extraname}{14}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Quantization Overview --- ExecuTorch Documentation}
@@ -1250,37 +1590,6 @@
       \endverb
       \verb{url}
       \verb https://pytorch.org/executorch/stable/quantization-overview.html
-      \endverb
-    \endentry
-    \entry{torchao_pt2e}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=7c84d95e3d5c93ccd91416ee61a5bfa0}{%
-           family={{PyTorch AO Contributors}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{fullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{fullhashraw}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{bibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{authorbibnamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{authornamehash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{authorfullhash}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \strng{authorfullhashraw}{7c84d95e3d5c93ccd91416ee61a5bfa0}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{PT2E Quantization Tutorials and Documentation}
-      \field{urlday}{14}
-      \field{urlmonth}{4}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
-      \endverb
-      \verb{url}
-      \verb https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html
       \endverb
     \endentry
   \enddatalist

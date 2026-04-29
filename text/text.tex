@@ -1,3 +1,4 @@
+% !TEX root = ../ctufit-thesis.tex
 %---------------------------------------------------------------
 % Main thesis text
 %---------------------------------------------------------------
@@ -25,8 +26,21 @@ budget \cite{wang2020mobilesoc,li2024mobilebenchmark}. In practice, this
 means that achieving good model accuracy is not sufficient; the full
 end-to-end system must also be efficient.
 
+Facial landmarks are useful because they describe the geometry of a face, not
+only whether a face is present. Landmarks mark points such as eye corners, nose
+position, mouth corners, and jaw shape. These points can be used to align faces
+before face recognition or verification \cite{chen2018mobilefacenets}, estimate
+head pose and localize faces in difficult real-world images
+\cite{zhu2012facedetectionwild}, analyze facial expression, drive avatar or
+face-animation systems, and place augmented-reality effects such as glasses,
+masks, or makeup on the correct parts of the face \cite{guo2019pfld}.
+In medical settings, landmark-based facial analysis can also help quantify
+facial asymmetry, support facial-palsy assessment, and track recovery or
+rehabilitation progress from facial movement changes \cite{vrochidou2023facialpalsy}.
+
 Recent community benchmarks confirm that measured latency strongly depends on
-hardware configuration, runtime backend, numerical precision. \cite{reddi2022mlperfmobile,li2024mobilebenchmark}.
+hardware configuration, runtime backend, and numerical precision
+\cite{reddi2022mlperfmobile,li2024mobilebenchmark}.
 
 \section{Problem statement}
 
@@ -49,29 +63,26 @@ Objectives of the thesis are:
     \item select suitable face-processing models (detector + landmark regressor)
           for mobile real-time use;
     \item implement equivalent benchmark scenarios on both platforms;
-    \item evaluate latency (ms/frame), throughput (FPS), and landmark accuracy;
-    \item analyze INT8 PTQ optimization impact on speed and quality.
+    \item evaluate latency (ms/frame), throughput (frames per second, FPS), and landmark accuracy;
+    \item analyze post-training quantization (PTQ) with 8-bit integer (INT8) optimization impact on speed and quality.
 \end{itemize}
-
-Citations and bibliography entries in this thesis are formatted according to
-ČSN ISO 690 (numeric method) using the \texttt{biblatex-iso690} style.
 
 \section{Alignment with thesis assignment tasks}
 
 The assignment tasks are covered as follows:
 \begin{enumerate}
-    \item \textbf{Mobile NN deployment options:} Chapter~2 and Chapter~3 review
+    \item \textbf{Mobile neural network (NN) deployment options:} Chapter~2 and Chapter~3 review
           mobile hardware/runtime constraints and ExecuTorch backend options.
     \item \textbf{Model selection + test inputs:} Chapter~2 (model section)
           explains selected detector/landmark architectures; Chapter~4 defines
-          the reproducible AFW-based input protocol used for quantitative
+          the reproducible AFW (Annotated Faces in the Wild)-based input protocol used for quantitative
           comparison.
     \item \textbf{Android/iOS testing scenario:} Chapter~4 documents feature
           parity and unified measurement schema for both mobile apps.
-    \item \textbf{Latency/FPS (and optional energy):} Chapter~4 defines metrics
+    \item \textbf{Latency/FPS and optional energy:} Chapter~4 defines metrics
           and logging; Chapter~5 reports results measured on various devices.
     \item \textbf{Optimization impact (quantization):} Chapter~3 explains PTQ
-          export workflow and Chapter~5 compares FP32 vs INT8 behavior.
+          export workflow and Chapter~5 compares 32-bit floating point (FP32) vs INT8 behavior.
 \end{enumerate}
 
 %---------------------------------------------------------------
@@ -80,8 +91,8 @@ The assignment tasks are covered as follows:
 
 \section{On-device inference in mobile environments}
 
-Mobile AI systems are typically deployed on heterogeneous Systems-on-Chip
-(SoCs), where CPU, GPU, and dedicated NPUs coexist
+Mobile artificial intelligence (AI) systems are typically deployed on heterogeneous Systems-on-Chip
+(SoCs), where central processing units (CPUs), graphics processing units (GPUs), and dedicated neural processing units (NPUs) coexist
 \cite{lee2019mobilegpu,wang2020mobilesoc}. Compared to server inference,
 mobile workloads operate under tighter thermal and power limits and often share
 resources with other tasks.
@@ -90,7 +101,7 @@ Latency depends on several things:
 \begin{itemize}
     \item model architecture (operator types, tensor shapes, parameter count),
     \item runtime backend (kernel library, operator fusion, threading policy),
-    \item hardware mapping (CPU/GPU/NPU dispatch),
+    \item hardware mapping (CPU, GPU, and NPU dispatch),
 \end{itemize}
 
 That means the same neural network can show very different
@@ -109,6 +120,40 @@ energy-efficiency when supported operators map well to accelerator kernels
 subgraphs frequently fall back to CPU, and thus synchronization and memory
 transfer overhead become issues.
 
+The difference between these three hardware types is important for interpreting
+mobile benchmark results. A CPU is the most general
+processor in the phone. It is good at control flow, irregular work, small
+operations, and operators that are not supported by accelerators. This makes it
+reliable, but not always the fastest choice for large neural-network tensor
+operations. In this thesis, XNNPACK (optimized CPU backend) represents the
+optimized CPU path, so XNNPACK results should be understood as optimized CPU
+execution rather than GPU or NPU execution \cite{executorch_xnnpack,xnnpack_repo}.
+
+A GPU is designed for many similar operations in
+parallel. Neural-network layers such as convolutions and matrix multiplications
+can often be expressed as large parallel workloads, so a GPU can be faster than
+a CPU for supported operators. The drawback is that GPU execution has overhead:
+data may need to be prepared for the GPU, command queues must be scheduled, and
+unsupported operators may have to move back to the CPU. For small models or
+small batch sizes, this overhead can reduce the practical speedup
+\cite{lee2019mobilegpu,li2024mobilebenchmark}.
+
+An NPU is a dedicated accelerator for neural-network
+operations. It is usually designed to run supported layers with high energy
+efficiency. The limitation is operator coverage: if the model contains an
+unsupported layer, unsupported shape, or unsupported data type, the runtime may
+fall back to CPU execution for that part. This fallback can introduce extra
+copies and synchronization, so an accelerator is useful only when a large enough
+part of the graph maps cleanly to it \cite{wang2020mobilesoc,reddi2022mlperfmobile}.
+
+In this thesis, the measured backends are Core ML (Apple machine learning
+framework), XNNPACK, and portable ExecuTorch execution.
+Core ML can choose Apple CPU, GPU, or Apple Neural Engine (ANE) depending on the model and device
+\cite{apple_coreml,executorch_coreml}. XNNPACK is the optimized CPU path
+\cite{executorch_xnnpack}. Portable execution is the generic ExecuTorch path
+used mainly as a correctness baseline when no backend-specific acceleration is
+used \cite{executorch_how,executorch_arch}.
+
 \subsection{Power and thermal behavior}
 
 Peak performance is often not sustainable in mobile devices. Very long
@@ -117,7 +162,7 @@ latency \cite{li2024mobilebenchmark}.
 
 \section{Efficient neural networks for mobile vision}
 
-The shift from CNNs deployed on servers to mobile-friendly architectures was enabled
+The shift from convolutional neural networks (CNNs) deployed on servers to mobile-friendly architectures was enabled
 by operator-level efficiency ideas such as depthwise separable convolution,
 inverted residual blocks, and channel shuffle
 \cite{howard2017mobilenets,sandler2018mobilenetv2,zhang2018shufflenet}.
@@ -134,9 +179,9 @@ performance. The most common compression techniques include pruning and weight s
 quantization is especially important because INT8 kernels can be faster and more
 energy-efficient than FP32 on supported hardware \cite{jacob2018quantization}.
 
-\subsection{What PTQ does}
+\subsection{Post-training quantization}
 
-Post-training quantization (PTQ) converts an already trained FP32 model to a
+Post-training quantization converts an already trained FP32 model to a
 lower-precision representation, usually without retraining. In this thesis, the
 main target is INT8 execution. A real value $x$ is represented by an integer
 $q$ using scale $s$ and zero-point $z$:
@@ -149,6 +194,34 @@ q = \mathrm{clip}\!\left(\mathrm{round}\!\left(\frac{x}{s}\right) + z,\; q_{\min
 For signed INT8, $q$ is typically in $[-128,127]$ (or $[-127,127]$ in symmetric
 weight quantization). The reconstructed value $\hat{x}$ approximates $x$, so a
 small quantization error is introduced.
+
+The scale $s$ is the size of one integer step in the original real-number
+space. If $s$ is small, the integer grid is fine and precise, but the
+representable range is narrow. If $s$ is large, the range is wide, but nearby
+real values are rounded to the same integer. The zero-point $z$ says which
+integer represents real value zero. In symmetric quantization, $z$ is normally
+zero or very close to zero, which makes signed integer arithmetic simpler
+\cite{jacob2018quantization}. In asymmetric quantization, $z$ can shift the
+integer range so that non-symmetric activation ranges can be represented more
+efficiently \cite{krishnamoorthi2018quantizing}.
+
+Calibration is the step that chooses useful ranges for tensors. During
+calibration, representative input samples are passed through the prepared model,
+and observer nodes record approximate minimum and maximum values of activations
+\cite{torchao_pt2e}. These observed ranges are then converted into scales and
+zero-points. If calibration data is too narrow, later real inputs may fall
+outside the observed range and get clipped by the \(\mathrm{clip}\) operation
+in the equation above. If calibration data is too wide because of rare outliers,
+the scale becomes too large and normal values lose precision. This is why PTQ
+must be evaluated experimentally instead of being
+assumed to preserve accuracy.
+
+For weights, per-tensor quantization uses one scale for the whole tensor.
+Per-channel quantization uses a separate scale for each output channel, so one
+channel with large values does not force all other channels to use a coarse
+scale \cite{jacob2018quantization}. For convolution and linear layers, this is
+often important because different output channels can have very different value
+ranges.
 
 PTQ typically has three steps:
 \begin{enumerate}
@@ -174,7 +247,7 @@ Two design choices are central for this work:
 \end{itemize}
 
 INT8 often improves speed for two reasons: lower memory traffic (INT8 tensors
-are 4$\times$ smaller than FP32) and faster vectorized kernels. However, real
+are 4$\times$ smaller than FP32 tensors) and faster vectorized kernels. However, real
 inference latency reduction depends on operator coverage. If part of the graph falls back
 to non-quantized execution, conversion overhead can reduce the expected speedup
 \cite{krishnamoorthi2018quantizing}.
@@ -191,15 +264,15 @@ detection quality and crop geometry directly influence landmark quality.
 \subsection{Representative models}
 
 RetinaFace is a strong one-stage detector with high robustness under challenging
-conditions \cite{deng2020retinaface}. FaceBoxes is a lightweight detector
-explicitly designed for CPU real-time operation \cite{zhang2017faceboxes}.
+conditions \cite{deng2020retinaface,retinaface_repo}. FaceBoxes is a lightweight detector
+explicitly designed for CPU real-time operation \cite{zhang2017faceboxes,faceboxesv2_repo}.
 
-For landmarks, PFLD emphasizes compactness and speed \cite{guo2019pfld}.
+For landmarks, PFLD (Practical Facial Landmark Detector) emphasizes compactness and speed \cite{guo2019pfld,pfld68_repo}.
 MobileFaceNet provides a lightweight backbone originally developed for mobile
 face recognition and often reused for landmark regression
-\cite{chen2018mobilefacenets}. PIPNet combines heatmap-style reasoning with
+\cite{chen2018mobilefacenets,mobilefacenet_pytorch_repo}. PIPNet (Pixel-in-Pixel Network) combines heatmap-style reasoning with
 low-resolution efficient heads for practical landmark localization
-\cite{jin2021pipnet}.
+\cite{jin2021pipnet,pipnet_repo}.
 
 In the benchmark matrix used in this thesis, the main detector+landmark
 combinations are based on RetinaFace-MNet0.25 or FaceBoxesV2 with
@@ -234,13 +307,39 @@ Ramanan \cite{zhu2012facedetectionwild}.
 \chapter{ExecuTorch for mobile deployment}
 %---------------------------------------------------------------
 
-\section{Why ExecuTorch}
+\section{ExecuTorch motivation}
 
 ExecuTorch is a PyTorch edge deployment stack designed for efficient on-device
 inference across mobile and embedded devices
 \cite{executorch_how,executorch_arch}. Its central design principle is
 \emph{ahead-of-time} (AOT) preparation: expensive transformation and planning
 steps are performed before deployment, so runtime execution remains lightweight.
+
+ExecuTorch was chosen instead of TensorFlow Lite (TFLite) or another mobile
+runtime mainly because this project starts from PyTorch models and needs the
+same deployment idea on Android and iOS. TFLite is a strong mobile and embedded
+runtime for models in the TensorFlow Lite format \cite{tensorflow_lite}, and
+ONNX Runtime Mobile is a strong mobile runtime for models represented in the
+Open Neural Network Exchange (ONNX) format \cite{onnxruntime_mobile}. However,
+using either of them here would add an
+extra conversion boundary: the model would first have to leave the PyTorch
+export path and then be validated again in another framework-specific graph
+format. That extra step is risky for this benchmark because small differences in
+operator conversion, tensor layout, unsupported operations, or numerical
+precision could change both speed and landmark accuracy.
+
+ExecuTorch keeps the pipeline closer to PyTorch: \texttt{torch.export} captures
+the model graph, ExecuTorch lowers that graph for edge execution, and the final
+\texttt{.pte} file is loaded by the Android and iOS benchmark applications
+\cite{pytorch_export,executorch_export,executorch_pte}. It also matches the
+backend comparison needed in this thesis. The same deployment stack can produce
+an optimized CPU path through XNNPACK, an Apple path through Core ML, and a
+portable ExecuTorch baseline
+\cite{executorch_xnnpack,executorch_coreml,executorch_how}. This makes the
+benchmark easier to interpret: differences in the results are more directly
+connected to backend choice, quantization, device hardware, and model
+architecture instead of being mixed with a completely different model-conversion
+toolchain.
 
 \section{Conceptual architecture}
 
@@ -252,6 +351,90 @@ ExecuTorch organizes model deployment into three phases
     \item execute the serialized program with a small C++ runtime.
 \end{enumerate}
 
+The first phase, export, captures the model as a graph. A graph is a list of
+tensor operations and their data dependencies. This graph form is important because it can be
+checked, transformed, quantized, partitioned, and serialized
+\cite{pytorch_export,executorch_export}.
+
+In more detail, the graph is a data-flow description of the neural network.
+Each node represents something that must happen, such as reading an input
+tensor, reading a trained weight tensor, running a convolution, applying an
+activation function, reshaping a tensor, or returning the final output. The
+edges between nodes represent values flowing from one operation to another
+\cite{pytorch_export}. If node \(B\) uses the result of node \(A\), then the
+graph records that dependency. This lets the compiler know that \(A\) must run
+before \(B\), and it also lets the compiler see when the output of \(A\) is no
+longer needed.
+
+The graph is an internal
+program representation. It contains placeholders for model inputs, constants
+or parameters for learned weights, operator calls, metadata about tensor shapes,
+and output nodes \cite{pytorch_export,executorch_how}. A tensor is the
+multi-dimensional array used by neural networks. For example, an image batch
+may be represented as a tensor with dimensions for batch, height, width, and
+channels. Operator nodes consume tensors and produce new tensors. A convolution
+node consumes an input feature tensor and a weight tensor, then produces an
+output feature tensor. The next activation node consumes that output and
+produces another tensor.
+
+This representation is useful because it makes implicit model behavior
+explicit. In normal PyTorch eager execution, Python code decides what operation
+to run next while the model is executing. In an exported ExecuTorch workflow,
+that decision has already been captured into the graph \cite{executorch_how}.
+The phone therefore does not need to interpret the original Python model. It
+only follows the prepared graph program.
+
+Technically, \texttt{torch.export} captures an Export Intermediate
+Representation, often called Export IR, that preserves the meaning of the
+original PyTorch program while removing the need to run the original Python
+control code on the phone \cite{pytorch_export,executorch_how}. The exported
+graph records operators, tensor shapes or shape constraints, parameters, and
+the order in which values flow between operators \cite{pytorch_export}. This is
+why ExecuTorch can analyze the model before deployment instead of discovering
+the model structure during each mobile inference run.
+
+Shape information is part of why the graph can be compiled. If an input always
+has shape \(1 \times 3 \times 112 \times 112\), the compiler can plan memory
+for that exact shape. If the batch dimension is dynamic, the graph can store a
+constraint such as ``batch is between 1 and 128'' instead of a single fixed
+number \cite{pytorch_export}. ExecuTorch can then use these constraints during
+lowering, memory planning, and backend partitioning.
+
+After export, compiler passes can rewrite the graph. A pass is a transformation
+that reads the graph and produces a modified graph or program. Typical passes
+can decompose high-level PyTorch operators into simpler Core ATen operators,
+insert or remove quantization-related operations, identify which nodes can be
+handled by XNNPACK or Core ML, and assign temporary tensors to planned memory
+locations \cite{executorch_how,executorch_arch,executorch_delegate,executorch_memory}.
+Because the model is represented as nodes and edges, these transformations can
+be done systematically rather than by manually editing model code.
+
+The second phase, compile or lower, turns the exported graph into an
+ExecuTorch program. During this phase ExecuTorch can decompose operators into a
+smaller standardized operator set, lower supported graph regions to backends
+such as XNNPACK or Core ML, and plan temporary tensor memory
+\cite{executorch_arch,executorch_delegate,executorch_memory}.
+
+ExecuTorch uses operator standardization to make this possible. Many PyTorch
+operators are decomposed into a smaller Core ATen operator set, where ATen is
+PyTorch's core tensor and operator library, and the portable operator library
+implements this standardized set when no delegate handles the operation
+\cite{executorch_how,executorch_arch}. This matters because backend authors do
+not need to support the entire Python-level PyTorch API; they only need to
+support the graph operators that the exported model contains.
+
+The third phase, execution, is intentionally small. The runtime reads the
+serialized program, prepares memory, calls either portable kernels or delegate
+backends, and returns output values. The runtime is written in C++ and is
+wrapped by platform application programming interfaces (APIs) for Swift and
+Kotlin/Java \cite{executorch_how,executorch_android,executorch_ios}.
+
+The runtime is also designed so that only the operators needed by the deployed
+program have to be linked into the final app binary \cite{executorch_how}. In
+simple terms, the phone does not ship a full Python interpreter or a full
+training framework. It ships a small execution engine, the required kernels,
+and any registered delegate backends needed by the exported model.
+
 \section{Export and lowering workflow}
 
 The practical workflow consists of:
@@ -259,12 +442,83 @@ The practical workflow consists of:
     \item model export using \texttt{torch.export},
     \item backend specific lowering via
           \texttt{to\_edge\_transform\_and\_lower},
-    \item creation of a serialized \texttt{.pte} artifact.
+    \item creation of a serialized \texttt{.pte} artifact, where an artifact
+          means a file produced by the build/export pipeline and used later by
+          another part of the project.
 \end{enumerate}
+
+In this thesis, a model artifact is usually a \texttt{.pte} file: it is
+produced on the development machine, copied into the Android or iOS
+application, and loaded by the mobile benchmark.
 
 This process supports dynamic shape constraints and optional separation of
 program and tensor data into \texttt{.pte} and \texttt{.ptd} files
 \cite{executorch_export,executorch_pte,executorch_ptd,pytorch_export}.
+
+\subsection{Intermediate representations used before runtime}
+
+ExecuTorch does not directly run the original Python model on the phone. The
+model passes through intermediate representations, meaning machine-readable
+forms of the model that are easier for compiler passes to analyze and modify
+\cite{executorch_arch}. The important idea is:
+\begin{itemize}
+    \item \textbf{PyTorch model}: the normal Python model used during
+          development;
+    \item \textbf{Exported graph}: a graph produced by \texttt{torch.export},
+          with tensor operations and shape constraints \cite{pytorch_export};
+    \item \textbf{Edge program}: an ExecuTorch-friendly program after edge
+          transformations, backend lowering, and memory planning
+          \cite{executorch_export,executorch_memory};
+    \item \textbf{Serialized artifact}: the final \texttt{.pte} (portable
+          tensor executable) file copied to Android assets or the iOS bundle
+          \cite{executorch_pte}.
+\end{itemize}
+
+This is why the benchmark applications do not contain PyTorch model code. They
+only load already exported artifacts and feed tensors into them. In simple
+language, Python is used to prepare the model, and the phone only receives the
+finished program.
+
+\subsection{The \texttt{.pte} deployment artifact}
+
+The \texttt{.pte} file is the serialized ExecuTorch program used at runtime
+\cite{executorch_pte}. It contains the graph-level execution plan, operator
+references, delegate information, constants, and metadata needed by the
+ExecuTorch runtime. If large tensor data is separated from the program, a
+\texttt{.ptd} file can store that tensor data separately \cite{executorch_ptd}.
+This thesis mainly treats \texttt{.pte} files as the deployable model artifacts:
+the Android and iOS applications load them, create input tensors, run forward
+execution, and read output tensors.
+
+A \texttt{.pte} file is therefore not the same thing as a PyTorch checkpoint.
+A checkpoint stores trained parameters, and often assumes that Python model code
+will rebuild the network structure. A \texttt{.pte} file stores an already
+exported and lowered execution program. That program can include delegate
+segments, portable fallback segments, constants, and the method entry points
+that the runtime can call \cite{executorch_pte,executorch_delegate}.
+
+\subsection{Static shapes, dynamic shapes, and batching}
+
+Mobile runtimes are easier to optimize when tensor shapes are known in advance.
+A static-shape export fixes dimensions such as batch size and input height and
+width before deployment. A dynamic-shape export allows selected dimensions to
+vary inside declared bounds using \texttt{torch.export.Dim} constraints
+\cite{pytorch_export}. In this thesis, dynamic batch export means that the
+batch dimension can vary between a minimum and maximum value while image shape
+and channel count remain fixed. This allows one artifact to cover several batch
+sizes, but it also gives the compiler less exact shape information than a fully
+static export.
+
+\subsection{Memory planning}
+
+ExecuTorch performs memory planning during export and lowering so that the
+runtime can reuse buffers for temporary tensors \cite{executorch_memory}. This
+matters on mobile devices because memory allocation during repeated inference
+can add overhead and increase memory pressure. A simple way to think about it
+is that many intermediate tensors are not needed at the same time. If tensor
+\(A\) is no longer used before tensor \(B\) is created, both can reuse the same
+memory region. Planning this before runtime helps make execution more
+predictable.
 
 \section{Delegation and partitioning}
 
@@ -276,126 +530,132 @@ model improves portability but can create overhead.
 For this thesis, two backends are central:
 \begin{itemize}
     \item \textbf{XNNPACK}: optimized CPU backend with broad mobile support,
-          including quantized paths \cite{executorch_xnnpack,xnnpack_repo};
+          including quantized paths \cite{executorch_xnnpack,executorch_xnnpack_quantization,xnnpack_repo};
     \item \textbf{Core ML delegate}: Apple backend path that can dispatch to CPU,
           GPU, or ANE depending on model and platform capabilities
           \cite{executorch_coreml,apple_coreml}.
 \end{itemize}
 
+A partitioner is the component that decides which graph regions a delegate can
+own \cite{executorch_delegate}. If a sequence of operators is supported by
+XNNPACK, that region is marked for XNNPACK. If one
+operator in the middle is not supported, ExecuTorch may split the graph into
+multiple delegated regions with a portable fallback region between them
+\cite{executorch_delegate}. This is important for the results chapter because
+the fastest model is not always the model with the fewest theoretical floating-point operations (FLOPs); backend coverage and fallback boundaries also
+matter.
+
+Delegation is not just a runtime switch. It is decided during export and
+lowering. The partitioner examines the graph, checks backend support, and
+replaces supported graph regions with calls into a backend-specific lowered
+representation \cite{executorch_delegate}. At runtime, ExecuTorch follows the
+already prepared execution plan. This is why two \texttt{.pte} files from the
+same neural network can behave differently: one may contain XNNPACK-delegated
+regions, one may contain Core ML-delegated regions, and one may contain only
+portable execution.
+
+\subsection{XNNPACK}
+
+XNNPACK is the CPU
+acceleration path used on both Android and iOS. It provides optimized neural
+network operators for mobile and desktop processors \cite{xnnpack_repo}. In
+ExecuTorch, the XNNPACK backend lowers supported graph regions into XNNPACK
+delegate calls \cite{executorch_xnnpack}. This is useful for this thesis
+because it provides a common backend across Android and iOS, so the benchmark
+can compare the same exported family of artifacts on both platforms.
+
+XNNPACK is a low-level library of optimized neural-network operator kernels,
+not a full training framework \cite{xnnpack_repo}. It targets CPU instruction
+sets on Arm and x86 systems, including Android, iOS, macOS, Linux, Windows, and
+simulators \cite{xnnpack_repo,executorch_xnnpack}. The operators relevant to
+vision models include convolution, depthwise convolution, pooling, resize,
+fully connected layers, elementwise arithmetic, activation functions such as
+clamp/ReLU, sigmoid, tanh, and PReLU, and layout-related operations such as
+transpose \cite{xnnpack_repo}. This operator coverage is why XNNPACK is a
+reasonable backend for face detectors and landmark regressors, which are mostly
+made from convolution, activation, pooling, and linear layers.
+
+The important technical point is that XNNPACK accelerates CPU execution by
+using specialized kernels and vectorized instructions. It does not move the
+model to the GPU or NPU. XNNPACK also commonly uses NHWC tensor layout, where
+the tensor dimensions are ordered as batch, height, width, and channels
+\cite{xnnpack_repo}. If an exported graph already matches what XNNPACK
+supports, the partitioner can delegate large regions. If the graph contains an
+unsupported operator or unsupported shape pattern, ExecuTorch must keep that
+part in portable execution, which can add boundary overhead.
+
+For quantized models, the ExecuTorch XNNPACK backend supports 8-bit symmetric
+weights with 8-bit asymmetric activations through the PT2E flow
+\cite{executorch_xnnpack_quantization}. The official XNNPACK quantization flow
+uses \texttt{XNNPACKQuantizer}, \texttt{prepare\_pt2e}, calibration with
+representative inputs, \texttt{convert\_pt2e}, and then lowering with
+\texttt{XnnpackPartitioner} \cite{executorch_xnnpack_quantization}. This
+matches the export script used in this thesis.
+
+\subsection{Core ML}
+
+Core ML is the Apple-specific delegate path
+\cite{apple_coreml}. In ExecuTorch, the Core ML backend lowers supported model
+regions to Apple's machine learning stack \cite{executorch_coreml}. Depending
+on the model and device, Core ML may execute work on the CPU,
+GPU, or ANE
+\cite{apple_coreml}. This means that Core ML numbers in the results chapter
+should not be interpreted as CPU-only numbers.
+
+In the ExecuTorch export flow, Core ML is selected by using the
+\texttt{CoreMLPartitioner} during \texttt{to\_edge\_transform\_and\_lower}
+\cite{executorch_coreml}. The partitioner marks graph regions that can be
+compiled for Core ML, and the resulting \texttt{.pte} file contains the
+information needed to call the registered Core ML delegate at runtime
+\cite{executorch_coreml,executorch_delegate}. No separate model conversion is
+performed inside the benchmark app; the app loads the already prepared
+ExecuTorch program.
+
+Core ML supports dynamic dispatch to Apple CPU, GPU, and ANE and supports FP32
+and 16-bit floating point (FP16) computation through the ExecuTorch backend
+\cite{executorch_coreml}.
+This is why Core ML can be much faster than portable execution on iPhone. The
+measured time includes the full benchmark pipeline, but the actual landmark
+model forward pass may run on Apple acceleration hardware rather than only on
+the CPU. Core ML delegated models also depend on platform support: the
+ExecuTorch Core ML backend documents iOS 16 or newer as a target requirement
+for running delegated models \cite{executorch_coreml}.
+
+Core ML and XNNPACK therefore answer different questions in the thesis. XNNPACK
+answers: ``How fast is the optimized CPU backend that is available on both
+Android and iOS?'' Core ML answers: ``How fast can the Apple-specific delegate
+run when it is allowed to use Apple's ML stack?'' Portable execution answers:
+``What happens without backend-specific acceleration?''
+
 \section{Quantization in ExecuTorch}
 
 ExecuTorch implements quantization through backend specific
-configurations, commonly using PT2E/torchao-based preparation and conversion
+configurations, commonly using PT2E (PyTorch 2 Export) and torchao-based preparation and conversion
 \cite{executorch_quantization,torchao_pt2e}. In this project, INT8 exports are
 produced for XNNPACK by
 \texttt{models/export\_landmark\_models\_xnnpack\_quantized.py}, which does
 symmetric PTQ.
 
-\subsection{What INT8 PTQ means in this deployment pipeline}
+\section{Runtime integration in the benchmark applications}
 
-Simply put, the exported graph replaces supported FP32 operators with
-INT8 kernels (mainly convolution and linear-family operations in XNNPACK). The
-internal arithmetic is typically INT8$\times$INT8 with INT32 accumulation,
-followed by requantization to the next expected tensor format.
+On iOS, the thesis app uses the Swift ExecuTorch API (application programming
+interface). The app creates a module from a model path, creates a tensor with
+the expected shape, calls the module forward method, and reads the returned
+tensor values. This matches the official iOS integration pattern for loading
+and executing an ExecuTorch model \cite{executorch_ios}.
 
-This usually helps mobile inference because:
-\begin{itemize}
-    \item weights and (for static paths) activations use less memory,
-    \item cache locality improves,
-    \item backend kernels can use optimized vector instructions.
-\end{itemize}
+On Android, the thesis app uses the Java/Kotlin ExecuTorch API (application
+programming interface). The app loads a module from an asset path, wraps input
+data in a tensor, passes the tensor through \texttt{EValue} (ExecuTorch value wrapper) objects, and calls
+\texttt{forward}. The Java API is a wrapper over native ExecuTorch code and
+uses JNI (Java Native Interface) to cross between Java/Kotlin and C++ runtime
+code \cite{executorch_android}.
 
-However, measured gains depend on full-graph compatibility. If unsupported
-operators force fallback segments, extra quantize/dequantize boundaries appear
-and reduce net speed benefit. This explains why INT8 speedups in the
-results chapter are not uniform across all models.
-
-For landmark regression, INT8 error sensitivity is depends on the model: compact or
-outlier-sensitive layers can produce NME degradation if calibration is not
-representative.
-
-\subsection{Implemented PTQ workflow in the export scripts}
-
-For each model and selected quantization method, the script runs:
-\begin{enumerate}
-    \item build XNNPACK quantizer configuration,
-    \item prepare quantized graph with \texttt{prepare\_pt2e},
-    \item run calibration forward passes,
-    \item convert to quantized graph with \texttt{convert\_pt2e},
-    \item lower to ExecuTorch with XNNPACK partitioner and serialize \texttt{.pte}.
-\end{enumerate}
-
-The INT8 methods implemented:
-\begin{itemize}
-    \item \texttt{pc}: per-channel weight quantization
-          (file suffix \texttt{\_xnnpack\_int8}),
-\end{itemize}
-
-The quantizer setup is created by
-\texttt{get\_symmetric\_quantization\_config(is\_per\_channel, is\_dynamic)}.
-And the key internal PTQ parameters are:
-\begin{itemize}
-    \item \texttt{is\_per\_channel} $\in \{\texttt{True},\texttt{False}\}$,
-    \item \texttt{is\_dynamic} $\in \{\texttt{True},\texttt{False}\}$.
-\end{itemize}
-
-Static INT8 export uses a fixed sample input tensor and calibrates for
-$S$ iterations, where
-\begin{equation}
-S = \texttt{XNNPACK\_INT8\_CALIBRATION\_SAMPLES}
-\end{equation}
-(default $S=32$).
-
-Dynamic-batch INT8 export constrains only the batch dimension using
-\texttt{torch.export.Dim("batch", min, max)} and calibrates representative
-batch sizes from $\{b_{\min}, b_{\text{mid}}, b_{\max}\}$. In the script,
-\begin{equation}
-b_{\text{mid}} =
-\begin{cases}
- b_{\min}, & b_{\min}>1,\\
- \min(2,b_{\max}), & b_{\min}=1.
-\end{cases}
-\end{equation}
-
-\subsection{Model-specific safety workarounds used during quantized export}
-
-The implemented export pipeline contains explicit safeguards discovered during
-the export process to improve stability and quality of the generated INT8 artifacts. These include:
-\begin{itemize}
-    \item \textbf{MobileFaceNet output stabilization:} fusion of
-          \texttt{Linear+BatchNorm1d} in the output head and export as a
-          single landmark tensor output;
-    \item \textbf{MobileFaceNet XNNPACK stability:} exclusion of
-          \texttt{PreluConfig} from XNNPACK delegation to avoid unstable runtime
-          behavior;
-\end{itemize}
-
-\subsection{Export-script parameters relevant to quantization}
-
-The quantized export process is controlled through environment parameters:
-\begin{itemize}
-    \item \texttt{EXPORT\_BATCH\_SIZES}: static batch sizes to export
-          (default in wrapper script: \texttt{1});
-    \item \texttt{EXPORT\_DYNAMIC\_BATCH}: enable dynamic-batch exports
-          (default: \texttt{1});
-    \item \texttt{EXPORT\_DYNAMIC\_MIN\_BATCH}: lower dynamic batch bound
-          (default: \texttt{1});
-    \item \texttt{EXPORT\_DYNAMIC\_MAX\_BATCH}: upper dynamic batch bound
-          (default: \texttt{128});
-    \item \texttt{XNNPACK\_INT8\_CALIBRATION\_SAMPLES}: number of static
-          calibration iterations (default: \texttt{32});
-    \item \texttt{XNNPACK\_INT8\_METHODS}: selected INT8 methods
-          (default: \texttt{pc,pt});
-    \item \texttt{MOBILEFACENET\_STATIC\_INT8\_DYNAMIC\_ACT\_WORKAROUND}:
-          enable MobileFaceNet static INT8 workaround (default: enabled);
-    \item \texttt{PYTHON\_BIN}: interpreter used by wrapper shell script.
-\end{itemize}
-
-For completeness, the same export ecosystem also accepts backend-target
-parameters used by non-quantized scripts
-(\texttt{QNN\_SOC\_MODEL}, \texttt{MTK\_PLATFORM\_CONFIG},
-\texttt{SAMSUNG\_CHIPSET}, \texttt{EXPORT\_APPLE\_BACKENDS}), which have an effect on
-which delegate variants are generated but do not change INT8 calibration rules.
+The important practical consequence is that neither mobile application trains
+or exports a model. Training and export happen before deployment. The mobile
+applications only run inference, meaning they load the \texttt{.pte}
+(serialized ExecuTorch program), feed input tensors, measure time, and store
+outputs for later analysis.
 
 %---------------------------------------------------------------
 \chapter{Benchmark methodology}
@@ -431,7 +691,7 @@ configurations. Typical factors include:
     \item detector choice (e.g., RetinaFace vs FaceBoxes),
     \item landmark architecture (e.g., PFLD, MobileFaceNet, PIPNet),
     \item precision variant (FP32 and INT8),
-    \item backend delegate (XNNPACK, Core ML and portable),
+    \item backend delegate (XNNPACK, Core ML, and portable),
     \item resolved batch size.
 \end{itemize}
 
@@ -481,7 +741,10 @@ Run throughput follows the exported timing summary:
 \mathrm{FPS} = \frac{N_{\text{images}}}{T_{\text{run}}}.
 \end{equation}
 
-BS=1 charts compare median FPS by landmark configuration. Batch-scaling charts
+Here, FPS means frames per second, \(N_{\text{images}}\) is the number of
+processed images, and \(T_{\text{run}}\) is the measured run time.
+
+Batch size one (BS=1) charts compare median FPS by landmark configuration. Batch-scaling charts
 plot median FPS as a function of resolved landmark batch size
 ($b \in \{1,2,4,8\}$ in the curated thesis set).
 
@@ -489,7 +752,7 @@ plot median FPS as a function of resolved landmark batch size
 
 Accuracy is recomputed offline from exported per-image predicted landmarks and
 AFW ground truth annotations \cite{zhu2012facedetectionwild}. For $N$ evaluated images and $K$ landmarks,
-inter-ocular NME is
+inter-ocular normalized mean error (NME) is
 \begin{equation}
 \mathrm{NME}_{\text{iod}} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}
 \frac{\lVert \hat{\mathbf{p}}_{n,k} - \mathbf{p}_{n,k} \rVert_2}{d^{\text{iod}}_n},
@@ -540,9 +803,9 @@ Main threats and mitigations include:
 \section{Result scope and source artifacts}
 
 The main simplified dashboard is configured around one focus mobile device
-(Xiaomi Redmi Note 8 Pro) with PC reference rows. In addition iPhone 14 results are included.
+(Xiaomi Redmi Note 8 Pro) with personal computer (PC) reference rows. In addition iPhone 14 results are included.
 
-\section{BS=1 speed and latency overview (PC vs focus device)}
+\section{Batch size 1 speed and latency overview}
 
 \begin{figure}[htbp]
     \centering
@@ -559,14 +822,14 @@ The main simplified dashboard is configured around one focus mobile device
 \end{figure}
 
 Figures~\ref{fig:simple-bs1-fps} and~\ref{fig:simple-bs1-latency} quantify the
-gap between desktop and mobile execution at BS=1. The PC reaches roughly
-16--25~FPS across all four landmark models, while the focus phone falls into a
+gap between desktop and mobile execution at BS=1. The PC
+reaches roughly 16--25~FPS across all four landmark models, while the focus phone falls into a
 much narrower 3--8~FPS band. The gap is not uniform: it is smallest for the
 lightweight PFLD-MNv2-0.25 (PC/phone $\approx$~2.0$\times$ in FPS) and largest
 for PipNet-R18 in FP32, where the PC is roughly an order of magnitude faster
 ($24.86$ vs $2.28$~FPS, i.e.\ $\sim$10.9$\times$).
 
-\section{Focus-device backend and quantization at BS=1}
+\section{Focus-device backend and quantization at batch size 1}
 
 \begin{figure}[htbp]
     \centering
@@ -587,7 +850,7 @@ for PipNet-R18 in FP32, where the PC is roughly an order of magnitude faster
 \small
 \begin{tabular}{llrrrr}
 \hline
-Model & Quant & FPS & LM inf. [ms] & E2E [ms] & NME \\
+Model & Quantization & FPS & LM inf. [ms] & E2E [ms] & NME \\
 \hline
 MobileFaceNet      & FP32 & 3.39 & 184.33 & 277.18 & 0.0428 \\
 MobileFaceNet      & INT8 & 3.46 & 178.39 & 272.20 & 0.0428 \\
@@ -599,7 +862,7 @@ PipNet-R18         & FP32 & 2.28 & 351.97 & 421.52 & 0.0446 \\
 PipNet-R18         & INT8 & 5.53 & 97.46  & 164.59 & 0.0463 \\
 \hline
 \end{tabular}
-\caption{Focus-device BS=1 XNNPACK metrics (raw values).}
+\caption{Focus-device BS=1 XNNPACK metrics. LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds.}
 \label{tab:focus-bs1-raw}
 \end{table}
 
@@ -621,19 +884,19 @@ largest speed gain in the matrix accompanied by a barely measurable accuracy
 loss---making it the strongest INT8 candidate among the tested models on this
 device.
 
-\section{Batch scaling on focus device (BS=1,2,4,8)}
+\section{Focus-device batch scaling}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png}
-    \caption{Focus device batch scaling for PFLD-MNv2-1.0 (XNNPACK variants).}
+    \caption{Focus device batch scaling for PFLD-MNv2-1.0 using XNNPACK variants.}
     \label{fig:focus-batch-pfld10}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resnet18.png}
-    \caption{Focus device batch scaling for PipNet ResNet18 (XNNPACK variants).}
+    \caption{Focus device batch scaling for PipNet ResNet18 using XNNPACK variants.}
     \label{fig:focus-batch-pipnet}
 \end{figure}
 
@@ -642,7 +905,7 @@ device.
 \small
 \begin{tabular}{llrrrr}
 \hline
-Model & Quant & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
+Model & Quantization & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
 \hline
 PFLD-MNv2-1.0 & FP32 & 5.82 & 5.53 & 5.44 & 5.97 \\
 PFLD-MNv2-1.0 & INT8 & 7.22 & 7.50 & 7.49 & 7.66 \\
@@ -650,7 +913,7 @@ PipNet-R18    & FP32 & 2.28 & 2.22 & 2.31 & 2.27 \\
 PipNet-R18    & INT8 & 5.53 & 5.34 & 5.52 & 5.66 \\
 \hline
 \end{tabular}
-\caption{Focus-device batch scaling in FPS (raw values).}
+\caption{Focus-device batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}
 \label{tab:focus-batch-fps}
 \end{table}
 
@@ -659,7 +922,7 @@ PipNet-R18    & INT8 & 5.53 & 5.34 & 5.52 & 5.66 \\
 \small
 \begin{tabular}{llrrrr}
 \hline
-Model & Quant & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
+Model & Quantization & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
 \hline
 PFLD-MNv2-1.0 & FP32 & 61.54 & 37.19 & 24.78 & 16.03 \\
 PFLD-MNv2-1.0 & INT8 & 23.78 & 11.81 & 7.37  & 5.29 \\
@@ -667,7 +930,7 @@ PipNet-R18    & FP32 & 351.97 & 198.58 & 132.34 & 103.89 \\
 PipNet-R18    & INT8 & 97.46  & 55.81  & 37.10  & 27.26 \\
 \hline
 \end{tabular}
-\caption{Focus-device batch scaling in landmark-inference latency (raw values).}
+\caption{Focus-device batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}
 \label{tab:focus-batch-lm-ms}
 \end{table}
 
@@ -698,7 +961,7 @@ $8\times$ batch), and PipNet-R18 INT8 from $97.46$~ms to $27.26$~ms
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png}
-    \caption{Focus device cumulative NME curves for BS=1 XNNPACK FP32/INT8 runs.}
+    \caption{Focus device cumulative NME curves for BS=1 XNNPACK FP32 and INT8 runs.}
     \label{fig:focus-cdf-nme}
 \end{figure}
 
@@ -715,7 +978,7 @@ PFLD-MNv2-1.0      & 16.35 & 7.22 & 61.01 & 121.56 \\
 PipNet-R18         & 24.86 & 5.53 & 40.19 & 164.59 \\
 \hline
 \end{tabular}
-\caption{BS=1 PC INT8 and focus-device INT8 raw metrics.}
+\caption{BS=1 PC INT8 and focus-device INT8 metrics.}
 \label{tab:pc-vs-focus-raw}
 \end{table}
 
@@ -736,7 +999,7 @@ deployment gap. After INT8 quantization on both sides, PC throughput is still
 $2.0\times$--$4.8\times$ higher than the phone, and the gap is largest for
 the smallest models (MobileFaceNet at $4.85\times$).
 
-\section{iPhone 14 charts, tables, and interpretation}
+\section{iPhone 14 result interpretation}
 
 \begin{figure}[htbp]
     \centering
@@ -779,7 +1042,7 @@ PFLD-MNv2-1.0      & 8.51 & 5.78 & 6.34 & 0.25 \\
 PipNet-R18         & 7.08 & 2.81 & 4.94 & 0.07 \\
 \hline
 \end{tabular}
-\caption{iPhone 14 BS=1 throughput by backend (raw values).}
+\caption{iPhone 14 BS=1 throughput by backend. XNN means XNNPACK.}
 \label{tab:iphone-bs1-fps}
 \end{table}
 
@@ -796,17 +1059,17 @@ PFLD-MNv2-1.0      & 109.89 & 160.36 & 141.19 & 3962.29 \\
 PipNet-R18         & 133.35 & 338.35 & 186.01 & 13698.42 \\
 \hline
 \end{tabular}
-\caption{iPhone 14 BS=1 end-to-end latency by backend (raw values).}
+\caption{iPhone 14 BS=1 end-to-end latency by backend.}
 \label{tab:iphone-bs1-e2e}
 \end{table}
 
-Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} the difference between 
+Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} show the difference between 
 three different backend delegates on iPhone 14. The most striking pattern is that Core
 ML delivers a remarkably uniform $7.1$--$8.6$~FPS across all four landmark
 models---from the smallest PFLD-MNv2-0.25 to the heaviest PipNet-R18---which
 is only possible because Apple's accelerated kernels reduce the landmark
 forward pass to essentially zero (median landmark inference of $0.34$--$1.43$~ms
-for Core ML in the underlying CSV). At that point, the bottleneck moves
+for Core ML in the underlying comma-separated values (CSV) file). At that point, the bottleneck moves
 entirely to the detector (RetinaFace / FaceBoxesV2) and the surrounding
 pre/post-processing. This is a different operating point from XNNPACK,
 where landmark inference is still measurable (4--44~ms in FP32) and therefore
@@ -844,7 +1107,7 @@ FPS).
 \small
 \begin{tabular}{llrrrr}
 \hline
-Model & Quant & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
+Model & Quantization & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
 \hline
 PFLD-MNv2-1.0 & FP32 & 5.78 & 5.83 & 5.88 & 5.91 \\
 PFLD-MNv2-1.0 & INT8 & 6.34 & 6.24 & 6.37 & 6.51 \\
@@ -852,7 +1115,7 @@ PipNet-R18    & FP32 & 2.81 & 2.85 & 2.85 & 2.93 \\
 PipNet-R18    & INT8 & 4.94 & 5.02 & 4.96 & 5.00 \\
 \hline
 \end{tabular}
-\caption{iPhone 14 batch scaling in FPS (raw values).}
+\caption{iPhone 14 batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}
 \label{tab:iphone-batch-fps}
 \end{table}
 
@@ -861,7 +1124,7 @@ PipNet-R18    & INT8 & 4.94 & 5.02 & 4.96 & 5.00 \\
 \small
 \begin{tabular}{llrrrr}
 \hline
-Model & Quant & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
+Model & Quantization & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
 \hline
 PFLD-MNv2-1.0 & FP32 & 4.98 & 2.40 & 1.18 & 0.59 \\
 PFLD-MNv2-1.0 & INT8 & 1.47 & 0.72 & 0.36 & 0.17 \\
@@ -869,7 +1132,7 @@ PipNet-R18    & FP32 & 44.45 & 22.20 & 11.26 & 5.51 \\
 PipNet-R18    & INT8 & 9.66 & 4.82 & 2.46 & 1.22 \\
 \hline
 \end{tabular}
-\caption{iPhone 14 batch scaling in landmark-inference latency (raw values).}
+\caption{iPhone 14 batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}
 \label{tab:iphone-batch-lm}
 \end{table}
 
@@ -893,7 +1156,7 @@ PFLD-MNv2-1.0      & 16.35 & 6.34 & 61.01 & 141.19 \\
 PipNet-R18         & 24.86 & 4.94 & 40.19 & 186.01 \\
 \hline
 \end{tabular}
-\caption{BS=1 PC INT8 and iPhone 14 INT8 raw metrics.}
+\caption{BS=1 PC INT8 and iPhone 14 INT8 metrics.}
 \label{tab:pc-vs-iphone-raw}
 \end{table}
 

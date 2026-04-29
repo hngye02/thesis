@@ -7,21 +7,91 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Qualitative properties of models used in the benchmark matrix.}}{6}{table.caption.9}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Qualitative properties of models used in the benchmark matrix.}}{8}{table.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Focus-device BS=1 XNNPACK metrics (raw values).}}{17}{table.caption.14}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Focus-device batch scaling in FPS (raw values).}}{19}{table.caption.17}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Focus-device batch scaling in landmark-inference latency (raw values).}}{19}{table.caption.18}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 raw metrics.}}{20}{table.caption.22}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 throughput by backend (raw values).}}{22}{table.caption.27}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend (raw values).}}{22}{table.caption.28}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in FPS (raw values).}}{23}{table.caption.31}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency (raw values).}}{24}{table.caption.32}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 raw metrics.}}{24}{table.caption.33}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Focus-device BS=1 XNNPACK metrics. LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds.}}{23}{table.caption.14}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Focus-device batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}}{25}{table.caption.17}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Focus-device batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}}{25}{table.caption.18}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 metrics.}}{26}{table.caption.22}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 throughput by backend. XNN means XNNPACK.}}{27}{table.caption.27}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend.}}{29}{table.caption.28}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}}{30}{table.caption.31}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}}{30}{table.caption.32}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 metrics.}}{30}{table.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 

@@ -1,27 +1,26 @@
 {
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk (xelatex)",
-      "command": "latexmk",
+      "name": "build thesis on save",
+      "command": "bash",
       "args": [
-        "-xelatex",
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
+        "-lc",
+        "if [ -f thesis/build-thesis-on-save.sh ]; then bash thesis/build-thesis-on-save.sh \"$1\"; elif [ -f build-thesis-on-save.sh ]; then bash build-thesis-on-save.sh \"$1\"; else echo 'Could not find build-thesis-on-save.sh' >&2; exit 1; fi",
+        "bash",
         "%DOC%"
       ]
     }
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (xelatex)",
+      "name": "build thesis on save",
       "tools": [
-        "latexmk (xelatex)"
+        "build thesis on save"
       ]
     }
   ],
   "latex-workshop.latex.recipe.default": "first",
-  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.synctex.afterBuild.enabled": true,
   "latex-workshop.message.error.show": false,

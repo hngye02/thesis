@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.11" bltxversion="3.20" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.10" bltxversion="3.19" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -511,7 +511,6 @@
     <bcf:option datatype="xml">inheritance</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
     <bcf:option datatype="xml">uniquenametemplate</bcf:option>
-    <bcf:option datatype="xml">namehashtemplate</bcf:option>
     <bcf:option datatype="xml">sortingnamekeytemplate</bcf:option>
     <bcf:option datatype="xml">sortingtemplate</bcf:option>
     <bcf:option datatype="xml">extradatespec</bcf:option>
@@ -759,10 +758,9 @@
   </bcf:optionscope>
   <bcf:optionscope type="ENTRY">
     <bcf:option datatype="string">noinherit</bcf:option>
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
-    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">presort</bcf:option>
     <bcf:option datatype="string" backendout="1">indexing</bcf:option>
@@ -834,10 +832,9 @@
     <bcf:option datatype="integer" backendout="1">minalphanames</bcf:option>
   </bcf:optionscope>
   <bcf:optionscope type="NAMELIST">
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
-    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">uniquelist</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
@@ -851,10 +848,9 @@
     <bcf:option datatype="boolean" backendout="1">useprefix</bcf:option>
   </bcf:optionscope>
   <bcf:optionscope type="NAME">
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
-    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
     <bcf:option datatype="boolean" backendout="1">familyinits</bcf:option>
@@ -1075,13 +1071,6 @@
     <bcf:namepart order="2" base="1">family</bcf:namepart>
     <bcf:namepart order="3">given</bcf:namepart>
   </bcf:uniquenametemplate>
-  <!-- NAME HASH TEMPLATES -->
-  <bcf:namehashtemplate name="global">
-    <bcf:namepart order="1" hashscope="full">family</bcf:namepart>
-    <bcf:namepart order="2" hashscope="full">given</bcf:namepart>
-    <bcf:namepart order="3" hashscope="full">prefix</bcf:namepart>
-    <bcf:namepart order="4" hashscope="full">suffix</bcf:namepart>
-  </bcf:namehashtemplate>
   <!-- SORTING NAME KEY TEMPLATES -->
   <bcf:sortingnamekeytemplate name="global" visibility="sort">
     <bcf:keypart order="1">
@@ -2395,45 +2384,134 @@
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">wang2020mobilesoc</bcf:citekey>
     <bcf:citekey order="1" intorder="2">li2024mobilebenchmark</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">reddi2022mlperfmobile</bcf:citekey>
-    <bcf:citekey order="2" intorder="2">li2024mobilebenchmark</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">lee2019mobilegpu</bcf:citekey>
-    <bcf:citekey order="3" intorder="2">wang2020mobilesoc</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">li2024mobilebenchmark</bcf:citekey>
-    <bcf:citekey order="4" intorder="2">reddi2022mlperfmobile</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">lee2019mobilegpu</bcf:citekey>
-    <bcf:citekey order="5" intorder="2">wang2020mobilesoc</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">li2024mobilebenchmark</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">howard2017mobilenets</bcf:citekey>
-    <bcf:citekey order="7" intorder="2">sandler2018mobilenetv2</bcf:citekey>
-    <bcf:citekey order="7" intorder="3">zhang2018shufflenet</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">iandola2016squeezenet</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">han2016deepcompression</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">jacob2018quantization</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">krishnamoorthi2018quantizing</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">deng2020retinaface</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">zhang2017faceboxes</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">guo2019pfld</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">chen2018mobilefacenets</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">jin2021pipnet</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">zhu2012facedetectionwild</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">executorch_how</bcf:citekey>
-    <bcf:citekey order="18" intorder="2">executorch_arch</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">executorch_how</bcf:citekey>
-    <bcf:citekey order="19" intorder="2">executorch_arch</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">executorch_export</bcf:citekey>
-    <bcf:citekey order="20" intorder="2">executorch_pte</bcf:citekey>
-    <bcf:citekey order="20" intorder="3">executorch_ptd</bcf:citekey>
-    <bcf:citekey order="20" intorder="4">pytorch_export</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">executorch_delegate</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">executorch_xnnpack</bcf:citekey>
-    <bcf:citekey order="22" intorder="2">xnnpack_repo</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">executorch_coreml</bcf:citekey>
-    <bcf:citekey order="23" intorder="2">apple_coreml</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">executorch_quantization</bcf:citekey>
-    <bcf:citekey order="24" intorder="2">torchao_pt2e</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">zhu2012facedetectionwild</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">zhu2012facedetectionwild</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">chen2018mobilefacenets</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">zhu2012facedetectionwild</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">guo2019pfld</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">vrochidou2023facialpalsy</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">reddi2022mlperfmobile</bcf:citekey>
+    <bcf:citekey order="6" intorder="2">li2024mobilebenchmark</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">lee2019mobilegpu</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">wang2020mobilesoc</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">li2024mobilebenchmark</bcf:citekey>
+    <bcf:citekey order="8" intorder="2">reddi2022mlperfmobile</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">lee2019mobilegpu</bcf:citekey>
+    <bcf:citekey order="9" intorder="2">wang2020mobilesoc</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="10" intorder="2">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">lee2019mobilegpu</bcf:citekey>
+    <bcf:citekey order="11" intorder="2">li2024mobilebenchmark</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">wang2020mobilesoc</bcf:citekey>
+    <bcf:citekey order="12" intorder="2">reddi2022mlperfmobile</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">apple_coreml</bcf:citekey>
+    <bcf:citekey order="13" intorder="2">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="15" intorder="2">executorch_arch</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">li2024mobilebenchmark</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">howard2017mobilenets</bcf:citekey>
+    <bcf:citekey order="17" intorder="2">sandler2018mobilenetv2</bcf:citekey>
+    <bcf:citekey order="17" intorder="3">zhang2018shufflenet</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">iandola2016squeezenet</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">han2016deepcompression</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">jacob2018quantization</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">jacob2018quantization</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">krishnamoorthi2018quantizing</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">torchao_pt2e</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">jacob2018quantization</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">krishnamoorthi2018quantizing</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">deng2020retinaface</bcf:citekey>
+    <bcf:citekey order="26" intorder="2">retinaface_repo</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">zhang2017faceboxes</bcf:citekey>
+    <bcf:citekey order="27" intorder="2">faceboxesv2_repo</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">guo2019pfld</bcf:citekey>
+    <bcf:citekey order="28" intorder="2">pfld68_repo</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">chen2018mobilefacenets</bcf:citekey>
+    <bcf:citekey order="29" intorder="2">mobilefacenet_pytorch_repo</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">jin2021pipnet</bcf:citekey>
+    <bcf:citekey order="30" intorder="2">pipnet_repo</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">zhu2012facedetectionwild</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="32" intorder="2">executorch_arch</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">tensorflow_lite</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">onnxruntime_mobile</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="35" intorder="2">executorch_export</bcf:citekey>
+    <bcf:citekey order="35" intorder="3">executorch_pte</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="36" intorder="2">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="36" intorder="3">executorch_how</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="37" intorder="2">executorch_arch</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="38" intorder="2">executorch_export</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="40" intorder="2">executorch_how</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="42" intorder="2">executorch_how</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="45" intorder="2">executorch_arch</bcf:citekey>
+    <bcf:citekey order="45" intorder="3">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="45" intorder="4">executorch_memory</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">executorch_arch</bcf:citekey>
+    <bcf:citekey order="46" intorder="2">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="46" intorder="3">executorch_memory</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="47" intorder="2">executorch_arch</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="48" intorder="2">executorch_android</bcf:citekey>
+    <bcf:citekey order="48" intorder="3">executorch_ios</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">executorch_how</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">executorch_export</bcf:citekey>
+    <bcf:citekey order="50" intorder="2">executorch_pte</bcf:citekey>
+    <bcf:citekey order="50" intorder="3">executorch_ptd</bcf:citekey>
+    <bcf:citekey order="50" intorder="4">pytorch_export</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">executorch_arch</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">executorch_export</bcf:citekey>
+    <bcf:citekey order="53" intorder="2">executorch_memory</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">executorch_pte</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">executorch_pte</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">executorch_ptd</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">executorch_pte</bcf:citekey>
+    <bcf:citekey order="57" intorder="2">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">pytorch_export</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">executorch_memory</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="61" intorder="2">executorch_xnnpack_quantization</bcf:citekey>
+    <bcf:citekey order="61" intorder="3">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="62" intorder="2">apple_coreml</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="69" intorder="2">executorch_xnnpack</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">xnnpack_repo</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">executorch_xnnpack_quantization</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">executorch_xnnpack_quantization</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">apple_coreml</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">apple_coreml</bcf:citekey>
+    <bcf:citekey order="77" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="78" intorder="2">executorch_delegate</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">executorch_coreml</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">executorch_quantization</bcf:citekey>
+    <bcf:citekey order="81" intorder="2">torchao_pt2e</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">executorch_ios</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">executorch_android</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">zhu2012facedetectionwild</bcf:citekey>
+    <bcf:citekey order="85" intorder="1">zhu2012facedetectionwild</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
@@ -2446,13 +2524,12 @@
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="none/global//global/global/global"
+                name="none/global//global/global"
                 type="entry"
                 sortingtemplatename="none"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"
-                labelalphanametemplatename="global"
-                namehashtemplatename="global">
+                labelalphanametemplatename="global">
   </bcf:datalist>
 </bcf:controlfile>

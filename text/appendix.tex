@@ -1,3 +1,4 @@
+% !TEX root = ../ctufit-thesis.tex
 %---------------------------------------------------------------
 \chapter{Reproducibility}
 %---------------------------------------------------------------
@@ -5,7 +6,7 @@
 This appendix lists the commands used to regenerate the CSV data, charts, and
 tables referenced in the thesis.
 
-\section{Generate combined CSV and chart suite (used in thesis)}
+\section{Combined CSV and chart generation}
 
 From the repository root:
 
@@ -19,7 +20,7 @@ From the repository root:
   --output-dir benchmarks/results/combined/charts
 \end{verbatim}
 
-\section{Generate summary tables (used in thesis)}
+\section{Summary table generation}
 
 \begin{verbatim}
 ./.venv/bin/python benchmarks/analysis/summarize_benchmarks.py \
@@ -28,7 +29,7 @@ From the repository root:
   --focus-device "xiaomi redmi note 8 pro"
 \end{verbatim}
 
-\section{Export INT8 XNNPACK landmark models (PTQ)}
+\section{INT8 XNNPACK landmark model export with post-training quantization}
 
 \begin{verbatim}
 EXPORT_BATCH_SIZES=1 \
