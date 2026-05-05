@@ -11,15 +11,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error.}}{27}{table.caption.18}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{28}{table.caption.21}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{29}{table.caption.22}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{32}{table.caption.29}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column.}}{34}{table.caption.34}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column.}}{36}{table.caption.35}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{36}{table.caption.38}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{38}{table.caption.39}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{38}{table.caption.40}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces BS=1 measured run throughput across all available device/backend variants; higher run FPS is better. Bold marks the best value in each row.}}{24}{table.caption.13}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces BS=1 end-to-end latency across all available device/backend variants. E2E latency includes detection, face cropping, landmark inference, and surrounding pipeline work; lower is better. Bold marks the best value in each row.}}{24}{table.caption.14}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model or another pipeline stage dominates the E2E result; lower is better. Bold marks the best value in each row.}}{24}{table.caption.15}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 mobile-only XNNPACK measured run throughput. This table accompanies Figure~\ref {fig:mobile-only-bs1-xnnpack-fps} so the exact iPhone-vs-Redmi differences remain visible; higher run FPS is better. Bold marks the better phone for each row.}}{26}{table.caption.17}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error.}}{27}{table.caption.20}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{28}{table.caption.23}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{29}{table.caption.24}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.25}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.26}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{31}{table.caption.31}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column.}}{34}{table.caption.36}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column.}}{36}{table.caption.37}%
+\contentsline {table}{\numberline {5.13}{\ignorespaces iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{37}{table.caption.40}%
+\contentsline {table}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{37}{table.caption.41}%
+\contentsline {table}{\numberline {5.15}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{38}{table.caption.42}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 

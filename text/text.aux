@@ -57,7 +57,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Cumulative error histograms}{20}{subsection.4.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{20}{subsection.4.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.7}Measurement protocol}{20}{section.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{20}{section.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{21}{section.4.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.9}Threats to validity}{21}{section.4.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental results}{22}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -69,66 +69,71 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 median landmark-inference latency: PC vs the focus Android device. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}}{23}{figure.caption.12}\protected@file@percent }
 \newlabel{fig:simple-bs1-latency}{{5.2}{23}{BS=1 median landmark-inference latency: PC vs the focus Android device. This measures only the landmark model forward pass in milliseconds, so lower bars are better}{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{24}{section.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces BS=1 INT8 XNNPACK run throughput on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. All bars use the same landmark backend and quantization, so higher run FPS means the measured benchmark run is faster on that device for the selected model.}}{24}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:cross-device-bs1-int8-fps}{{5.3}{24}{BS=1 INT8 XNNPACK run throughput on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. All bars use the same landmark backend and quantization, so higher run FPS means the measured benchmark run is faster on that device for the selected model}{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces BS=1 INT8 XNNPACK end-to-end latency on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. End-to-end latency includes detector execution, landmark execution, cropping, and surrounding pipeline work; lower is better.}}{25}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:cross-device-bs1-int8-e2e}{{5.4}{25}{BS=1 INT8 XNNPACK end-to-end latency on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. End-to-end latency includes detector execution, landmark execution, cropping, and surrounding pipeline work; lower is better}{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces BS=1 INT8 XNNPACK landmark latency on PC, iPhone 14, and Redmi}}{25}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:cross-device-bs1-int8-landmark}{{5.5}{25}{BS=1 INT8 XNNPACK landmark latency on PC, iPhone 14, and Redmi}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Focus-device BS=1 backend and quantization}{26}{section.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device: BS=1 measured run throughput by backend and quantization.}}{26}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:focus-bs1-fps}{{5.6}{26}{Focus device: BS=1 measured run throughput by backend and quantization}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{27}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:focus-bs1-nme}{{5.7}{27}{Focus device: BS=1 NME accuracy by backend and quantization (lower is better)}{figure.caption.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error.}}{27}{table.caption.18}\protected@file@percent }
-\newlabel{tab:focus-bs1-raw}{{5.1}{27}{Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error}{table.caption.18}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Focus-device batch scaling}{28}{section.5.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0}}{28}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:focus-batch-pfld10}{{5.8}{28}{Focus device batch scaling for PFLD-MNv2-1.0}{figure.caption.19}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{28}{table.caption.21}\protected@file@percent }
-\newlabel{tab:focus-batch-fps}{{5.2}{28}{Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column}{table.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device batch scaling for PipNet ResNet18}}{29}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:focus-batch-pipnet}{{5.9}{29}{Focus device batch scaling for PipNet ResNet18}{figure.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{29}{table.caption.22}\protected@file@percent }
-\newlabel{tab:focus-batch-lm-ms}{{5.3}{29}{Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0. The horizontal axis is the number of face crops processed together by the landmark model; higher measured run FPS is better.}}{30}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:cross-device-batch-pfld10}{{5.10}{30}{Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0. The horizontal axis is the number of face crops processed together by the landmark model; higher measured run FPS is better}{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18. The chart shows whether larger landmark batches improve measured run throughput on PC, iPhone 14, and Redmi.}}{30}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:cross-device-batch-pipnet}{{5.11}{30}{Three-device INT8 XNNPACK batch scaling for PipNet-R18. The chart shows whether larger landmark batches improve measured run throughput on PC, iPhone 14, and Redmi}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Quantization deltas and cumulative error behavior}{31}{section.5.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1.}}{31}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:focus-int8-speed}{{5.12}{31}{Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1}{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{32}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:focus-int8-accuracy-delta}{{5.13}{32}{Focus device: INT8 vs FP32 NME difference at BS=1}{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:focus-cdf-nme}{{5.14}{32}{Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error}{figure.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{32}{table.caption.29}\protected@file@percent }
-\newlabel{tab:pc-vs-focus-raw}{{5.4}{32}{BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency}{table.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:focus-cdf-rmse}{{5.15}{33}{Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error}{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}iPhone 14 result interpretation}{33}{section.5.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces iPhone 14: BS=1 median measured run FPS (device-focused chart pack).}}{34}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:iphone-simple-fps}{{5.16}{34}{iPhone 14: BS=1 median measured run FPS (device-focused chart pack)}{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{34}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:iphone-simple-latency}{{5.17}{34}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.31}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column.}}{34}{table.caption.34}\protected@file@percent }
-\newlabel{tab:iphone-bs1-fps}{{5.5}{34}{iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column}{table.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces iPhone 14: BS=1 measured run throughput by backend and quantization.}}{35}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:iphone-focus-backend}{{5.18}{35}{iPhone 14: BS=1 measured run throughput by backend and quantization}{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1.}}{35}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:iphone-int8-speed}{{5.19}{35}{iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1}{figure.caption.33}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column.}}{36}{table.caption.35}\protected@file@percent }
-\newlabel{tab:iphone-bs1-e2e}{{5.6}{36}{iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column}{table.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{36}{table.caption.38}\protected@file@percent }
-\newlabel{tab:iphone-batch-fps}{{5.7}{36}{iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column}{table.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{37}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:iphone-batch-pfld10}{{5.20}{37}{iPhone 14 batch scaling for PFLD-MNv2-1.0}{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{37}{figure.caption.37}\protected@file@percent }
-\newlabel{fig:iphone-batch-pipnet}{{5.21}{37}{iPhone 14 batch scaling for PipNet ResNet18}{figure.caption.37}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{38}{table.caption.39}\protected@file@percent }
-\newlabel{tab:iphone-batch-lm}{{5.8}{38}{iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.39}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{38}{table.caption.40}\protected@file@percent }
-\newlabel{tab:pc-vs-iphone-raw}{{5.9}{38}{BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency}{table.caption.40}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces BS=1 measured run throughput across all available device/backend variants; higher run FPS is better. Bold marks the best value in each row.}}{24}{table.caption.13}\protected@file@percent }
+\newlabel{tab:cross-device-bs1-fps}{{5.1}{24}{BS=1 measured run throughput across all available device/backend variants; higher run FPS is better. Bold marks the best value in each row}{table.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces BS=1 end-to-end latency across all available device/backend variants. E2E latency includes detection, face cropping, landmark inference, and surrounding pipeline work; lower is better. Bold marks the best value in each row.}}{24}{table.caption.14}\protected@file@percent }
+\newlabel{tab:cross-device-bs1-e2e}{{5.2}{24}{BS=1 end-to-end latency across all available device/backend variants. E2E latency includes detection, face cropping, landmark inference, and surrounding pipeline work; lower is better. Bold marks the best value in each row}{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model or another pipeline stage dominates the E2E result; lower is better. Bold marks the best value in each row.}}{24}{table.caption.15}\protected@file@percent }
+\newlabel{tab:cross-device-bs1-landmark}{{5.3}{24}{BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model or another pipeline stage dominates the E2E result; lower is better. Bold marks the best value in each row}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{25}{section.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces BS=1 XNNPACK measured run throughput on iPhone 14 and Redmi; higher run FPS is better.}}{25}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:mobile-only-bs1-xnnpack-fps}{{5.3}{25}{BS=1 XNNPACK measured run throughput on iPhone 14 and Redmi; higher run FPS is better}{figure.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces BS=1 mobile-only XNNPACK measured run throughput. This table accompanies Figure~\ref {fig:mobile-only-bs1-xnnpack-fps} so the exact iPhone-vs-Redmi differences remain visible; higher run FPS is better. Bold marks the better phone for each row.}}{26}{table.caption.17}\protected@file@percent }
+\newlabel{tab:mobile-only-bs1-xnnpack-fps}{{5.4}{26}{BS=1 mobile-only XNNPACK measured run throughput. This table accompanies Figure~\ref {fig:mobile-only-bs1-xnnpack-fps} so the exact iPhone-vs-Redmi differences remain visible; higher run FPS is better. Bold marks the better phone for each row}{table.caption.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Focus-device BS=1 backend and quantization}{26}{section.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Focus device: BS=1 measured run throughput by backend and quantization.}}{26}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:focus-bs1-fps}{{5.4}{26}{Focus device: BS=1 measured run throughput by backend and quantization}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{27}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:focus-bs1-nme}{{5.5}{27}{Focus device: BS=1 NME accuracy by backend and quantization (lower is better)}{figure.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error.}}{27}{table.caption.20}\protected@file@percent }
+\newlabel{tab:focus-bs1-raw}{{5.5}{27}{Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Focus-device batch scaling}{28}{section.5.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0}}{28}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:focus-batch-pfld10}{{5.6}{28}{Focus device batch scaling for PFLD-MNv2-1.0}{figure.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{28}{table.caption.23}\protected@file@percent }
+\newlabel{tab:focus-batch-fps}{{5.6}{28}{Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column}{table.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device batch scaling for PipNet ResNet18}}{29}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:focus-batch-pipnet}{{5.7}{29}{Focus device batch scaling for PipNet ResNet18}{figure.caption.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{29}{table.caption.24}\protected@file@percent }
+\newlabel{tab:focus-batch-lm-ms}{{5.7}{29}{Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.24}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.25}\protected@file@percent }
+\newlabel{tab:cross-device-batch-pfld10}{{5.8}{30}{Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in measured run FPS; higher is better. Bold marks the best value in each batch-size column}{table.caption.25}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.26}\protected@file@percent }
+\newlabel{tab:cross-device-batch-pipnet}{{5.9}{30}{Three-device INT8 XNNPACK batch scaling for PipNet-R18 in measured run FPS; higher is better. Bold marks the best value in each batch-size column}{table.caption.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{31}{section.5.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1.}}{31}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:focus-int8-speed}{{5.8}{31}{Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1}{figure.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{31}{table.caption.31}\protected@file@percent }
+\newlabel{tab:pc-vs-focus-raw}{{5.10}{31}{BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency}{table.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{32}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:focus-int8-accuracy-delta}{{5.9}{32}{Focus device: INT8 vs FP32 NME difference at BS=1}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:focus-cdf-nme}{{5.10}{32}{Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error}{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:focus-cdf-rmse}{{5.11}{33}{Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{33}{section.5.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14: BS=1 median measured run FPS (device-focused chart pack).}}{34}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:iphone-simple-fps}{{5.12}{34}{iPhone 14: BS=1 median measured run FPS (device-focused chart pack)}{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{34}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:iphone-simple-latency}{{5.13}{34}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.33}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.11}{\ignorespaces iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column.}}{34}{table.caption.36}\protected@file@percent }
+\newlabel{tab:iphone-bs1-fps}{{5.11}{34}{iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column}{table.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14: BS=1 measured run throughput by backend and quantization.}}{35}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:iphone-focus-backend}{{5.14}{35}{iPhone 14: BS=1 measured run throughput by backend and quantization}{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1.}}{35}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:iphone-int8-speed}{{5.15}{35}{iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1}{figure.caption.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.12}{\ignorespaces iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column.}}{36}{table.caption.37}\protected@file@percent }
+\newlabel{tab:iphone-bs1-e2e}{{5.12}{36}{iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column}{table.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{36}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:iphone-batch-pfld10}{{5.16}{36}{iPhone 14 batch scaling for PFLD-MNv2-1.0}{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{37}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:iphone-batch-pipnet}{{5.17}{37}{iPhone 14 batch scaling for PipNet ResNet18}{figure.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.13}{\ignorespaces iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}}{37}{table.caption.40}\protected@file@percent }
+\newlabel{tab:iphone-batch-fps}{{5.13}{37}{iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column}{table.caption.40}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{37}{table.caption.41}\protected@file@percent }
+\newlabel{tab:iphone-batch-lm}{{5.14}{37}{iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.15}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}}{38}{table.caption.42}\protected@file@percent }
+\newlabel{tab:pc-vs-iphone-raw}{{5.15}{38}{BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency}{table.caption.42}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -158,7 +163,7 @@
 \setcounter{Item}{25}
 \setcounter{Hfootnote}{0}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{60}
+\setcounter{bookmark@seq@number}{61}
 \setcounter{AM@survey}{0}
 \setcounter{nlinenum}{0}
 \setcounter{tabx@nest}{0}
