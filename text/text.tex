@@ -9,11 +9,11 @@
 \setcounter{page}{1}
 
 \begin{chapterabstract}
-This thesis addresses problem of deploying and evaluating
-modern neural networks designed for detecting facial landmarks directly on mobile devices. 
-The work focuses on the theoretical foundations and experimental methodology required
-for benchmarking of face detection and facial landmark estimation
-on Android and iOS using ExecuTorch and backend delegates.
+This thesis studies deployment and evaluation of neural networks for facial
+landmark detection on mobile devices. It combines background on mobile inference,
+efficient models, quantization, and ExecuTorch with a reproducible benchmark for
+iOS and Android. The benchmark measures run throughput, pipeline latency, and
+landmark accuracy for multiple backend and quantization configurations.
 \end{chapterabstract}
 
 \section{Motivation}
@@ -808,18 +808,28 @@ where $d^{\text{iod}}_n$ is the inter-ocular distance for image $n$.
 
 The result chapter also uses cumulative error histograms, sometimes called
 cumulative distribution curves. They are built from per-image errors rather than
-from a single average. For each evaluated image, the offline script computes an
-error value such as NME or RMSE. The script then asks a simple question for many
-thresholds on the horizontal axis: ``what fraction of images has error less than
-or equal to this threshold?'' The vertical axis is that fraction.
+from a single average. For each evaluated image, the offline script computes one
+error value, for example NME or RMSE. The script then sorts these values from
+smallest to largest and draws a curve answering the question: ``if this error
+threshold is allowed, what fraction of images is already good enough?''
+
+The horizontal axis is the error threshold. The vertical axis is the fraction of
+images whose error is less than or equal to that threshold. To read such a chart,
+choose a value on the horizontal axis, move upward until you reach a curve, and
+then read the vertical value. If the point is at \(0.80\), then 80\% of evaluated
+images have error no larger than the chosen threshold. Reading in the other
+direction is also useful: start at 0.50 on the vertical axis to find the median
+error, or at 0.95 to see how large the error must be before 95\% of images are
+covered.
 
 This representation is useful because average error can hide failures. Two
 models may have the same mean NME, but one can be reliable on almost every image
 while the other is very accurate on easy images and very poor on difficult
 images. In a cumulative histogram, the better curve is generally higher and more
 to the left: it means more images reach low error thresholds. A steep curve
-means consistent behavior and a long right tail means that some images are
-outliers where the landmark prediction failed or became noticeably worse.
+means consistent behavior. A curve that rises slowly or has a long right tail
+means that some images are outliers where the landmark prediction failed or
+became noticeably worse.
 
 \subsection{Optional energy metrics}
 
@@ -865,196 +875,434 @@ Main threats and mitigations include:
 \section{Result scope and source artifacts}
 
 The main simplified dashboard is configured around one focus mobile device
-(Xiaomi Redmi Note 8 Pro) with personal computer (PC) reference rows. In addition iPhone 14 results are included.
+(Xiaomi Redmi Note 8 Pro) with personal computer (PC) reference rows. 
+The PC is a MacBook Pro 14 with the M1 Pro chip and 14 core GPU and 16 GB of RAM. 
+The focus phone is a mid-range Android device with an Arm Cortex-A76-based CPU and Mali-G76 GPU. 
+The PC reference is included to show the gap between desktop and mobile execution, while the focus phone is included to show the practical performance of the models on a real mobile device.
+Additional mobile-focused figures and summary tables include iPhone 14 results so that the
+reader can compare all three execution environments. Direct PC+iPhone+Redmi
+comparisons are shown as tables because the PC reference often dominates a
+shared chart scale. The BS=1 cross-device tables include every available
+backend/variant row from the summarized benchmark data, while the later
+batch-scaling tables keep the comparison to XNNPACK INT8 because batching is
+only meaningful between matching dynamic-batch artifacts.
 
 \section{Batch size 1 speed and latency overview}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_device.png}
-    \caption{BS=1 median FPS: PC vs focus device (from combined charts).}
+    \caption{BS=1 median run FPS: PC vs the focus Android device. Here FPS is measured benchmark-run throughput, not landmark-forward-pass-only FPS; higher bars are better.}
     \label{fig:simple-bs1-fps}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/simple_01_bs1_fps_pc_vs_focus_device.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png}
-    \caption{BS=1 median landmark-inference latency: PC vs focus device (from combined charts).}
+    \caption{BS=1 median landmark-inference latency: PC vs the focus Android device. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}
     \label{fig:simple-bs1-latency}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png}
 \end{figure}
 
 Figures~\ref{fig:simple-bs1-fps} and~\ref{fig:simple-bs1-latency} quantify the
-gap between desktop and mobile execution at BS=1. The PC
-reaches roughly 16--25~FPS across all four landmark models, while the focus phone falls into a
-much narrower 3--8~FPS band. The gap is not uniform: it is smallest for the
-lightweight PFLD-MNv2-0.25 (PC/phone $\approx$~2.0$\times$ in FPS) and largest
-for PipNet-R18 in FP32, where the PC is roughly an order of magnitude faster
-($24.86$ vs $2.28$~FPS, i.e.\ $\sim$10.9$\times$).
+gap between desktop and mobile execution at BS=1. Batch size one means that the
+landmark network receives one detected face crop at a time, which is the most
+natural setting for an interactive camera application where frames arrive one by
+one. The FPS chart should be read as a measured run-throughput indicator: if FPS is
+low, the application cannot update landmark predictions smoothly. The latency
+chart should be read as a model-level diagnostic: it shows whether the landmark
+network itself is expensive, even if the full pipeline also contains detection,
+cropping, and post-processing.
 
-\section{Focus-device backend and quantization at batch size 1}
+The PC reaches roughly 16--25 run FPS across the main landmark models, while the
+focus phone falls into a narrower 3--8 run-FPS band. The gap is not uniform. It is
+smallest for the lightweight PFLD-MNv2-0.25 (PC/phone $\approx$~2.0$\times$ in
+run FPS) and largest for PipNet-R18 in FP32, where the PC is roughly an order of
+magnitude faster ($24.86$ vs $2.28$ run FPS, i.e.\ $\sim$10.9$\times$). The
+practical implication is that a model that looks comfortable on a desktop can
+still be too slow on a phone unless the mobile backend, quantization, and
+end-to-end pipeline are measured directly.
+
+\section{Three-device BS=1 comparison}
+
+These BS=1 tables include all
+available backend/variant rows: PC PyTorch, PC XNNPACK FP32/INT8, iPhone Core
+ML, iPhone XNNPACK FP32/INT8, iPhone portable, and Redmi XNNPACK FP32/INT8. A
+dash means that the backend is not available or was not measured for that device
+and model.
+
+\begin{table}[htbp]
+\centering
+\caption{BS=1 measured run throughput across all available device/backend variants; higher run FPS is better. Bold marks the best value in each row.}
+\label{tab:cross-device-bs1-fps}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+Model & \makecell{PC\\{}PyTorch} & \makecell{PC\\{}XNN FP32} & \makecell{PC\\{}XNN INT8} & \makecell{iPhone\\{}Core ML} & \makecell{iPhone\\{}XNN FP32} & \makecell{iPhone\\{}XNN INT8} & \makecell{iPhone\\{}Portable} & \makecell{Redmi\\{}XNN FP32} & \makecell{Redmi\\{}XNN INT8} \\
+\midrule
+MobileFaceNet      & 5.49 & 16.54 & \best{16.75} & 8.45 & 5.14 & 5.38 & 0.30 & 3.39 & 3.46 \\
+PFLD-MNv2-0.25     & -- & \best{16.67} & 16.63 & 8.63 & 6.59 & 6.76 & 0.50 & 8.04 & 8.24 \\
+PFLD-MNv2-1.0      & 6.14 & \best{16.50} & 16.35 & 8.51 & 5.78 & 6.34 & 0.25 & 5.82 & 7.22 \\
+PipNet-R18         & 17.71 & 24.66 & \best{24.86} & 7.08 & 2.81 & 4.94 & 0.07 & 2.28 & 5.53 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{BS=1 end-to-end latency across all available device/backend variants. E2E latency includes detection, face cropping, landmark inference, and surrounding pipeline work; lower is better. Bold marks the best value in each row.}
+\label{tab:cross-device-bs1-e2e}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+Model & \makecell{PC\\{}PyTorch} & \makecell{PC\\{}XNN FP32} & \makecell{PC\\{}XNN INT8} & \makecell{iPhone\\{}Core ML} & \makecell{iPhone\\{}XNN FP32} & \makecell{iPhone\\{}XNN INT8} & \makecell{iPhone\\{}Portable} & \makecell{Redmi\\{}XNN FP32} & \makecell{Redmi\\{}XNN INT8} \\
+\midrule
+MobileFaceNet      & 181.94 & 60.43 & \best{59.64} & 107.35 & 177.74 & 169.33 & 3374.61 & 277.18 & 272.20 \\
+PFLD-MNv2-0.25     & -- & 59.92 & \best{59.92} & 107.89 & 135.38 & 135.90 & 1999.97 & 107.34 & 104.81 \\
+PFLD-MNv2-1.0      & 162.76 & \best{60.37} & 61.01 & 109.89 & 160.36 & 141.19 & 3962.29 & 155.65 & 121.56 \\
+PipNet-R18         & 56.38 & 40.50 & \best{40.19} & 133.35 & 338.35 & 186.01 & 13698.42 & 421.52 & 164.59 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model or another pipeline stage dominates the E2E result; lower is better. Bold marks the best value in each row.}
+\label{tab:cross-device-bs1-landmark}
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+Model & \makecell{PC\\{}PyTorch} & \makecell{PC\\{}XNN FP32} & \makecell{PC\\{}XNN INT8} & \makecell{iPhone\\{}Core ML} & \makecell{iPhone\\{}XNN FP32} & \makecell{iPhone\\{}XNN INT8} & \makecell{iPhone\\{}Portable} & \makecell{Redmi\\{}XNN FP32} & \makecell{Redmi\\{}XNN INT8} \\
+\midrule
+MobileFaceNet      & 45.40 & 13.14 & 12.76 & \best{0.60} & 11.30 & 9.00 & 464.74 & 184.33 & 178.39 \\
+PFLD-MNv2-0.25     & -- & 1.53 & 1.30 & 0.34 & 0.49 & \best{0.26} & 44.71 & 9.99 & 7.10 \\
+PFLD-MNv2-1.0      & 17.69 & 3.96 & 2.23 & \best{0.49} & 4.98 & 1.47 & 577.76 & 61.54 & 23.78 \\
+PipNet-R18         & 12.55 & 47.46 & 11.35 & \best{1.43} & 44.45 & 9.66 & 3847.09 & 351.97 & 97.46 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+Tables~\ref{tab:cross-device-bs1-fps},
+\ref{tab:cross-device-bs1-e2e}, and
+\ref{tab:cross-device-bs1-landmark} together answer three different questions.
+Table~\ref{tab:cross-device-bs1-fps} asks which complete benchmark run processes
+more frames per second. PC XNNPACK is the strongest reference for all four models,
+but the best mobile backend is not always XNNPACK: on iPhone, Core ML reaches
+$7$--$9$ run FPS across the model set and is much faster than iPhone portable
+execution. Redmi has only the XNNPACK rows in this benchmark, and its INT8 rows
+usually beat its FP32 rows except where the surrounding pipeline hides most of
+the landmark-model gain.
+
+Table~\ref{tab:cross-device-bs1-e2e} explains why run FPS alone is not enough.
+It answers the user-facing question: ``how long until this image has a landmark
+result?'' PC XNNPACK stays near $40$--$61$~ms, iPhone Core ML stays around
+$107$--$133$~ms, and iPhone portable is too slow for deployment. Redmi E2E
+latency improves substantially with INT8 for the heavier models, especially
+PipNet-R18 ($421.52 \rightarrow 164.59$~ms). Table~\ref{tab:cross-device-bs1-landmark}
+then separates the landmark forward pass from the rest of the pipeline. Core ML
+has the smallest landmark-only latency on iPhone, but the E2E time remains much
+higher than the sub-millisecond landmark pass, which means detector and
+application overhead dominate once the landmark model is highly optimized.
+
+\section{Mobile-only BS=1 comparison}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_01_bs1_fps_backend_quant.png}
-    \caption{Focus device: BS=1 speed by backend and quantization.}
-    \label{fig:focus-bs1-fps}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png}
-    \caption{Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}
-    \label{fig:focus-bs1-nme}
+    \caption{BS=1 XNNPACK measured run throughput on iPhone 14 and Redmi; higher run FPS is better.}
+    \label{fig:mobile-only-bs1-xnnpack-fps}
+    \includegraphics[width=0.95\linewidth]{images/benchmarks/combined/combined_01_bs1_xnnpack_speed.png}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
+\caption{BS=1 mobile-only XNNPACK measured run throughput. This table accompanies Figure~\ref{fig:mobile-only-bs1-xnnpack-fps} so the exact iPhone-vs-Redmi differences remain visible; higher run FPS is better. Bold marks the better phone for each row.}
+\label{tab:mobile-only-bs1-xnnpack-fps}
 \small
-\begin{tabular}{llrrrr}
-\hline
-Model & Quantization & FPS & LM inf. [ms] & E2E [ms] & NME \\
-\hline
-MobileFaceNet      & FP32 & 3.39 & 184.33 & 277.18 & 0.0428 \\
-MobileFaceNet      & INT8 & 3.46 & 178.39 & 272.20 & 0.0428 \\
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Model & Quant. & \makecell{iPhone 14\\{}run FPS} & \makecell{Redmi\\{}run FPS} \\
+\midrule
+PFLD-MNv2-0.25 & FP32 & 6.59 & \best{8.04} \\
+PFLD-MNv2-0.25 & INT8 & 6.76 & \best{8.24} \\
+PFLD-MNv2-1.0  & FP32 & 5.78 & \best{5.82} \\
+PFLD-MNv2-1.0  & INT8 & 6.34 & \best{7.22} \\
+PipNet-R18     & FP32 & \best{2.81} & 2.28 \\
+PipNet-R18     & INT8 & 4.94 & \best{5.53} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The chart shows the pattern
+quickly: Redmi is ahead on most XNNPACK rows, while iPhone 14 is better for
+PipNet-R18 FP32. The table gives the exact magnitude of those differences. The
+Redmi advantage is largest for PFLD-MNv2-1.0 INT8 ($7.22$ vs $6.34$ run FPS),
+but the phones are nearly tied for PFLD-MNv2-1.0 FP32 ($5.82$ vs $5.78$ run
+FPS). This section should not be read as a full iPhone-vs-Android ranking,
+because the iPhone-specific Core ML results later in the chapter use a different
+Apple-accelerated backend.
+
+\section{Focus-device BS=1 backend and quantization}
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Focus device: BS=1 measured run throughput by backend and quantization.}
+    \label{fig:focus-bs1-fps}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_01_bs1_fps_backend_quant.png}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}
+    \label{fig:focus-bs1-nme}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Focus-device BS=1 XNNPACK metrics. Run FPS is measured benchmark-run throughput, LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds. Bold values mark the best value in each numeric column: highest run FPS and lowest latency/error.}
+\label{tab:focus-bs1-raw}
+\small
+\setlength{\tabcolsep}{4.5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Model & Quant. & \makecell{Run\\{}FPS} & \makecell{LM inf.\\{}[ms]} & \makecell{E2E\\{}[ms]} & NME \\
+\midrule
+MobileFaceNet      & FP32 & 3.39 & 184.33 & 277.18 & \best{0.0428} \\
+MobileFaceNet      & INT8 & 3.46 & 178.39 & 272.20 & \best{0.0428} \\
 PFLD-MNv2-0.25     & FP32 & 8.04 & 9.99   & 107.34 & 0.0978 \\
-PFLD-MNv2-0.25     & INT8 & 8.24 & 7.10   & 104.81 & 0.1039 \\
+PFLD-MNv2-0.25     & INT8 & \best{8.24} & \best{7.10} & \best{104.81} & 0.1039 \\
 PFLD-MNv2-1.0      & FP32 & 5.82 & 61.54  & 155.65 & 0.0798 \\
 PFLD-MNv2-1.0      & INT8 & 7.22 & 23.78  & 121.56 & 0.1014 \\
 PipNet-R18         & FP32 & 2.28 & 351.97 & 421.52 & 0.0446 \\
 PipNet-R18         & INT8 & 5.53 & 97.46  & 164.59 & 0.0463 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{Focus-device BS=1 XNNPACK metrics. LM inf. means landmark inference, E2E means end-to-end, and ms means milliseconds.}
-\label{tab:focus-bs1-raw}
 \end{table}
 
-PipNet-R18 gains 2.42$\times$ in FPS ($2.28 \rightarrow 5.53$) and
+PipNet-R18 gains 2.42$\times$ in run FPS ($2.28 \rightarrow 5.53$) and
 its landmark inference drops from $352$~ms to $97$~ms (a 3.6$\times$
-reduction); PFLD-MNv2-1.0 gains 1.24$\times$ in FPS but 2.6$\times$ in
+reduction); PFLD-MNv2-1.0 gains 1.24$\times$ in run FPS but 2.6$\times$ in
 landmark latency ($61.5 \rightarrow 23.8$~ms).
 
 The accuracy picture is correspondingly model-dependent. NME for MobileFaceNet
-is essentially unchanged ($0.0428 \rightarrow 0.0428$, $<0.1\%$ relative) and
-PipNet-R18 only degrades by $\sim$3.7\% relative ($0.0446 \rightarrow 0.0463$).
-The PFLD family is more sensitive: PFLD-MNv2-0.25 loses $\sim$6\% relative NME
-($0.0978 \rightarrow 0.1039$) and the heavier PFLD-MNv2-1.0 loses $\sim$27\%
-relative ($0.0798 \rightarrow 0.1014$). The PFLD-MNv2-1.0 case is the
-canonical speed/accuracy trade-off in this benchmark: a 24\% FPS gain costs a
-27\% NME increase, which may or may not be acceptable depending on the
-actual use case. PipNet-R18 INT8, by contrast, is a near-Pareto win---the
-largest speed gain in the matrix accompanied by a barely measurable accuracy
-loss---making it the strongest INT8 candidate among the tested models on this
-device.
+is essentially unchanged ($0.0428$ to $0.0428$, $<0.1\%$ relative), and
+PipNet-R18 only degrades by $\sim$3.7\% relative ($0.0446$ to $0.0463$).
+The PFLD family is more sensitive. PFLD-MNv2-0.25 loses $\sim$6\% relative NME
+($0.0978$ to $0.1039$), and the heavier PFLD-MNv2-1.0 loses $\sim$27\%
+relative ($0.0798$ to $0.1014$). The PFLD-MNv2-1.0 case is the canonical
+speed/accuracy trade-off in this benchmark: a 24\% run-FPS gain costs a 27\% NME
+increase, which may or may not be acceptable depending on the actual use case.
+PipNet-R18 INT8, by contrast, is a near-Pareto win. It has the largest speed
+gain in the matrix with only a barely measurable accuracy loss, making it the
+strongest INT8 candidate among the tested models on this device.
 
 \section{Focus-device batch scaling}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png}
-    \caption{Focus device batch scaling for PFLD-MNv2-1.0 using XNNPACK variants.}
+    \caption[Focus device batch scaling for PFLD-MNv2-1.0]{Focus device batch scaling for PFLD-MNv2-1.0 using XNNPACK variants.}
     \label{fig:focus-batch-pfld10}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resnet18.png}
-    \caption{Focus device batch scaling for PipNet ResNet18 using XNNPACK variants.}
+    \caption[Focus device batch scaling for PipNet ResNet18]{Focus device batch scaling for PipNet ResNet18 using XNNPACK variants.}
     \label{fig:focus-batch-pipnet}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_fps__pipnet_resnet18.png}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
+\caption{Focus-device batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}
+\label{tab:focus-batch-fps}
 \small
-\begin{tabular}{llrrrr}
-\hline
-Model & Quantization & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
-\hline
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Model & Quant. & \makecell{Run FPS\\{}BS=1} & \makecell{Run FPS\\{}BS=2} & \makecell{Run FPS\\{}BS=4} & \makecell{Run FPS\\{}BS=8} \\
+\midrule
 PFLD-MNv2-1.0 & FP32 & 5.82 & 5.53 & 5.44 & 5.97 \\
-PFLD-MNv2-1.0 & INT8 & 7.22 & 7.50 & 7.49 & 7.66 \\
+PFLD-MNv2-1.0 & INT8 & \best{7.22} & \best{7.50} & \best{7.49} & \best{7.66} \\
 PipNet-R18    & FP32 & 2.28 & 2.22 & 2.31 & 2.27 \\
 PipNet-R18    & INT8 & 5.53 & 5.34 & 5.52 & 5.66 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{Focus-device batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}
-\label{tab:focus-batch-fps}
 \end{table}
 
 \begin{table}[htbp]
 \centering
+\caption{Focus-device batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}
+\label{tab:focus-batch-lm-ms}
 \small
-\begin{tabular}{llrrrr}
-\hline
-Model & Quantization & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
-\hline
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Model & Quant. & \makecell{LM [ms]\\{}BS=1} & \makecell{LM [ms]\\{}BS=2} & \makecell{LM [ms]\\{}BS=4} & \makecell{LM [ms]\\{}BS=8} \\
+\midrule
 PFLD-MNv2-1.0 & FP32 & 61.54 & 37.19 & 24.78 & 16.03 \\
-PFLD-MNv2-1.0 & INT8 & 23.78 & 11.81 & 7.37  & 5.29 \\
+PFLD-MNv2-1.0 & INT8 & \best{23.78} & \best{11.81} & \best{7.37}  & \best{5.29} \\
 PipNet-R18    & FP32 & 351.97 & 198.58 & 132.34 & 103.89 \\
 PipNet-R18    & INT8 & 97.46  & 55.81  & 37.10  & 27.26 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{Focus-device batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}
-\label{tab:focus-batch-lm-ms}
 \end{table}
 
-FPS for PFLD-MNv2-1.0 stays in a tight $5.4$--$6.0$
+Figures~\ref{fig:focus-batch-pfld10} and~\ref{fig:focus-batch-pipnet} show the
+shape of the batch-scaling curves for the focus phone, while
+Tables~\ref{tab:focus-batch-fps} and~\ref{tab:focus-batch-lm-ms} provide the
+exact run-FPS and landmark-latency values.
+
+Measured run FPS for PFLD-MNv2-1.0 stays in a tight $5.4$--$6.0$
 range (FP32) and $7.2$--$7.7$ range (INT8) from BS=1 to BS=8, while PipNet-R18
-hovers at $\sim$2.3~FPS (FP32) and $\sim$5.4--5.7~FPS (INT8). In contrast,
+hovers at $\sim$2.3 run FPS (FP32) and $\sim$5.4--5.7 run FPS (INT8). In contrast,
 per-image landmark inference latency falls almost linearly with batch size:
 PFLD-MNv2-1.0 INT8 drops from $23.78$~ms to $5.29$~ms ($4.5\times$ across
 $8\times$ batch), and PipNet-R18 INT8 from $97.46$~ms to $27.26$~ms
 ($3.6\times$).
 
+\begin{table}[htbp]
+\centering
+\caption{Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}
+\label{tab:cross-device-batch-pfld10}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Device & \makecell{Run FPS\\{}BS=1} & \makecell{Run FPS\\{}BS=2} & \makecell{Run FPS\\{}BS=4} & \makecell{Run FPS\\{}BS=8} \\
+\midrule
+PC        & \best{16.35} & \best{35.62} & \best{35.87} & \best{35.82} \\
+iPhone 14 & 6.34 & 6.24 & 6.37 & 6.51 \\
+Redmi     & 7.22 & 7.50 & 7.49 & 7.66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Three-device INT8 XNNPACK batch scaling for PipNet-R18 in measured run FPS; higher is better. Bold marks the best value in each batch-size column.}
+\label{tab:cross-device-batch-pipnet}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Device & \makecell{Run FPS\\{}BS=1} & \makecell{Run FPS\\{}BS=2} & \makecell{Run FPS\\{}BS=4} & \makecell{Run FPS\\{}BS=8} \\
+\midrule
+PC        & \best{24.86} & \best{24.97} & \best{24.96} & \best{24.78} \\
+iPhone 14 & 4.94 & 5.02 & 4.96 & 5.00 \\
+Redmi     & 5.53 & 5.34 & 5.52 & 5.66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tables~\ref{tab:cross-device-batch-pfld10} and
+\ref{tab:cross-device-batch-pipnet} compare batch scaling across all three
+devices. A larger batch gives the landmark model more face crops at once, which
+can improve hardware utilization. This is useful when several faces are present
+in one frame or when an offline process can group multiple images together.
+However, it is less useful for a single-face real-time camera stream, because
+the detector still runs on incoming frames and the application cannot wait too
+long just to fill a batch.
+
+For PFLD-MNv2-1.0, the PC benefits strongly from moving beyond BS=1: run FPS
+more than doubles from $16.35$ to about $35.8$. Both phones remain much flatter:
+iPhone 14 stays around $6.2$--$6.5$ run FPS and Redmi around $7.2$--$7.7$ run
+FPS. For PipNet-R18, even the PC is almost flat in run FPS, and the phones move
+only slightly. This is an important practical lesson: optimizing the landmark
+forward pass can be real and measurable, but measured run FPS may barely move if
+another stage, such as detection or image handling, has become the bottleneck.
+
 \section{Quantization deltas and cumulative error behavior}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_bs1.png}
-    \caption{Focus device: INT8 vs FP32 speed comparison at BS=1.}
+    \caption{Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1.}
     \label{fig:focus-int8-speed}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_04_quant_vs_unquant_speedup_bs1.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png}
     \caption{Focus device: INT8 vs FP32 NME difference at BS=1.}
     \label{fig:focus-int8-accuracy-delta}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png}
-    \caption{Focus device cumulative NME curves for BS=1 XNNPACK FP32 and INT8 runs.}
+    \caption{Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}
     \label{fig:focus-cdf-nme}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}
+    \label{fig:focus-cdf-rmse}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_08_cumulative_hist_rmse_bs1.png}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\small
-\begin{tabular}{lrrrr}
-\hline
-Model & PC INT8 FPS & Focus INT8 FPS & PC E2E [ms] & Focus E2E [ms] \\
-\hline
-MobileFaceNet      & 16.75 & 3.46 & 59.64 & 272.20 \\
-PFLD-MNv2-0.25     & 16.63 & 8.24 & 59.92 & 104.81 \\
-PFLD-MNv2-1.0      & 16.35 & 7.22 & 61.01 & 121.56 \\
-PipNet-R18         & 24.86 & 5.53 & 40.19 & 164.59 \\
-\hline
-\end{tabular}
-\caption{BS=1 PC INT8 and focus-device INT8 metrics.}
+\caption{BS=1 PC INT8 and focus-device INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}
 \label{tab:pc-vs-focus-raw}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \makecell{PC INT8\\{}run FPS} & \makecell{Focus INT8\\{}run FPS} & \makecell{PC E2E\\{}[ms]} & \makecell{Focus E2E\\{}[ms]} \\
+\midrule
+MobileFaceNet      & 16.75 & 3.46 & 59.64 & 272.20 \\
+PFLD-MNv2-0.25     & 16.63 & \best{8.24} & 59.92 & \best{104.81} \\
+PFLD-MNv2-1.0      & 16.35 & 7.22 & 61.01 & 121.56 \\
+PipNet-R18         & \best{24.86} & 5.53 & \best{40.19} & 164.59 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-Figure~\ref{fig:focus-int8-speed} summarises the BS=1 INT8/FP32 FPS ratio per
-model and makes the two-regime story visually explicit: MobileFaceNet and
-PFLD-MNv2-0.25 sit on the unity line ($1.02\times$ and $1.02\times$),
+Figure~\ref{fig:focus-int8-speed} summarises the BS=1 INT8/FP32 run-FPS ratio per
+model and makes the two-regime story visually explicit. A bar near
+$1.0\times$ means that INT8 and FP32 are practically the same speed for the measured
+benchmark run. A bar above $1.0\times$ means INT8 is faster. MobileFaceNet and
+PFLD-MNv2-0.25 sit almost on the unity line ($1.02\times$ and $1.02\times$),
 PFLD-MNv2-1.0 reaches $1.24\times$, and PipNet-R18 is the clear outlier at
-$2.42\times$. Combined with the cumulative NME curves
-(Figure~\ref{fig:focus-cdf-nme}), where the FP32 and INT8 distributions
-overlap closely for MobileFaceNet and PipNet-R18 but separate visibly for
-PFLD-MNv2-1.0, the data supports a simple deployment heuristic: prefer INT8
-unconditionally for PipNet-R18, for
-MobileFaceNet we can consider INT8 quantization as a free but small win , 
-and for the PFLD family models we have to consider if the accuracy/throughput tradeoff is worth it.
+$2.42\times$. Therefore, quantization is not a universal speed button; it helps
+most when the model has enough quantizable computation for the backend to
+benefit.
+
+Figure~\ref{fig:focus-int8-accuracy-delta} must be read in the opposite
+direction from the speedup plot. Here, values near zero are good because they
+mean INT8 changed the error very little. Positive values mean the INT8 model is
+less accurate than its FP32 version. The cumulative histograms in
+Figures~\ref{fig:focus-cdf-nme} and~\ref{fig:focus-cdf-rmse} provide the deeper
+view behind those averages. If the FP32 and INT8 curves overlap, quantization
+does not substantially change the distribution of easy and difficult images. If
+the INT8 curve shifts to the right or rises more slowly, more images require a
+larger error threshold before they count as successful. In these charts,
+MobileFaceNet and PipNet-R18 preserve similar distributions after quantization,
+whereas PFLD-MNv2-1.0 separates more visibly. The deployment heuristic is
+therefore: prefer INT8 for PipNet-R18, treat MobileFaceNet INT8 as a small but
+mostly free win, and evaluate the PFLD-family accuracy/throughput trade-off
+against the needs of the actual application.
 
 Table~\ref{tab:pc-vs-focus-raw} shows the absolute
 deployment gap. After INT8 quantization on both sides, PC throughput is still
@@ -1065,69 +1313,73 @@ the smallest models (MobileFaceNet at $4.85\times$).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_focus_device.png}
-    \caption{iPhone 14: BS=1 median FPS (device-focused chart pack).}
+    \caption{iPhone 14: BS=1 median measured run FPS (device-focused chart pack).}
     \label{fig:iphone-simple-fps}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_01_bs1_fps_focus_device.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png}
     \caption{iPhone 14: BS=1 median landmark-inference latency.}
     \label{fig:iphone-simple-latency}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_backend_quant.png}
-    \caption{iPhone 14: BS=1 speed by backend and quantization.}
+    \caption{iPhone 14: BS=1 measured run throughput by backend and quantization.}
     \label{fig:iphone-focus-backend}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_01_bs1_fps_backend_quant.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_unquant_speedup_bs1.png}
-    \caption{iPhone 14: INT8 and FP32 speed comparison at BS=1.}
+    \caption{iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1.}
     \label{fig:iphone-int8-speed}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_04_quant_vs_unquant_speedup_bs1.png}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
+\caption{iPhone 14 BS=1 measured run throughput by backend. XNN means XNNPACK. Bold marks the highest run FPS in each backend column.}
+\label{tab:iphone-bs1-fps}
 \small
-\begin{tabular}{lrrrr}
-\hline
-Model & Core ML FPS & XNN FP32 FPS & XNN INT8 FPS & Portable FPS \\
-\hline
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \makecell{Core ML\\{}run FPS} & \makecell{XNN FP32\\{}run FPS} & \makecell{XNN INT8\\{}run FPS} & \makecell{Portable\\{}run FPS} \\
+\midrule
 MobileFaceNet      & 8.45 & 5.14 & 5.38 & 0.30 \\
-PFLD-MNv2-0.25     & 8.63 & 6.59 & 6.76 & 0.50 \\
+PFLD-MNv2-0.25     & \best{8.63} & \best{6.59} & \best{6.76} & \best{0.50} \\
 PFLD-MNv2-1.0      & 8.51 & 5.78 & 6.34 & 0.25 \\
 PipNet-R18         & 7.08 & 2.81 & 4.94 & 0.07 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{iPhone 14 BS=1 throughput by backend. XNN means XNNPACK.}
-\label{tab:iphone-bs1-fps}
 \end{table}
 
 \begin{table}[htbp]
 \centering
+\caption{iPhone 14 BS=1 end-to-end latency by backend. Bold marks the lowest latency in each backend column.}
+\label{tab:iphone-bs1-e2e}
 \small
-\begin{tabular}{lrrrr}
-\hline
-Model & Core ML E2E [ms] & XNN FP32 E2E [ms] & XNN INT8 E2E [ms] & Portable E2E [ms] \\
-\hline
-MobileFaceNet      & 107.35 & 177.74 & 169.33 & 3374.61 \\
-PFLD-MNv2-0.25     & 107.89 & 135.38 & 135.90 & 1999.97 \\
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \makecell{Core ML\\{}E2E [ms]} & \makecell{XNN FP32\\{}E2E [ms]} & \makecell{XNN INT8\\{}E2E [ms]} & \makecell{Portable\\{}E2E [ms]} \\
+\midrule
+MobileFaceNet      & \best{107.35} & 177.74 & 169.33 & 3374.61 \\
+PFLD-MNv2-0.25     & 107.89 & \best{135.38} & \best{135.90} & \best{1999.97} \\
 PFLD-MNv2-1.0      & 109.89 & 160.36 & 141.19 & 3962.29 \\
 PipNet-R18         & 133.35 & 338.35 & 186.01 & 13698.42 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{iPhone 14 BS=1 end-to-end latency by backend.}
-\label{tab:iphone-bs1-e2e}
 \end{table}
 
 Tables~\ref{tab:iphone-bs1-fps} and~\ref{tab:iphone-bs1-e2e} show the difference between 
 three different backend delegates on iPhone 14. The most striking pattern is that Core
-ML delivers a remarkably uniform $7.1$--$8.6$~FPS across all four landmark
+ML delivers a remarkably uniform $7.1$--$8.6$ run FPS across all four landmark
 models---from the smallest PFLD-MNv2-0.25 to the heaviest PipNet-R18---which
 is only possible because Apple's accelerated kernels reduce the landmark
 forward pass to essentially zero (median landmark inference of $0.34$--$1.43$~ms
@@ -1137,89 +1389,96 @@ pre/post-processing. This is a different operating point from XNNPACK,
 where landmark inference is still measurable (4--44~ms in FP32) and therefore
 still tunable through quantization.
 
-The XNNPACK-vs-Portable comparison shows the cost of giving up
-backend-specific acceleration: Portable is $17$--$97\times$ slower than Core
-ML on the same model ranging from $17.3\times$ for PFLD-MNv2-0.25 to $97.1\times$ for PipNet-R18.
+Comparing XNNPACK with Portable shows the cost of giving up backend-specific
+acceleration. Portable is $17$--$97\times$ slower than Core ML on the same
+model, ranging from $17.3\times$ for PFLD-MNv2-0.25 to $97.1\times$ for
+PipNet-R18.
 Portable is therefore unsuitable for any deployed configuration; it is only
 useful as a correctness baseline.
 
 The INT8/FP32 split on XNNPACK follows the same model-dependent pattern as on
-the Xiaomi: PipNet-R18 is again the largest winner (FPS $2.81 \rightarrow
+the Xiaomi: PipNet-R18 is again the largest winner (run FPS $2.81 \rightarrow
 4.94$, $1.76\times$; landmark inference $44.5 \rightarrow 9.7$~ms,
-$4.6\times$), PFLD-MNv2-1.0 moves modestly ($1.10\times$ FPS, $3.4\times$
+$4.6\times$), PFLD-MNv2-1.0 moves modestly ($1.10\times$ run FPS, $3.4\times$
 landmark inference), and the smaller models barely move ($\leq 1.05\times$
-FPS).
+run FPS).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png}
     \caption{iPhone 14 batch scaling for PFLD-MNv2-1.0.}
     \label{fig:iphone-batch-pfld10}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pfld_mobilenetv2_10.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pipnet_resnet18.png}
     \caption{iPhone 14 batch scaling for PipNet ResNet18.}
     \label{fig:iphone-batch-pipnet}
+    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_fps__pipnet_resnet18.png}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
+\caption{iPhone 14 batch scaling in measured run FPS. BS means batch size. Bold marks the highest run FPS in each batch-size column.}
+\label{tab:iphone-batch-fps}
 \small
-\begin{tabular}{llrrrr}
-\hline
-Model & Quantization & FPS@1 & FPS@2 & FPS@4 & FPS@8 \\
-\hline
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Model & Quant. & \makecell{Run FPS\\{}BS=1} & \makecell{Run FPS\\{}BS=2} & \makecell{Run FPS\\{}BS=4} & \makecell{Run FPS\\{}BS=8} \\
+\midrule
 PFLD-MNv2-1.0 & FP32 & 5.78 & 5.83 & 5.88 & 5.91 \\
-PFLD-MNv2-1.0 & INT8 & 6.34 & 6.24 & 6.37 & 6.51 \\
+PFLD-MNv2-1.0 & INT8 & \best{6.34} & \best{6.24} & \best{6.37} & \best{6.51} \\
 PipNet-R18    & FP32 & 2.81 & 2.85 & 2.85 & 2.93 \\
 PipNet-R18    & INT8 & 4.94 & 5.02 & 4.96 & 5.00 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{iPhone 14 batch scaling in FPS. FPS@1, FPS@2, FPS@4, and FPS@8 mean frames per second at batch sizes one, two, four, and eight.}
-\label{tab:iphone-batch-fps}
 \end{table}
 
 \begin{table}[htbp]
 \centering
+\caption{iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}
+\label{tab:iphone-batch-lm}
 \small
-\begin{tabular}{llrrrr}
-\hline
-Model & Quantization & LM ms@1 & LM ms@2 & LM ms@4 & LM ms@8 \\
-\hline
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Model & Quant. & \makecell{LM [ms]\\{}BS=1} & \makecell{LM [ms]\\{}BS=2} & \makecell{LM [ms]\\{}BS=4} & \makecell{LM [ms]\\{}BS=8} \\
+\midrule
 PFLD-MNv2-1.0 & FP32 & 4.98 & 2.40 & 1.18 & 0.59 \\
-PFLD-MNv2-1.0 & INT8 & 1.47 & 0.72 & 0.36 & 0.17 \\
+PFLD-MNv2-1.0 & INT8 & \best{1.47} & \best{0.72} & \best{0.36} & \best{0.17} \\
 PipNet-R18    & FP32 & 44.45 & 22.20 & 11.26 & 5.51 \\
 PipNet-R18    & INT8 & 9.66 & 4.82 & 2.46 & 1.22 \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{iPhone 14 batch scaling in landmark-inference latency. LM ms@1, LM ms@2, LM ms@4, and LM ms@8 mean landmark inference milliseconds at batch sizes one, two, four, and eight.}
-\label{tab:iphone-batch-lm}
 \end{table}
 
 The iPhone 14 batch-scaling pattern is qualitatively the same as on the
 Xiaomi.
 PFLD-MNv2-1.0 INT8 lands at $0.17$~ms per image at BS=8, and PipNet-R18 INT8
 at $1.22$~ms; in both cases the landmark forward has effectively been
-amortised away. End-to-end FPS, however, only drifts from $5.78$ to $5.91$
+amortised away. Measured run FPS, however, only drifts from $5.78$ to $5.91$
 for PFLD-MNv2-1.0 FP32 and from $2.81$ to $2.93$ for PipNet-R18 FP32.
 
 \begin{table}[htbp]
 \centering
-\small
-\begin{tabular}{lrrrr}
-\hline
-Model & PC INT8 FPS & iPhone INT8 FPS & PC E2E [ms] & iPhone E2E [ms] \\
-\hline
-MobileFaceNet      & 16.75 & 5.38 & 59.64 & 169.33 \\
-PFLD-MNv2-0.25     & 16.63 & 6.76 & 59.92 & 135.90 \\
-PFLD-MNv2-1.0      & 16.35 & 6.34 & 61.01 & 141.19 \\
-PipNet-R18         & 24.86 & 4.94 & 40.19 & 186.01 \\
-\hline
-\end{tabular}
-\caption{BS=1 PC INT8 and iPhone 14 INT8 metrics.}
+\caption{BS=1 PC INT8 and iPhone 14 INT8 metrics. Bold marks the best value in each column: highest measured run FPS and lowest E2E latency.}
 \label{tab:pc-vs-iphone-raw}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \makecell{PC INT8\\{}run FPS} & \makecell{iPhone INT8\\{}run FPS} & \makecell{PC E2E\\{}[ms]} & \makecell{iPhone E2E\\{}[ms]} \\
+\midrule
+MobileFaceNet      & 16.75 & 5.38 & 59.64 & 169.33 \\
+PFLD-MNv2-0.25     & 16.63 & \best{6.76} & 59.92 & \best{135.90} \\
+PFLD-MNv2-1.0      & 16.35 & 6.34 & 61.01 & 141.19 \\
+PipNet-R18         & \best{24.86} & 4.94 & \best{40.19} & 186.01 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 Table~\ref{tab:pc-vs-iphone-raw} sets the deployment context. With the same
@@ -1239,7 +1498,7 @@ The thesis delivered:
 \begin{itemize}
     \item implementation and comparison of mobile inference paths on both iOS
           and Android,
-    \item evaluation of real-time-oriented metrics (ms/frame and FPS),
+    \item evaluation of real-time-oriented metrics (ms/frame and run FPS),
     \item multi-device comparison with reproducible logging and offline analysis,
     \item quantization study (INT8 PTQ) with speed/accuracy trade-off analysis,
     \item optional energy-related telemetry as auxiliary data where available.
@@ -1248,7 +1507,7 @@ The thesis delivered:
 The results show four main points:
 \begin{itemize}
     \item backend and quantization selection strongly influence runtime;
-    \item INT8 can provide major latency and FPS gains for heavier landmark
+    \item INT8 can provide major latency and run-FPS gains for heavier landmark
           models, but accuracy impact depends on the model;
     \item increasing batch size improves per-image landmark-inference latency
     \item PC reference runs are useful for capacity comparison
