@@ -51,11 +51,11 @@
 \BOOKMARK [1][-]{section.4.9}{Threats\040to\040validity}{chapter.4}% 51
 \BOOKMARK [0][-]{chapter.5}{Experimental\040results}{}% 52
 \BOOKMARK [1][-]{section.5.1}{Result\040scope\040and\040source\040artifacts}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.2}{Batch\040size\0401\040speed\040and\040latency\040overview}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.2}{Batch\040size\0401\040landmark\040forward-pass\040overview}{chapter.5}% 54
 \BOOKMARK [1][-]{section.5.3}{Three-device\040BS=1\040comparison}{chapter.5}% 55
 \BOOKMARK [1][-]{section.5.4}{Mobile-only\040BS=1\040comparison}{chapter.5}% 56
-\BOOKMARK [1][-]{section.5.5}{Focus-device\040BS=1\040backend\040and\040quantization}{chapter.5}% 57
-\BOOKMARK [1][-]{section.5.6}{Focus-device\040batch\040scaling}{chapter.5}% 58
+\BOOKMARK [1][-]{section.5.5}{Redmi\040BS=1\040backend\040and\040quantization}{chapter.5}% 57
+\BOOKMARK [1][-]{section.5.6}{Redmi\040batch\040scaling}{chapter.5}% 58
 \BOOKMARK [1][-]{section.5.7}{Quantization\040deltas\040and\040cumulative\040error\040behavior}{chapter.5}% 59
 \BOOKMARK [1][-]{section.5.8}{iPhone\04014\040result\040interpretation}{chapter.5}% 60
 \BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 61
@@ -64,5 +64,5 @@
 \BOOKMARK [1][-]{section.A.2}{Summary\040table\040generation}{appendix.A}% 64
 \BOOKMARK [1][-]{section.A.3}{Readable\040thesis\040chart\040regeneration}{appendix.A}% 65
 \BOOKMARK [1][-]{section.A.4}{INT8\040XNNPACK\040landmark\040model\040export\040with\040post-training\040quantization}{appendix.A}% 66
-\BOOKMARK [0][-]{appendix*.43}{Bibliography}{}% 67
-\BOOKMARK [0][-]{appendix*.44}{Contents\040of\040the\040attachment}{}% 68
+\BOOKMARK [0][-]{appendix*.33}{Bibliography}{}% 67
+\BOOKMARK [0][-]{appendix*.34}{Contents\040of\040the\040attachment}{}% 68

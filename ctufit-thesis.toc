@@ -43,32 +43,32 @@
 \contentsline {section}{\numberline {4.2}Evaluated pipeline}{17}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Model families and configuration space}{18}{section.4.3}%
 \contentsline {section}{\numberline {4.4}iOS and Android implementation parity}{18}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Dataset and inputs}{18}{section.4.5}%
+\contentsline {section}{\numberline {4.5}Dataset and inputs}{19}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Metrics}{19}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Landmark inference latency}{19}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}Throughput and batch scaling}{19}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Landmark accuracy}{19}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.3}Landmark accuracy}{20}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Cumulative error histograms}{20}{subsection.4.6.4}%
 \contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{20}{subsection.4.6.5}%
-\contentsline {section}{\numberline {4.7}Measurement protocol}{20}{section.4.7}%
+\contentsline {section}{\numberline {4.7}Measurement protocol}{21}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{21}{section.4.8}%
 \contentsline {section}{\numberline {4.9}Threats to validity}{21}{section.4.9}%
 \contentsline {chapter}{\numberline {5}Experimental results}{22}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Result scope and source artifacts}{22}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Batch size 1 speed and latency overview}{22}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{24}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{25}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Focus-device BS=1 backend and quantization}{26}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Focus-device batch scaling}{28}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{31}{section.5.7}%
-\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{33}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Reproducibility}{40}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Combined CSV and chart generation}{40}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Summary table generation}{40}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Readable thesis chart regeneration}{40}{section.A.3}%
-\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{41}{section.A.4}%
-\contentsline {chapter}{Bibliography}{42}{appendix*.43}%
+\contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{22}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{23}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Redmi BS=1 backend and quantization}{24}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Redmi batch scaling}{26}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{30}{section.5.7}%
+\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{30}{section.5.8}%
+\contentsline {chapter}{\numberline {6}Conclusion}{34}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Reproducibility}{35}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Combined CSV and chart generation}{35}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Summary table generation}{35}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Readable thesis chart regeneration}{35}{section.A.3}%
+\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{36}{section.A.4}%
+\contentsline {chapter}{Bibliography}{37}{appendix*.33}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
@@ -287,4 +287,4 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Contents of the attachment}{47}{appendix*.44}%
+\contentsline {chapter}{Contents of the attachment}{42}{appendix*.34}%
