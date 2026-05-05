@@ -42,6 +42,26 @@ Recent community benchmarks confirm that measured latency strongly depends on
 hardware configuration, runtime backend, and numerical precision
 \cite{reddi2022mlperfmobile,li2024mobilebenchmark}.
 
+\begin{figure}[htbp]
+    \centering
+    \caption{Face-processing pipeline on a real AFW sample image: the first panel shows the input crop, the second panel draws the face-detection bounding box from a benchmark result, and the third panel overlays the predicted landmarks from the same result.}
+    \label{fig:face-pipeline-annotation}
+    \includegraphics[width=0.95\linewidth]{images/pipeline/face_pipeline_annotation.png}
+\end{figure}
+
+Figure~\ref{fig:face-pipeline-annotation} shows the practical meaning of the
+two-stage task before any performance numbers are discussed. The first panel is
+the image as it enters the application. The second panel shows face detection:
+the system answers the question ``where is the face?'' by drawing a rectangle
+around the face region. In this figure, the rectangle is taken from an exported
+mobile benchmark image record for the AFW sample. This rectangle is then used to
+crop and normalize the face before landmark estimation. The third panel shows
+the landmarks predicted by the same benchmark record: instead of only locating
+the face, the model predicts semantically meaningful points such as eyes, nose,
+mouth, and face contour positions. These points are what make downstream tasks
+such as face alignment, expression analysis, augmented-reality overlays, and pose
+estimation possible.
+
 \section{Problem statement}
 
 The core of this thesis is to evaluate neural networks for detecting facial landmarks on mobile devices, with a focus on configurations 
@@ -280,21 +300,22 @@ MobileFaceNet, PFLD-MNv2-0.25, PFLD-MNv2-1.0, and PipNet-ResNet18.
 
 \begin{table}[htbp]
 \centering
+\caption{Qualitative properties of models used in the benchmark matrix.}
+\label{tab:model-properties-qual}
 \small
-\begin{tabular}{p{2.8cm}p{1.5cm}p{1.7cm}p{6.2cm}}
-\hline
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
 Model & Stage & Relative cost & Main properties \\
-\hline
+\midrule
 RetinaFace-MNet0.25 & Detector & Medium & Robust detection quality; higher detector cost than very light alternatives. \\
 FaceBoxesV2 & Detector & Low & Very fast detector; useful when throughput is prioritized. \\
 MobileFaceNet & Landmark & Low & Lightweight baseline; stable and efficient for mobile CPUs. \\
 PFLD-MNv2-0.25 & Landmark & Low & Compact model with good speed and moderate landmark precision. \\
 PFLD-MNv2-1.0 & Landmark & Medium & Higher capacity than 0.25 variant; better potential quality at higher compute cost. \\
 PipNet-ResNet18 & Landmark & High & Stronger landmark localization capacity, but substantially heavier compute load. \\
-\hline
+\bottomrule
 \end{tabular}
-\caption{Qualitative properties of models used in the benchmark matrix.}
-\label{tab:model-properties-qual}
 \end{table}
 
 \subsection{Datasets and annotation uncertainty}
@@ -602,8 +623,8 @@ GPU, or ANE
 \cite{apple_coreml}. This means that Core ML numbers in the results chapter
 should not be interpreted as CPU-only numbers.
 
-In the ExecuTorch export flow, Core ML is selected by using the
-\texttt{CoreMLPartitioner} during \texttt{to\_edge\_transform\_and\_lower}
+In the ExecuTorch export flow, Core ML is selected by using the Core ML
+partitioner during the edge lowering step
 \cite{executorch_coreml}. The partitioner marks graph regions that can be
 compiled for Core ML, and the resulting \texttt{.pte} file contains the
 information needed to call the registered Core ML delegate at runtime
@@ -629,11 +650,10 @@ run when it is allowed to use Apple's ML stack?'' Portable execution answers:
 
 \section{Quantization in ExecuTorch}
 
-ExecuTorch implements quantization through backend specific
-configurations, commonly using PT2E (PyTorch 2 Export) and torchao-based preparation and conversion
-\cite{executorch_quantization,torchao_pt2e}. In this project, INT8 exports are
-produced for XNNPACK by
-\texttt{models/export\_landmark\_models\_xnnpack\_quantized.py}, which does
+ExecuTorch implements quantization through backend-specific configurations.
+These commonly use PT2E (PyTorch 2 Export) with torchao-based preparation and
+conversion \cite{executorch_quantization,torchao_pt2e}. In this project, the
+XNNPACK INT8 export script produces the quantized landmark models using
 symmetric PTQ.
 
 \section{Runtime integration in the benchmark applications}
@@ -665,8 +685,8 @@ outputs for later analysis.
 
 The benchmark design in this thesis follows two goals:
 \begin{enumerate}
-    \item produce comparable latency/throughput/accuracy measurements across
-          iOS and Android,
+    \item measure latency, throughput, and accuracy consistently on iOS and
+          Android,
     \item preserve raw artifacts needed for analysis of the results.
 \end{enumerate}
 
@@ -682,6 +702,22 @@ Each benchmark run executes an end-to-end pipeline:
     \item landmark inference,
     \item landmark postprocessing.
 \end{enumerate}
+
+The detector part is always executed with detector batch size one in the reported
+pipeline runs. This means one image is normalized, passed through the detector,
+and decoded at a time. The landmark part has a separate \emph{resolved landmark
+batch size}; this is the BS (batch size) value shown in the result tables and charts.
+
+For a measurement iteration, the app first runs detection for the input image(s) and
+stores all detected boxes. It then creates face crops from those boxes. Finally,
+the generated crops are appended to a landmark queue and processed in chunks of
+the configured landmark batch size. This is why the thesis reports detector, crop, 
+landmark-inference, and end-to-end timings separately: they correspond to distinct 
+parts of the measured pipeline.
+
+The reported thesis comparisons use 10 warm-up iterations before measurement.
+Warm-up iterations execute the same pipeline but are excluded from the aggregated
+timing statistics.
 
 \section{Model families and configuration space}
 
@@ -723,29 +759,38 @@ comparison charts are organized by the \emph{landmark} configuration
 (model, backend, quantization, and resolved batch size). The primary timing
 metric is therefore landmark \emph{inference} latency only:
 \begin{equation}
-\ell^{\text{lm-inf}}_i = t^{\text{end}}_{\text{lm-inf},i} - t^{\text{start}}_{\text{lm-inf},i}.
+\ell_i^{\mathrm{lm}} = t_i^{\mathrm{end}} - t_i^{\mathrm{start}}.
 \end{equation}
 
-For each run, this metric is extracted from per-iteration
-\texttt{landmarkInferenceMs} samples and summarized in milliseconds by average,
-$p50$, and $p95$. For charting, values are aggregated per configuration group
-using the median across repeated runs:
+For each run, this metric is extracted from per-iteration landmark-inference
+samples and summarized in milliseconds by average, $p50$, and $p95$. For
+charting, values are aggregated per configuration group using the median across
+repeated runs:
 \begin{equation}
 \tilde{m}_g = \mathrm{median}\{m_r \mid r \in g\}.
 \end{equation}
 
 \subsection{Throughput and batch scaling}
 
+The benchmark applications export \texttt{fps}. It is run-level benchmark
+throughput, not landmark-forward-pass-only FPS. The forward-pass behavior of the
+landmark network is reported separately by the landmark-inference latency metric
+defined above. This distinction matters because an optimized landmark model can
+have very low forward latency while the measured run FPS is still limited by
+detector execution, preprocessing, postprocessing, queue flushing, or other
+surrounding pipeline work.
+
 Run throughput follows the exported timing summary:
 \begin{equation}
-\mathrm{FPS} = \frac{N_{\text{images}}}{T_{\text{run}}}.
+\mathrm{FPS}_{\text{run}} = \frac{N_{\text{images}}}{T_{\text{run}}}.
 \end{equation}
 
 Here, FPS means frames per second, \(N_{\text{images}}\) is the number of
-processed images, and \(T_{\text{run}}\) is the measured run time.
+processed images, and \(T_{\text{run}}\) is the measured benchmark-run wall-clock
+time.
 
-Batch size one (BS=1) charts compare median FPS by landmark configuration. Batch-scaling charts
-plot median FPS as a function of resolved landmark batch size
+Batch size one (BS=1) charts compare median run FPS by landmark configuration.
+Batch-scaling charts plot median run FPS as a function of resolved landmark batch size
 ($b \in \{1,2,4,8\}$ in the curated thesis set).
 
 \subsection{Landmark accuracy}
@@ -758,6 +803,23 @@ inter-ocular normalized mean error (NME) is
 \frac{\lVert \hat{\mathbf{p}}_{n,k} - \mathbf{p}_{n,k} \rVert_2}{d^{\text{iod}}_n},
 \end{equation}
 where $d^{\text{iod}}_n$ is the inter-ocular distance for image $n$.
+
+\subsection{Cumulative error histograms}
+
+The result chapter also uses cumulative error histograms, sometimes called
+cumulative distribution curves. They are built from per-image errors rather than
+from a single average. For each evaluated image, the offline script computes an
+error value such as NME or RMSE. The script then asks a simple question for many
+thresholds on the horizontal axis: ``what fraction of images has error less than
+or equal to this threshold?'' The vertical axis is that fraction.
+
+This representation is useful because average error can hide failures. Two
+models may have the same mean NME, but one can be reliable on almost every image
+while the other is very accurate on easy images and very poor on difficult
+images. In a cumulative histogram, the better curve is generally higher and more
+to the left: it means more images reach low error thresholds. A steep curve
+means consistent behavior and a long right tail means that some images are
+outliers where the landmark prediction failed or became noticeably worse.
 
 \subsection{Optional energy metrics}
 

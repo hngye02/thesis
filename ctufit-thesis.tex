@@ -58,7 +58,7 @@
 \ctufitdeclarationplace{Praze} % replace with the place where you sign the declaration
 \ctufitdeclarationdate{\today} % replace with the date of signature of the declaration
 \ctufitabstractCZE{Práce se věnuje benchmarkingu neuronových sítí pro detekci obličejových landmarků na mobilních zařízeních (Android, iOS). Popisuje omezení mobilního hardwaru, principy efektivních architektur a kvantizace a runtime Executorch a proces inference na mobilních zařízeních.}
-\ctufitabstractENG{This thesis focuses on benchmarking for neural networks for detecting facial landmarks on Android and iOS devices. It discusses mobile hardware constraints, efficient model design, quantization principles, and the ExecuTorch runtime for mobile inference.}
+\ctufitabstractENG{This thesis focuses on benchmarking for neural networks for detecting facial landmarks on Android and iOS devices. It discusses mobile hardware constraints, efficient model design, quantization principles, and the ExecuTorch runtime for mobile inference. In this thesis, a backend means the software execution path that runs supported model operations using a specific implementation, such as optimized CPU kernels or an Apple acceleration framework.}
 \ctufitkeywordsCZE{mobilní inference, detekce obličeje, obličejové body, benchmark, kvantizace, ExecuTorch, Core ML, XNNPACK}
 \ctufitkeywordsENG{mobile inference, face detection, facial landmarks, benchmarking, quantization, ExecuTorch, Core ML, XNNPACK}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,6 +104,10 @@
 % You may choose to modify this part.
 %%%%%%%%%%%%%%%%%%%%%%
 \usepackage{dirtree}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{makecell}
+\newcommand{\best}[1]{\textbf{#1}}
 %\usepackage{lipsum,tikz} % removed (template example packages)
 % ČSN ISO 690 compliant citation/bibliography style (numeric method)
 \usepackage[
@@ -242,7 +246,7 @@ responsible for the content of the thesis.
 	QAT      & Quantization-aware training \\
 	ROI      & Region of interest \\
 	SoC      & System-on-Chip \\
-	XNNPACK  & Optimized CPU backend used by ExecuTorch \\
+	XNNPACK  & Optimized CPU execution path used by ExecuTorch \\
 \end{tabular}
 %%%%%%%%%%%%%%%%%%%
 % ABBREVIATIONS END

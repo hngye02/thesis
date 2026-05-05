@@ -6,25 +6,32 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Face-processing pipeline on a real AFW sample image: the first panel shows the input crop, the second panel draws the face-detection bounding box from a benchmark result, and the third panel overlays the predicted landmarks from the same result.}}{2}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median FPS: PC vs focus device (from combined charts).}}{21}{figure.caption.10}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 median landmark-inference latency: PC vs focus device (from combined charts).}}{22}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Focus device: BS=1 speed by backend and quantization.}}{22}{figure.caption.12}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{23}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0 using XNNPACK variants.}}{24}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device batch scaling for PipNet ResNet18 using XNNPACK variants.}}{24}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: INT8 vs FP32 speed comparison at BS=1.}}{25}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{26}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device cumulative NME curves for BS=1 XNNPACK FP32 and INT8 runs.}}{26}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median FPS (device-focused chart pack).}}{27}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{28}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14: BS=1 speed by backend and quantization.}}{28}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces iPhone 14: INT8 and FP32 speed comparison at BS=1.}}{28}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{29}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{30}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median run FPS: PC vs the focus Android device. Here FPS is measured benchmark-run throughput, not landmark-forward-pass-only FPS; higher bars are better.}}{23}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 median landmark-inference latency: PC vs the focus Android device. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}}{23}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces BS=1 INT8 XNNPACK run throughput on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. All bars use the same landmark backend and quantization, so higher run FPS means the measured benchmark run is faster on that device for the selected model.}}{24}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces BS=1 INT8 XNNPACK end-to-end latency on PC, iPhone 14, and Xiaomi Redmi Note 8 Pro. End-to-end latency includes detector execution, landmark execution, cropping, and surrounding pipeline work; lower is better.}}{25}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces BS=1 INT8 XNNPACK landmark latency on PC, iPhone 14, and Redmi}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Focus device: BS=1 measured run throughput by backend and quantization.}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Focus device: BS=1 NME accuracy by backend and quantization (lower is better).}}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Focus device batch scaling for PFLD-MNv2-1.0}}{28}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Focus device batch scaling for PipNet ResNet18}}{29}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0. The horizontal axis is the number of face crops processed together by the landmark model; higher measured run FPS is better.}}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18. The chart shows whether larger landmark batches improve measured run throughput on PC, iPhone 14, and Redmi.}}{30}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Focus device: INT8 vs FP32 measured run-throughput comparison at BS=1.}}{31}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Focus device: INT8 vs FP32 NME difference at BS=1.}}{32}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Focus device cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Focus device cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces iPhone 14: BS=1 median measured run FPS (device-focused chart pack).}}{34}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{34}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces iPhone 14: BS=1 measured run throughput by backend and quantization.}}{35}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces iPhone 14: INT8 and FP32 measured run-throughput comparison at BS=1.}}{35}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces iPhone 14 batch scaling for PFLD-MNv2-1.0.}}{37}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces iPhone 14 batch scaling for PipNet ResNet18.}}{37}{figure.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
