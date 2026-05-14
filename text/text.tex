@@ -26,17 +26,25 @@ budget \cite{wang2020mobilesoc,li2024mobilebenchmark}. In practice, this
 means that achieving good model accuracy is not sufficient; the full
 end-to-end system must also be efficient.
 
-Facial landmarks are useful because they describe the geometry of a face, not
-only whether a face is present. Landmarks mark points such as eye corners, nose
-position, mouth corners, and jaw shape. These points can be used to align faces
-before face recognition or verification \cite{chen2018mobilefacenets}, estimate
-head pose and localize faces in difficult real-world images
+Face processing usually starts with detection. Before an application can analyze
+a face, it first has to decide whether a face is present and where it is in the
+image. This detection step turns a full camera frame into a smaller region of
+interest, which reduces later computation and gives the rest of the pipeline a
+well-defined input crop. For many applications, however, a bounding box is only a
+coarse answer: it says where the face is, but not how the face is oriented, how
+its parts are arranged, or how its expression changes.
+
+Facial landmarks add this finer information. Instead of representing a
+face only by a rectangle, they mark points such as eye corners, nose position,
+mouth corners, and jaw shape. These points make it possible to align faces before
+face recognition or verification \cite{chen2018mobilefacenets}, estimate head
+pose and localize faces in difficult real-world images
 \cite{zhu2012facedetectionwild}, analyze facial expression, drive avatar or
 face-animation systems, and place augmented-reality effects such as glasses,
-masks, or makeup on the correct parts of the face \cite{guo2019pfld}.
-In medical settings, landmark-based facial analysis can also help quantify
-facial asymmetry, support facial-palsy assessment, and track recovery or
-rehabilitation progress from facial movement changes \cite{vrochidou2023facialpalsy}.
+masks, or makeup on the correct parts of the face \cite{guo2019pfld}. In medical
+settings, landmark-based facial analysis can also help quantify facial asymmetry,
+support facial-palsy assessment, and track recovery or rehabilitation progress
+from facial movement changes \cite{vrochidou2023facialpalsy}.
 
 Recent community benchmarks confirm that measured latency strongly depends on
 hardware configuration, runtime backend, and numerical precision
@@ -44,23 +52,21 @@ hardware configuration, runtime backend, and numerical precision
 
 \begin{figure}[htbp]
     \centering
-    \caption{Face-processing pipeline on a real AFW sample image: the first panel shows the input crop, the second panel draws the face-detection bounding box from a benchmark result, and the third panel overlays the predicted landmarks from the same result.}
+    \caption{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite{zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region derived from the AFW landmark annotation, and the third panel overlays the annotated landmark points from the corresponding \texttt{.pts} file.}
     \label{fig:face-pipeline-annotation}
     \includegraphics[width=0.95\linewidth]{images/pipeline/face_pipeline_annotation.png}
 \end{figure}
 
 Figure~\ref{fig:face-pipeline-annotation} shows the practical meaning of the
 two-stage task before any performance numbers are discussed. The first panel is
-the image as it enters the application. The second panel shows face detection:
-the system answers the question ``where is the face?'' by drawing a rectangle
-around the face region. In this figure, the rectangle is taken from an exported
-mobile benchmark image record for the AFW sample. This rectangle is then used to
-crop and normalize the face before landmark estimation. The third panel shows
-the landmarks predicted by the same benchmark record: instead of only locating
-the face, the model predicts semantically meaningful points such as eyes, nose,
-mouth, and face contour positions. These points are what make downstream tasks
-such as face alignment, expression analysis, augmented-reality overlays, and pose
-estimation possible.
+the image as it enters the application. The second panel shows the face region:
+the rectangle is derived from the AFW landmark annotation for the sample image
+\cite{zhu2012facedetectionwild}. A deployed system would obtain this region from
+a detector before cropping and normalizing the face. The third panel shows the
+annotated landmark points from the corresponding \texttt{.pts} file. These
+semantically meaningful points, such as eyes, nose, mouth, and face contour
+positions, are what make downstream tasks such as face alignment, expression
+analysis, augmented-reality overlays, and pose estimation possible.
 
 \section{Problem statement}
 
@@ -95,7 +101,7 @@ The assignment tasks are covered as follows:
           mobile hardware/runtime constraints and ExecuTorch backend options.
     \item \textbf{Model selection + test inputs:} Chapter~2 (model section)
           explains selected detector/landmark architectures; Chapter~4 defines
-          the reproducible AFW (Annotated Faces in the Wild)-based input protocol used for quantitative
+          the reproducible AFW (Annotated Faces in the Wild)-based input protocol \cite{zhu2012facedetectionwild} used for quantitative
           comparison.
     \item \textbf{Android/iOS testing scenario:} Chapter~4 documents feature
           parity and unified measurement schema for both mobile apps.
@@ -211,7 +217,10 @@ q = \mathrm{clip}\!\left(\mathrm{round}\!\left(\frac{x}{s}\right) + z,\; q_{\min
 \hat{x} = s\,(q-z).
 \end{equation}
 
-For signed INT8, $q$ is typically in $[-128,127]$ (or $[-127,127]$ in symmetric
+Here, \(q_{\min}\) and \(q_{\max}\) are the lower and upper integer bounds of the
+target quantized type, \(\mathrm{round}\) maps to the nearest integer, and
+\(\mathrm{clip}\) clamps the rounded value to this representable range. For
+signed INT8, $q$ is typically in $[-128,127]$ (or $[-127,127]$ in symmetric
 weight quantization). The reconstructed value $\hat{x}$ approximates $x$, so a
 small quantization error is introduced.
 
@@ -320,7 +329,8 @@ PipNet-ResNet18 & Landmark & High & Stronger landmark localization capacity, but
 
 \subsection{Datasets and annotation uncertainty}
 
-In this thesis, AFW annotations are used for wild-condition landmark evaluation,
+In this thesis, Annotated Faces in the Wild (AFW) annotations are used for
+wild-condition landmark evaluation,
 originating from the face detection and pose estimation work of Zhu and
 Ramanan \cite{zhu2012facedetectionwild}.
 
@@ -757,7 +767,8 @@ Equivalent behavior includes:
 
 \section{Dataset and inputs}
 
-AFW-based landmark annotations are used for evaluation of the accuracy \cite{zhu2012facedetectionwild}.
+Annotated Faces in the Wild (AFW)-based landmark annotations are used for
+accuracy evaluation \cite{zhu2012facedetectionwild}.
 
 \section{Metrics}
 
@@ -771,12 +782,20 @@ metric is therefore landmark \emph{inference} latency only:
 \ell_i^{\mathrm{lm}} = t_i^{\mathrm{end}} - t_i^{\mathrm{start}}.
 \end{equation}
 
-For each run, this metric is extracted from per-iteration landmark-inference
-samples and summarized in milliseconds by average, $p50$, and $p95$. For
-charting, values are aggregated per configuration group using the median across
-repeated runs:
+Here, \(i\) indexes a measured landmark-model forward pass,
+\(t_i^{\mathrm{start}}\) and \(t_i^{\mathrm{end}}\) are its start and end
+timestamps, and \(\ell_i^{\mathrm{lm}}\) is the resulting latency in
+milliseconds.
+
+For each benchmark run \(r\), the exported latency samples form the set
+\(L_r=\{\ell_i^{\mathrm{lm}}\mid i \in I_r\}\), where \(I_r\) is the set of
+measured iterations in that run. The run is summarized by the mean latency, the
+median, and the 95th percentile \(p_{95}(L_r)\). For charts, repeated runs with
+the same landmark model, backend, quantization, device, and resolved batch size
+form one configuration group \(g\), with run set \(R_g\). For any selected
+run-level statistic \(y_r\), such as the run median, the plotted group value is
 \begin{equation}
-\tilde{m}_g = \mathrm{median}\{m_r \mid r \in g\}.
+\tilde{y}_g = \operatorname{median}\{y_r \mid r \in R_g\}.
 \end{equation}
 
 \subsection{Throughput and batch scaling}
@@ -813,7 +832,10 @@ inter-ocular normalized mean error (NME) is
 \mathrm{NME}_{\text{iod}} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}
 \frac{\lVert \hat{\mathbf{p}}_{n,k} - \mathbf{p}_{n,k} \rVert_2}{d^{\text{iod}}_n},
 \end{equation}
-where $d^{\text{iod}}_n$ is the inter-ocular distance for image $n$.
+where \(\hat{\mathbf{p}}_{n,k}\) is the predicted two-dimensional position of
+landmark \(k\) in image \(n\), \(\mathbf{p}_{n,k}\) is the corresponding AFW
+ground-truth landmark position in the same image coordinate system, and
+\(d^{\text{iod}}_n\) is the inter-ocular distance for image \(n\).
 
 \subsection{Cumulative error histograms}
 
@@ -823,6 +845,14 @@ from a single average. For each evaluated image, the offline script computes one
 error value, for example NME or RMSE. The script then sorts these values from
 smallest to largest and draws a curve answering the question: ``if this error
 threshold is allowed, what fraction of images is already good enough?''
+
+For a set of per-image errors \(E=\{e_n\mid n=1,\dots,N\}\), the cumulative
+curve value at threshold \(\tau\) is
+\begin{equation}
+C(\tau) = \frac{1}{N}\sum_{n=1}^{N}\mathbf{1}[e_n \le \tau],
+\end{equation}
+where \(\mathbf{1}[\cdot]\) is one when the condition is true and zero otherwise.
+In these plots, RMSE means root-mean-square landmark error.
 
 The horizontal axis is the error threshold. The vertical axis is the fraction of
 images whose error is less than or equal to that threshold. To read such a chart,
@@ -899,7 +929,7 @@ secondary because they also include detector and application overhead.
     \centering
     \caption{BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}
     \label{fig:simple-bs1-latency}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device.png}
 \end{figure}
 
 Figure~\ref{fig:simple-bs1-latency} quantifies the landmark forward-pass gap
@@ -928,21 +958,32 @@ and model.
 \centering
 \caption{BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row.}
 \label{tab:cross-device-bs1-landmark}
-\scriptsize
-\setlength{\tabcolsep}{2.4pt}
+\small
+\setlength{\tabcolsep}{3.0pt}
 \renewcommand{\arraystretch}{1.12}
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}lrrrrrrrrr@{}}
+\begin{tabular}{@{}lrrrrrrr@{}}
 \toprule
-Model & \makecell{PC\\{}PyTorch} & \makecell{PC\\{}XNN FP32} & \makecell{PC\\{}XNN INT8} & \makecell{iPhone\\{}Core ML} & \makecell{iPhone\\{}XNN FP32} & \makecell{iPhone\\{}XNN INT8} & \makecell{iPhone\\{}Portable} & \makecell{Redmi\\{}XNN FP32} & \makecell{Redmi\\{}XNN INT8} \\
+Model & \makecell{PC\\{}PyTorch} & \makecell{PC\\{}XNN\\{}FP32} & \makecell{PC\\{}XNN\\{}INT8} & \makecell{iPhone\\{}Core ML} & \makecell{iPhone\\{}XNN\\{}FP32} & \makecell{iPhone\\{}XNN\\{}INT8} & \makecell{iPhone\\{}Portable} \\
 \midrule
-MobileFaceNet      & 45.40 & 13.14 & 12.76 & \best{0.60} & 11.30 & 9.00 & 464.74 & 184.33 & 178.39 \\
-PFLD-MNv2-0.25     & -- & 1.53 & 1.30 & 0.34 & 0.49 & \best{0.26} & 44.71 & 9.99 & 7.10 \\
-PFLD-MNv2-1.0      & 17.69 & 3.96 & 2.23 & \best{0.49} & 4.98 & 1.47 & 577.76 & 61.54 & 23.78 \\
-PipNet-R18         & 12.55 & 47.46 & 11.35 & \best{1.43} & 44.45 & 9.66 & 3847.09 & 351.97 & 97.46 \\
+MobileFaceNet      & 45.40 & 13.14 & 12.76 & \best{0.60} & 11.30 & 9.00 & 464.74 \\
+PFLD-MNv2-0.25     & -- & 1.53 & 1.30 & 0.34 & 0.49 & \best{0.26} & 44.71 \\
+PFLD-MNv2-1.0      & 17.69 & 3.96 & 2.23 & \best{0.49} & 4.98 & 1.47 & 577.76 \\
+PipNet-R18         & 12.55 & 47.46 & 11.35 & \best{1.43} & 44.45 & 9.66 & 3847.09 \\
 \bottomrule
 \end{tabular}
-}
+
+\vspace{0.45em}
+
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Model & \makecell{Redmi\\{}XNN\\{}FP32} & \makecell{Redmi\\{}XNN\\{}INT8} \\
+\midrule
+MobileFaceNet      & 184.33 & 178.39 \\
+PFLD-MNv2-0.25     & 9.99 & 7.10 \\
+PFLD-MNv2-1.0      & 61.54 & 23.78 \\
+PipNet-R18         & 351.97 & 97.46 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 Table~\ref{tab:cross-device-bs1-landmark} is the main BS=1 cross-device
@@ -960,7 +1001,7 @@ PFLD variants.
     \centering
     \caption{BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better.}
     \label{fig:mobile-only-bs1-xnnpack-latency}
-    \includegraphics[width=0.95\linewidth]{images/benchmarks/combined/combined_04_bs1_xnnpack_landmark_latency.png}
+    \includegraphics[width=\linewidth]{images/benchmarks/combined/combined_04_bs1_xnnpack_landmark_latency.png}
 \end{figure}
 
 \begin{table}[htbp]
@@ -996,14 +1037,14 @@ the later iPhone section discusses Core ML separately.
     \centering
     \caption{Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better.}
     \label{fig:redmi-bs1-landmark-latency}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_01_bs1_landmark_latency_backend_quant.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_01_bs1_landmark_latency_backend_quant.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \caption{Redmi: BS=1 NME accuracy by backend and quantization (lower is better).}
     \label{fig:focus-bs1-nme}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1056,14 +1097,14 @@ strongest INT8 candidate among the tested models on this device.
     \centering
     \caption[Redmi landmark-latency batch scaling for PFLD-MNv2-1.0]{Redmi landmark-inference latency batch scaling for PFLD-MNv2-1.0 using XNNPACK variants. Lower latency is better.}
     \label{fig:focus-batch-pfld10}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \caption[Redmi landmark-latency batch scaling for PipNet ResNet18]{Redmi landmark-inference latency batch scaling for PipNet ResNet18 using XNNPACK variants. Lower latency is better.}
     \label{fig:focus-batch-pipnet}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1150,21 +1191,21 @@ larger batches.
     \centering
     \caption{Redmi: INT8 vs FP32 NME difference at BS=1.}
     \label{fig:focus-int8-accuracy-delta}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta_bs1.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \caption{Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}
     \label{fig:focus-cdf-nme}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png}
+    \makebox[\linewidth][c]{\includegraphics[width=1.35\linewidth]{../benchmarks/results/combined/charts/focus_07_cumulative_hist_nme_bs1.png}}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \caption{Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}
     \label{fig:focus-cdf-rmse}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/focus_08_cumulative_hist_rmse_bs1.png}
+    \makebox[\linewidth][c]{\includegraphics[width=1.35\linewidth]{../benchmarks/results/combined/charts/focus_08_cumulative_hist_rmse_bs1.png}}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1212,7 +1253,7 @@ substantially faster than Redmi, especially for MobileFaceNet and PipNet-R18.
     \centering
     \caption{iPhone 14: BS=1 median landmark-inference latency.}
     \label{fig:iphone-simple-latency}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png}
 \end{figure}
 
 \begin{table}[htbp]
@@ -1257,14 +1298,14 @@ $4.6\times$), PFLD-MNv2-1.0 improves from $4.98$~ms to $1.47$~ms
     \centering
     \caption{iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0.}
     \label{fig:iphone-batch-pfld10}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \caption{iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18.}
     \label{fig:iphone-batch-pipnet}
-    \includegraphics[width=0.95\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
+    \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
 \end{figure}
 
 \begin{table}[htbp]

@@ -4,11 +4,11 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Face-processing pipeline on a real AFW sample image: the first panel shows the input crop, the second panel draws the face-detection bounding box from a benchmark result, and the third panel overlays the predicted landmarks from the same result.}}{2}{figure.caption.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \blx@tocontentsinit {0}\cite {zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region derived from the AFW landmark annotation, and the third panel overlays the annotated landmark points from the corresponding \texttt  {.pts} file.}}{2}{figure.caption.9}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:face-pipeline-annotation}{{1.1}{2}{Face-processing pipeline on a real AFW sample image: the first panel shows the input crop, the second panel draws the face-detection bounding box from a benchmark result, and the third panel overlays the predicted landmarks from the same result}{figure.caption.9}{}}
+\newlabel{fig:face-pipeline-annotation}{{1.1}{2}{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite {zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region derived from the AFW landmark annotation, and the third panel overlays the annotated landmark points from the corresponding \texttt {.pts} file}{figure.caption.9}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Problem statement}{2}{section.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Research objectives}{2}{section.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Research objectives}{3}{section.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}Alignment with thesis assignment tasks}{3}{section.1.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical background}{4}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -55,70 +55,70 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Throughput and batch scaling}{19}{subsection.4.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Landmark accuracy}{20}{subsection.4.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Cumulative error histograms}{20}{subsection.4.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{20}{subsection.4.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{21}{subsection.4.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.7}Measurement protocol}{21}{section.4.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{21}{section.4.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.9}Threats to validity}{21}{section.4.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental results}{22}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental results}{23}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Result scope and source artifacts}{22}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{22}{section.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}}{23}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:simple-bs1-latency}{{5.1}{23}{BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{23}{section.5.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row.}}{23}{table.caption.12}\protected@file@percent }
-\newlabel{tab:cross-device-bs1-landmark}{{5.1}{23}{BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Result scope and source artifacts}{23}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{23}{section.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}}{24}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:simple-bs1-latency}{{5.1}{24}{BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{24}{section.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{24}{section.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better.}}{24}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:mobile-only-bs1-xnnpack-latency}{{5.2}{24}{BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better}{figure.caption.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces BS=1 mobile-only XNNPACK landmark-inference latency; lower latency is better. Bold marks the lowest latency in each row.}}{24}{table.caption.14}\protected@file@percent }
-\newlabel{tab:mobile-only-bs1-xnnpack-latency}{{5.2}{24}{BS=1 mobile-only XNNPACK landmark-inference latency; lower latency is better. Bold marks the lowest latency in each row}{table.caption.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Redmi BS=1 backend and quantization}{24}{section.5.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better.}}{25}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:redmi-bs1-landmark-latency}{{5.3}{25}{Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Redmi: BS=1 NME accuracy by backend and quantization (lower is better).}}{25}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:focus-bs1-nme}{{5.4}{25}{Redmi: BS=1 NME accuracy by backend and quantization (lower is better)}{figure.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row.}}{25}{table.caption.12}\protected@file@percent }
+\newlabel{tab:cross-device-bs1-landmark}{{5.1}{25}{BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row}{table.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better.}}{25}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:mobile-only-bs1-xnnpack-latency}{{5.2}{25}{BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better}{figure.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces BS=1 mobile-only XNNPACK landmark-inference latency; lower latency is better. Bold marks the lowest latency in each row.}}{26}{table.caption.14}\protected@file@percent }
+\newlabel{tab:mobile-only-bs1-xnnpack-latency}{{5.2}{26}{BS=1 mobile-only XNNPACK landmark-inference latency; lower latency is better. Bold marks the lowest latency in each row}{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better.}}{26}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:redmi-bs1-landmark-latency}{{5.3}{26}{Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better}{figure.caption.15}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Redmi BS=1 XNNPACK landmark latency and accuracy. LM inf. means landmark inference and ms means milliseconds. Bold values mark the lower latency and lower error within each model pair.}}{26}{table.caption.17}\protected@file@percent }
 \newlabel{tab:focus-bs1-raw}{{5.3}{26}{Redmi BS=1 XNNPACK landmark latency and accuracy. LM inf. means landmark inference and ms means milliseconds. Bold values mark the lower latency and lower error within each model pair}{table.caption.17}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Redmi batch scaling}{26}{section.5.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Redmi batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{26}{table.caption.20}\protected@file@percent }
-\newlabel{tab:focus-batch-lm-ms}{{5.4}{26}{Redmi batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Redmi landmark-latency batch scaling for PFLD-MNv2-1.0}}{27}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:focus-batch-pfld10}{{5.5}{27}{Redmi landmark-latency batch scaling for PFLD-MNv2-1.0}{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Redmi landmark-latency batch scaling for PipNet ResNet18}}{27}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:focus-batch-pipnet}{{5.6}{27}{Redmi landmark-latency batch scaling for PipNet ResNet18}{figure.caption.19}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{28}{table.caption.21}\protected@file@percent }
-\newlabel{tab:cross-device-batch-pfld10}{{5.5}{28}{Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column}{table.caption.21}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{28}{table.caption.22}\protected@file@percent }
-\newlabel{tab:cross-device-batch-pipnet}{{5.6}{28}{Three-device INT8 XNNPACK batch scaling for PipNet-R18 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column}{table.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Redmi: INT8 vs FP32 NME difference at BS=1.}}{29}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:focus-int8-accuracy-delta}{{5.7}{29}{Redmi: INT8 vs FP32 NME difference at BS=1}{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{29}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:focus-cdf-nme}{{5.8}{29}{Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error}{figure.caption.24}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces BS=1 PC INT8 and Redmi INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{29}{table.caption.26}\protected@file@percent }
-\newlabel{tab:pc-vs-focus-raw}{{5.7}{29}{BS=1 PC INT8 and Redmi INT8 landmark-inference latency. Bold marks the lower latency in each row}{table.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{30}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:focus-cdf-rmse}{{5.9}{30}{Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Redmi: BS=1 NME accuracy by backend and quantization (lower is better).}}{27}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:focus-bs1-nme}{{5.4}{27}{Redmi: BS=1 NME accuracy by backend and quantization (lower is better)}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Redmi BS=1 backend and quantization}{27}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Redmi batch scaling}{28}{section.5.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Redmi landmark-latency batch scaling for PFLD-MNv2-1.0}}{28}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:focus-batch-pfld10}{{5.5}{28}{Redmi landmark-latency batch scaling for PFLD-MNv2-1.0}{figure.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Redmi batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{28}{table.caption.20}\protected@file@percent }
+\newlabel{tab:focus-batch-lm-ms}{{5.4}{28}{Redmi batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Redmi landmark-latency batch scaling for PipNet ResNet18}}{29}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:focus-batch-pipnet}{{5.6}{29}{Redmi landmark-latency batch scaling for PipNet ResNet18}{figure.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.21}\protected@file@percent }
+\newlabel{tab:cross-device-batch-pfld10}{{5.5}{30}{Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column}{table.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.22}\protected@file@percent }
+\newlabel{tab:cross-device-batch-pipnet}{{5.6}{30}{Three-device INT8 XNNPACK batch scaling for PipNet-R18 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column}{table.caption.22}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{30}{section.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{30}{section.5.8}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{31}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:iphone-simple-latency}{{5.10}{31}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 BS=1 landmark-inference latency by backend. XNN means XNNPACK. Bold marks the lowest latency in each row.}}{31}{table.caption.28}\protected@file@percent }
-\newlabel{tab:iphone-bs1-lm}{{5.8}{31}{iPhone 14 BS=1 landmark-inference latency by backend. XNN means XNNPACK. Bold marks the lowest latency in each row}{table.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0.}}{32}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:iphone-batch-pfld10}{{5.11}{32}{iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0}{figure.caption.29}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{32}{table.caption.31}\protected@file@percent }
-\newlabel{tab:iphone-batch-lm}{{5.9}{32}{iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18.}}{33}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:iphone-batch-pipnet}{{5.12}{33}{iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18}{figure.caption.30}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{33}{table.caption.32}\protected@file@percent }
-\newlabel{tab:pc-vs-iphone-raw}{{5.10}{33}{BS=1 PC INT8 and iPhone 14 INT8 landmark-inference latency. Bold marks the lower latency in each row}{table.caption.32}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{34}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Redmi: INT8 vs FP32 NME difference at BS=1.}}{31}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:focus-int8-accuracy-delta}{{5.7}{31}{Redmi: INT8 vs FP32 NME difference at BS=1}{figure.caption.23}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces BS=1 PC INT8 and Redmi INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{31}{table.caption.26}\protected@file@percent }
+\newlabel{tab:pc-vs-focus-raw}{{5.7}{31}{BS=1 PC INT8 and Redmi INT8 landmark-inference latency. Bold marks the lower latency in each row}{table.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:focus-cdf-nme}{{5.8}{32}{Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error}{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:focus-cdf-rmse}{{5.9}{33}{Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{34}{section.5.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{34}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:iphone-simple-latency}{{5.10}{34}{iPhone 14: BS=1 median landmark-inference latency}{figure.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 BS=1 landmark-inference latency by backend. XNN means XNNPACK. Bold marks the lowest latency in each row.}}{34}{table.caption.28}\protected@file@percent }
+\newlabel{tab:iphone-bs1-lm}{{5.8}{34}{iPhone 14 BS=1 landmark-inference latency by backend. XNN means XNNPACK. Bold marks the lowest latency in each row}{table.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0.}}{35}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:iphone-batch-pfld10}{{5.11}{35}{iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0}{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18.}}{36}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:iphone-batch-pipnet}{{5.12}{36}{iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18}{figure.caption.30}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{36}{table.caption.31}\protected@file@percent }
+\newlabel{tab:iphone-batch-lm}{{5.9}{36}{iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column}{table.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{36}{table.caption.32}\protected@file@percent }
+\newlabel{tab:pc-vs-iphone-raw}{{5.10}{36}{BS=1 PC INT8 and iPhone 14 INT8 landmark-inference latency. Bold marks the lower latency in each row}{table.caption.32}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{text/text}{
-\setcounter{page}{35}
+\setcounter{page}{38}
 \setcounter{equation}{0}
 \setcounter{enumi}{7}
 \setcounter{enumii}{0}
@@ -155,7 +155,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{130}
+\setcounter{instcount}{134}
 \setcounter{maxnames}{99}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{3}
