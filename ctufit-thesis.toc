@@ -21,54 +21,54 @@
 \contentsline {section}{\numberline {2.4}Model compression and quantization}{6}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Post-training quantization}{6}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}INT8 design choices that affect quality}{7}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Face detection and landmark estimation}{7}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Task definitions}{7}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Representative models}{7}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Datasets and annotation uncertainty}{8}{subsection.2.5.3}%
-\contentsline {chapter}{\numberline {3}ExecuTorch for mobile deployment}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}ExecuTorch motivation}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Conceptual architecture}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Export and lowering workflow}{11}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Intermediate representations used before runtime}{12}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}The \texttt {.pte} deployment artifact}{12}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Static shapes, dynamic shapes, and batching}{13}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Memory planning}{13}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Delegation and partitioning}{13}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}XNNPACK}{14}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Core ML}{15}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Quantization in ExecuTorch}{15}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Runtime integration in the benchmark applications}{15}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Benchmark methodology}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Methodological goals}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Evaluated pipeline}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Model families and configuration space}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}iOS and Android implementation parity}{18}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Dataset and inputs}{19}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Metrics}{19}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Landmark inference latency}{19}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Throughput and batch scaling}{19}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Landmark accuracy}{20}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Cumulative error histograms}{20}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{21}{subsection.4.6.5}%
-\contentsline {section}{\numberline {4.7}Measurement protocol}{21}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{21}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Threats to validity}{21}{section.4.9}%
-\contentsline {chapter}{\numberline {5}Experimental results}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Result scope and source artifacts}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{24}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{25}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Redmi BS=1 backend and quantization}{27}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Redmi batch scaling}{27}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{30}{section.5.7}%
-\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{34}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Reproducibility}{39}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Combined CSV and chart generation}{39}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Summary table generation}{39}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Readable thesis chart regeneration}{39}{section.A.3}%
-\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{40}{section.A.4}%
-\contentsline {chapter}{Bibliography}{41}{appendix*.33}%
+\contentsline {section}{\numberline {2.5}Face detection and landmark estimation}{8}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Task definitions}{8}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Representative models}{8}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Datasets and ground truth}{8}{subsection.2.5.3}%
+\contentsline {chapter}{\numberline {3}ExecuTorch for mobile deployment}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}ExecuTorch motivation}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Conceptual architecture}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Export and lowering workflow}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Intermediate representations used before runtime}{13}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}The \texttt {.pte} deployment artifact}{13}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Static shapes, dynamic shapes, and batching}{14}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Memory planning}{14}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Delegation and partitioning}{14}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}XNNPACK}{15}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Core ML}{16}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Quantization in ExecuTorch}{16}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Runtime integration in the benchmark applications}{16}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Benchmark methodology}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Methodological goals}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Evaluated pipeline}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Model families and configuration space}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}iOS and Android implementation parity}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Dataset and inputs}{20}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Metrics}{20}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Landmark inference latency}{20}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Throughput and batch scaling}{20}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Landmark accuracy}{21}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Cumulative error histograms}{21}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Optional energy metrics}{22}{subsection.4.6.5}%
+\contentsline {section}{\numberline {4.7}Measurement protocol}{22}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Run artifacts and offline analysis}{23}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Threats to validity}{23}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Experimental results}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Result scope and source artifacts}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{25}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{26}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Redmi backend and quantization at BS=1}{28}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Redmi batch scaling}{28}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{31}{section.5.7}%
+\contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{35}{section.5.8}%
+\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Reproducibility}{40}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Combined CSV, chart, and table generation}{40}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Readable thesis chart regeneration}{41}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Introductory pipeline figure regeneration}{41}{section.A.3}%
+\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{41}{section.A.4}%
+\contentsline {chapter}{Bibliography}{42}{appendix*.33}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
@@ -287,4 +287,4 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Contents of the attachment}{46}{appendix*.34}%
+\contentsline {chapter}{Contents of the attachment}{47}{appendix*.34}%

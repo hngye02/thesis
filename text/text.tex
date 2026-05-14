@@ -53,17 +53,19 @@ hardware configuration, runtime backend, and numerical precision
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{images/pipeline/face_pipeline_annotation.png}
-    \caption{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite{zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region derived from the AFW landmark annotation, and the third panel overlays the annotated landmark points from the corresponding \texttt{.pts} file.}
+    \caption{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite{zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region computed as the tight bounding box around the AFW landmark points, and the third panel overlays the annotated landmark points.}
     \label{fig:face-pipeline-annotation}
 \end{figure}
 
 Figure~\ref{fig:face-pipeline-annotation} shows the practical meaning of the
 two-stage task before any performance numbers are discussed. The first panel is
 the image as it enters the application. The second panel shows the face region:
-the rectangle is derived from the AFW landmark annotation for the sample image
+for this explanatory figure, the rectangle is not a detector output, but the
+tight bounding box obtained from the minimum and maximum coordinates of the AFW
+ground-truth landmark points for the sample image
 \cite{zhu2012facedetectionwild}. A deployed system would obtain this region from
 a detector before cropping and normalizing the face. The third panel shows the
-annotated landmark points from the corresponding \texttt{.pts} file. These
+annotated landmark points. These
 semantically meaningful points, such as eyes, nose, mouth, and face contour
 positions, are what make downstream tasks such as face alignment, expression
 analysis, augmented-reality overlays, and pose estimation possible.
@@ -71,8 +73,11 @@ analysis, augmented-reality overlays, and pose estimation possible.
 \section{Problem statement}
 
 The core of this thesis is to evaluate neural networks for detecting facial landmarks on mobile devices, with a focus on configurations 
-implemented with ExecuTorch. The benchmark must support equivalent iOS and 
-Android applications, consistent measurement conditions, and validation of quality metrics.
+implemented with ExecuTorch, a PyTorch edge-deployment runtime for exporting and
+running neural-network models on mobile and embedded devices
+\cite{executorch_how,executorch_arch}. The benchmark must support equivalent
+iOS and Android applications, consistent measurement conditions, and validation
+of quality metrics.
 
 The benchmark is a two-stage pipeline:
 \begin{enumerate}
@@ -172,8 +177,11 @@ fall back to CPU execution for that part. This fallback can introduce extra
 copies and synchronization, so an accelerator is useful only when a large enough
 part of the graph maps cleanly to it \cite{wang2020mobilesoc,reddi2022mlperfmobile}.
 
-In this thesis, the measured backends are Core ML (Apple machine learning
-framework), XNNPACK, and portable ExecuTorch execution.
+In this thesis, a backend means the runtime implementation that executes the
+model operators on a particular hardware path, for example by using optimized CPU
+kernels or by delegating supported operations to an accelerator. The measured
+backends are Core ML (Apple machine learning framework), XNNPACK, and portable
+ExecuTorch execution.
 Core ML can choose Apple CPU, GPU, or Apple Neural Engine (ANE) depending on the model and device
 \cite{apple_coreml,executorch_coreml}. XNNPACK is the optimized CPU path
 \cite{executorch_xnnpack}. Portable execution is the generic ExecuTorch path
@@ -207,10 +215,13 @@ energy-efficient than FP32 on supported hardware \cite{jacob2018quantization}.
 
 \subsection{Post-training quantization}
 
-Post-training quantization converts an already trained FP32 model to a
+Post-training quantization (PTQ) converts an already trained FP32 model to a
 lower-precision representation, usually without retraining. In this thesis, the
-main target is INT8 execution. A real value $x$ is represented by an integer
-$q$ using scale $s$ and zero-point $z$:
+known values before quantization are the FP32 weights and representative FP32
+activation values observed during calibration. The values that must be found are
+the quantized integers and the mapping parameters for each quantized tensor:
+scale $s$ and zero-point $z$. The main target is INT8 execution, where a real
+value $x$ is represented by an integer $q$:
 \begin{equation}
 q = \mathrm{clip}\!\left(\mathrm{round}\!\left(\frac{x}{s}\right) + z,\; q_{\min}, q_{\max}\right),
 \qquad
@@ -223,6 +234,19 @@ target quantized type, \(\mathrm{round}\) maps to the nearest integer, and
 signed INT8, $q$ is typically in $[-128,127]$ (or $[-127,127]$ in symmetric
 weight quantization). The reconstructed value $\hat{x}$ approximates $x$, so a
 small quantization error is introduced.
+
+For a tensor $T$, calibration observes a floating-point range
+\([x_{\min}, x_{\max}]\). Quantization then chooses $s$ and $z$ so that this
+observed real range is mapped to the available integer range
+\([q_{\min}, q_{\max}]\). In the common asymmetric case, the scale can be written
+as
+\begin{equation}
+s = \frac{x_{\max}-x_{\min}}{q_{\max}-q_{\min}},
+\qquad
+z = \mathrm{round}\!\left(q_{\min} - \frac{x_{\min}}{s}\right),
+\end{equation}
+with $z$ clipped to the valid integer range if necessary
+\cite{jacob2018quantization,krishnamoorthi2018quantizing}.
 
 The scale $s$ is the size of one integer step in the original real-number
 space. If $s$ is small, the integer grid is fine and precise, but the
@@ -237,8 +261,9 @@ efficiently \cite{krishnamoorthi2018quantizing}.
 Calibration is the step that chooses useful ranges for tensors. During
 calibration, representative input samples are passed through the prepared model,
 and observer nodes record approximate minimum and maximum values of activations
-\cite{torchao_pt2e}. These observed ranges are then converted into scales and
-zero-points. If calibration data is too narrow, later real inputs may fall
+\cite{torchao_pt2e}. For each observed tensor, these recorded
+\(x_{\min}\) and \(x_{\max}\) values are then converted into the corresponding
+scale $s$ and zero-point $z$. If calibration data is too narrow, later real inputs may fall
 outside the observed range and get clipped by the \(\mathrm{clip}\) operation
 in the equation above. If calibration data is too wide because of rare outliers,
 the scale becomes too large and normal values lose precision. This is why PTQ
@@ -252,7 +277,7 @@ scale \cite{jacob2018quantization}. For convolution and linear layers, this is
 often important because different output channels can have very different value
 ranges.
 
-PTQ typically has three steps:
+Post-training quantization (PTQ) typically has three steps:
 \begin{enumerate}
     \item prepare the graph for quantization,
     \item run calibration data through the model to estimate activation ranges,
@@ -292,15 +317,30 @@ detection quality and crop geometry directly influence landmark quality.
 
 \subsection{Representative models}
 
-RetinaFace is a strong one-stage detector with high robustness under challenging
-conditions \cite{deng2020retinaface,retinaface_repo}. FaceBoxes is a lightweight detector
-explicitly designed for CPU real-time operation \cite{zhang2017faceboxes,faceboxesv2_repo}.
+The selected models are convolutional neural networks (CNNs), not
+transformer-based vision models such as Vision Transformers (ViTs). This choice
+matches the mobile deployment goal, because the selected architectures mostly use
+convolutions, depthwise/mobile backbones, and small prediction heads that are
+well supported by mobile runtimes. RetinaFace is a strong one-stage CNN detector;
+the MNet0.25 variant uses a MobileNet-style lightweight backbone to reduce
+compute while preserving robust detection quality
+\cite{deng2020retinaface,retinaface_repo}. FaceBoxes is also a CNN detector, but
+it is explicitly designed for CPU real-time operation
+\cite{zhang2017faceboxes,faceboxesv2_repo}.
 
-For landmarks, PFLD (Practical Facial Landmark Detector) emphasizes compactness and speed \cite{guo2019pfld,pfld68_repo}.
+Other detector families also exist, including YOLO-style one-stage object
+detectors, SSD-like detectors, and multi-stage face detectors. They are not the
+main focus here because the benchmark uses a fixed set of detector/landmark
+pairs for comparable mobile measurements.
+
+For landmarks, PFLD (Practical Facial Landmark Detector) is a compact CNN
+landmark regressor that emphasizes speed \cite{guo2019pfld,pfld68_repo}.
 MobileFaceNet provides a lightweight backbone originally developed for mobile
-face recognition and often reused for landmark regression
-\cite{chen2018mobilefacenets,mobilefacenet_pytorch_repo}. PIPNet (Pixel-in-Pixel Network) combines heatmap-style reasoning with
-low-resolution efficient heads for practical landmark localization
+face recognition and often reused as a CNN feature extractor for landmark
+regression \cite{chen2018mobilefacenets,mobilefacenet_pytorch_repo}. PIPNet
+(Pixel-in-Pixel Network) combines a convolutional backbone, here represented by
+the ResNet18 variant, with heatmap-style reasoning and low-resolution efficient
+heads for practical landmark localization
 \cite{jin2021pipnet,pipnet_repo}.
 
 In the benchmark matrix used in this thesis, the main detector+landmark
@@ -327,12 +367,11 @@ PipNet-ResNet18 & Landmark & High & Stronger landmark localization capacity, but
 \end{tabular}
 \end{table}
 
-\subsection{Datasets and annotation uncertainty}
+\subsection{Datasets and ground truth}
 
-In this thesis, Annotated Faces in the Wild (AFW) annotations are used for
-wild-condition landmark evaluation,
-originating from the face detection and pose estimation work of Zhu and
-Ramanan \cite{zhu2012facedetectionwild}.
+In this thesis, AFW annotations are used as the ground-truth reference for
+landmark evaluation. The annotations originate from the face detection and pose
+estimation work of Zhu and Ramanan \cite{zhu2012facedetectionwild}.
 
 %---------------------------------------------------------------
 \chapter{ExecuTorch for mobile deployment}
@@ -348,8 +387,8 @@ steps are performed before deployment, so runtime execution remains lightweight.
 
 ExecuTorch was chosen instead of TensorFlow Lite (TFLite) or another mobile
 runtime mainly because this project starts from PyTorch models and needs the
-same deployment idea on Android and iOS. TFLite is a strong mobile and embedded
-runtime for models in the TensorFlow Lite format \cite{tensorflow_lite}, and
+same workflow on Android and iOS. TFLite is a strong mobile and embedded
+runtime for models in TensorFlow Lite format \cite{tensorflow_lite}, and
 ONNX Runtime Mobile is a strong mobile runtime for models represented in the
 Open Neural Network Exchange (ONNX) format \cite{onnxruntime_mobile}. However,
 using either of them here would add an
@@ -361,7 +400,7 @@ precision could change both speed and landmark accuracy.
 
 ExecuTorch keeps the pipeline closer to PyTorch: \texttt{torch.export} captures
 the model graph, ExecuTorch lowers that graph for edge execution, and the final
-\texttt{.pte} file is loaded by the Android and iOS benchmark applications
+model is loaded by the Android and iOS benchmark applications
 \cite{pytorch_export,executorch_export,executorch_pte}. It also matches the
 backend comparison needed in this thesis. The same deployment stack can produce
 an optimized CPU path through XNNPACK, an Apple path through Core ML, and a
@@ -377,7 +416,7 @@ toolchain.
 ExecuTorch organizes model deployment into three phases
 \cite{executorch_how,executorch_arch}:
 \begin{enumerate}
-    \item export a PyTorch model to graph form,
+    \item export a PyTorch model to a computational graph form,
     \item lower and optimize the graph for edge execution,
     \item execute the serialized program with a small C++ runtime.
 \end{enumerate}
@@ -388,7 +427,7 @@ checked, transformed, quantized, partitioned, and serialized
 \cite{pytorch_export,executorch_export}.
 
 In more detail, the graph is a data-flow description of the neural network.
-Each node represents something that must happen, such as reading an input
+Each node represents an action, such as reading an input
 tensor, reading a trained weight tensor, running a convolution, applying an
 activation function, reshaping a tensor, or returning the final output. The
 edges between nodes represent values flowing from one operation to another
@@ -473,7 +512,7 @@ The practical workflow consists of:
     \item model export using \texttt{torch.export},
     \item backend specific lowering via
           \texttt{to\_edge\_transform\_and\_lower},
-    \item creation of a serialized \texttt{.pte} artifact, where an artifact
+    \item creation of a serialized \texttt{.pte} artifact, where the artifact
           means a file produced by the build/export pipeline and used later by
           another part of the project.
 \end{enumerate}
@@ -483,7 +522,7 @@ produced on the development machine, copied into the Android or iOS
 application, and loaded by the mobile benchmark.
 
 This process supports dynamic shape constraints and optional separation of
-program and tensor data into \texttt{.pte} and \texttt{.ptd} files
+program and tensor data into \texttt{.pte} and \texttt{.ptd} files respectively
 \cite{executorch_export,executorch_pte,executorch_ptd,pytorch_export}.
 
 \subsection{Intermediate representations used before runtime}
@@ -521,11 +560,8 @@ This thesis mainly treats \texttt{.pte} files as the deployable model artifacts:
 the Android and iOS applications load them, create input tensors, run forward
 execution, and read output tensors.
 
-A \texttt{.pte} file is therefore not the same thing as a PyTorch checkpoint.
-A checkpoint stores trained parameters, and often assumes that Python model code
-will rebuild the network structure. A \texttt{.pte} file stores an already
-exported and lowered execution program. That program can include delegate
-segments, portable fallback segments, constants, and the method entry points
+A \texttt{.pte} file stores an already exported and lowered execution program. 
+That program can include delegate segments, portable fallback segments, constants, and the method entry points
 that the runtime can call \cite{executorch_pte,executorch_delegate}.
 
 \subsection{Static shapes, dynamic shapes, and batching}
@@ -563,7 +599,7 @@ For this thesis, two backends are central:
     \item \textbf{XNNPACK}: optimized CPU backend with broad mobile support,
           including quantized paths \cite{executorch_xnnpack,executorch_xnnpack_quantization,xnnpack_repo};
     \item \textbf{Core ML delegate}: Apple backend path that can dispatch to CPU,
-          GPU, or ANE depending on model and platform capabilities
+          GPU, or NPU depending on model and platform capabilities
           \cite{executorch_coreml,apple_coreml}.
 \end{itemize}
 
@@ -595,9 +631,8 @@ delegate calls \cite{executorch_xnnpack}. This is useful for this thesis
 because it provides a common backend across Android and iOS, so the benchmark
 can compare the same exported family of artifacts on both platforms.
 
-XNNPACK is a low-level library of optimized neural-network operator kernels,
-not a full training framework \cite{xnnpack_repo}. It targets CPU instruction
-sets on Arm and x86 systems, including Android, iOS, macOS, Linux, Windows, and
+XNNPACK is a low-level library of optimized neural-network operator kernels \cite{xnnpack_repo}. 
+It targets CPU instruction sets on ARM and x86 systems, including Android, iOS, macOS, Linux, Windows, and
 simulators \cite{xnnpack_repo,executorch_xnnpack}. The operators relevant to
 vision models include convolution, depthwise convolution, pooling, resize,
 fully connected layers, elementwise arithmetic, activation functions such as
@@ -609,7 +644,7 @@ made from convolution, activation, pooling, and linear layers.
 The important technical point is that XNNPACK accelerates CPU execution by
 using specialized kernels and vectorized instructions. It does not move the
 model to the GPU or NPU. XNNPACK also commonly uses NHWC tensor layout, where
-the tensor dimensions are ordered as batch, height, width, and channels
+the tensor dimensions are ordered as batch-size, height, width, and channels
 \cite{xnnpack_repo}. If an exported graph already matches what XNNPACK
 supports, the partitioner can delegate large regions. If the graph contains an
 unsupported operator or unsupported shape pattern, ExecuTorch must keep that
@@ -697,12 +732,12 @@ The benchmark design in this thesis follows two goals:
 \begin{enumerate}
     \item measure latency, throughput, and accuracy consistently on iOS and
           Android,
-    \item preserve raw artifacts needed for analysis of the results.
+    \item preserve raw outputs needed for analysis of the results.
 \end{enumerate}
 
 \section{Evaluated pipeline}
 
-Each benchmark run executes an end-to-end pipeline:
+Each benchmark executes an end-to-end pipeline:
 \begin{enumerate}
     \item detector preprocessing,
     \item detector inference,
@@ -784,7 +819,7 @@ metric is therefore landmark \emph{inference} latency only:
 
 Here, \(i\) indexes a measured landmark-model forward pass,
 \(t_i^{\mathrm{start}}\) and \(t_i^{\mathrm{end}}\) are its start and end
-timestamps, and \(\ell_i^{\mathrm{lm}}\) is the resulting latency in
+timestamps, respectively, and \(\ell_i^{\mathrm{lm}}\) is the resulting latency in
 milliseconds.
 
 For each benchmark run \(r\), the exported latency samples form the set
@@ -819,14 +854,17 @@ time.
 
 Batch size one (BS=1) charts in the results chapter focus on median
 landmark-inference latency by landmark configuration. Batch-scaling charts plot
-median landmark-inference latency as a function of resolved landmark batch size
-($b \in \{1,2,4,8\}$ in the curated thesis set), because this directly shows how
-the landmark model forward pass responds to batching.
+median per-image landmark-inference latency as a function of resolved landmark
+batch size ($b \in \{1,2,4,8\}$ in the curated thesis set). For a batch run, the
+measured total landmark-forward latency is divided by the batch size \(b\), so
+the plotted value is the latency for one image rather than the latency of the
+whole batch. This directly shows how the landmark model forward pass responds to
+batching.
 
 \subsection{Landmark accuracy}
 
 Accuracy is recomputed offline from exported per-image predicted landmarks and
-AFW ground truth annotations \cite{zhu2012facedetectionwild}. For $N$ evaluated images and $K$ landmarks,
+ground-truth annotations from the AFW dataset \cite{zhu2012facedetectionwild}. For $N$ evaluated images and $K$ landmarks,
 inter-ocular normalized mean error (NME) is
 \begin{equation}
 \mathrm{NME}_{\text{iod}} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}
@@ -836,6 +874,26 @@ where \(\hat{\mathbf{p}}_{n,k}\) is the predicted two-dimensional position of
 landmark \(k\) in image \(n\), \(\mathbf{p}_{n,k}\) is the corresponding AFW
 ground-truth landmark position in the same image coordinate system, and
 \(d^{\text{iod}}_n\) is the inter-ocular distance for image \(n\).
+
+Root-mean-square error (RMSE) is also reported for landmark accuracy. For the
+same \(N\) evaluated images and \(K\) landmarks, the per-image landmark RMSE is
+computed in image-coordinate units as
+\begin{equation}
+\mathrm{RMSE}_{n} =
+\sqrt{\frac{1}{K}\sum_{k=1}^{K}
+\lVert \hat{\mathbf{p}}_{n,k} - \mathbf{p}_{n,k} \rVert_2^2},
+\end{equation}
+and the dataset-level RMSE is
+\begin{equation}
+\mathrm{RMSE} = \frac{1}{N}\sum_{n=1}^{N}\mathrm{RMSE}_{n}.
+\end{equation}
+Here, \(n\) indexes the image, \(k\) indexes the landmark, \(N\) is the number of
+evaluated images, \(K\) is the number of landmarks per image,
+\(\hat{\mathbf{p}}_{n,k}\) is the predicted two-dimensional landmark coordinate,
+\(\mathbf{p}_{n,k}\) is the matching ground-truth coordinate, and
+\(\lVert\cdot\rVert_2\) is the Euclidean distance between the two points. Unlike
+NME, this RMSE is not divided by the inter-ocular distance, so it remains in the
+same coordinate units as the landmarks.
 
 \subsection{Cumulative error histograms}
 
@@ -851,7 +909,10 @@ curve value at threshold \(\tau\) is
 \begin{equation}
 C(\tau) = \frac{1}{N}\sum_{n=1}^{N}\mathbf{1}[e_n \le \tau],
 \end{equation}
-where \(\mathbf{1}[\cdot]\) is one when the condition is true and zero otherwise.
+where \(e_n\) is the selected per-image error value for image \(n\), \(\tau\) is
+the error threshold on the horizontal axis, \(N\) is the number of evaluated
+images, and \(\mathbf{1}[\cdot]\) is one when the condition is true and zero
+otherwise.
 In these plots, RMSE means root-mean-square landmark error.
 
 The horizontal axis is the error threshold. The vertical axis is the fraction of
@@ -895,7 +956,7 @@ protocol:
 
 Every run exports a machine-readable summary plus raw samples. Offline analysis
 scripts recompute aggregate statistics and recompute accuracy
-from image predictions instead of trusting prefilled summary fields. This allows for more flexible and transparent analysis, 
+from image predictions. This allows for more flexible and transparent analysis, 
 as well as the possibility to add new metrics without rerunning benchmarks.
 
 \section{Threats to validity}
@@ -1023,7 +1084,7 @@ already small on both phones, while PipNet-R18 is heavy on Redmi even after INT8
 quantization. This section is intentionally about the common XNNPACK CPU path;
 the later iPhone section discusses Core ML separately.
 
-\section{Redmi BS=1 backend and quantization}
+\section{Redmi backend and quantization at BS=1}
 
 \begin{figure}[htbp]
     \centering
@@ -1041,7 +1102,7 @@ the later iPhone section discusses Core ML separately.
 
 \begin{table}[htbp]
 \centering
-\caption{Landmark latency and accuracy on Redmi at BS=1 with XNNPACK. LM inf. means landmark inference and ms means milliseconds. Bold values mark the lower latency and lower error within each model pair.}
+\caption{Landmark latency and accuracy on Redmi at BS=1 with XNNPACK. LM inf. means landmark inference and ms means milliseconds. Bold text values mark the lower latency and lower error within each model pair.}
 \label{tab:focus-bs1-raw}
 \small
 \setlength{\tabcolsep}{4.5pt}
@@ -1088,20 +1149,20 @@ strongest INT8 candidate among the tested models on this device.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
-    \caption[Landmark-latency batch scaling on Redmi for PFLD-MNv2-1.0]{Landmark-inference latency batch scaling on Redmi for PFLD-MNv2-1.0 using XNNPACK variants. Lower latency is better.}
+    \caption[Per-image landmark-latency batch scaling on Redmi for PFLD-MNv2-1.0]{Per-image landmark-inference latency batch scaling on Redmi for PFLD-MNv2-1.0 using XNNPACK variants. Total batch latency is divided by batch size; lower latency is better.}
     \label{fig:focus-batch-pfld10}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
-    \caption[Landmark-latency batch scaling on Redmi for PipNet ResNet18]{Landmark-inference latency batch scaling on Redmi for PipNet ResNet18 using XNNPACK variants. Lower latency is better.}
+    \caption[Per-image landmark-latency batch scaling on Redmi for PipNet ResNet18]{Per-image landmark-inference latency batch scaling on Redmi for PipNet ResNet18 using XNNPACK variants. Total batch latency is divided by batch size; lower latency is better.}
     \label{fig:focus-batch-pipnet}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\caption{Landmark-inference latency batch scaling on Redmi. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}
+\caption{Per-image landmark-inference latency batch scaling on Redmi. LM means landmark inference and BS means batch size. Values are total batch latency divided by BS. Bold marks the lowest latency in each batch-size column.}
 \label{tab:focus-batch-lm-ms}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -1119,9 +1180,11 @@ PipNet-R18    & INT8 & 97.46  & 55.81  & 37.10  & 27.26 \\
 \end{table}
 
 Figures~\ref{fig:focus-batch-pfld10} and~\ref{fig:focus-batch-pipnet} show the
-shape of the landmark-latency batch-scaling curves for Redmi, while
-Table~\ref{tab:focus-batch-lm-ms} provides the exact values. The landmark
-forward pass improves strongly as the resolved landmark batch grows:
+shape of the per-image landmark-latency batch-scaling curves for Redmi, while
+Table~\ref{tab:focus-batch-lm-ms} provides the exact values. Each plotted value
+is computed by dividing the total landmark-forward latency of the batch by the
+batch size. The landmark forward pass improves strongly as the resolved landmark
+batch grows:
 PFLD-MNv2-1.0 INT8 drops from $23.78$~ms to $5.29$~ms ($4.5\times$ across
 $8\times$ batch), and PipNet-R18 INT8 drops from $97.46$~ms to $27.26$~ms
 ($3.6\times$). This is the batch-scaling result that matters for the landmark
@@ -1130,7 +1193,7 @@ the dominant part of the full pipeline.
 
 \begin{table}[htbp]
 \centering
-\caption{Landmark-inference latency batch scaling for PFLD-MNv2-1.0 with INT8 XNNPACK across three devices; lower is better. Bold marks the best value in each batch-size column.}
+\caption{Per-image landmark-inference latency batch scaling for PFLD-MNv2-1.0 with INT8 XNNPACK across three devices. Values are total batch latency divided by BS; lower is better. Bold marks the best value in each batch-size column.}
 \label{tab:cross-device-batch-pfld10}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -1148,7 +1211,7 @@ Redmi     & 23.78 & 11.81 & 7.37 & 5.29 \\
 
 \begin{table}[htbp]
 \centering
-\caption{Landmark-inference latency batch scaling for PipNet-R18 with INT8 XNNPACK across three devices; lower is better. Bold marks the best value in each batch-size column.}
+\caption{Per-image landmark-inference latency batch scaling for PipNet-R18 with INT8 XNNPACK across three devices. Values are total batch latency divided by BS; lower is better. Bold marks the best value in each batch-size column.}
 \label{tab:cross-device-batch-pipnet}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -1289,20 +1352,20 @@ $4.6\times$), PFLD-MNv2-1.0 improves from $4.98$~ms to $1.47$~ms
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png}
-    \caption{Landmark-inference latency batch scaling on iPhone 14 for PFLD-MNv2-1.0.}
+    \caption{Per-image landmark-inference latency batch scaling on iPhone 14 for PFLD-MNv2-1.0. Total batch latency is divided by batch size.}
     \label{fig:iphone-batch-pfld10}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png}
-    \caption{Landmark-inference latency batch scaling on iPhone 14 for PipNet ResNet18.}
+    \caption{Per-image landmark-inference latency batch scaling on iPhone 14 for PipNet ResNet18. Total batch latency is divided by batch size.}
     \label{fig:iphone-batch-pipnet}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\caption{Landmark-inference latency batch scaling on iPhone 14. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}
+\caption{Per-image landmark-inference latency batch scaling on iPhone 14. LM means landmark inference and BS means batch size. Values are total batch latency divided by BS. Bold marks the lowest latency in each batch-size column.}
 \label{tab:iphone-batch-lm}
 \small
 \setlength{\tabcolsep}{5pt}
@@ -1361,8 +1424,7 @@ The thesis delivered:
           and Android,
     \item evaluation of landmark forward-pass latency and full-pipeline metrics,
     \item multi-device comparison with reproducible logging and offline analysis,
-    \item quantization study (INT8 PTQ) with speed/accuracy trade-off analysis,
-    \item optional energy-related telemetry as auxiliary data where available.
+    \item quantization study (INT8 PTQ) with speed/accuracy trade-off analysis.
 \end{itemize}
 
 The results show four main points:
@@ -1370,8 +1432,8 @@ The results show four main points:
     \item backend and quantization selection strongly influence runtime;
     \item INT8 can provide major landmark-latency gains for heavier landmark
           models, but accuracy impact depends on the model;
-    \item increasing batch size improves per-image landmark-inference latency
-    \item PC reference runs are useful for capacity comparison
+    \item increasing batch size improves per-image landmark-inference latency;
+    \item PC reference runs are useful for capacity comparison.
 \end{itemize}
 
 Overall, the implemented methodology and artifact pipeline provide a

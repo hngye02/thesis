@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.20)  15 MAY 2026 00:16
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.20)  15 MAY 2026 01:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1207,19 +1207,13 @@ Overfull \hbox (3.6949pt too wide) in paragraph at lines 15--15
 iPhone 
  []
 
-
-Overfull \hbox (8.04327pt too wide) in paragraph at lines 24--24
- [][] [][]\TU/lmr/m/n/10.95 Landmark-inference latency batch scaling on iPhone 
-14 for PFLD- 
- []
-
 )
 \tf@lof=\write8
 \openout8 = `ctufit-thesis.lof'.
 
- (./ctufit-thesis.lot [10
+ [10
 
-]
+] (./ctufit-thesis.lot
 Overfull \hbox (4.17789pt too wide) in paragraph at lines 15--15
  [][] [][]\TU/lmr/m/n/10.95 Landmark-inference latency at BS=1 for mobile-only 
 XNNPACK 
@@ -1247,38 +1241,50 @@ File: images/pipeline/face_pipeline_annotation.png Graphic file (type bmp)
 Chapter 2.
 [4
 
-] [5] [6] [7] [8]
+] [5] [6] [7]
+Overfull \hbox (5.96489pt too wide) in paragraph at lines 320--330
+\TU/lmr/m/n/10.95 The selected models are convolutional neural networks (CNNs),
+ not transformer-
+ []
+
+[8] [9]
 Chapter 3.
-[9
+[10
 
-] [10] [11]
+]
+Overfull \hbox (0.12857pt too wide) in paragraph at lines 450--456
+\TU/lmr/m/n/10.95 plicit. In normal PyTorch eager execution, Python code decide
+s what operation
+ []
+
+[11] [12]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 513.
- [12] [13] [14] [15] [16]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 552.
+ [13] [14] [15] [16] [17]
 Chapter 4.
-[17
+[18
 
-] [18]
-Overfull \hbox (12.62598pt too wide) in paragraph at lines 820--825
+] [19]
+Overfull \hbox (12.62598pt too wide) in paragraph at lines 855--863
 []\TU/lmr/m/n/10.95 Batch size one (BS=1) charts in the results chapter focus o
 n median landmark-
  []
 
-[19] [20] [21] [22]
+[20] [21] [22] [23]
 Chapter 5.
 File: ../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_d
 evice.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device
 .png>
 
-Overfull \hbox (2.51205pt too wide) in paragraph at lines 951--956
+Overfull \hbox (2.51205pt too wide) in paragraph at lines 1012--1017
 \TU/lmr/m/n/10.95 PC XNNPACK FP32/INT8, iPhone Core ML, iPhone XNNPACK FP32/INT
 8,
  []
 
-[23
+[24
 
-] [24]
+] [25]
 File: images/benchmarks/combined/combined_04_bs1_xnnpack_landmark_latency.png G
 raphic file (type bmp)
 <images/benchmarks/combined/combined_04_bs1_xnnpack_landmark_latency.png>
@@ -1290,7 +1296,7 @@ File: ../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant
 .png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_02_bs1_accuracy_backend_quant.png>
 
- [25] [26]
+ [26] [27]
 File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_lat
 ency__pfld_mobilenetv2_10.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency_
@@ -1299,7 +1305,7 @@ File: ../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_lat
 ency__pipnet_resnet18.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_03_batch_scaling_landmark_latency_
 _pipnet_resnet18.png>
- [27] [28] [29]
+ [28] [29] [30]
 File: ../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_
 delta_bs1.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_05_quant_vs_unquant_accuracy_delta
@@ -1310,12 +1316,12 @@ g Graphic file (type bmp)
 File: ../benchmarks/results/combined/charts/focus_08_cumulative_hist_rmse_bs1.p
 ng Graphic file (type bmp)
 <../benchmarks/results/combined/charts/focus_08_cumulative_hist_rmse_bs1.png>
- [30] [31] [32] [33]
+ [31] [32] [33] [34]
 File: ../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_late
 ncy_focus_device.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_f
 ocus_device.png>
- [34]
+ [35]
 File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_sca
 ling_landmark_latency__pfld_mobilenetv2_10.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_
@@ -1324,9 +1330,9 @@ File: ../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_sca
 ling_landmark_latency__pipnet_resnet18.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_
 landmark_latency__pipnet_resnet18.png>
- [35] [36] [37]
+ [36] [37] [38]
 Chapter 6.
-) [38
+) [39
 
 ]
 \openout2 = `text/appendix.aux'.
@@ -1334,37 +1340,28 @@ Chapter 6.
  (./text/appendix.tex
 Appendix A.
 
-Overfull \hbox (13.85757pt too wide) in paragraph at lines 31--31
-[]  \TU/lmtt/m/n/10.95 --input benchmarks/results/combined/combined_runs_from_j
-son.csv \[] 
+Overfull \hbox (54.09882pt too wide) in paragraph at lines 27--27
+[]  \TU/lmtt/m/n/10.95 --combined-csv benchmarks/results/combined/combined_runs
+_from_json.csv \[] 
  []
 
+[40
 
-Overfull \hbox (1.35672pt too wide) in paragraph at lines 40--40
+
+
+
+]
+Overfull \hbox (1.35672pt too wide) in paragraph at lines 61--61
 |[]\TU/lmr/bx/n/14.4 INT8 XNNPACK landmark model export with
  []
 
-[39
-
-
-
-
-])
-
-Package fancyhdr Warning: \headheight is too small (14.05pt): 
-(fancyhdr)                Make it at least 25.32314pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.32314pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-11.27313pt}.
-
-[40]
+) [41]
 Overfull \hbox (1.5948pt too wide) in paragraph at lines 269--269
 \TU/lmr/m/n/10.95 Jared; NGUYEN, Thai; CHUKKA, Ramesh; SHIRING, Ken; TAN, Koan-
 
  []
 
-[41
+[42
 
 
 
@@ -1381,7 +1378,7 @@ Overfull \hbox (17.70953pt too wide) in paragraph at lines 269--269
 
  []
 
-[42]
+[43]
 Overfull \hbox (1.23341pt too wide) in paragraph at lines 269--269
 \TU/lmr/m/n/10.95 HAN, Song; DALLY, William J.; KEUTZER, Kurt. SqueezeNet: Alex
 Net-
@@ -1423,16 +1420,16 @@ Overfull \hbox (2.67638pt too wide) in paragraph at lines 269--269
 U/lmr/m/n/10.95 [online][]. 2026. [[]visited on[] 2026-
  []
 
-[43]
+[44]
 Overfull \hbox (0.66644pt too wide) in paragraph at lines 269--269
 []\TU/lmr/m/n/10.95 PYTORCH FOUNDATION. \TU/lmr/m/it/10.95 Using ExecuTorch on 
 Android []\TU/lmr/m/n/10.95 [online][]. 2026.
  []
 
-[44] [45]
+[45] [46]
 \openout2 = `text/medium.aux'.
 
- (./text/medium.tex) [46
+ (./text/medium.tex) [47
 
 
 ] (./ctufit-thesis.aux (./text/text.aux)
@@ -1442,18 +1439,18 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `ctufit-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D63EA1C7E37A6CBE0095CBBA729B724F;5404.
+(rerunfilecheck)             Checksum: E4450D96F0151D393AA08653074443FA;5431.
 Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 \openout1 = `ctufit-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27508 strings out of 476070
- 482879 string characters out of 5782808
+ 27514 strings out of 476070
+ 482932 string characters out of 5782808
  1956627 words of memory out of 5000000
- 49058 multiletter control sequences out of 15000+600000
- 566816 words of font info for 92 fonts, out of 8000000 for 9000
+ 49065 multiletter control sequences out of 15000+600000
+ 566808 words of font info for 91 fonts, out of 8000000 for 9000
  428 hyphenation exceptions out of 8191
- 103i,17n,109p,1477b,6543s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,109p,1477b,6545s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ctufit-thesis.xdv (59 pages, 967216 bytes).
+Output written on ctufit-thesis.xdv (60 pages, 1018440 bytes).
