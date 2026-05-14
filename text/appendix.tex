@@ -3,38 +3,59 @@
 \chapter{Reproducibility}
 %---------------------------------------------------------------
 
-This appendix lists the commands used to regenerate the CSV data, charts, and
-tables referenced in the thesis.
+This appendix lists the commands used to regenerate the CSV data, charts, tables,
+and thesis figures referenced in the thesis. Commands are intended to be run from
+the repository root after the Python environment has been prepared and the
+exported mobile and PC benchmark runs are present under
+\texttt{benchmarks/results}.
 
-\section{Combined CSV and chart generation}
+\section{Combined CSV, chart, and table generation}
 
-From the repository root:
+The main reproducibility command regenerates the combined CSV, chart suite, and
+summary tables used by the results chapter:
 
 \begin{verbatim}
-./.venv/bin/python benchmarks/analysis/plot_runs_dashboard.py \
+./benchmarks/analysis/run_full_analysis.sh \
   --mobile-root benchmarks/results/mobile \
   --pc-root benchmarks/results/pc/runs \
+  --combined-csv benchmarks/results/combined/combined_runs_from_json.csv \
+  --charts-dir benchmarks/results/combined/charts \
+  --tables-dir benchmarks/results/combined/tables \
   --focus-device "xiaomi redmi note 8 pro" \
-  --max-resolved-batch 8 \
-  --output-csv \
-    benchmarks/results/combined/combined_runs_from_json.csv \
-  --output-dir benchmarks/results/combined/charts
+  --devices "iphone 14,xiaomi redmi note 8 pro" \
+  --max-resolved-batch 8
 \end{verbatim}
 
-\section{Summary table generation}
+If the AFW landmark annotation directory is available outside the attachment,
+pass it explicitly so mobile landmark accuracy can be recomputed from exported
+predictions:
 
 \begin{verbatim}
-./.venv/bin/python benchmarks/analysis/summarize_benchmarks.py \
-  --input benchmarks/results/combined/combined_runs_from_json.csv \
-  --output-dir benchmarks/results/combined/tables \
-  --focus-device "xiaomi redmi note 8 pro"
+./benchmarks/analysis/run_full_analysis.sh \
+  --afw-dir path/to/afw \
+  --focus-device "xiaomi redmi note 8 pro" \
+  --devices "iphone 14,xiaomi redmi note 8 pro" \
+  --max-resolved-batch 8
 \end{verbatim}
 
 \section{Readable thesis chart regeneration}
 
+The thesis uses enlarged, thesis-readable versions of selected charts. After the
+combined CSV and summary tables have been regenerated, run:
+
 \begin{verbatim}
 ./.venv/bin/python \
   benchmarks/analysis/generate_readable_thesis_charts.py
+\end{verbatim}
+
+\section{Introductory pipeline figure regeneration}
+
+The introductory face-processing figure is generated from the sample AFW image
+and its landmark annotation:
+
+\begin{verbatim}
+./.venv/bin/python \
+  benchmarks/analysis/generate_thesis_pipeline_figure.py
 \end{verbatim}
 
 \section{INT8 XNNPACK landmark model export with post-training quantization}

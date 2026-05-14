@@ -4,7 +4,8 @@
 %---------------------------------------------------------------
 
 The electronic attachment contains the source code of the benchmark applications,
-benchmarking scripts, collected run exports and the thesis sources.
+benchmarking scripts, model export scripts, collected run exports, generated
+result artifacts, sample input data, and the generated thesis PDF.
 
 \dirtree{%
     .1 /.
@@ -12,9 +13,12 @@ benchmarking scripts, collected run exports and the thesis sources.
     .2 ios/\DTcomment{iOS benchmark app source code}.
     .2 benchmarks/\DTcomment{Benchmark harness, analysis scripts, and results}.
     .3 analysis/\DTcomment{JSON aggregation, charting and table export scripts}.
+    .3 pc/\DTcomment{PC benchmark runners}.
     .3 results/\DTcomment{Collected exported runs + generated charts/tables}.
     .2 models/\DTcomment{Detector and landmark model files used by the apps}.
-    .2 thesis/\DTcomment{\LaTeX{} sources of the thesis}.
-    .3 ctufit-thesis.tex\DTcomment{Main thesis entry point}.
-    .3 text/\DTcomment{Chapter sources}.
+    .3 pte/\DTcomment{Exported ExecuTorch model artifacts used by the apps}.
+    .2 sample/\DTcomment{Sample AFW image and landmark annotation for the introductory figure}.
+    .2 thesis/\DTcomment{Generated thesis PDF and figures}.
+    .3 ctufit-thesis.pdf\DTcomment{Generated thesis PDF}.
+    .3 images/\DTcomment{Figures used by the thesis}.
 }
