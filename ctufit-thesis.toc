@@ -57,18 +57,18 @@
 \contentsline {section}{\numberline {5.1}Result scope and source artifacts}{23}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Batch size 1 landmark forward-pass overview}{23}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Three-device BS=1 comparison}{24}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Mobile-only BS=1 comparison}{25}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Redmi BS=1 backend and quantization}{27}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Redmi batch scaling}{28}{section.5.6}%
+\contentsline {section}{\numberline {5.6}Redmi batch scaling}{27}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Quantization deltas and cumulative error behavior}{30}{section.5.7}%
 \contentsline {section}{\numberline {5.8}iPhone 14 result interpretation}{34}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Reproducibility}{38}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Combined CSV and chart generation}{38}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Summary table generation}{38}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Readable thesis chart regeneration}{38}{section.A.3}%
-\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{39}{section.A.4}%
-\contentsline {chapter}{Bibliography}{40}{appendix*.33}%
+\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Reproducibility}{39}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Combined CSV and chart generation}{39}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Summary table generation}{39}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Readable thesis chart regeneration}{39}{section.A.3}%
+\contentsline {section}{\numberline {A.4}INT8 XNNPACK landmark model export with post-training quantization}{40}{section.A.4}%
+\contentsline {chapter}{Bibliography}{41}{appendix*.33}%
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
@@ -287,4 +287,4 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Contents of the attachment}{45}{appendix*.34}%
+\contentsline {chapter}{Contents of the attachment}{46}{appendix*.34}%

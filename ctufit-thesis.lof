@@ -11,18 +11,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces BS=1 median landmark-inference latency: PC vs Redmi. This measures only the landmark model forward pass in milliseconds, so lower bars are better.}}{24}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces BS=1 XNNPACK landmark-inference latency on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better.}}{25}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Redmi: BS=1 landmark-inference latency by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better.}}{26}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Redmi: BS=1 NME accuracy by backend and quantization (lower is better).}}{27}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Redmi landmark-latency batch scaling for PFLD-MNv2-1.0}}{28}{figure.caption.18}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Redmi landmark-latency batch scaling for PipNet ResNet18}}{29}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Redmi: INT8 vs FP32 NME difference at BS=1.}}{31}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Redmi cumulative NME histogram for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Redmi cumulative RMSE histogram for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces iPhone 14: BS=1 median landmark-inference latency.}}{34}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PFLD-MNv2-1.0.}}{35}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces iPhone 14 landmark-inference latency batch scaling for PipNet ResNet18.}}{36}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Landmark-inference latency at BS=1: PC vs Redmi median forward-pass time in milliseconds. Lower bars are better.}}{24}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Landmark-inference latency at BS=1 with XNNPACK on iPhone 14 and Redmi. The chart uses only mobile devices and only the landmark forward pass; lower latency is better.}}{25}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Landmark-inference latency on Redmi at BS=1 by backend and quantization. This chart focuses on the landmark model forward pass; lower latency is better.}}{26}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces NME accuracy on Redmi at BS=1 by backend and quantization. Lower is better.}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Landmark-latency batch scaling on Redmi for PFLD-MNv2-1.0}}{28}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Landmark-latency batch scaling on Redmi for PipNet ResNet18}}{29}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces NME difference between INT8 and FP32 on Redmi at BS=1.}}{31}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Cumulative NME histogram on Redmi for BS=1 XNNPACK FP32 and INT8 runs. Curves that rise earlier and stay higher indicate that more images have small normalized landmark error.}}{32}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Cumulative RMSE histogram on Redmi for BS=1 XNNPACK FP32 and INT8 runs. This uses the same cumulative logic as the NME chart, but reports root-mean-square landmark error.}}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Landmark-inference latency on iPhone 14 at BS=1, reported as median forward-pass time.}}{34}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Landmark-inference latency batch scaling on iPhone 14 for PFLD-MNv2-1.0.}}{35}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Landmark-inference latency batch scaling on iPhone 14 for PipNet ResNet18.}}{36}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 

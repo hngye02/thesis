@@ -11,16 +11,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces BS=1 landmark-inference latency across all available device/backend variants. This table isolates only the landmark model forward pass, so it explains whether the model itself is the bottleneck; lower is better. Bold marks the best value in each row.}}{25}{table.caption.12}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces BS=1 mobile-only XNNPACK landmark-inference latency; lower latency is better. Bold marks the lowest latency in each row.}}{26}{table.caption.14}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Redmi BS=1 XNNPACK landmark latency and accuracy. LM inf. means landmark inference and ms means milliseconds. Bold values mark the lower latency and lower error within each model pair.}}{26}{table.caption.17}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Redmi batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{28}{table.caption.20}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PFLD-MNv2-1.0 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.21}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Three-device INT8 XNNPACK batch scaling for PipNet-R18 in landmark-inference latency; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.22}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces BS=1 PC INT8 and Redmi INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{31}{table.caption.26}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces iPhone 14 BS=1 landmark-inference latency by backend. XNN means XNNPACK. Bold marks the lowest latency in each row.}}{34}{table.caption.28}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces iPhone 14 batch scaling in landmark-inference latency. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{36}{table.caption.31}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces BS=1 PC INT8 and iPhone 14 INT8 landmark-inference latency. Bold marks the lower latency in each row.}}{36}{table.caption.32}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Landmark-inference latency at BS=1 across all available device/backend variants. Values are milliseconds and isolate only the landmark model forward pass; lower is better. Bold marks the lowest latency for each model.}}{24}{table.caption.12}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Landmark-inference latency at BS=1 for mobile-only XNNPACK runs; lower latency is better. Bold marks the lowest latency in each row.}}{25}{table.caption.14}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Landmark latency and accuracy on Redmi at BS=1 with XNNPACK. LM inf. means landmark inference and ms means milliseconds. Bold values mark the lower latency and lower error within each model pair.}}{27}{table.caption.17}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Landmark-inference latency batch scaling on Redmi. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{28}{table.caption.20}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Landmark-inference latency batch scaling for PFLD-MNv2-1.0 with INT8 XNNPACK across three devices; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.21}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Landmark-inference latency batch scaling for PipNet-R18 with INT8 XNNPACK across three devices; lower is better. Bold marks the best value in each batch-size column.}}{30}{table.caption.22}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Landmark-inference latency at BS=1 for PC INT8 and Redmi INT8. Bold marks the lower latency in each row.}}{31}{table.caption.26}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Landmark-inference latency on iPhone 14 at BS=1 by backend. XNN means XNNPACK. Bold marks the lowest latency in each row.}}{35}{table.caption.28}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Landmark-inference latency batch scaling on iPhone 14. LM means landmark inference and BS means batch size. Bold marks the lowest latency in each batch-size column.}}{36}{table.caption.31}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Landmark-inference latency at BS=1 for PC INT8 and iPhone 14 INT8. Bold marks the lower latency in each row.}}{37}{table.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
