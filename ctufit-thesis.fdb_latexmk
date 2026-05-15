@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber ctufit-thesis"] 1778801303.61317 "ctufit-thesis.bcf" "ctufit-thesis.bbl" "ctufit-thesis" 1778802230.65665 0
-  "ctufit-thesis.bcf" 1778802223.70381 117636 b8d2e4a0fd01f7cbc9240b2d13e1397d "xelatex"
-  "text/bib-database.bib" 1777423882.60876 13668 90c61780416fb48a5777210d1b9368d0 ""
+["biber ctufit-thesis"] 1778806384.79836 "ctufit-thesis.bcf" "ctufit-thesis.bbl" "ctufit-thesis" 1778806411.02179 0
+  "ctufit-thesis.bcf" 1778806405.42897 117989 5011a67e6cee3fc1db3ae66e8995f38e "xelatex"
+  "text/bib-database.bib" 1778806380.86861 14281 4e40fb30e653fefda73aef75b270b394 ""
   (generated)
   "ctufit-thesis.bbl"
   "ctufit-thesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1778802226.22147 "ctufit-thesis.xdv" "ctufit-thesis.pdf" "ctufit-thesis" 1778802230.78987 0
-  "ctufit-thesis.xdv" 1778802223.76633 1018440 eb4316685d8aee7748c5f0992fec326e "xelatex"
+["xdvipdfmx"] 1778806406.75483 "ctufit-thesis.xdv" "ctufit-thesis.pdf" "ctufit-thesis" 1778806411.09317 0
+  "ctufit-thesis.xdv" 1778806405.44994 1027772 208aded0f76a8422771bbd5de354627c "xelatex"
   (generated)
   "ctufit-thesis.pdf"
   (rewritten before read)
-["xelatex"] 1778802212.69134 "ctufit-thesis.tex" "ctufit-thesis.xdv" "ctufit-thesis" 1778802230.67322 0
+["xelatex"] 1778806395.44981 "ctufit-thesis.tex" "ctufit-thesis.xdv" "ctufit-thesis" 1778806411.03833 0
   "../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pfld_mobilenetv2_10.png" 1778500771.84181 185387 572cdbbe28b7325f709a84c1116722fe ""
   "../benchmarks/results/combined/charts/device_iphone_14/focus_03_batch_scaling_landmark_latency__pipnet_resnet18.png" 1778500772.75969 177419 e0a2adffeccd448d4323605a97d6021b ""
   "../benchmarks/results/combined/charts/device_iphone_14/simple_03_bs1_latency_focus_device.png" 1778500767.33056 181631 91774ed8dc45e4920d6e73f9a9b9ddab ""
@@ -184,26 +184,26 @@
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1776701165 10614413 45d7a387f68aad8e25b43da4c54d1f84 ""
   "Thesis_Assignment_Hung_Manh_Nguyen_Testing_Neural_Networks_on_Mobile_Devices.pdf" 1776699129.50061 658914 318b3b475e262bb46977088533b73477 ""
   "creationdate.lua" 1776700682.73803 149 8311341cdba4ea3af51d1c09381a0513 ""
-  "creationdate.timestamp" 1778802214.14498 55 d41d8cd98f00b204e9800998ecf8427e ""
-  "ctufit-thesis.aux" 1778802222.84366 20003 6d96bfe78189f1f63f249b34f56ff8eb "xelatex"
-  "ctufit-thesis.bbl" 1778801304.38228 63033 0e17909d41e7151c9d992860eb162724 "biber ctufit-thesis"
+  "creationdate.timestamp" 1778806396.98637 55 d41d8cd98f00b204e9800998ecf8427e ""
+  "ctufit-thesis.aux" 1778806404.662 20648 733e9f7ea5d7e61a6123e9cc61ec4982 "xelatex"
+  "ctufit-thesis.bbl" 1778806385.06365 65188 d1bd89bf50340149dbb6581386c684f0 "biber ctufit-thesis"
   "ctufit-thesis.cls" 1776699129.54972 24061 f30bb87f983267227f5d6d647c2dda0a ""
-  "ctufit-thesis.lof" 1778802223.74501 9654 823f2fc4f3833f824c8c0a806d5afefc "xelatex"
-  "ctufit-thesis.lot" 1778802223.75259 9565 d07c91048167d0eeb71047bc2c9ac6d3 "xelatex"
-  "ctufit-thesis.out" 1778802223.65188 5431 e4450d96f0151d393aa08653074443fa "xelatex"
-  "ctufit-thesis.run.xml" 1778802223.74501 2612 2eac28245f505cccd1a16abe2db009e4 "xelatex"
+  "ctufit-thesis.lof" 1778806405.44994 10039 7a031e15a42c94d08b86e6ce38ba058d "xelatex"
+  "ctufit-thesis.lot" 1778806405.44994 9865 41d8c5ca2499f01a9f5690e593bdfe1a "xelatex"
+  "ctufit-thesis.out" 1778806405.41946 5431 e4450d96f0151d393aa08653074443fa "xelatex"
+  "ctufit-thesis.run.xml" 1778806405.44239 2612 2eac28245f505cccd1a16abe2db009e4 "xelatex"
   "ctufit-thesis.tex" 1778798559.06945 11921 37aa10a7334727e7c7b559dfd358df4f ""
-  "ctufit-thesis.toc" 1778802223.74501 12635 cb53f94522cb33b223b75086aca718f4 "xelatex"
-  "ctufit-thesis.xmpdata" 1778802216.1045 185 9907b032363afea7e6f86fb47162d4a7 "xelatex"
+  "ctufit-thesis.toc" 1778806405.4449 12935 ea37d19ab21174528ddc60102128e5c0 "xelatex"
+  "ctufit-thesis.xmpdata" 1778806398.71358 185 9907b032363afea7e6f86fb47162d4a7 "xelatex"
   "images/benchmarks/combined/combined_04_bs1_xnnpack_landmark_latency.png" 1778500775.00985 202146 7839987aa5ba26cb872cb319b7ac56aa ""
   "images/logoCVUT.pdf" 1776699129.79215 11278 f46840ae5e92d05354f0361c24ecf2fe ""
   "images/pipeline/face_pipeline_annotation.png" 1778494609.55347 161218 7e89f5e1a03830ced0892fdbddf02be3 ""
-  "text/appendix.aux" 1778802222.33119 4817 bb1c688c3726ca58b34d9582ef82922a "xelatex"
+  "text/appendix.aux" 1778806404.19107 4817 33afa543a47b54fbf4c8ff2f993c5170 "xelatex"
   "text/appendix.tex" 1778801773.28133 2609 64a5a4d3d420bdec6ea885423a9f2008 ""
-  "text/medium.aux" 1778802222.83831 4223 b79b4a688f0256c1202915727484c4fd "xelatex"
+  "text/medium.aux" 1778806404.65545 4223 afe2c1451dbbd6d41d5156daf142907d "xelatex"
   "text/medium.tex" 1778802206.55533 1275 1c02e5ba93e814893c463c73956a7015 ""
-  "text/text.aux" 1778802222.24847 23556 2894e3f3b7a57d59de5a03455d339d9f "xelatex"
-  "text/text.tex" 1778801445.31534 74794 02ad30cf7174d1582af622afc2a64370 ""
+  "text/text.aux" 1778806404.11009 23703 8c12791c9a43f138d2b07b6380c6125e "xelatex"
+  "text/text.tex" 1778806256.83433 75055 1ce1117e57202a0afeb39f46a41ddce3 ""
   (generated)
   "ctufit-thesis.aux"
   "ctufit-thesis.bcf"

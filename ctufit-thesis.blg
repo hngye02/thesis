@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[1] Config.pm:310> INFO - Logfile is 'ctufit-thesis.blg'
-[66] biber:340> INFO - === Fri May 15, 2026, 01:28:24
-[97] Biber.pm:419> INFO - Reading 'ctufit-thesis.bcf'
-[149] Biber.pm:979> INFO - Found 42 citekeys in bib section 0
-[167] Biber.pm:4419> INFO - Processing section 0
-[177] Biber.pm:4610> INFO - Looking for bibtex file 'text/bib-database.bib' for section 0
-[199] bibtex.pm:1713> INFO - LaTeX decoding ...
-[221] bibtex.pm:1519> INFO - Found BibTeX data source 'text/bib-database.bib'
-[414] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[416] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[416] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[417] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[439] bbl.pm:660> INFO - Writing 'ctufit-thesis.bbl' with encoding 'UTF-8'
-[480] bbl.pm:763> INFO - Output to ctufit-thesis.bbl
+[0] Config.pm:310> INFO - Logfile is 'ctufit-thesis.blg'
+[56] biber:340> INFO - === Fri May 15, 2026, 02:53:05
+[78] Biber.pm:419> INFO - Reading 'ctufit-thesis.bcf'
+[126] Biber.pm:979> INFO - Found 43 citekeys in bib section 0
+[135] Biber.pm:4419> INFO - Processing section 0
+[142] Biber.pm:4610> INFO - Looking for bibtex file 'text/bib-database.bib' for section 0
+[152] bibtex.pm:1713> INFO - LaTeX decoding ...
+[167] bibtex.pm:1519> INFO - Found BibTeX data source 'text/bib-database.bib'
+[355] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[355] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[356] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[356] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[372] bbl.pm:660> INFO - Writing 'ctufit-thesis.bbl' with encoding 'UTF-8'
+[414] bbl.pm:763> INFO - Output to ctufit-thesis.bbl

@@ -53,7 +53,7 @@ hardware configuration, runtime backend, and numerical precision
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{images/pipeline/face_pipeline_annotation.png}
-    \caption{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite{zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region computed as the tight bounding box around the AFW landmark points, and the third panel overlays the annotated landmark points.}
+    \caption{Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \cite{zhu2012facedetectionwild} with 300-W/iBUG landmark annotations \cite{sagonas2013_300w}: the first panel shows the input crop, the second panel draws the face region computed as the tight bounding box around the AFW landmark points, and the third panel overlays the annotated landmark points.}
     \label{fig:face-pipeline-annotation}
 \end{figure}
 
@@ -63,7 +63,7 @@ the image as it enters the application. The second panel shows the face region:
 for this explanatory figure, the rectangle is not a detector output, but the
 tight bounding box obtained from the minimum and maximum coordinates of the AFW
 ground-truth landmark points for the sample image
-\cite{zhu2012facedetectionwild}. A deployed system would obtain this region from
+\cite{sagonas2013_300w}. A deployed system would obtain this region from
 a detector before cropping and normalizing the face. The third panel shows the
 annotated landmark points. These
 semantically meaningful points, such as eyes, nose, mouth, and face contour
@@ -106,7 +106,7 @@ The assignment tasks are covered as follows:
           mobile hardware/runtime constraints and ExecuTorch backend options.
     \item \textbf{Model selection + test inputs:} Chapter~2 (model section)
           explains selected detector/landmark architectures; Chapter~4 defines
-          the reproducible AFW (Annotated Faces in the Wild)-based input protocol \cite{zhu2012facedetectionwild} used for quantitative
+          the reproducible AFW (Annotated Faces in the Wild)-based input protocol \cite{zhu2012facedetectionwild,sagonas2013_300w} used for quantitative
           comparison.
     \item \textbf{Android/iOS testing scenario:} Chapter~4 documents feature
           parity and unified measurement schema for both mobile apps.
@@ -369,9 +369,11 @@ PipNet-ResNet18 & Landmark & High & Stronger landmark localization capacity, but
 
 \subsection{Datasets and ground truth}
 
-In this thesis, AFW annotations are used as the ground-truth reference for
-landmark evaluation. The annotations originate from the face detection and pose
-estimation work of Zhu and Ramanan \cite{zhu2012facedetectionwild}.
+In this thesis, AFW images are used with 68-point landmark annotations as the
+ground-truth reference for landmark evaluation. The images come from the AFW
+dataset introduced by Zhu and Ramanan, while the landmark markup follows the
+300-W/iBUG facial landmark challenge annotations
+\cite{zhu2012facedetectionwild,sagonas2013_300w}.
 
 %---------------------------------------------------------------
 \chapter{ExecuTorch for mobile deployment}
@@ -802,8 +804,9 @@ Equivalent behavior includes:
 
 \section{Dataset and inputs}
 
-Annotated Faces in the Wild (AFW)-based landmark annotations are used for
-accuracy evaluation \cite{zhu2012facedetectionwild}.
+Annotated Faces in the Wild (AFW)-based images with 300-W/iBUG landmark
+annotations are used for accuracy evaluation
+\cite{zhu2012facedetectionwild,sagonas2013_300w}.
 
 \section{Metrics}
 
@@ -864,7 +867,8 @@ batching.
 \subsection{Landmark accuracy}
 
 Accuracy is recomputed offline from exported per-image predicted landmarks and
-ground-truth annotations from the AFW dataset \cite{zhu2012facedetectionwild}. For $N$ evaluated images and $K$ landmarks,
+ground-truth annotations for AFW images with 300-W/iBUG landmark markup
+\cite{zhu2012facedetectionwild,sagonas2013_300w}. For $N$ evaluated images and $K$ landmarks,
 inter-ocular normalized mean error (NME) is
 \begin{equation}
 \mathrm{NME}_{\text{iod}} = \frac{1}{N}\sum_{n=1}^{N}\frac{1}{K}\sum_{k=1}^{K}

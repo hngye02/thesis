@@ -63,8 +63,8 @@
 }
 
 @article{iandola2016squeezenet,
-  author       = {Iandola, Forrest N. and Moskewicz, Matthew W. and Ashraf, Khalid and Han, Song and Dally, William J. and Keutzer, Kurt},
-  title        = {SqueezeNet: AlexNet-Level Accuracy with 50x Fewer Parameters and <1MB Model Size},
+  author       = {Iandola, Forrest N. and Han, Song and Moskewicz, Matthew W. and Ashraf, Khalid and Dally, William J. and Keutzer, Kurt},
+  title        = {SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size},
   journal      = {arXiv preprint arXiv:1602.07360},
   year         = {2016},
   doi          = {10.48550/arXiv.1602.07360}
@@ -104,12 +104,22 @@
   doi          = {10.1109/CVPR.2012.6248014},
 }
 
-@article{deng2020retinaface,
+@inproceedings{sagonas2013_300w,
+  author       = {Sagonas, Christos and Tzimiropoulos, Georgios and Zafeiriou, Stefanos and Pantic, Maja},
+  title        = {300 Faces in-the-Wild Challenge: The First Facial Landmark Localization Challenge},
+  booktitle    = {Proceedings of the IEEE International Conference on Computer Vision (ICCV) Workshops},
+  pages        = {397--403},
+  year         = {2013},
+  url          = {https://openaccess.thecvf.com/content_iccv_workshops_2013/W11/html/Sagonas_300_Faces_in-the-Wild_2013_ICCV_paper.html},
+}
+
+@inproceedings{deng2020retinaface,
   author       = {Deng, Jiankang and Guo, Jia and Ververas, Evangelos and Kotsia, Irene and Zafeiriou, Stefanos},
-  title        = {RetinaFace: Single-Stage Dense Face Localisation in the Wild},
-  journal      = {arXiv preprint arXiv:1905.00641},
+  title        = {RetinaFace: Single-Shot Multi-Level Face Localisation in the Wild},
+  booktitle    = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages        = {5203--5212},
   year         = {2020},
-  doi          = {10.48550/arXiv.1905.00641}
+  doi          = {10.1109/CVPR42600.2020.00525},
 }
 
 @online{retinaface_repo,
@@ -207,13 +217,13 @@
   author       = {{PyTorch Foundation}},
   title        = {torch.export User Guide},
   year         = {2026},
-  url          = {https://docs.pytorch.org/docs/stable/user_guide/torch_compiler/export.html},
-  urldate      = {2026-04-14}
+  url          = {https://docs.pytorch.org/docs/2.12/user_guide/torch_compiler/export.html},
+  urldate      = {2026-05-15}
 }
 
 @online{xnnpack_repo,
   author       = {{Google}},
-  title        = {XNNPACK: High-efficiency Neural Network Operators},
+  title        = {XNNPACK},
   year         = {2026},
   url          = {https://github.com/google/XNNPACK},
   urldate      = {2026-04-14}
@@ -229,18 +239,18 @@
 
 @online{torchao_pt2e,
   author       = {{PyTorch AO Contributors}},
-  title        = {PT2E Quantization Tutorials and Documentation},
+  title        = {PyTorch 2 Export Post Training Quantization},
   year         = {2026},
-  url          = {https://docs.pytorch.org/ao/main/tutorials_source/pt2e_quant_ptq.html},
-  urldate      = {2026-04-14}
+  url          = {https://pytorch.org/ao/main/pt2e_quantization/pt2e_quant_ptq.html},
+  urldate      = {2026-05-15}
 }
 
 @online{tensorflow_lite,
-  author       = {{TensorFlow}},
-  title        = {TensorFlow Lite},
+  author       = {{Google}},
+  title        = {LiteRT (formerly TensorFlow Lite)},
   year         = {2026},
-  url          = {https://www.tensorflow.org/lite},
-  urldate      = {2026-04-29}
+  url          = {https://ai.google.dev/edge/litert},
+  urldate      = {2026-05-15}
 }
 
 @online{onnxruntime_mobile,

@@ -1,7 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.20)  15 MAY 2026 01:43
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.4.20)  15 MAY 2026 02:53
 entering extended mode
  \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **ctufit-thesis.tex
 (./ctufit-thesis.tex
@@ -1252,20 +1251,20 @@ Chapter 3.
 [10
 
 ]
-Overfull \hbox (0.12857pt too wide) in paragraph at lines 450--456
+Overfull \hbox (0.12857pt too wide) in paragraph at lines 452--458
 \TU/lmr/m/n/10.95 plicit. In normal PyTorch eager execution, Python code decide
 s what operation
  []
 
 [11] [12]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 552.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 554.
  [13] [14] [15] [16] [17]
 Chapter 4.
 [18
 
 ] [19]
-Overfull \hbox (12.62598pt too wide) in paragraph at lines 855--863
+Overfull \hbox (12.62598pt too wide) in paragraph at lines 858--866
 []\TU/lmr/m/n/10.95 Batch size one (BS=1) charts in the results chapter focus o
 n median landmark-
  []
@@ -1277,7 +1276,7 @@ evice.png Graphic file (type bmp)
 <../benchmarks/results/combined/charts/simple_03_bs1_latency_pc_vs_focus_device
 .png>
 
-Overfull \hbox (2.51205pt too wide) in paragraph at lines 1012--1017
+Overfull \hbox (2.51205pt too wide) in paragraph at lines 1016--1021
 \TU/lmr/m/n/10.95 PC XNNPACK FP32/INT8, iPhone Core ML, iPhone XNNPACK FP32/INT
 8,
  []
@@ -1379,9 +1378,9 @@ Overfull \hbox (17.70953pt too wide) in paragraph at lines 269--269
  []
 
 [43]
-Overfull \hbox (1.23341pt too wide) in paragraph at lines 269--269
-\TU/lmr/m/n/10.95 HAN, Song; DALLY, William J.; KEUTZER, Kurt. SqueezeNet: Alex
-Net-
+Overfull \hbox (13.05095pt too wide) in paragraph at lines 269--269
+[]\TU/lmr/m/n/10.95 IANDOLA, Forrest N.; HAN, Song; MOSKEWICZ, Matthew W.; ASHR
+AF,
  []
 
 
@@ -1414,19 +1413,19 @@ Overfull \hbox (19.26201pt too wide) in paragraph at lines 269--269
 95 arXiv preprint arXiv:1806.08342\TU/lmr/m/n/10.95 .
  []
 
-
+[44]
 Overfull \hbox (2.67638pt too wide) in paragraph at lines 269--269
 []\TU/lmr/m/n/10.95 GITHUB-LUFFY. \TU/lmr/m/it/10.95 PFLD 68points Pytorch []\T
 U/lmr/m/n/10.95 [online][]. 2026. [[]visited on[] 2026-
  []
 
-[44]
+[45]
 Overfull \hbox (0.66644pt too wide) in paragraph at lines 269--269
 []\TU/lmr/m/n/10.95 PYTORCH FOUNDATION. \TU/lmr/m/it/10.95 Using ExecuTorch on 
 Android []\TU/lmr/m/n/10.95 [online][]. 2026.
  []
 
-[45] [46]
+[46]
 \openout2 = `text/medium.aux'.
 
  (./text/medium.tex) [47
@@ -1445,12 +1444,12 @@ Package logreq Info: Writing requests to 'ctufit-thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27514 strings out of 476070
- 482932 string characters out of 5782808
- 1956627 words of memory out of 5000000
- 49065 multiletter control sequences out of 15000+600000
+ 27517 strings out of 476070
+ 483078 string characters out of 5782808
+ 1952627 words of memory out of 5000000
+ 49068 multiletter control sequences out of 15000+600000
  566808 words of font info for 91 fonts, out of 8000000 for 9000
  428 hyphenation exceptions out of 8191
- 103i,17n,109p,1477b,6545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,109p,1477b,6543s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ctufit-thesis.xdv (60 pages, 1018440 bytes).
+Output written on ctufit-thesis.xdv (60 pages, 1027772 bytes).

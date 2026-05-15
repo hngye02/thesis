@@ -6,7 +6,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \blx@tocontentsinit {0}\cite {zhu2012facedetectionwild}: the first panel shows the input crop, the second panel draws the face region computed as the tight bounding box around the AFW landmark points, and the third panel overlays the annotated landmark points.}}{2}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Face-processing pipeline on a real Annotated Faces in the Wild (AFW) sample image \blx@tocontentsinit {0}\cite {zhu2012facedetectionwild} with 300-W/iBUG landmark annotations \blx@tocontentsinit {0}\cite {sagonas2013_300w}: the first panel shows the input crop, the second panel draws the face region computed as the tight bounding box around the AFW landmark points, and the third panel overlays the annotated landmark points.}}{2}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -25,6 +25,16 @@
 \contentsline {figure}{\numberline {5.12}{\ignorespaces Per-image landmark-inference latency batch scaling on iPhone 14 for PipNet ResNet18. Total batch latency is divided by batch size.}}{37}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
